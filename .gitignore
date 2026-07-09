@@ -1,0 +1,35 @@
+# MATLAB autosave and backup files
+*.asv
+*.m~
+*.autosave
+
+# MATLAB temporary files
+*.tmp
+*.temp
+
+# MATLAB / Simulink generated folders
+slprj/
+codegen/
+
+# MEX compiled files
+*.mex*
+
+# Large MATLAB data/results files: track manually only if needed
+*.mat
+
+# Figures can become large; track manually if they are final paper figures
+*.fig
+
+# Common generated outputs
+*.log
+*.out
+*.cache
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
