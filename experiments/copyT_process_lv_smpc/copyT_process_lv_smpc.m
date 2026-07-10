@@ -1,0 +1,241 @@
+%% copyT_process_lv_smpc — process/batch-style latent-variable PredVARX-SMPC validation
+% Synthetic industrial-process validation for high-dimensional process data.
+% Baseline main/ is untouched. This copy tests the proposed application direction:
+% latent-variable PredVARX identification + control-aware tracked-quality axes + SMPC.
+clear; clc; close all; addpath(fileparts(mfilename('fullpath')));
+rng(20260710,'twister');
+
+%% Process-like plant and controller parameters
+n = 6;              % true latent process states
+m = 3;              % manipulated variables
+p = 30;             % high-dimensional sensors/quality measurements
+ell = 5;            % reduced latent coordinates for controller
+tracked = [1 2];    % controlled quality variables
+T_off = 1500;
+T_cl = 1200;
+N = 18;
+
+sw = 0.045;         % process disturbance scale
+se = 0.055;         % sensor noise scale
+u_min = -3.0;
+u_max =  3.0;
+y_max = 2.60;
+alpha_joint = 0.10;
+
+% Stable, slow process dynamics with cross-coupling, typical of process plants.
+A = diag([0.94 0.88 0.78 0.64 0.50 0.35]);
+A(1,2) = 0.10; A(2,3) = -0.06; A(3,4) = 0.05; A(4,5) = 0.04;
+B = [0.34 -0.10  0.05;
+     0.12  0.28 -0.06;
+     0.05  0.12  0.24;
+    -0.05  0.06  0.18;
+     0.02 -0.10  0.14;
+     0.08  0.02 -0.08];
+
+% Observation matrix: first two outputs are quality variables with direct coverage.
+C = zeros(p,n);
+C(1,1) = 1.00; C(1,3) = 0.16;    % quality y1
+C(2,2) = 1.00; C(2,4) = -0.12;   % quality y2
+for i = 3:p
+    C(i,:) = 0.45*randn(1,n);
+end
+% Normalize non-quality sensor rows to avoid ill-scaled measurements.
+for i = 3:p
+    C(i,:) = C(i,:) / max(norm(C(i,:)), 1e-12);
+end
+
+%% Offline excitation data
+u_off = 1.20*randn(m,T_off);
+x_off = zeros(n,T_off+1);
+y_off = zeros(p,T_off);
+for k = 1:T_off
+    y_off(:,k) = C*x_off(:,k) + se*randn(p,1);
+    x_off(:,k+1) = A*x_off(:,k) + B*u_off(:,k) + sw*randn(n,1);
+end
+
+%% Identify reduced control-aware PredVARX model
+[Ahat,Bhat,Phat,Rhat,Sigma_eps,stats] = control_aware_subspace_varx(y_off,u_off,ell,tracked);
+stats.true_A_eigs = eig(A);
+stats.id_A_eigs = eig(Ahat);
+stats.ell = ell;
+stats.tracked = tracked;
+
+model.A = Ahat;
+model.B = Bhat;
+model.P = Phat;
+model.R = Rhat;
+model.y_mean = stats.y_mean;
+model.u_mean = stats.u_mean;
+model.Sigma_eps = (Sigma_eps + Sigma_eps')/2;
+model.Sigma_obs = se^2 * eye(p);
+
+opt.N = N;
+opt.Q = zeros(p);
+opt.Q(1,1) = 80;
+opt.Q(2,2) = 80;
+opt.Ru = 0.18 * eye(m);
+opt.u_min = u_min;
+opt.u_max = u_max;
+opt.H = zeros(numel(tracked),p);
+opt.H(:,tracked) = eye(numel(tracked));
+opt.h = y_max * ones(numel(tracked),1);
+opt.alpha_joint = alpha_joint;
+
+%% Closed-loop reference: quality grade transitions / batch phases
+Rf = zeros(p,T_cl);
+levels = [0.25 1.50 0.65 1.85 0.45; 0.35 1.25 1.75 0.80 1.55];
+seg_len = floor(T_cl/5);
+for s = 1:5
+    ix = (s-1)*seg_len+1:min(s*seg_len,T_cl);
+    Rf(1,ix) = levels(1,s);
+    Rf(2,ix) = levels(2,s);
+end
+if seg_len*5 < T_cl
+    Rf(1,seg_len*5+1:end) = levels(1,end);
+    Rf(2,seg_len*5+1:end) = levels(2,end);
+end
+
+%% Closed-loop SMPC simulation
+x = zeros(n,1);
+y = zeros(p,T_cl);
+yhat = zeros(p,T_cl);
+u = zeros(m,T_cl);
+exitflag = zeros(1,T_cl);
+max_cc_violation = nan(1,T_cl);
+infeasible_count = 0;
+
+for k = 1:T_cl
+    yk = C*x + se*randn(p,1);
+    y(:,k) = yk;
+    rk = Rf(:,min(k+1,T_cl));
+    try
+        [~, ypred, U, info] = centered_smpc_step(yk, rk, model, opt);
+        uk = U(1:m);
+        yhat(:,k) = ypred;
+        exitflag(k) = info.exitflag;
+        max_cc_violation(k) = max(info.A_ch*U - info.b_ch);
+    catch ME
+        infeasible_count = infeasible_count + 1;
+        exitflag(k) = -1;
+        % Safe fallback: hold nearest mean input inside bounds.
+        uk = min(max(model.u_mean, u_min), u_max);
+        if k > 1
+            yhat(:,k) = yhat(:,k-1);
+        else
+            yhat(:,k) = model.y_mean;
+        end
+        if infeasible_count <= 3
+            fprintf('QP fallback at k=%d: %s\n', k, ME.message);
+        end
+    end
+    u(:,k) = uk;
+    x = A*x + B*uk + sw*randn(n,1);
+end
+
+%% Metrics
+warm = 151:T_cl;
+err = y(tracked,warm) - Rf(tracked,warm);
+MAE = mean(abs(err),2);
+RMSE = sqrt(mean(err.^2,2));
+Bias = mean(err,2);
+upper_violation_count = sum(y(tracked,:) > y_max, 2);
+upper_violation_rate = upper_violation_count / T_cl;
+abs_violation_count = sum(abs(y(tracked,:)) > y_max, 2);
+abs_violation_rate = abs_violation_count / T_cl;
+u_rms = sqrt(mean(u.^2,2));
+u_sat_rate = mean(abs(u - u_min) < 1e-8 | abs(u - u_max) < 1e-8, 2);
+qp_success_rate = mean(exitflag > 0);
+max_recorded_qp_constraint = max(max_cc_violation(~isnan(max_cc_violation)));
+if isempty(max_recorded_qp_constraint), max_recorded_qp_constraint = NaN; end
+
+fprintf('\ncopyT process LV-SMPC results\n');
+fprintf('tracked projection error = %.3e\n', stats.tracked_projection_error);
+fprintf('reconstruction residual  = %.3f\n', stats.reconstruction_residual);
+fprintf('MAE  = [%.4f %.4f]\n', MAE(1), MAE(2));
+fprintf('RMSE = [%.4f %.4f]\n', RMSE(1), RMSE(2));
+fprintf('Bias = [%.4f %.4f]\n', Bias(1), Bias(2));
+fprintf('upper violation rate = [%.4f %.4f]\n', upper_violation_rate(1), upper_violation_rate(2));
+fprintf('abs violation rate   = [%.4f %.4f]\n', abs_violation_rate(1), abs_violation_rate(2));
+fprintf('QP success rate = %.4f, fallback count = %d, max logged QP constraint = %.3e\n', qp_success_rate, infeasible_count, max_recorded_qp_constraint);
+fprintf('u RMS = [%.4f %.4f %.4f], saturation rate = [%.4f %.4f %.4f]\n', u_rms(1), u_rms(2), u_rms(3), u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
+
+%% Save artifacts
+results_dir = fullfile(fileparts(mfilename('fullpath')), 'results');
+if ~exist(results_dir,'dir'), mkdir(results_dir); end
+
+out.schema_version = 'copyT_process_lv_smpc_v1';
+out.description = 'Synthetic high-dimensional process / batch-style PredVARX-SMPC validation';
+out.A_true = A; out.B_true = B; out.C_true = C;
+out.tracked = tracked; out.n = n; out.m = m; out.p = p; out.ell = ell;
+out.T_off = T_off; out.T_cl = T_cl; out.N = N;
+out.sw = sw; out.se = se; out.u_min = u_min; out.u_max = u_max; out.y_max = y_max; out.alpha_joint = alpha_joint;
+out.x_off = x_off; out.y_off = y_off; out.u_off = u_off;
+out.Ahat = Ahat; out.Bhat = Bhat; out.Phat = Phat; out.Rhat = Rhat; out.Sigma_eps = Sigma_eps; out.stats = stats;
+out.model = model; out.opt = opt;
+out.Rf = Rf; out.y = y; out.yhat = yhat; out.u = u;
+out.exitflag = exitflag; out.max_cc_violation = max_cc_violation;
+out.MAE = MAE; out.RMSE = RMSE; out.Bias = Bias;
+out.upper_violation_count = upper_violation_count; out.upper_violation_rate = upper_violation_rate;
+out.abs_violation_count = abs_violation_count; out.abs_violation_rate = abs_violation_rate;
+out.u_rms = u_rms; out.u_sat_rate = u_sat_rate; out.qp_success_rate = qp_success_rate; out.infeasible_count = infeasible_count;
+save(fullfile(results_dir,'copyT_process_lv_smpc_data.mat'), '-struct', 'out', '-v7.3');
+
+fid = fopen(fullfile(results_dir,'copyT_process_lv_smpc_metrics.txt'), 'w');
+fprintf(fid, 'copyT_process_lv_smpc metrics\n');
+fprintf(fid, 'tracked_projection_error %.12e\n', stats.tracked_projection_error);
+fprintf(fid, 'reconstruction_residual %.12f\n', stats.reconstruction_residual);
+fprintf(fid, 'MAE %.12f %.12f\n', MAE(1), MAE(2));
+fprintf(fid, 'RMSE %.12f %.12f\n', RMSE(1), RMSE(2));
+fprintf(fid, 'Bias %.12f %.12f\n', Bias(1), Bias(2));
+fprintf(fid, 'upper_violation_rate %.12f %.12f\n', upper_violation_rate(1), upper_violation_rate(2));
+fprintf(fid, 'abs_violation_rate %.12f %.12f\n', abs_violation_rate(1), abs_violation_rate(2));
+fprintf(fid, 'qp_success_rate %.12f\n', qp_success_rate);
+fprintf(fid, 'infeasible_count %d\n', infeasible_count);
+fprintf(fid, 'max_recorded_qp_constraint %.12e\n', max_recorded_qp_constraint);
+fprintf(fid, 'u_rms %.12f %.12f %.12f\n', u_rms(1), u_rms(2), u_rms(3));
+fprintf(fid, 'u_sat_rate %.12f %.12f %.12f\n', u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
+fclose(fid);
+
+%% Figure: paper-style 4 rows x 1 column
+fig = figure('Position',[50 50 2400 1500], 'Color', 'w');
+t = 1:T_cl;
+tlo = tiledlayout(fig, 4, 1, 'TileSpacing', 'compact', 'Padding', 'compact');
+
+ax1 = nexttile(tlo, 1);
+plot(ax1, t, Rf(1,:), 'k--', 'LineWidth', 1.2); hold(ax1, 'on');
+plot(ax1, t, y(1,:), 'b', 'LineWidth', 0.8);
+plot(ax1, t, Rf(2,:), 'Color', [0.20 0.20 0.20], 'LineStyle', ':', 'LineWidth', 1.4);
+plot(ax1, t, y(2,:), 'Color', [0.85 0.20 0.10], 'LineWidth', 0.8);
+yline(ax1, y_max, 'm--', 'y_{max}', 'LabelHorizontalAlignment', 'left');
+for s = 1:5, xline(ax1, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
+grid(ax1, 'on'); ylabel(ax1, 'quality outputs');
+title(ax1, 'Tracked quality variables y_1,y_2');
+legend(ax1, {'r_1','y_1','r_2','y_2','upper chance limit'}, 'Location', 'eastoutside');
+
+ax2 = nexttile(tlo, 2);
+plot(ax2, t, abs(y(1,:)-Rf(1,:)), 'b', 'LineWidth', 0.8); hold(ax2, 'on');
+plot(ax2, t, abs(y(2,:)-Rf(2,:)), 'Color', [0.85 0.20 0.10], 'LineWidth', 0.8);
+for s = 1:5, xline(ax2, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
+grid(ax2, 'on'); ylabel(ax2, '|error|');
+title(ax2, sprintf('Absolute tracking errors after warm-up: MAE=[%.3f, %.3f], RMSE=[%.3f, %.3f]', MAE(1), MAE(2), RMSE(1), RMSE(2)));
+legend(ax2, {'|e_1|','|e_2|'}, 'Location', 'eastoutside');
+
+ax3 = nexttile(tlo, 3);
+plot(ax3, t, u', 'LineWidth', 0.8); hold(ax3, 'on');
+yline(ax3, u_min, 'k--', 'u bounds', 'LabelHorizontalAlignment', 'left');
+yline(ax3, u_max, 'k--', 'HandleVisibility', 'off');
+for s = 1:5, xline(ax3, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
+grid(ax3, 'on'); ylabel(ax3, 'u');
+title(ax3, sprintf('Manipulated variables: RMS=[%.2f %.2f %.2f], saturation=[%.2f %.2f %.2f]', u_rms(1), u_rms(2), u_rms(3), u_sat_rate(1), u_sat_rate(2), u_sat_rate(3)));
+legend(ax3, {'u_1','u_2','u_3','u_{min/max}'}, 'Location', 'eastoutside');
+
+ax4 = nexttile(tlo, 4);
+plot(ax4, t, max_cc_violation, 'k', 'LineWidth', 0.8); hold(ax4, 'on');
+yline(ax4, 0, 'r--', 'constraint boundary', 'LabelHorizontalAlignment', 'left');
+for s = 1:5, xline(ax4, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
+grid(ax4, 'on'); xlabel(ax4, 'time step'); ylabel(ax4, 'max(AU-b)');
+title(ax4, sprintf('QP chance-constraint residual: success=%.3f, fallbacks=%d, max logged=%.2e', qp_success_rate, infeasible_count, max_recorded_qp_constraint));
+
+linkaxes([ax1 ax2 ax3 ax4], 'x');
+title(tlo, sprintf('Industrial process latent-variable PredVARX-SMPC (p=%d, ell=%d, tracked projection error %.1e)', p, ell, stats.tracked_projection_error));
+print(fig, fullfile(results_dir,'copyT_process_lv_smpc_fig'), '-dpng', '-r160');
