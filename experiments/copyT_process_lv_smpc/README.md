@@ -30,7 +30,8 @@ The synthetic plant is deliberately shaped like process-control data:
 - closed-loop run: `T_cl = 1200`;
 - SMPC horizon: `N = 18`;
 - input limits: `[-3, 3]`;
-- quality upper chance constraint: `y_1,y_2 <= 2.6` with joint risk `alpha_joint = 0.10`.
+- near-active quality upper chance constraint: `y_1,y_2 <= 2.25` with joint risk `alpha_joint = 0.10`.
+- online covariance window: `noise_window = 40` samples.
 
 ## Main runner
 
@@ -47,7 +48,7 @@ Outputs are written to `results/`:
 The generated figure is aligned with the updated baseline diagnostic style and contains five rows:
 
 1. tracked quality outputs `y_1,y_2` versus references and quality upper bound;
-2. four-line noise diagnosis: estimated latent process noise, estimated observation noise, true process noise `sigma_w`, true sensor noise `sigma_e`;
+2. four-line time-varying noise diagnosis: sliding-window estimated latent innovation noise, sliding-window estimated observation noise, realized process-noise RMS, and realized measurement/input-to-estimator noise RMS;
 3. manipulated inputs and input bounds;
 4. full MPC cost `J`;
 5. QP chance-constraint residual `max(AU-b)`.
@@ -62,7 +63,19 @@ A successful synthetic validation should show:
 - empirical upper-constraint violation rates near zero or compatible with the risk design;
 - QP success rate near 1 and fallback count 0 or justified;
 - `max_recorded_qp_constraint <= 0`;
+- the near-active constraint should touch zero without becoming positive, and `constraint_active_rate` should be nonzero;
 - no actuator saturation unless intentionally stressed.
+
+### Noise semantics
+
+The four noise curves are deliberately not fixed standard-deviation reference lines. At each closed-loop step:
+
+- realized process noise is `norm(w_k)/sqrt(n)` from the actual state disturbance injected into the plant;
+- realized measurement/input noise is `norm(v_k)/sqrt(p)` from the actual noise entering the measured output and therefore the identifier/controller input;
+- estimated latent innovation noise is obtained from a 40-sample rolling covariance of `z_k-Ahat*z_{k-1}-Bhat*(u_{k-1}-u_mean)`;
+- estimated observation noise is obtained from a 40-sample rolling covariance of the orthogonal observation residual `(I-P*R')*(y_k-y_mean)`.
+
+The current plant has no separate actuator-channel disturbance. Therefore “input noise” here means the measurement noise entering the estimator/controller, not an unmodelled actuator disturbance.
 
 ## Limitation and next real-data layer
 

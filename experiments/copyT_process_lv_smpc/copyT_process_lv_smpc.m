@@ -19,7 +19,7 @@ sw = 0.045;         % process disturbance scale
 se = 0.055;         % sensor noise scale
 u_min = -3.0;
 u_max =  3.0;
-y_max = 2.60;
+y_max = 2.25;        % near-active quality limit; tuned to trigger SMPC tightening without QP failure
 alpha_joint = 0.10;
 
 % Stable, slow process dynamics with cross-coupling, typical of process plants.
@@ -105,13 +105,42 @@ max_cc_violation = nan(1,T_cl);
 costJ = nan(1,T_cl);
 estimated_sigma_eps = nan(1,T_cl);
 estimated_sigma_obs = nan(1,T_cl);
-true_sigma_w = sw * ones(1,T_cl);
-true_sigma_e = se * ones(1,T_cl);
+true_sigma_w = nan(1,T_cl);   % realized process-noise RMS ||w_k||/sqrt(n)
+true_sigma_e = nan(1,T_cl);   % realized measurement/input-to-estimator noise RMS ||v_k||/sqrt(p)
+noise_window = 40;
+eps_buffer = zeros(ell,noise_window); eps_count = 0;
+obs_buffer = zeros(p,noise_window); obs_count = 0;
+IminusPR = eye(p)-Phat*Rhat';
 infeasible_count = 0;
 
 for k = 1:T_cl
-    yk = C*x + se*randn(p,1);
+    vk = se*randn(p,1);
+    yk = C*x + vk;
+    true_sigma_e(k) = norm(vk)/sqrt(p);
     y(:,k) = yk;
+    zk_now = model.R'*(yk-model.y_mean);
+    obs_res = IminusPR*(yk-model.y_mean);
+    io = mod(k-1,noise_window)+1;
+    obs_buffer(:,io) = obs_res;
+    obs_count = min(obs_count+1,noise_window);
+    if k >= 2
+        eps_res = zk_now-model.A*z_prev-model.B*(u(:,k-1)-model.u_mean);
+        ie = mod(k-2,noise_window)+1;
+        eps_buffer(:,ie) = eps_res;
+        eps_count = min(eps_count+1,noise_window);
+    end
+    if eps_count >= 5
+        Ewin = eps_buffer(:,1:eps_count)-mean(eps_buffer(:,1:eps_count),2);
+        model.Sigma_eps = (Ewin*Ewin')/max(eps_count-1,1)+1e-8*eye(ell);
+        model.Sigma_eps = (model.Sigma_eps+model.Sigma_eps')/2;
+    end
+    if obs_count >= 5
+        Owin = obs_buffer(:,1:obs_count)-mean(obs_buffer(:,1:obs_count),2);
+        sigma_obs_k = norm(Owin,'fro')/sqrt(max((p-ell)*(obs_count-1),1));
+        model.Sigma_obs = max(sigma_obs_k^2,1e-8)*eye(p);
+    end
+    estimated_sigma_eps(k) = sqrt(trace(model.Sigma_eps)/ell);
+    estimated_sigma_obs(k) = sqrt(trace(model.Sigma_obs)/p);
     rk = Rf(:,min(k+1,T_cl));
     try
         [~, ypred, U, info] = centered_smpc_step(yk, rk, model, opt);
@@ -120,8 +149,7 @@ for k = 1:T_cl
         exitflag(k) = info.exitflag;
         max_cc_violation(k) = max(info.A_ch*U - info.b_ch);
         costJ(k) = info.cost;
-        estimated_sigma_eps(k) = info.estimated_sigma_eps;
-        estimated_sigma_obs(k) = info.estimated_sigma_obs;
+
     catch ME
         infeasible_count = infeasible_count + 1;
         exitflag(k) = -1;
@@ -137,7 +165,10 @@ for k = 1:T_cl
         end
     end
     u(:,k) = uk;
-    x = A*x + B*uk + sw*randn(n,1);
+    wk = sw*randn(n,1);
+    true_sigma_w(k) = norm(wk)/sqrt(n);
+    x = A*x + B*uk + wk;
+    z_prev = zk_now;
 end
 
 %% Metrics
@@ -155,6 +186,7 @@ u_sat_rate = mean(abs(u - u_min) < 1e-8 | abs(u - u_max) < 1e-8, 2);
 qp_success_rate = mean(exitflag > 0);
 max_recorded_qp_constraint = max(max_cc_violation(~isnan(max_cc_violation)));
 if isempty(max_recorded_qp_constraint), max_recorded_qp_constraint = NaN; end
+constraint_active_rate = mean(max_cc_violation(warm) > -1e-3, 'omitnan');
 
 fprintf('\ncopyT process LV-SMPC results\n');
 fprintf('tracked projection error = %.3e\n', stats.tracked_projection_error);
@@ -165,14 +197,15 @@ fprintf('Bias = [%.4f %.4f]\n', Bias(1), Bias(2));
 fprintf('upper violation rate = [%.4f %.4f]\n', upper_violation_rate(1), upper_violation_rate(2));
 fprintf('abs violation rate   = [%.4f %.4f]\n', abs_violation_rate(1), abs_violation_rate(2));
 fprintf('QP success rate = %.4f, fallback count = %d, max logged QP constraint = %.3e\n', qp_success_rate, infeasible_count, max_recorded_qp_constraint);
-fprintf('avg J = %.4f, estimated sigma_eps = %.4f, estimated sigma_obs = %.4f, true sigma_w = %.4f, true sigma_e = %.4f\n', mean(costJ(warm),'omitnan'), mean(estimated_sigma_eps(warm),'omitnan'), mean(estimated_sigma_obs(warm),'omitnan'), sw, se);
+fprintf('constraint active rate = %.4f (residual > -1e-3)\n',constraint_active_rate);
+fprintf('avg J = %.4f, estimated sigma_eps = %.4f, estimated sigma_obs = %.4f, realized sigma_w = %.4f, realized sigma_e = %.4f\n', mean(costJ(warm),'omitnan'), mean(estimated_sigma_eps(warm),'omitnan'), mean(estimated_sigma_obs(warm),'omitnan'), mean(true_sigma_w(warm)), mean(true_sigma_e(warm)));
 fprintf('u RMS = [%.4f %.4f %.4f], saturation rate = [%.4f %.4f %.4f]\n', u_rms(1), u_rms(2), u_rms(3), u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
 
 %% Save artifacts
 results_dir = fullfile(fileparts(mfilename('fullpath')), 'results');
 if ~exist(results_dir,'dir'), mkdir(results_dir); end
 
-out.schema_version = 'copyT_process_lv_smpc_v1';
+out.schema_version = 'copyT_process_lv_smpc_v2_online_noise_near_active';
 out.description = 'Synthetic high-dimensional process / batch-style PredVARX-SMPC validation';
 out.A_true = A; out.B_true = B; out.C_true = C;
 out.tracked = tracked; out.n = n; out.m = m; out.p = p; out.ell = ell;
@@ -185,6 +218,7 @@ out.Rf = Rf; out.y = y; out.yhat = yhat; out.u = u;
 out.exitflag = exitflag; out.max_cc_violation = max_cc_violation;
 out.costJ = costJ; out.estimated_sigma_eps = estimated_sigma_eps; out.estimated_sigma_obs = estimated_sigma_obs;
 out.true_sigma_w = true_sigma_w; out.true_sigma_e = true_sigma_e;
+out.noise_window = noise_window; out.constraint_active_rate = constraint_active_rate;
 out.MAE = MAE; out.RMSE = RMSE; out.Bias = Bias;
 out.upper_violation_count = upper_violation_count; out.upper_violation_rate = upper_violation_rate;
 out.abs_violation_count = abs_violation_count; out.abs_violation_rate = abs_violation_rate;
@@ -203,11 +237,12 @@ fprintf(fid, 'abs_violation_rate %.12f %.12f\n', abs_violation_rate(1), abs_viol
 fprintf(fid, 'qp_success_rate %.12f\n', qp_success_rate);
 fprintf(fid, 'infeasible_count %d\n', infeasible_count);
 fprintf(fid, 'max_recorded_qp_constraint %.12e\n', max_recorded_qp_constraint);
+fprintf(fid, 'constraint_active_rate %.12f\n', constraint_active_rate);
 fprintf(fid, 'avg_costJ %.12f\n', mean(costJ(warm),'omitnan'));
 fprintf(fid, 'estimated_sigma_eps_mean %.12f\n', mean(estimated_sigma_eps(warm),'omitnan'));
 fprintf(fid, 'estimated_sigma_obs_mean %.12f\n', mean(estimated_sigma_obs(warm),'omitnan'));
-fprintf(fid, 'true_sigma_w %.12f\n', sw);
-fprintf(fid, 'true_sigma_e %.12f\n', se);
+fprintf(fid, 'realized_sigma_w_mean %.12f\n', mean(true_sigma_w(warm)));
+fprintf(fid, 'realized_sigma_e_mean %.12f\n', mean(true_sigma_e(warm)));
 fprintf(fid, 'u_rms %.12f %.12f %.12f\n', u_rms(1), u_rms(2), u_rms(3));
 fprintf(fid, 'u_sat_rate %.12f %.12f %.12f\n', u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
 fclose(fid);
@@ -231,11 +266,11 @@ legend(ax1, {'r_1','y_1','r_2','y_2','upper chance limit'}, 'Location', 'eastout
 ax2 = nexttile(tlo, 2);
 plot(ax2, t, estimated_sigma_eps, 'Color', [0.85 0.20 0.10], 'LineWidth', 0.8, 'DisplayName', sprintf('estimated sigma_{eps} (avg=%.3f)', mean(estimated_sigma_eps(warm),'omitnan'))); hold(ax2, 'on');
 plot(ax2, t, estimated_sigma_obs, 'Color', [0.15 0.45 0.85], 'LineWidth', 0.8, 'DisplayName', sprintf('estimated sigma_{obs} (avg=%.3f)', mean(estimated_sigma_obs(warm),'omitnan')));
-plot(ax2, t, true_sigma_w, 'k-', 'LineWidth', 1.4, 'DisplayName', sprintf('true process noise sigma_w=%.3f', sw));
-plot(ax2, t, true_sigma_e, 'm-', 'LineWidth', 1.4, 'DisplayName', sprintf('true sensor noise sigma_e=%.3f', se));
+plot(ax2, t, true_sigma_w, 'k-', 'LineWidth', 0.7, 'DisplayName', sprintf('realized process noise RMS (avg=%.3f)', mean(true_sigma_w(warm))));
+plot(ax2, t, true_sigma_e, 'm-', 'LineWidth', 0.7, 'DisplayName', sprintf('realized measurement/input noise RMS (avg=%.3f)', mean(true_sigma_e(warm))));
 for s = 1:5, xline(ax2, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
 grid(ax2, 'on'); ylabel(ax2, 'sigma');
-title(ax2, 'Noise diagnosis: estimated latent/observation noise vs true process/sensor noise');
+title(ax2, sprintf('Online noise diagnosis (sliding window=%d): estimates vs realized noise samples',noise_window));
 legend(ax2, 'Location', 'eastoutside');
 
 ax3 = nexttile(tlo, 3);
@@ -259,7 +294,7 @@ plot(ax5, t, max_cc_violation, 'k', 'LineWidth', 0.8); hold(ax5, 'on');
 yline(ax5, 0, 'r--', 'constraint boundary', 'LabelHorizontalAlignment', 'left');
 for s = 1:5, xline(ax5, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
 grid(ax5, 'on'); xlabel(ax5, 'time step'); ylabel(ax5, 'max(AU-b)');
-title(ax5, sprintf('QP chance-constraint residual: success=%.3f, fallbacks=%d, max logged=%.2e', qp_success_rate, infeasible_count, max_recorded_qp_constraint));
+title(ax5, sprintf('QP chance-constraint residual: success=%.3f, active=%.3f, fallbacks=%d, max=%.2e', qp_success_rate, constraint_active_rate, infeasible_count, max_recorded_qp_constraint));
 
 linkaxes([ax1 ax2 ax3 ax4 ax5], 'x');
 title(tlo, sprintf('Industrial process latent-variable PredVARX-SMPC (p=%d, ell=%d, tracked projection error %.1e)', p, ell, stats.tracked_projection_error));
