@@ -176,6 +176,7 @@ fprintf('C=%.3f(%d) Zfix=%.3f(%d) imp=%+.0f%% viol_red=%.0f%%\n',...
 fprintf('ebar: C=%.4f Zfix=%.4f\\n', mean(sC_ebar(500:end)), mean(sZ_ebar(500:end)));
 
 % 保存：将轨迹、噪声统计、真实系统、离线数据和在线重辨识快照统一写入 MAT。
+results_dir=fullfile(fileparts(mfilename('fullpath')),'results'); if ~exist(results_dir,'dir'), mkdir(results_dir); end;
 sv.yC=yC; sv.yZ=yZ; sv.uC=uC; sv.uZ=uZ;
 sv.sC_eps=sC_eps; sv.sC_ebar=sC_ebar;
 sv.sZ_eps=sZ_eps; sv.sZ_ebar=sZ_ebar;
@@ -193,8 +194,8 @@ sv.modelC_P=modelC_P; sv.modelC_R=modelC_R; sv.modelC_G=modelC_G;
 sv.modelZ_time=modelZ_time; sv.modelZ_A=modelZ_A; sv.modelZ_B=modelZ_B;
 sv.modelZ_P=modelZ_P; sv.modelZ_R=modelZ_R; sv.modelZ_G=modelZ_G;
 sv.schema_version='copyS_nosoft_analysis_v2';
-save('copyZfix_data.mat','-struct','sv','-v7.3');
-fprintf('done: copyZfix_data.mat\n');
+save(fullfile(results_dir,'copyZfix_data.mat'),'-struct','sv','-v7.3');
+fprintf('done: %s\n',fullfile(results_dir,'copyZfix_data.mat'));
 
 %% ═══════════════════════════════════════════════════════════════
 %% 画图: 4行1列纵向, 副本C蓝紫 vs Zfix红橙
@@ -262,5 +263,5 @@ title('Tracking error |y_2 - ref|','FontSize',14);
 legend('Location','best','FontSize',10); grid on; hold off;
 
 sgtitle(sprintf('copyZfix: C(e=%.3f,viol=%d) vs Zfix(e=%.3f,viol=%d)',eC,vC,eZ,vZ),'FontSize',15,'FontWeight','bold');
-print('copySfix_fig','-dpng','-r150');
-fprintf('figure saved: copySfix_fig.png\n');
+print(fullfile(results_dir,'copySfix_fig'),'-dpng','-r150');
+fprintf('figure saved: %s\n',fullfile(results_dir,'copySfix_fig.png'));

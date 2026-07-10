@@ -66,5 +66,4 @@ QP 成功：1200/1200
 - `control_aware_subspace_varx.m`
 - `copyQ_control_aware.m`
 - `tests/test_control_aware_subspace.m`
-- `copyQ_control_aware_data.mat`
-- `copyQ_control_aware_fig.png`
+- `results/`：MAT 数据、PNG 图和运行日志快照。

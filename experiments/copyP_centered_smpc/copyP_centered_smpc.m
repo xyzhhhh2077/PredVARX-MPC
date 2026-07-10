@@ -54,7 +54,8 @@ out.Ahat=Ahat; out.Bhat=Bhat; out.Phat=Phat; out.Rhat=Rhat; out.model=model; out
 out.x_off=x_off; out.y_off=y_off; out.u_off=u_off; out.y=y; out.u=u; out.yhat=yhat; out.Rf=Rf;
 out.MAE=MAE; out.RMSE=RMSE; out.upper_violation=upper_violation; out.abs_violation=abs_violation;
 out.exitflag=exitflag; out.max_cc_violation=max_cc_violation; out.sigma_y1=sigma_y1; out.sigma_y2=sigma_y2;
-save('copyP_centered_smpc_data.mat','-struct','out','-v7.3');
+results_dir=fullfile(fileparts(mfilename('fullpath')),'results'); if ~exist(results_dir,'dir'), mkdir(results_dir); end;
+save(fullfile(results_dir,'copyP_centered_smpc_data.mat'),'-struct','out','-v7.3');
 
 figure('Position',[50 50 2000 1100],'Color','w'); t=1:T_cl;
 subplot(4,1,1); plot(t,Rf(1,:),'k--',t,y(1,:),'b',t,Rf(2,:),'k:',t,y(2,:),'r'); yline(y_max,'m--'); grid on; title('copyP centered absolute-tracking SMPC: outputs'); legend('r_1','y_1','r_2','y_2','y_{max}','Location','best');
@@ -62,4 +63,4 @@ subplot(4,1,2); plot(t,abs(y(1,:)-Rf(1,:)),'b',t,abs(y(2,:)-Rf(2,:)),'r'); grid 
 subplot(4,1,3); plot(t,u'); yline(u_min,'k--'); yline(u_max,'k--'); grid on; title('control input'); legend('u_1','u_2','u_3');
 subplot(4,1,4); plot(t,max_cc_violation,'k'); yline(0,'r--'); grid on; title('max(A_{cc}U-b_{cc}): must be <= 0'); xlabel('time');
 sgtitle(sprintf('copyP: MAE y_1=%.3f, y_2=%.3f; joint alpha=%.2f',MAE(1),MAE(2),opt.alpha_joint));
-print('copyP_centered_smpc_fig','-dpng','-r150');
+print(fullfile(results_dir,'copyP_centered_smpc_fig'),'-dpng','-r150');

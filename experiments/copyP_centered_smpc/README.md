@@ -85,6 +85,5 @@ MATLAB R2024a 完整运行 1200 步：
 - `copyP_centered_smpc.m`：主实验
 - `control_ready_subspace_varx.m`：中心化全阶子空间 VARX
 - `centered_smpc_step.m`：绝对预测、Boole 风险分配 QP
-- `tests/test_centered_smpc_step.m`：中心化与机会约束单元测试
-- `copyP_centered_smpc_data.mat`：运行数据
-- `copyP_centered_smpc_fig.png`：四行诊断图
+- `tests/test_centered_smpc_step.m`：中心化与 Boole 机会约束单元测试。
+- `results/`：MAT 数据、PNG 图和运行日志快照。

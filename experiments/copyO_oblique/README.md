@@ -5,8 +5,9 @@
 ## 文件
 
 - `predvarx_identify_oblique.m`：OLS 输入剥离 + IVR + SVD 双基对齐 + VARX 回归。
-- `copyO_oblique.m`：在 `copyS_nosoft.m` 基准上建立的闭环实验副本。
-- `../../tests/test_predvarx_identify_oblique.m`：回归测试。
+- `copyO_oblique.m`：在 `main/copyS_nosoft.m` 基准上建立的闭环实验副本。
+- `tests/test_predvarx_identify_oblique.m`：回归测试。
+- `results/`：MAT 数据、PNG 图和运行日志快照。
 
 ## 核心构造
 

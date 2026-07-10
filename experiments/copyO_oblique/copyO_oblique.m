@@ -173,6 +173,7 @@ fprintf('C=%.3f(%d) Oblique=%.3f(%d) imp=%+.0f%% viol_red=%.0f%%\n',...
 fprintf('ebar: C=%.4f Oblique=%.4f\n', mean(sC_ebar(500:end)), mean(sZ_ebar(500:end)));
 
 % 保存
+results_dir=fullfile(fileparts(mfilename('fullpath')),'results'); if ~exist(results_dir,'dir'), mkdir(results_dir); end;
 sv.yC=yC; sv.yZ=yZ; sv.uC=uC; sv.uZ=uZ;
 sv.sC_eps=sC_eps; sv.sC_ebar=sC_ebar;
 sv.sZ_eps=sZ_eps; sv.sZ_ebar=sZ_ebar;
@@ -180,8 +181,8 @@ sv.costC=costC; sv.costZ=costZ;
 sv.Rf=Rf; sv.y_max=y_max; sv.T_cl=T_cl;
 sv.eC=eC; sv.eZ=eZ; sv.vC=vC; sv.vZ=vZ;
 sv.nf=nf; sv.ni=ni; sv.sw0=sw0; sv.rv=rv;
-save('copyO_oblique_data.mat','-struct','sv');
-fprintf('done: copyO_oblique_data.mat\n');
+save(fullfile(results_dir,'copyO_oblique_data.mat'),'-struct','sv');
+fprintf('done: %s\n',fullfile(results_dir,'copyO_oblique_data.mat'));
 
 %% ═══════════════════════════════════════════════════════════════
 %% 画图: 5行1列纵向, 副本C蓝紫 vs Oblique-SMPC红橙
@@ -249,5 +250,5 @@ title('Tracking error |y_2 - ref|','FontSize',14);
 legend('Location','best','FontSize',10); grid on; hold off;
 
 sgtitle(sprintf('copyO_oblique: C(e=%.3f,viol=%d) vs Oblique-SMPC(e=%.3f,viol=%d)',eC,vC,eZ,vZ),'FontSize',15,'FontWeight','bold');
-print('copyO_oblique_fig','-dpng','-r150');
-fprintf('figure saved: copyO_oblique_fig.png\n');
+print(fullfile(results_dir,'copyO_oblique_fig'),'-dpng','-r150');
+fprintf('figure saved: %s\n',fullfile(results_dir,'copyO_oblique_fig.png'));
