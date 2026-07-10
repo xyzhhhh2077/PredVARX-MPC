@@ -32,6 +32,12 @@ experiments/
     ├── tests/
     ├── results/
     └── README.md
+└── copyR_moqin_oblique/           # 原文 Algorithm-1 严格 realization 基线
+    ├── copyR_moqin_oblique.m
+    ├── predvarx_identify_moqin.m
+    ├── tests/
+    ├── results/
+    └── README.md
 ```
 
 ## 基础版本与副本差异
@@ -42,6 +48,7 @@ experiments/
 | `copyO_oblique` | SVD 双基，$R^TP=I$；静态残差改用 $\bar R^T$ | 验证斜投影数学身份 | 双基恒等式正确，但旧在线中心化/SMPC 逻辑仍导致反向跟踪 |
 | `copyP_centered_smpc` | 全阶 $\ell=n$；中心化坐标；绝对预测 MPC；Boole 联合机会约束 | 先验证控制逻辑本身 | $y_1,y_2$ MAE 为 0.093/0.087，零越界，QP 1200/1200 可行 |
 | `copyQ_control_aware` | 低阶 $\ell=4$；强制保留 $y_1,y_2$ 输出轴；其余方向按数据取子空间 | 在降维下保留控制方向 | MAE 0.114/0.093，零越界，QP 1200/1200 可行 |
+| `copyR_moqin_oblique` | 直接采用 Mo--Qin Algorithm 1 的白化 IVR、反白化 $P=UD^{1/2}P^*,R=UD^{-1/2}P^*$ 与 Eq. (34) 补空间；不做后验 SVD 对齐 | 分离“原文预测子空间”与“控制覆盖”的差异 | 四个对偶恒等式与 PSD 测试通过；在当前 $\ell=4$、同一 SMPC 约束下第 1 步 QP 已不可行，且 $PR^Te_1,e_2$ 覆盖误差为 2.34/10.82；这是诊断结果，不是控制性能主结论 |
 
 ## 如何运行
 
@@ -52,6 +59,7 @@ run('main/copyS_nosoft.m')
 run('experiments/copyO_oblique/copyO_oblique.m')
 run('experiments/copyP_centered_smpc/copyP_centered_smpc.m')
 run('experiments/copyQ_control_aware/copyQ_control_aware.m')
+run('experiments/copyR_moqin_oblique/copyR_moqin_oblique.m')
 ```
 
 > 现在主脚本会直接将新的 `.mat` 和 `.png` 写入各自 `results/`；这里保存的是可覆写的运行快照，避免生成物混入代码目录根部。
@@ -67,4 +75,7 @@ test_centered_smpc_step
 
 addpath('experiments/copyQ_control_aware'); addpath('experiments/copyQ_control_aware/tests');
 test_control_aware_subspace
+
+addpath('experiments/copyR_moqin_oblique'); addpath('experiments/copyR_moqin_oblique/tests');
+test_predvarx_identify_moqin
 ```
