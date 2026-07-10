@@ -23,6 +23,9 @@ xo=zeros(n,T_off+1); yo=zeros(p,T_off); uo=10*randn(m,T_off);
 for k=1:T_off, yo(:,k)=C*xo(:,k)+se0*randn(p,1); xo(:,k+1)=A*xo(:,k)+B*uo(:,k)+sw0*randn(n,1); end
 [A0,B0,P0,~,R0,~,G0,Se0,~,F0,H0]=predvarx_identify(yo,uo,ell,beta_u,2,A,B,C,n,m,p);
 Ac=F0; Pbar0=null(P0');
+% 为后续离线分析保留每次辨识得到的模型快照。
+modelC_time=0; modelC_A={A0}; modelC_B={B0}; modelC_P={P0}; modelC_R={R0}; modelC_G={G0};
+modelZ_time=0; modelZ_A={A0}; modelZ_B={B0}; modelZ_P={P0}; modelZ_R={R0}; modelZ_G={G0};
 Mc=cell(1,N_pred); Nc=cell(1,N_pred);
 for j=1:N_pred, Mc{j}=P0*Ex'*Ac^j; Nc{j}=zeros(p,N_pred*m);
     for i=0:j-1, Nc{j}(:,i*m+1:(i+1)*m)=P0*Ex'*Ac^(j-1-i)*H0; end; end
@@ -69,6 +72,8 @@ for k=1:T_cl
     xk_prev=xk; yc=[yc,yk]; uc=[uc,uk];
     if mod(k,Nr)==0 && k>0 && (k-tl)>=Nr
         [Akh,Bk,Pk,~,Rk,~,G0,~,~,~,Ha]=predvarx_identify(yc,uc,ell,beta_u,2,A,B,C,n,m,p);
+        modelC_time(end+1)=k; modelC_A{end+1}=Akh; modelC_B{end+1}=Bk;
+        modelC_P{end+1}=Pk; modelC_R{end+1}=Rk; modelC_G{end+1}=G0;
         Ak=Akh; for j=1:N_pred, Mk{j}=Pk*Ex'*Ak^j;
             for i=0:j-1, Nk{j}(:,i*m+1:(i+1)*m)=Pk*Ex'*Ak^(j-1-i)*Ha; end; end
         eb=zeros(ell,Nw); ec=0; ebb=zeros(p-ell,Nw); ecb=0; SebE=zeros(p-ell,p-ell); tl=k;
@@ -157,6 +162,8 @@ for k=1:T_cl
         uc_in = [uc(:,1:T_off), uc(:,end-n_recent+1:end)];
         [Akh,Bk,Pk,~,Rk,~,G0,~,~,~,Ha]=predvarx_identify(yc_in,uc_in,ell,beta_u,2,A,B,C,n,m,p);
         PbrS=null(Pk');  % ★ 同步更新Pbar
+        modelZ_time(end+1)=k; modelZ_A{end+1}=Akh; modelZ_B{end+1}=Bk;
+        modelZ_P{end+1}=Pk; modelZ_R{end+1}=Rk; modelZ_G{end+1}=G0;
         Ak=Akh; for j=1:N_pred, Mk{j}=Pk*Ex'*Ak^j;
             for i=0:j-1, Nk{j}(:,i*m+1:(i+1)*m)=Pk*Ex'*Ak^(j-1-i)*Ha; end; end
         eb=zeros(ell,Nw); ec=0; ebb=zeros(p-ell,Nw); ecb=0; SebE=zeros(p-ell,p-ell); tl=k;
@@ -168,15 +175,25 @@ fprintf('C=%.3f(%d) Zfix=%.3f(%d) imp=%+.0f%% viol_red=%.0f%%\n',...
     eC,vC,eZ,vZ,(eC-eZ)/eC*100,(vC-vZ)/max(vC,1)*100);
 fprintf('ebar: C=%.4f Zfix=%.4f\\n', mean(sC_ebar(500:end)), mean(sZ_ebar(500:end)));
 
-% 保存
+% 保存：将轨迹、噪声统计、真实系统、离线数据和在线重辨识快照统一写入 MAT。
 sv.yC=yC; sv.yZ=yZ; sv.uC=uC; sv.uZ=uZ;
 sv.sC_eps=sC_eps; sv.sC_ebar=sC_ebar;
 sv.sZ_eps=sZ_eps; sv.sZ_ebar=sZ_ebar;
 sv.costC=costC; sv.costZ=costZ;
 sv.Rf=Rf; sv.y_max=y_max; sv.T_cl=T_cl;
 sv.eC=eC; sv.eZ=eZ; sv.vC=vC; sv.vZ=vZ;
-sv.nf=nf; sv.ni=ni; sv.sw0=sw0; sv.rv=rv;
-save('copyZfix_data.mat','-struct','sv');
+sv.nf=nf; sv.ni=ni; sv.sw0=sw0; sv.se0=se0; sv.rv=rv;
+sv.n=n; sv.m=m; sv.p=p; sv.ell=ell; sv.N_pred=N_pred; sv.Nv=Nv;
+sv.T_off=T_off; sv.Nr=Nr; sv.Nw=Nw; sv.beta_u=beta_u; sv.gb=gb;
+sv.u_min=u_min; sv.u_max=u_max; sv.alpha_cc=alpha_cc; sv.z_score=z_score;
+sv.A_true=A; sv.B_true=B; sv.C_true=C;
+sv.x_off=xo; sv.y_off=yo; sv.u_off=uo;
+sv.modelC_time=modelC_time; sv.modelC_A=modelC_A; sv.modelC_B=modelC_B;
+sv.modelC_P=modelC_P; sv.modelC_R=modelC_R; sv.modelC_G=modelC_G;
+sv.modelZ_time=modelZ_time; sv.modelZ_A=modelZ_A; sv.modelZ_B=modelZ_B;
+sv.modelZ_P=modelZ_P; sv.modelZ_R=modelZ_R; sv.modelZ_G=modelZ_G;
+sv.schema_version='copyS_nosoft_analysis_v2';
+save('copyZfix_data.mat','-struct','sv','-v7.3');
 fprintf('done: copyZfix_data.mat\n');
 
 %% ═══════════════════════════════════════════════════════════════
