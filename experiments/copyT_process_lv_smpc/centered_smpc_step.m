@@ -26,6 +26,11 @@ for j = 1:N
     fqp = fqp + G{j}'*opt.Q*ej;
 end
 Hqp = (Hqp+Hqp')/2 + 1e-9*eye(N*nu);
+J_const = 0;
+for j = 1:N
+    ej = M{j}*z + model.y_mean - r;
+    J_const = J_const + ej'*opt.Q*ej;
+end
 
 risk_each = opt.alpha_joint/(2*nq*N);
 z_quantile = norminv(1-risk_each);
@@ -52,4 +57,7 @@ end
 y_pred = model.y_mean + M{1}*z + G{1}*(U-U0);
 out.A_ch=A_ch; out.b_ch=b_ch; out.risk_each=risk_each;
 out.z_quantile=z_quantile; out.exitflag=exitflag;
+out.cost = 0.5*U'*Hqp*U + fqp'*U + J_const;
+out.estimated_sigma_eps = sqrt(trace(model.Sigma_eps)/size(model.Sigma_eps,1));
+out.estimated_sigma_obs = sqrt(trace(model.Sigma_obs)/size(model.Sigma_obs,1));
 end

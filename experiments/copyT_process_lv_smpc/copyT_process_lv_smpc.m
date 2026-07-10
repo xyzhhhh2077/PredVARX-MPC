@@ -102,6 +102,11 @@ yhat = zeros(p,T_cl);
 u = zeros(m,T_cl);
 exitflag = zeros(1,T_cl);
 max_cc_violation = nan(1,T_cl);
+costJ = nan(1,T_cl);
+estimated_sigma_eps = nan(1,T_cl);
+estimated_sigma_obs = nan(1,T_cl);
+true_sigma_w = sw * ones(1,T_cl);
+true_sigma_e = se * ones(1,T_cl);
 infeasible_count = 0;
 
 for k = 1:T_cl
@@ -114,6 +119,9 @@ for k = 1:T_cl
         yhat(:,k) = ypred;
         exitflag(k) = info.exitflag;
         max_cc_violation(k) = max(info.A_ch*U - info.b_ch);
+        costJ(k) = info.cost;
+        estimated_sigma_eps(k) = info.estimated_sigma_eps;
+        estimated_sigma_obs(k) = info.estimated_sigma_obs;
     catch ME
         infeasible_count = infeasible_count + 1;
         exitflag(k) = -1;
@@ -157,6 +165,7 @@ fprintf('Bias = [%.4f %.4f]\n', Bias(1), Bias(2));
 fprintf('upper violation rate = [%.4f %.4f]\n', upper_violation_rate(1), upper_violation_rate(2));
 fprintf('abs violation rate   = [%.4f %.4f]\n', abs_violation_rate(1), abs_violation_rate(2));
 fprintf('QP success rate = %.4f, fallback count = %d, max logged QP constraint = %.3e\n', qp_success_rate, infeasible_count, max_recorded_qp_constraint);
+fprintf('avg J = %.4f, estimated sigma_eps = %.4f, estimated sigma_obs = %.4f, true sigma_w = %.4f, true sigma_e = %.4f\n', mean(costJ(warm),'omitnan'), mean(estimated_sigma_eps(warm),'omitnan'), mean(estimated_sigma_obs(warm),'omitnan'), sw, se);
 fprintf('u RMS = [%.4f %.4f %.4f], saturation rate = [%.4f %.4f %.4f]\n', u_rms(1), u_rms(2), u_rms(3), u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
 
 %% Save artifacts
@@ -174,6 +183,8 @@ out.Ahat = Ahat; out.Bhat = Bhat; out.Phat = Phat; out.Rhat = Rhat; out.Sigma_ep
 out.model = model; out.opt = opt;
 out.Rf = Rf; out.y = y; out.yhat = yhat; out.u = u;
 out.exitflag = exitflag; out.max_cc_violation = max_cc_violation;
+out.costJ = costJ; out.estimated_sigma_eps = estimated_sigma_eps; out.estimated_sigma_obs = estimated_sigma_obs;
+out.true_sigma_w = true_sigma_w; out.true_sigma_e = true_sigma_e;
 out.MAE = MAE; out.RMSE = RMSE; out.Bias = Bias;
 out.upper_violation_count = upper_violation_count; out.upper_violation_rate = upper_violation_rate;
 out.abs_violation_count = abs_violation_count; out.abs_violation_rate = abs_violation_rate;
@@ -192,14 +203,19 @@ fprintf(fid, 'abs_violation_rate %.12f %.12f\n', abs_violation_rate(1), abs_viol
 fprintf(fid, 'qp_success_rate %.12f\n', qp_success_rate);
 fprintf(fid, 'infeasible_count %d\n', infeasible_count);
 fprintf(fid, 'max_recorded_qp_constraint %.12e\n', max_recorded_qp_constraint);
+fprintf(fid, 'avg_costJ %.12f\n', mean(costJ(warm),'omitnan'));
+fprintf(fid, 'estimated_sigma_eps_mean %.12f\n', mean(estimated_sigma_eps(warm),'omitnan'));
+fprintf(fid, 'estimated_sigma_obs_mean %.12f\n', mean(estimated_sigma_obs(warm),'omitnan'));
+fprintf(fid, 'true_sigma_w %.12f\n', sw);
+fprintf(fid, 'true_sigma_e %.12f\n', se);
 fprintf(fid, 'u_rms %.12f %.12f %.12f\n', u_rms(1), u_rms(2), u_rms(3));
 fprintf(fid, 'u_sat_rate %.12f %.12f %.12f\n', u_sat_rate(1), u_sat_rate(2), u_sat_rate(3));
 fclose(fid);
 
-%% Figure: paper-style 4 rows x 1 column
-fig = figure('Position',[50 50 2400 1500], 'Color', 'w');
+%% Figure: paper-style 5 rows x 1 column, aligned with baseline diagnostics
+fig = figure('Position',[50 50 2400 1800], 'Color', 'w');
 t = 1:T_cl;
-tlo = tiledlayout(fig, 4, 1, 'TileSpacing', 'compact', 'Padding', 'compact');
+tlo = tiledlayout(fig, 5, 1, 'TileSpacing', 'compact', 'Padding', 'compact');
 
 ax1 = nexttile(tlo, 1);
 plot(ax1, t, Rf(1,:), 'k--', 'LineWidth', 1.2); hold(ax1, 'on');
@@ -213,12 +229,14 @@ title(ax1, 'Tracked quality variables y_1,y_2');
 legend(ax1, {'r_1','y_1','r_2','y_2','upper chance limit'}, 'Location', 'eastoutside');
 
 ax2 = nexttile(tlo, 2);
-plot(ax2, t, abs(y(1,:)-Rf(1,:)), 'b', 'LineWidth', 0.8); hold(ax2, 'on');
-plot(ax2, t, abs(y(2,:)-Rf(2,:)), 'Color', [0.85 0.20 0.10], 'LineWidth', 0.8);
+plot(ax2, t, estimated_sigma_eps, 'Color', [0.85 0.20 0.10], 'LineWidth', 0.8, 'DisplayName', sprintf('estimated sigma_{eps} (avg=%.3f)', mean(estimated_sigma_eps(warm),'omitnan'))); hold(ax2, 'on');
+plot(ax2, t, estimated_sigma_obs, 'Color', [0.15 0.45 0.85], 'LineWidth', 0.8, 'DisplayName', sprintf('estimated sigma_{obs} (avg=%.3f)', mean(estimated_sigma_obs(warm),'omitnan')));
+plot(ax2, t, true_sigma_w, 'k-', 'LineWidth', 1.4, 'DisplayName', sprintf('true process noise sigma_w=%.3f', sw));
+plot(ax2, t, true_sigma_e, 'm-', 'LineWidth', 1.4, 'DisplayName', sprintf('true sensor noise sigma_e=%.3f', se));
 for s = 1:5, xline(ax2, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
-grid(ax2, 'on'); ylabel(ax2, '|error|');
-title(ax2, sprintf('Absolute tracking errors after warm-up: MAE=[%.3f, %.3f], RMSE=[%.3f, %.3f]', MAE(1), MAE(2), RMSE(1), RMSE(2)));
-legend(ax2, {'|e_1|','|e_2|'}, 'Location', 'eastoutside');
+grid(ax2, 'on'); ylabel(ax2, 'sigma');
+title(ax2, 'Noise diagnosis: estimated latent/observation noise vs true process/sensor noise');
+legend(ax2, 'Location', 'eastoutside');
 
 ax3 = nexttile(tlo, 3);
 plot(ax3, t, u', 'LineWidth', 0.8); hold(ax3, 'on');
@@ -230,12 +248,19 @@ title(ax3, sprintf('Manipulated variables: RMS=[%.2f %.2f %.2f], saturation=[%.2
 legend(ax3, {'u_1','u_2','u_3','u_{min/max}'}, 'Location', 'eastoutside');
 
 ax4 = nexttile(tlo, 4);
-plot(ax4, t, max_cc_violation, 'k', 'LineWidth', 0.8); hold(ax4, 'on');
-yline(ax4, 0, 'r--', 'constraint boundary', 'LabelHorizontalAlignment', 'left');
+plot(ax4, t, costJ, 'Color', [0.30 0.30 0.30], 'LineWidth', 0.8, 'DisplayName', sprintf('J (avg=%.2f)', mean(costJ(warm),'omitnan'))); hold(ax4, 'on');
 for s = 1:5, xline(ax4, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
-grid(ax4, 'on'); xlabel(ax4, 'time step'); ylabel(ax4, 'max(AU-b)');
-title(ax4, sprintf('QP chance-constraint residual: success=%.3f, fallbacks=%d, max logged=%.2e', qp_success_rate, infeasible_count, max_recorded_qp_constraint));
+grid(ax4, 'on'); ylabel(ax4, 'J');
+title(ax4, 'MPC full cost J (Q-tracking + R-regularization + constant term)');
+legend(ax4, 'Location', 'eastoutside');
 
-linkaxes([ax1 ax2 ax3 ax4], 'x');
+ax5 = nexttile(tlo, 5);
+plot(ax5, t, max_cc_violation, 'k', 'LineWidth', 0.8); hold(ax5, 'on');
+yline(ax5, 0, 'r--', 'constraint boundary', 'LabelHorizontalAlignment', 'left');
+for s = 1:5, xline(ax5, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
+grid(ax5, 'on'); xlabel(ax5, 'time step'); ylabel(ax5, 'max(AU-b)');
+title(ax5, sprintf('QP chance-constraint residual: success=%.3f, fallbacks=%d, max logged=%.2e', qp_success_rate, infeasible_count, max_recorded_qp_constraint));
+
+linkaxes([ax1 ax2 ax3 ax4 ax5], 'x');
 title(tlo, sprintf('Industrial process latent-variable PredVARX-SMPC (p=%d, ell=%d, tracked projection error %.1e)', p, ell, stats.tracked_projection_error));
 print(fig, fullfile(results_dir,'copyT_process_lv_smpc_fig'), '-dpng', '-r160');

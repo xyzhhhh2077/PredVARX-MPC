@@ -44,6 +44,14 @@ Outputs are written to `results/`:
 - `copyT_process_lv_smpc_fig.png`
 - `copyT_process_lv_smpc_metrics.txt`
 
+The generated figure is aligned with the updated baseline diagnostic style and contains five rows:
+
+1. tracked quality outputs `y_1,y_2` versus references and quality upper bound;
+2. four-line noise diagnosis: estimated latent process noise, estimated observation noise, true process noise `sigma_w`, true sensor noise `sigma_e`;
+3. manipulated inputs and input bounds;
+4. full MPC cost `J`;
+5. QP chance-constraint residual `max(AU-b)`.
+
 ## Interpretation gate
 
 A successful synthetic validation should show:
