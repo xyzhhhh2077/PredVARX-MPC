@@ -300,7 +300,7 @@ ax4 = nexttile(tlo, 4);
 plot(ax4, t, costJ, 'Color', [0.30 0.30 0.30], 'LineWidth', 0.8, 'DisplayName', sprintf('J (avg=%.2f)', mean(costJ(warm),'omitnan'))); hold(ax4, 'on');
 for s = 1:5, xline(ax4, (s-1)*seg_len+1, 'Color', [.75 .75 .75], 'HandleVisibility', 'off'); end
 grid(ax4, 'on'); ylabel(ax4, 'J');
-title(ax4, 'MPC full cost J (Q-tracking + R-regularization + constant term)');
+title(ax4, 'Centered MPC raw cost J: Q-tracking + R on (U-U_0)');
 legend(ax4, 'Location', 'eastoutside');
 
 ax5 = nexttile(tlo, 5);

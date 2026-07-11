@@ -18,19 +18,21 @@ for j = 1:N
     end
 end
 
-Hqp = kron(eye(N), opt.Ru);
-fqp = zeros(N*nu,1);
+% Optimize absolute U, but predict and penalize centered input DU=U-U0.
+% Expand the raw objective J=sum||e0_j+G_j U||_Q^2+||U-U0||_RuBar^2
+% into quadprog form 0.5*U'*Hqp*U+fqp'*U.
+RuBar = kron(eye(N), opt.Ru);
+Hraw = RuBar;
+fraw = -RuBar*U0;
+J_const = U0'*RuBar*U0;
 for j = 1:N
-    ej = M{j}*z + model.y_mean - r;
-    Hqp = Hqp + G{j}'*opt.Q*G{j};
-    fqp = fqp + G{j}'*opt.Q*ej;
+    ej0 = M{j}*z + model.y_mean - G{j}*U0 - r;
+    Hraw = Hraw + G{j}'*opt.Q*G{j};
+    fraw = fraw + G{j}'*opt.Q*ej0;
+    J_const = J_const + ej0'*opt.Q*ej0;
 end
-Hqp = (Hqp+Hqp')/2 + 1e-9*eye(N*nu);
-J_const = 0;
-for j = 1:N
-    ej = M{j}*z + model.y_mean - r;
-    J_const = J_const + ej'*opt.Q*ej;
-end
+Hqp = 2*((Hraw+Hraw')/2) + 1e-9*eye(N*nu);
+fqp = 2*fraw;
 
 risk_each = opt.alpha_joint/(2*nq*N);
 z_quantile = norminv(1-risk_each);
@@ -48,7 +50,19 @@ for j = 1:N
     end
 end
 
-lb = repmat(opt.u_min,N,1); ub = repmat(opt.u_max,N,1);
+if isscalar(opt.u_min)
+    lb_step = opt.u_min*ones(nu,1);
+else
+    lb_step = opt.u_min(:);
+end
+if isscalar(opt.u_max)
+    ub_step = opt.u_max*ones(nu,1);
+else
+    ub_step = opt.u_max(:);
+end
+assert(numel(lb_step)==nu && numel(ub_step)==nu, ...
+    'Input bounds must be scalar or have one entry per input channel.');
+lb = repmat(lb_step,N,1); ub = repmat(ub_step,N,1);
 qpopt = optimset('Display','off');
 [U,~,exitflag] = quadprog(Hqp,fqp,A_ch,b_ch,[],[],lb,ub,[],qpopt);
 if exitflag <= 0
@@ -57,7 +71,9 @@ end
 y_pred = model.y_mean + M{1}*z + G{1}*(U-U0);
 out.A_ch=A_ch; out.b_ch=b_ch; out.risk_each=risk_each;
 out.z_quantile=z_quantile; out.exitflag=exitflag;
-out.cost = 0.5*U'*Hqp*U + fqp'*U + J_const;
+out.lb=lb; out.ub=ub; out.U0=U0;
+% Remove only the tiny numerical Hessian regularizer from the reported raw cost.
+out.cost = 0.5*U'*(Hqp-1e-9*eye(N*nu))*U + fqp'*U + J_const;
 out.estimated_sigma_eps = sqrt(trace(model.Sigma_eps)/size(model.Sigma_eps,1));
 out.estimated_sigma_obs = sqrt(trace(model.Sigma_obs)/size(model.Sigma_obs,1));
 end

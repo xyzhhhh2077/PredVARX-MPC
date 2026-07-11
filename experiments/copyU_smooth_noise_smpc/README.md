@@ -36,10 +36,24 @@ $$
    - 两条在线滑窗估计；
 4. 其余控制感知子空间、VARX、SMPC、Boole 分配和 QP 保持 copyT 结构。
 
+## 2026-07-11 控制器一致性修复
+
+审查发现旧版 `lb/ub` 只有 $N=18$ 项，而决策向量有 $Nn_u=54$ 项，导致只约束前6个预测时刻。本版已修复并重新运行：
+
+- 标量/逐通道输入界均扩展为完整 $Nn_u$ 维；
+- 目标与机会约束统一采用 $U-U_0$；
+- 输入代价采用 $(U-U_0)^T\bar R_u(U-U_0)$；
+- `quadprog` 使用 $H_{qp}=2\widetilde H, f_{qp}=2\widetilde f$；
+- `costJ` 记录严格的中心化原始 MPC 代价；
+- 新增 `tests/test_copyU_controller_consistency.m` 回归测试。
+
+修复后的主要指标见 `results/copyU_smooth_noise_smpc_metrics.txt`。旧结果视为修复前历史结果。
+
 ## 运行
 
 ```matlab
 run('experiments/copyU_smooth_noise_smpc/tests/test_copyU_smooth_noise_profile.m')
+run('experiments/copyU_smooth_noise_smpc/tests/test_copyU_controller_consistency.m')
 run('experiments/copyU_smooth_noise_smpc/copyU_smooth_noise_smpc.m')
 ```
 
@@ -48,7 +62,7 @@ run('experiments/copyU_smooth_noise_smpc/copyU_smooth_noise_smpc.m')
 - 包络测试通过；
 - QP success rate = 1；
 - fallback count = 0；
-- `max(AU-b) <= 0`；
+- `max(AU-b) <= 10^{-9}`（数值容差内）；
 - 两个 tracked output 的经验越界率为 0；
 - 图中包络平滑、随机 RMS 围绕包络抖动、40 步估计带延迟跟随。
 
@@ -61,5 +75,6 @@ copyU_smooth_noise_smpc/
 ├── control_aware_subspace_varx.m
 ├── centered_smpc_step.m
 ├── tests/test_copyU_smooth_noise_profile.m
+├── tests/test_copyU_controller_consistency.m
 └── results/
 ```
