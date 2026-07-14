@@ -63,6 +63,22 @@ Compared with `copyV` (`alpha=0`):
 - reconstruction residual worsened 0.09%
 - input RMS increased slightly
 
+## Direct MAT trajectory audit
+
+`analyze_copyV_copyX_mat.m` loads both persisted MAT files and verifies the comparison rather than relying only on summary text.
+
+Confirmed directly from the artifacts:
+
+- plant matrices, reference trajectory, and both noise envelopes are identical;
+- `||P_V-P_X||_F = 0`, so only the extractor/identified coordinates differ;
+- `||R_V-R_X||_F = 0.112783`;
+- prediction and control differ from step 1; closed-loop plant outputs differ from step 2;
+- `||y_V-y_X||_F = 0.600452`, `||u_V-u_X||_F = 0.655166`;
+- maximum pointwise differences are 0.031938 in output and 0.125061 in control;
+- every persisted `y`, `u`, and `yhat` entry is finite; neither run has NaN trajectory gaps.
+
+Segment-by-segment, mild obliqueness worsens y1 MAE in all five phases (+0.22% to +1.35%) and slightly improves y2 MAE in all phases (-0.01% to -1.05%). Thus the aggregate trade-off is consistent across phases rather than being caused by one isolated transient.
+
 ## Conclusion
 
 For the current equal-variance independent sensor-noise experiment, a general oblique extractor is not automatically better. Full obliqueness strongly amplifies errors and breaks chance-constrained feasibility; mild obliqueness is usable but provides no overall performance gain over `R=P`.
