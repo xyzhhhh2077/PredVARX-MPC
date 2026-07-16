@@ -8,6 +8,8 @@
 > **旧版 OPQSTR/QZ/SM 考古**：[`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md)。用于区分旧工作区中重用字母的 Q/S/Z 系列与现行 Git 中的 `copyQ_control_aware`、`copyZ_strict_whitened_copyX_plant` 等版本。
 >
 > **统一参数 OPQSTR 还原实验**：[`experiments/copyOPQSTR_unified/`](experiments/copyOPQSTR_unified/README.md)。在同一 copyX-family plant、噪声、参考和 SMPC 下还原 Obsidian 中 O/P/Q/R/S/T 的算法差异。
+>
+> **带运行图的完整版本报告**：[`docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md)。以 `main/copyS_nosoft.m` 为原始基线，逐版说明修改、实跑效果，并嵌入对应 PNG。
 
 ## 目录结构
 
