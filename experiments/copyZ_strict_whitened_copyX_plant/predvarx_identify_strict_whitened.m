@@ -1,9 +1,13 @@
 function [Ahat,Bhat,P,Pbar,R,Rbar,G,Sigma_eps,Sigma_ebar,F,H,lambda,info] = predvarx_identify_strict_whitened(y,u,ell)
 % PREDVARX_IDENTIFY_STRICT_WHITENED
-% Mo--Qin (2025) Algorithm-1 realization plus an explicit centered VARX
-% regression. The IVR subspace is estimated in normalized coordinates.
-% De-normalization follows their Eq. (28),(29),(34) directly:
-% P=UD^(1/2)P*, R=UD^(-1/2)P*. No QR and no post-hoc SVD alignment.
+% Rank-full, first-order (s=1) whitening/IVR/de-normalization ablation based
+% on the Mo--Qin normalized-space construction, followed by a separately
+% fitted centered VARX regression.  This is NOT a complete Algorithm-1
+% implementation: the paper supports general VAR order s, uses an
+% increase-only IVR stopping rule, constructs the full complement including
+% the covariance nullspace, and computes its prescribed covariance outputs.
+% Here p=r for this noisy synthetic data, and the implemented de-normalization
+% is P=UD^(1/2)P*, R=UD^(-1/2)P*. No QR or post-hoc SVD alignment is applied.
 
 [p,T]=size(y); m=size(u,1);
 y_mean=mean(y,2); u_mean=mean(u,2); yc=y-y_mean; uc=u-u_mean;
@@ -33,7 +37,8 @@ Pbar=U*Dsqrt*Pbarstar; Rbar=U*Dinv*Pbarstar;
 % Theorem 1 concerns the innovations of the original VAR realization.  This
 % experiment does not claim that a separately fitted VARX residual inherits
 % its sample cross-covariance cancellation, so it retains the direct
-% Algorithm-1 realization rather than applying an invalid post-fit N update.
+% whitening/de-normalization realization rather than applying an invalid
+% post-fit N update.
 z=R'*yc; zn=z(:,2:end); zc=z(:,1:end-1); ur=uc(:,1:end-1);
 Theta=([zc;ur]*[zc;ur]'+1e-9*eye(ell+m))\([zc;ur]*zn');
 Ahat=Theta(1:ell,:)'; Bhat=Theta(ell+1:end,:)';
@@ -41,7 +46,11 @@ E=zn-Ahat*zc-Bhat*ur; Sigma_eps=(E*E')/max(N-1,1); Sigma_eps=(Sigma_eps+Sigma_ep
 ebar=Rbar'*yc(:,2:end); Sigma_ebar=(ebar*ebar')/max(N-1,1); Sigma_ebar=(Sigma_ebar+Sigma_ebar')/2;
 Sigma_ebar_eps_final=(ebar*E')/max(N-1,1);
 G=eye(ell); F=Ahat; H=Bhat; lambda=0.95;
-info.whitening_applied=true; info.realization='direct_moqin_denormalization';
+info.whitening_applied=true; info.realization='rank_full_s1_moqin_style_whitening_ablation';
+info.complete_algorithm1=false;
+info.algorithm1_limitations=['s=1 only; convergence does not require strict trace increase; ', ...
+    'rank-null complement and prescribed Algorithm-1 covariance outputs are not implemented; ', ...
+    'final dynamics/covariance are separately fitted VARX quantities'];
 info.normalized_orthogonality=norm(Pstar'*Pstar-eye(ell),'fro');
 info.y_mean=y_mean; info.u_mean=u_mean; info.U=U; info.D=sqrt(d); info.Pstar=Pstar;
 info.P_raw=P; info.R_raw=R; info.cross_cov_after=Sigma_ebar_eps_final; info.ivr_iterations=iter; info.predicted_trace=trace_now;

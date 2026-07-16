@@ -1,5 +1,6 @@
 copyZ_strict_whitened_copyX_plant metrics
 whitening_applied 1
+complete_algorithm1 0
 normalized_orthogonality 1.876215581387e-15
 dual_full_errors 8.009368176854e-15 1.881225547472e-15 3.693510528174e-14 1.036821178254e-14
 tracked_projection_error 1.632716738685e+00

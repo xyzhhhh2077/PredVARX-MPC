@@ -74,8 +74,9 @@ P = [E, Nperp*V];
 
 % Control-aware oblique dual.  Keep the same P (and therefore the same
 % exact tracked-output coverage) as copyV, but allow the extractor R to
-% differ.  The covariance-weighted left inverse minimizes the extraction
-% variance under R'*P=I for the empirical output covariance metric.
+% differ.  This is an empirical-total-output-covariance-weighted left
+% inverse under R'*P=I.  It is not automatically a minimum sensor-noise
+% variance extractor because Sigma_y below contains process variation too.
 Sigma_y = (yc*yc')/max(size(yc,2)-1,1);
 ridge = 1e-6*trace(Sigma_y)/max(p,1) + 1e-10;
 W = (Sigma_y + ridge*eye(p)) \ P;

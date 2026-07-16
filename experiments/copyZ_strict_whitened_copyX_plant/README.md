@@ -2,7 +2,9 @@
 
 ## Question
 
-What happens if the copyX plant and SMPC are kept fixed, but the identifier is replaced by the strict Mo--Qin normalized-space IVR and direct de-normalization?
+What happens if the copyX plant and SMPC are kept fixed, but the identifier is replaced by a rank-full, first-order Mo--Qin-style normalized-space IVR and direct de-normalization ablation?
+
+> **Correction after source-to-paper audit:** copyZ performs the whitening and direct de-normalization equations, but it is not a complete line-by-line implementation of Algorithm 1. It fixes the VAR order to $s=1$, uses a tolerance-based stopping rule rather than accepting updates only while the predicted trace increases, relies on the full-rank noisy case instead of implementing the paper's rank-null complement, and reports separately fitted VARX covariance quantities rather than all prescribed Algorithm-1 covariance outputs.
 
 ## Fair comparison with copyX
 
@@ -17,7 +19,7 @@ The following are kept identical to copyX:
 
 Only the identification geometry changes.
 
-## Strict whitening path
+## Implemented whitening path
 
 For centered output data $Y^c$, compute
 
@@ -49,11 +51,11 @@ $$
 \bar R=UD^{-1/2}\bar P^*.
 $$
 
-No QR orthogonalization, post-hoc SVD alignment, generic dual completion, tracked-axis insertion, or $R_\alpha$ interpolation is allowed.
+No QR orthogonalization, post-hoc SVD alignment, generic dual completion, tracked-axis insertion, or $R_\alpha$ interpolation is applied to this rank-full ablation.
 
 ## PredVARX boundary
 
-The original paper identifies a VAR model without an explicit control input. After the strict realization is obtained, this experiment adds the centered VARX extension
+The original paper identifies a VAR model without an explicit control input. After the implemented whitening/de-normalization realization is obtained, this experiment adds the centered VARX extension
 
 $$
 z_k=R^T(y_k-\bar y),
@@ -79,7 +81,7 @@ The focused test checks normalized orthogonality, all four full dual-basis ident
 
 ## Real MATLAB result
 
-The strict realization is algebraically correct:
+The implemented whitening/de-normalization identities are algebraically correct:
 
 - normalized orthogonality: `1.88e-15`;
 - four full dual-basis errors: `[8.01e-15, 1.88e-15, 3.69e-14, 1.04e-14]`.
@@ -94,4 +96,4 @@ It does not cover the two tracked output axes on this control task:
 
 For the same plant and controller, copyX gives exact tracked coverage, 100% QP success, no fallbacks, MAE `[0.0973, 0.0950]`, and average cost `109.16`.
 
-Thus strict whitening/de-normalization succeeds as a PredVAR realization but fails as a direct replacement for the control-aware subspace in this experiment. This is evidence that predictive-subspace validity and control-output coverage are distinct requirements.
+Thus this rank-full, $s=1$ whitening/de-normalization ablation fails as a direct replacement for the control-aware subspace in this experiment. This supports the narrower conclusion that the implemented free predictive subspace does not guarantee control-output coverage. It must not be cited as a complete reproduction or definitive falsification of Mo--Qin Algorithm 1.

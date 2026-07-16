@@ -1,8 +1,9 @@
-%% copyZ_strict_whitened_copyX_plant — strict whitening on copyX plant
+%% copyZ_strict_whitened_copyX_plant — rank-full s=1 whitening ablation on copyX plant
 % Synthetic industrial-process validation for high-dimensional process data.
 % Fair ablation: keep the copyX plant/controller/data settings, but replace
-% its raw-coordinate control-aware identifier by strict whitened IVR and
-% direct Mo--Qin de-normalization. No tracked-axis constraint or R-alpha blend.
+% its raw-coordinate control-aware identifier by Mo--Qin-style whitened IVR
+% and direct de-normalization in the full-rank, s=1 case. This is not a
+% complete Algorithm-1 implementation. No tracked-axis constraint or R-alpha blend.
 clear; clc; close all; addpath(fileparts(mfilename('fullpath')));
 rng(20260710,'twister');
 
@@ -59,7 +60,7 @@ for k = 1:T_off
     x_off(:,k+1) = A*x_off(:,k) + B*u_off(:,k) + sw*randn(n,1);
 end
 
-%% Identify strict whitened PredVARX model
+%% Identify rank-full first-order whitened PredVARX ablation
 % Free predictive subspace from normalized-space IVR.  No tracked-axis
 % constraint, no QR/SVD repair, and no R-alpha interpolation are applied.
 [Ahat,Bhat,Phat,Pbarhat,Rhat,Rbarhat,~,Sigma_eps,Sigma_ebar,~,~,~,info] = ...
@@ -209,7 +210,7 @@ max_recorded_qp_constraint = max(max_cc_violation(~isnan(max_cc_violation)));
 if isempty(max_recorded_qp_constraint), max_recorded_qp_constraint = NaN; end
 constraint_active_rate = mean(max_cc_violation(warm) > -1e-3, 'omitnan');
 
-fprintf('\ncopyZ strict-whitened PredVARX-SMPC on copyX plant\n');
+fprintf('\ncopyZ rank-full s=1 whitened PredVARX ablation on copyX plant\n');
 fprintf('whitening applied = %d, normalized orthogonality = %.3e\n', stats.whitening_applied, stats.normalized_orthogonality);
 fprintf('tracked projection error = %.3e\n', stats.tracked_projection_error);
 fprintf('tracked oblique error = %.3e, dual error = %.3e, PR asymmetry = %.3e\n', stats.tracked_oblique_error, stats.dual_error, stats.pr_asymmetry);
@@ -230,7 +231,7 @@ results_dir = fullfile(fileparts(mfilename('fullpath')), 'results');
 if ~exist(results_dir,'dir'), mkdir(results_dir); end
 
 out.schema_version = 'copyZ_strict_whitened_copyX_plant_v1';
-out.description = 'strict whitened IVR and direct Mo-Qin de-normalization on the copyX plant';
+out.description = 'rank-full s=1 Mo-Qin-style whitening and direct de-normalization ablation on the copyX plant';
 out.A_true = A; out.B_true = B; out.C_true = C;
 out.tracked = tracked; out.n = n; out.m = m; out.p = p; out.ell = ell;
 out.T_off = T_off; out.T_cl = T_cl; out.N = N;
@@ -254,6 +255,7 @@ save(fullfile(results_dir,'copyZ_strict_whitened_copyX_plant_data.mat'), '-struc
 fid = fopen(fullfile(results_dir,'copyZ_strict_whitened_copyX_plant_metrics.txt'), 'w');
 fprintf(fid, 'copyZ_strict_whitened_copyX_plant metrics\n');
 fprintf(fid, 'whitening_applied %d\n', stats.whitening_applied);
+fprintf(fid, 'complete_algorithm1 %d\n', stats.complete_algorithm1);
 fprintf(fid, 'normalized_orthogonality %.12e\n', stats.normalized_orthogonality);
 fprintf(fid, 'dual_full_errors %.12e %.12e %.12e %.12e\n', stats.dual_errors);
 fprintf(fid, 'tracked_projection_error %.12e\n', stats.tracked_projection_error);
@@ -334,5 +336,5 @@ grid(ax5, 'on'); xlabel(ax5, 'time step'); ylabel(ax5, 'max(AU-b)');
 title(ax5, sprintf('QP chance-constraint residual: success=%.3f, active=%.3f, fallbacks=%d, max=%.2e', qp_success_rate, constraint_active_rate, infeasible_count, max_recorded_qp_constraint));
 
 linkaxes([ax1 ax2 ax3 ax4 ax5], 'x');
-title(tlo, sprintf('copyZ strict-whitened PredVARX-SMPC (p=%d, ell=%d, tracked coverage error %.2e)', p, ell, stats.tracked_oblique_error));
+title(tlo, sprintf('copyZ rank-full s=1 whitened ablation (p=%d, ell=%d, tracked coverage error %.2e)', p, ell, stats.tracked_oblique_error));
 print(fig, fullfile(results_dir,'copyZ_strict_whitened_copyX_plant_fig'), '-dpng', '-r160');
