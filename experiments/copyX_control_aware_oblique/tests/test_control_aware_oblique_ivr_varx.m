@@ -18,6 +18,18 @@ assert(norm(P*R'*E-E,'fro')<1e-8,'tracked oblique coverage failed');
 assert(norm(P*R'-(P*R')','fro')>1e-4,'projector is not oblique');
 assert(isequal(size(A),[ell ell]) && isequal(size(B),[ell m]));
 assert(min(eig((Sigma+Sigma')/2))>-1e-8,'Sigma is not PSD');
-fprintf('PASS oblique test: dual=%.3e cover=%.3e ||P-R||=%.3e asym=%.3e\n', ...
-    stats.dual_error,stats.tracked_oblique_error,norm(P-R,'fro'),stats.pr_asymmetry);
+
+% Boundary regression: ell equal to the number of tracked axes means there
+% is no free IVR complement. The identifier must return a valid tracked-only
+% model instead of referencing an undefined loop variable.
+ell_tracked=numel(tracked);
+[A0,B0,P0,R0,Sigma0,stats0]=control_aware_oblique_ivr_varx(y,u,ell_tracked,tracked,0.02);
+assert(stats0.ivr_iter==0,'tracked-only model must report zero IVR iterations');
+assert(stats0.ivr_subspace_delta==0,'tracked-only model must report zero subspace change');
+assert(isequal(size(A0),[ell_tracked ell_tracked]) && isequal(size(B0),[ell_tracked m]));
+assert(norm(R0'*P0-eye(ell_tracked),'fro')<1e-8,'tracked-only dual identity failed');
+assert(min(eig((Sigma0+Sigma0')/2))>-1e-8,'tracked-only Sigma is not PSD');
+
+fprintf('PASS oblique test: dual=%.3e cover=%.3e ||P-R||=%.3e asym=%.3e; tracked-only ivr_iter=%d\n', ...
+    stats.dual_error,stats.tracked_oblique_error,norm(P-R,'fro'),stats.pr_asymmetry,stats0.ivr_iter);
 end

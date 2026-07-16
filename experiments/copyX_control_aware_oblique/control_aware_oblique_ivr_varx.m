@@ -105,11 +105,12 @@ stats.pr_asymmetry = norm(P*R'-(P*R')','fro');
 stats.cond_dual_gram = cond(Gram);
 stats.oblique_alpha = oblique_alpha;
 stats.reconstruction_residual = norm(yc-P*(R'*yc),'fro')/max(norm(yc,'fro'),eps);
-stats.ivr_iter = exist('iter','var')*iter;
 if r == 0
+    stats.ivr_iter = 0;
     stats.ivr_trace = [];
     stats.ivr_subspace_delta = 0;
 else
+    stats.ivr_iter = iter;
     stats.ivr_trace = trace_hist;
     stats.ivr_subspace_delta = delta;
 end
