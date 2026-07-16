@@ -8,6 +8,8 @@
 
 > 旧工作区还存在另一套重用 Q/S/Z 等字母的实验。其版本考古和与现行 Git 的对照见 [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md)。本文以下的 O–Z 默认指 2026-07-09 Git 仓库中的现行目录名。
 
+> 为消除历史参数差异，新增 [`experiments/copyOPQSTR_unified/`](experiments/copyOPQSTR_unified/README.md)，用同一 plant/controller/noise 还原 O/P/Q/R/S/T 的算法差异。其指标应优先用于 OPQSTR 横向比较。
+
 ## 1. 先给结论
 
 版本演化不是一条“每个字母都更好”的单线，而是四条问题线：
