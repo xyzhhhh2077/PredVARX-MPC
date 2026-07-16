@@ -4,6 +4,8 @@
 > **原则**：每个版本目录只放本版本的主代码、辅助函数、局部测试、结果和说明；基础版本不被实验版本覆盖。
 >
 > **完整版本差异和指标总表**：[`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md)。该文档覆盖 main、copyO–copyZ，明确哪些版本可公平比较、copyX/copyY 的无白化事实和 copyZ 的白化消融结果。
+>
+> **旧版 OPQSTR/QZ/SM 考古**：[`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md)。用于区分旧工作区中重用字母的 Q/S/Z 系列与现行 Git 中的 `copyQ_control_aware`、`copyZ_strict_whitened_copyX_plant` 等版本。
 
 ## 目录结构
 
