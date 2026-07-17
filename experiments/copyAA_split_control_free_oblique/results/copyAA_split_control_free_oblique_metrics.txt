@@ -1,0 +1,31 @@
+copyAA_split_control_free_oblique metrics
+tracked_projection_error 0.000000000000e+00
+tracked_right_error 0.000000000000e+00
+tracked_left_error 0.000000000000e+00
+tracked_column_error 0.000000000000e+00
+free_oblique_norm 1.042752953743e+00
+free_noise_baseline 1.158423439696e-02
+free_noise_objective 8.490657958756e-03
+free_noise_improvement 3.093576438203e-03
+dual_error 5.744789948873e-17
+pr_asymmetry 1.474675369389e+00
+cond_dual_gram 1.000000000000e+00
+reconstruction_residual 0.126689668686
+MAE 0.065618457626 0.061325142093
+RMSE 0.092136024871 0.086041727267
+Bias -0.013938098155 -0.010655289528
+upper_violation_rate 0.000000000000 0.000000000000
+abs_violation_rate 0.000000000000 0.000000000000
+qp_success_rate 1.000000000000
+infeasible_count 0
+max_recorded_qp_constraint -4.440892098501e-16
+constraint_active_rate 0.664761904762
+avg_costJ 61.604110048318
+estimated_sigma_eps_mean 0.131490220416
+estimated_sigma_obs_mean 0.089901009730
+realized_sigma_w_mean 0.054176734279
+realized_sigma_e_mean 0.068018038617
+sigma_w_profile_range 0.020000000000 0.090000000000
+sigma_e_profile_range 0.025000514041 0.099999485959
+u_rms 0.245615056863 0.517605139357 0.321091427669
+u_sat_rate 0.000000000000 0.000833333333 0.000833333333
