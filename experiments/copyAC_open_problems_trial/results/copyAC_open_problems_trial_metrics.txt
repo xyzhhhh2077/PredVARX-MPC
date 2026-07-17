@@ -1,0 +1,24 @@
+copyAC_open_problems_trial metrics
+sigma_eps_mode ols
+use_cross_cov 1
+sigma_obs_mode additive
+enable_soft_recovery 1
+use_terminal_cost 1
+input_residualize 1
+tracked_left_error 0.000000000000e+00
+tracked_right_error 0.000000000000e+00
+tracked_column_error 0.000000000000e+00
+dual_error 3.311397765341e-16
+free_oblique_norm 1.042265973139e+00
+free_noise_improvement 3.093466702187e-03
+cross_drop_rel_err 2.937249345567e-02
+cross_Sigma_zo_fro 3.952071804491e-01
+MAE 0.058029832742 0.056244207183
+RMSE 0.078527016026 0.079262049091
+upper_violation_rate 0.000000000000 0.000000000000
+qp_certified_rate 1.000000000000
+soft_recovery_rate 0.000000000000
+uncertified_fallback_rate 0.000000000000
+max_recorded_qp_constraint -1.274536032270e-13
+constraint_active_rate 0.045714285714
+avg_costJ 64.946948151589
