@@ -41,3 +41,8 @@ addpath(pwd); addpath('lib'); addpath('tests');
 test_copyAC_open_problem_trials;
 run('copyAC_open_problems_trial.m');
 ```
+
+
+## Fair comparison vs copyAB
+
+See `results/copyAB_vs_copyAC_fair_compare.md` (and `.txt`) for a same-seed re-run of copyAB defaults vs this trial stack.

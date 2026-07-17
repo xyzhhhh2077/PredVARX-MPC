@@ -1,0 +1,30 @@
+copyAB (defaults) vs copyAC (open-problem trials ON)
+shared: rng(20260710), n=6 m=3 p=30 ell=5 T_cl=1200 N=18 y_max=2 heteroscedastic Sigma_n
+AB: free dual declared Sigma_n; residualize OFF; cross OFF; Sigma_obs declared-shape proxy; terminal OFF; soft OFF
+AC: Sigma_eps=ols; residualize ON; cross ON; Sigma_obs additive; terminal ON; soft recovery ON
+
+metric                                            copyAB                  copyAC
+--------------------------------------------------------------------------------
+tracked_left_error                    0.000000000000e+00      0.000000000000e+00
+tracked_right_error                   0.000000000000e+00      0.000000000000e+00
+tracked_column_error                  0.000000000000e+00      0.000000000000e+00
+dual_error                            5.744789948873e-17      3.311397765341e-16
+free_oblique_norm                     1.042752953743e+00      1.042265973139e+00
+free_noise_improvement                3.093576438203e-03      3.093466702187e-03
+MAE                               0.065618457626 0.061325142093  0.058029832742 0.056244207183
+RMSE                              0.092136024871 0.086041727267  0.078527016026 0.079262049091
+upper_violation_rate              0.000000000000 0.000000000000  0.000000000000 0.000000000000
+qp_certified_rate                         1.000000000000          1.000000000000
+qp_success_rate                           1.000000000000                      NA
+uncertified_fallback_rate                 0.000000000000          0.000000000000
+soft_recovery_rate                                    NA          0.000000000000
+max_recorded_qp_constraint           -4.440892098501e-16     -1.274536032270e-13
+constraint_active_rate                    0.664761904762          0.045714285714
+avg_costJ                                61.604110048318         64.946948151589
+cross_drop_rel_err                                    NA      2.937249345567e-02
+cross_Sigma_zo_fro                                    NA      3.952071804491e-01
+sigma_eps_mode                                        NA                     ols
+use_cross_cov                                         NA                       1
+sigma_obs_mode                                        NA                additive
+input_residualize                                     NA                       1
+use_terminal_cost                                     NA                       1
