@@ -166,6 +166,10 @@ for k = 1:T_cl
         sigma_obs_k = norm(Owin,'fro')/sqrt(max((p-ell)*(obs_count-1),1));
         % Update the rolling scale while preserving the declared
         % heteroscedastic/correlated sensor-noise shape.
+        % NOTE (opinion 7): scale is estimated from projected residuals
+        % o=(I-PR')y (support <= p-ell), but shape is full-space Sigma_n.
+        % This is a sensor-noise-floor proxy, not Cov(o) itself; scale can
+        % absorb unmodeled dynamics and overestimate pure sensor noise.
         model.Sigma_obs = max(sigma_obs_k^2,1e-8)*Sigma_obs_shape;
     end
     estimated_sigma_eps(k) = sqrt(trace(model.Sigma_eps)/ell);

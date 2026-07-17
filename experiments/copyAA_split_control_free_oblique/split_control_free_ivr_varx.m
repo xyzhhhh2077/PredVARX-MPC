@@ -7,6 +7,10 @@ function [Ahat,Bhat,P,R,Sigma_eps,stats] = split_control_free_ivr_varx(y,u,ell,t
 % Sigma_n is the known/declared sensor-noise covariance. The free extractor
 % minimizes trace(Rf'*Sigma_n*Rf) subject to Rf'*Pf=I. The complete latent
 % coordinate is then re-extracted and the coupled VARX model is refitted.
+%
+% IVR free-direction selection uses only projected output lags (not U).
+% Therefore the free span is predictable-in-output-history, not a proved
+% input-conditional PredVARX subspace. U enters only in the VARX step.
 
 p = size(y,1);
 m = size(u,1);

@@ -10,6 +10,8 @@ The algorithm separates two roles that copyX mixed together:
 2. **Free latent directions** are learned by IVR and receive a true sensor-noise-covariance-weighted dual extractor.
 3. The two blocks are merged into one latent coordinate, and the complete coupled VARX model is refitted before SMPC.
 
+**Boundary (opinion 10):** IVR on free directions still uses only projected output lags (`Ylag/Ycur` in `null(E')`). This yields a **predictable-in-output-history** free subspace, **not** a proved input-conditional optimal PredVARX subspace. Inputs enter only at the subsequent VARX step `Phi=[zc;ur]`.
+
 ## Mathematics
 
 Let
