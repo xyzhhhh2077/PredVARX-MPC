@@ -15,7 +15,7 @@ Goal: try a concrete code/doc fix for each of the 10 pure-math review opinions, 
 | 2 True noise metric | declared Σ_n free-block optimum flags | `split_*` + `tests/test_opinion02_*` |
 | 3 M vs τ | comments + small numeric check | `split_*` comments + `tests/test_opinion03_*` |
 | 4 Stop ≠ converge | export `ivr_trace` fields | `split_*` + `tests/test_opinion04_*` |
-| 5 Sigma denom | multi-denom stats, default T-2 | `split_*` + `tests/test_opinion05_*` |
+| 5 Sigma denom | primary zero-mean Gaussian ML scale; OLS DOF diagnostic | `split_*` + `tests/test_opinion05_*` |
 | 6 Cross cov | diagnostic library | `lib/cross_cov_diagnostics.m` |
 | 7 Sigma_obs support | diagnostic library | `lib/sigma_obs_support_diag.m` |
 | 8 Fallback cert | runner catch path | `copyAB_opinion_fixes.m` |

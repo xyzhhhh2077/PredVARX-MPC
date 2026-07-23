@@ -180,6 +180,8 @@ results_dir=fullfile(fileparts(mfilename('fullpath')),'results'); if ~exist(resu
 sv.yC=yC; sv.yZ=yZ; sv.uC=uC; sv.uZ=uZ;
 sv.sC_eps=sC_eps; sv.sC_ebar=sC_ebar;
 sv.sZ_eps=sZ_eps; sv.sZ_ebar=sZ_ebar;
+sv.true_sigma_w=sw0*ones(1,T_cl);
+sv.true_sigma_e=se0*ones(1,T_cl);
 sv.costC=costC; sv.costZ=costZ;
 sv.Rf=Rf; sv.y_max=y_max; sv.T_cl=T_cl;
 sv.eC=eC; sv.eZ=eZ; sv.vC=vC; sv.vZ=vZ;
@@ -221,17 +223,14 @@ for s=1:5, ks=(s-1)*400; xline(ks,'Color',[.7 .7 .7],'HandleVisibility','off'); 
 ylabel('y'); title('y_1 (dashed, not tracked) & y_2 (solid, tracked by MPC)','FontSize',13);
 legend('Location','best','FontSize',9,'NumColumns',2); grid on; hold off;
 
-% --- 子图2: 噪声估计 ---
+% --- 子图2: 噪声估计 vs 真实噪声（四根线） ---
 subplot(5,1,2);
-plot(t_axis, sC_eps, 'Color',cC, 'LineWidth',0.8, 'DisplayName',sprintf('C sigma_eps (avg=%.3f)',mean(sC_eps(500:end))));
-hold on;
-plot(t_axis, sZ_eps, 'Color',cZ, 'LineWidth',0.8, 'DisplayName',sprintf('Zfix sigma_eps (avg=%.3f)',mean(sZ_eps(500:end))));
-plot(t_axis, sC_ebar, '--', 'Color',cC2, 'LineWidth',0.8, 'DisplayName',sprintf('C sigma_ebar (avg=%.3f)',mean(sC_ebar(500:end))));
-plot(t_axis, sZ_ebar, '--', 'Color',cZ2, 'LineWidth',0.8, 'DisplayName',sprintf('Zfix sigma_ebar (avg=%.3f)',mean(sZ_ebar(500:end))));
-yline(sw0, 'g-', sprintf('true sigma_w=%.2f',sw0), 'LineWidth',1.5, 'FontSize',10, 'LabelHorizontalAlignment','left', 'DisplayName','true sigma_w');
-yline(se0, 'm-', sprintf('true sigma_e=%.2f',se0), 'LineWidth',1.5, 'FontSize',10, 'LabelHorizontalAlignment','left', 'DisplayName','true sigma_e');
+plot(t_axis, sC_eps, 'Color',cC, 'LineWidth',0.8, 'DisplayName',sprintf('C estimated sigma_{eps} (avg=%.3f)',mean(sC_eps(500:end)))); hold on;
+plot(t_axis, sZ_eps, 'Color',cZ, 'LineWidth',0.8, 'DisplayName',sprintf('Zfix estimated sigma_{eps} (avg=%.3f)',mean(sZ_eps(500:end))));
+plot(t_axis, sw0*ones(1,T_cl), 'k-', 'LineWidth',1.4, 'DisplayName',sprintf('true process noise sigma_w=%.2f',sw0));
+plot(t_axis, se0*ones(1,T_cl), 'm-', 'LineWidth',1.4, 'DisplayName',sprintf('true sensor noise sigma_e=%.2f',se0));
 for s=1:5, ks=(s-1)*400; xline(ks,'Color',[.7 .7 .7],'HandleVisibility','off'); end
-ylabel('sigma'); title('Noise: sigma_eps (DLV process) & sigma_ebar (static obs) vs true values','FontSize',13);
+ylabel('sigma'); title('Noise diagnosis: estimated latent process noise vs true process/sensor noise','FontSize',13);
 legend('Location','best','FontSize',8,'NumColumns',2); grid on; hold off;
 
 % --- 子图3: 控制输入 ---

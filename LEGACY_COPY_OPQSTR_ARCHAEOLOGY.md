@@ -13,7 +13,7 @@
 - `copyT_process_lv_smpc`
 - `copyR_moqin_oblique`
 
-但旧工作区 `E:/academic_files/phd-learning/PredVAR+MPC/matlab/` 还保存了另一批更早的 Q/S/SM/QZ 副本。这些副本和现行 Git 中同字母版本不是同一含义。因此不能简单把“copyQ”写成唯一版本。
+但旧工作区 `E:/academic_files/phd-learning/代码/archive/organized_legacy_2026-07-10/` 还保存了另一批更早的 Q/S/SM/QZ 副本。这些副本和现行 Git 中同字母版本不是同一含义。因此不能简单把“copyQ”写成唯一版本。
 
 ## 2. OPQSTR 主版本对照
 

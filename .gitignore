@@ -17,13 +17,26 @@ codegen/
 # Large MATLAB data/results files: track manually only if needed
 *.mat
 
-# Figures can become large; track manually if they are final paper figures
+# Figures can become large; track manually only if they are final paper figures
 *.fig
 
 # Common generated outputs
 *.log
 *.out
 *.cache
+
+# Per-experiment PNG figures (generated; do not track. README mentions paper-level figures explicitly)
+experiments/*/results/*.png
+
+# Stray PDFs dropped into experiments (e.g., downloaded plant PDFs, teaching copies)
+experiments/*.pdf
+
+# Literature download cache (PDFs + analysis .md) -- too large, should live outside this git repo
+experiments/_lit_dl/
+experiments/_tmp_*.txt
+
+# Teaching PPT project (separate repo concern; not part of MATLAB identifier suite)
+projects/
 
 # OS junk
 .DS_Store

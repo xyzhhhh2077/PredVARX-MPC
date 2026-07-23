@@ -25,7 +25,7 @@ PASS test_opinion10_input_residualize
 | 2 | Declared Σ_n free-noise flags + isotropic collapse | always | done |
 | 3 | Comments: M vs τ (latent energy) | n/a | done |
 | 4 | Always export ivr_iter/trace/delta | always | done |
-| 5 | Sigma_eps multi-denom; default return T-2 | T-2 default | done |
+| 5 | Sigma_eps multi-denom; primary return uses zero-mean Gaussian ML denominator | N_res=T-1 primary; OLS DOF diagnostic | done |
 | 6 | cross_cov_diagnostics.m offline | offline print | done |
 | 7 | sigma_obs_support_diag.m online last diag | diagnostic only | done |
 | 8 | fallback cert `qp` / `uncertified_fallback` | always | done |

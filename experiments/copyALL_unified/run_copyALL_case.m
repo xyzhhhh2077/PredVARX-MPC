@@ -1,4 +1,4 @@
-function out=run_copyOPQSTR_case(method,base,D,cfg)
+function out=run_copyALL_case(method,base,D,cfg)
 % Common evaluator. All methods share plant/data/SMPC; only identification/adaptation differs.
 T=cfg.T_cl; x=zeros(cfg.n,1); y=zeros(cfg.p,T); u=zeros(cfg.m,T); ef=zeros(1,T); cc=nan(1,T); J=nan(1,T); fallback=0; pred_sq=[];
 model=base; model.Sigma_obs=D.sigma_e_profile(1)^2*eye(cfg.p); zprev=[]; yonline=zeros(cfg.p,T); uonline=zeros(cfg.m,T); reid_count=0; bias=zeros(cfg.p,1);

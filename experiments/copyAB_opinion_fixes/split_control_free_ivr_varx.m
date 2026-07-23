@@ -155,17 +155,16 @@ Theta = (Phi*Phi'+1e-8*eye(ell+m)) \ (Phi*zn');
 Ahat = Theta(1:ell,:)';
 Bhat = Theta(ell+1:end,:)';
 Eps = zn-Ahat*zc-Bhat*ur;
-% Opinion 5: multi-denominator residual covariance.
-% Default return Sigma_eps keeps engineering T-2 (Nres-1) for downstream SMPC.
+% Opinion 5: residual covariance uses the conditional Gaussian ML scaling.
+% The innovation mean is modeled as zero, so the primary denominator is
+% Nres (not Nres-1).  OLS residual DOF is retained only as a diagnostic.
 Nres = size(Eps,2);                       % = T-1 (one lag lost)
 Gram_eps = Eps*Eps';
-denom_t2  = max(Nres-1,1);                % T-2 engineering sample cov
 denom_ml  = max(Nres,1);                  % Gaussian ML / population MLE
 denom_ols = max(Nres-(ell+m),1);          % OLS residual DOF after ell+m params
-Sigma_eps     = (Gram_eps/denom_t2);
+Sigma_eps     = (Gram_eps/denom_ml);       % primary, theory-backed zero-mean ML
 Sigma_eps     = (Sigma_eps+Sigma_eps')/2;
-Sigma_eps_ml  = (Gram_eps/denom_ml);
-Sigma_eps_ml  = (Sigma_eps_ml+Sigma_eps_ml')/2;
+Sigma_eps_ml  = Sigma_eps;
 Sigma_eps_ols = (Gram_eps/denom_ols);
 Sigma_eps_ols = (Sigma_eps_ols+Sigma_eps_ols')/2;
 
@@ -189,11 +188,11 @@ stats.sensor_noise_covariance = Sigma_n;
 % Explicit naming: true means candidate residualize-on-U IVR was used;
 % it does NOT claim a proved optimal input-conditional free subspace.
 stats.ivr_input_conditional = logical(input_residualize);
-% Opinion 5 multi-denom stats (return Sigma_eps remains T-2 default).
+% Opinion 5 multi-denom stats (primary return is zero-mean Gaussian ML).
 stats.N_residual = Nres;
-stats.Sigma_eps_denom_t2  = denom_t2;
 stats.Sigma_eps_denom_ml  = denom_ml;
 stats.Sigma_eps_denom_ols = denom_ols;
+stats.Sigma_eps_denom_primary = denom_ml;
 stats.Sigma_eps     = Sigma_eps;
 stats.Sigma_eps_ml  = Sigma_eps_ml;
 stats.Sigma_eps_ols = Sigma_eps_ols;

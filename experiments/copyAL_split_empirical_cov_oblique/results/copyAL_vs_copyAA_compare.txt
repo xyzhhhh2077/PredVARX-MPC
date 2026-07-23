@@ -1,0 +1,28 @@
+copyAL vs copyAA same-seed plant comparison
+seed_note both runners use rng(20260710,twister) at start
+AL_metric empirical-total-covariance metric
+AL_uses_true_Sigma_n 0
+AA_uses_declared_Sigma_n 1
+AL_MAE 0.117563486205 0.167624915612
+AA_MAE 0.065618457626 0.061325142093
+AL_RMSE 0.179544490893 0.251010807212
+AA_RMSE 0.092136024871 0.086041727267
+AL_qp_success_rate 1.000000000000
+AA_qp_success_rate 1.000000000000
+AL_infeasible_count 0
+AA_infeasible_count 0
+AL_constraint_active_rate 0.779047619048
+AA_constraint_active_rate 0.664761904762
+AL_cover 1.000000000000
+AA_cover 1.000000000000
+AL_free_emp_cov_objective 1.909559673321e+01
+AL_free_emp_cov_improvement 1.383059565538e+00
+AA_free_noise_objective 8.490657958756e-03
+AA_free_noise_improvement 3.093576438203e-03
+AL_free_oblique_norm 5.910112582524e+00
+AA_free_oblique_norm 1.042752953743e+00
+AL_dual_error 3.692972891093e-16
+AA_dual_error 5.744789948873e-17
+note cover is warm-horizon QP-success time-fraction proxy only
+note AL free metric is empirical total free-cov; AA is declared Sigma_n
+note neither result is PredVAR min-innovation covariance theorem

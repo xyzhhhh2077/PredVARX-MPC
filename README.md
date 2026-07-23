@@ -1,6 +1,6 @@
 # MATLAB 实验目录总览
 
-> **仓库**：`matlab 2026,7,9`
+> **仓库**：`代码/PredVARX-MPC`（原 `PredVAR+MPC/matlab/git_repo_2026-07-09`，2026-07-18 迁入统一代码入口）
 > **原则**：每个版本目录只放本版本的主代码、辅助函数、局部测试、结果和说明；基础版本不被实验版本覆盖。
 >
 > **完整版本差异和指标总表**：[`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md)。该文档覆盖 main、copyO–copyZ，明确哪些版本可公平比较、copyX/copyY 的无白化事实和 copyZ 的白化消融结果。
@@ -74,16 +74,25 @@ run('experiments/copyR_moqin_oblique/copyR_moqin_oblique.m')
 
 ## 测试入口
 
+根目录标准套件（`matlab.unittest`，class-based）：
+
 ```matlab
-addpath('experiments/copyO_oblique'); addpath('experiments/copyO_oblique/tests');
-test_predvarx_identify_oblique
-
-addpath('experiments/copyP_centered_smpc'); addpath('experiments/copyP_centered_smpc/tests');
-test_centered_smpc_step
-
-addpath('experiments/copyQ_control_aware'); addpath('experiments/copyQ_control_aware/tests');
-test_control_aware_subspace
-
-addpath('experiments/copyR_moqin_oblique'); addpath('experiments/copyR_moqin_oblique/tests');
-test_predvarx_identify_moqin
+cd('tests')
+run_all_tests
 ```
+
+或：
+
+```matlab
+results = runtests('tests', 'IncludeSubfolders', false);
+assertSuccess(results);
+```
+
+| 测试类 | 覆盖 |
+|--------|------|
+| `tPredvarxIdentifyOblique` | 斜投影双基恒等式 |
+| `tCenteredSmpcStep` | 中心化预测 + Boole 机会约束收紧 |
+| `tControlAwareSubspace` | 跟踪轴覆盖的降维子空间 |
+
+各实验副本自有 opinion/诊断测试仍在 `experiments/copy*/tests/`。
+

@@ -186,8 +186,9 @@ for k = 1:T_cl
         eps_count = min(eps_count+1,noise_window);
     end
     if eps_count >= 5
-        Ewin = eps_buffer(:,1:eps_count)-mean(eps_buffer(:,1:eps_count),2);
-        model.Sigma_eps = (Ewin*Ewin')/max(eps_count-1,1)+1e-8*eye(ell);
+        Ewin = eps_buffer(:,1:eps_count);
+        % Rolling one-step innovations use the zero-mean Gaussian ML scale.
+        model.Sigma_eps = (Ewin*Ewin')/max(eps_count,1)+1e-8*eye(ell);
         model.Sigma_eps = (model.Sigma_eps+model.Sigma_eps')/2;
     end
     if obs_count >= 5

@@ -1,0 +1,33 @@
+copyAL_split_empirical_cov_oblique metrics
+metric_name empirical-total-covariance metric
+uses_true_Sigma_n 0
+oblique_alpha 1.000000000000
+tracked_projection_error 0.000000000000e+00
+tracked_right_error 0.000000000000e+00
+tracked_left_error 0.000000000000e+00
+tracked_column_error 0.000000000000e+00
+free_oblique_norm 5.910112582524e+00
+free_emp_cov_baseline 2.047865629875e+01
+free_emp_cov_objective 1.909559673321e+01
+free_emp_cov_improvement 1.383059565538e+00
+dual_error 3.692972891093e-16
+pr_asymmetry 8.358161369357e+00
+cond_dual_gram 1.000000000000e+00
+reconstruction_residual 0.269666480187
+MAE 0.063068085962 0.059873607051
+RMSE 0.087296619972 0.083231124621
+Bias -0.010346317207 -0.007462014175
+upper_violation_rate 0.000000000000 0.000833333333
+abs_violation_rate 0.000000000000 0.000833333333
+qp_success_rate 1.000000000000
+infeasible_count 0
+max_recorded_qp_constraint -9.992007221626e-16
+constraint_active_rate 0.707619047619
+cover_warm_qp_success_time_fraction 1.000000000000
+avg_costJ 90.119101054489
+estimated_sigma_eps_mean 0.327956865535
+estimated_sigma_obs_mean 0.151392682458
+realized_sigma_w_mean 0.054176734279
+realized_sigma_e_mean 0.068018038617
+u_rms 0.260885442816 0.529487494062 0.323226382062
+u_sat_rate 0.000833333333 0.000000000000 0.000833333333

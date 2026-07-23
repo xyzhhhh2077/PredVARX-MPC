@@ -4,7 +4,7 @@ status: done
 
 ## Goal
 
-Expose multiple residual-covariance denominators for `Sigma_eps` while **keeping the engineering T-2 default** as the primary return value so downstream SMPC (`model.Sigma_eps`) is unchanged.
+Expose multiple residual-covariance denominators for `Sigma_eps` while using the conditional zero-mean Gaussian ML denominator `N_res` as the primary return value. The OLS residual-DOF scale remains diagnostic only.
 
 ## Math
 
@@ -12,7 +12,7 @@ After the coupled VARX fit, residual matrix `Eps` has `N = T-1` columns (one lag
 
 | Name | Formula | Denominator | Role |
 |---|---|---|---|
-| `Sigma_eps` (default) | `G / max(N-1,1)` | `N-1 = T-2` | Engineering unbiased sample cov |
+| `Sigma_eps` (primary) | `G / max(N,1)` | `N = T-1` | Conditional zero-mean Gaussian ML / population scaling |
 | `Sigma_eps_ml` | `G / max(N,1)` | `N` | Gaussian ML / population MLE |
 | `Sigma_eps_ols` | `G / max(N-(ell+m),1)` | residual DOF after regressing `ell+m` params | OLS residual covariance |
 
@@ -23,14 +23,14 @@ All three are symmetrized `(S+S')/2`.
 File: `split_control_free_ivr_varx.m` only (Opinion 5 section).
 
 - Compute `Nres`, `Gram_eps`, then three denoms and matrices.
-- **Return value** `Sigma_eps` remains T-2.
+- **Return value** `Sigma_eps` uses the primary zero-mean Gaussian ML scale.
 - `stats` records:
   - `Sigma_eps`, `Sigma_eps_ml`, `Sigma_eps_ols`
-  - `N_residual`, `Sigma_eps_denom_t2`, `Sigma_eps_denom_ml`, `Sigma_eps_denom_ols`
+  - `N_residual`, `Sigma_eps_denom_primary`, `Sigma_eps_denom_ml`, `Sigma_eps_denom_ols`
 
 ## Downstream safety
 
-- `copyAB_opinion_fixes.m` and `centered_smpc_step.m` still consume the 5th return `Sigma_eps` → T-2 default preserved.
+- `copyAB_opinion_fixes.m` and `centered_smpc_step.m` consume the 5th return `Sigma_eps` → conditional zero-mean Gaussian ML scale.
 - ML/OLS variants are opt-in via `stats` only; no caller switch was added.
 
 ## Test
@@ -53,4 +53,4 @@ ALL_PASS
 
 ## Boundary
 
-Reporting multiple denoms does **not** resolve which is "correct" for chance-constraint tightening; default remains engineering T-2 for continuity with existing closed-loop code.
+Reporting multiple denoms does **not** make the OLS scale valid under the present ridge/data-dependent-subspace pipeline; the primary return uses the conditional zero-mean Gaussian ML scale, while OLS DOF is retained only as a clearly labeled diagnostic.

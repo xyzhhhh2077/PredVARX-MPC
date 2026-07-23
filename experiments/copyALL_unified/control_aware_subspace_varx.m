@@ -2,7 +2,7 @@ function [Ahat,Bhat,P,R,Sigma_eps,stats] = control_aware_subspace_varx(y,u,ell,t
 % CONTROL_AWARE_SUBSPACE_VARX Reduced orthogonal model retaining tracked axes.
 % P=[E_tracked, Q_perp] makes each tracked output exactly representable.
 p=size(y,1); m=size(u,1); q=numel(tracked);
-if ell<q, error('control_aware_subspace_varx:ellTooSmall','ell must be at least the number of tracked outputs.'); end
+if ell<q, error('ell must be at least the number of tracked outputs.'); end
 y_mean=mean(y,2); u_mean=mean(u,2); yc=y-y_mean; uc=u-u_mean;
 E=zeros(p,q); E(tracked,:)=eye(q);
 Nperp=null(E');
