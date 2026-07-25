@@ -1,0 +1,38 @@
+copyAN_crte_fixed_surrogate metrics
+metric_name CRTE fixed spectral surrogate (free complement only)
+uses_true_Sigma_n 0
+selected_mu 0.250000000000
+selected_alpha 0.500000000000
+selected_beta 0.500000000000
+selected_validation_nrmse 0.064687258351
+num_candidates 45
+valid_candidates 17
+tracked_right_error 0.000000000000e+00
+tracked_left_error 0.000000000000e+00
+tracked_column_error 0.000000000000e+00
+dual_error 3.447639228967e-15
+dual_error_RPbar 2.653916758621e-16
+dual_error_RbarP 1.002265174519e-15
+dual_error_RbarPbar 1.553903118247e-15
+dual_basis_completion 1
+Pi_idempotency_err 3.976544817758e-15
+pr_asymmetry 1.057946202393e+00
+spectral_radius 0.941746486885
+reconstruction_residual 0.118994966647
+MAE 0.060596919463 0.057433658042
+RMSE 0.083436512496 0.079557492387
+Bias -0.007390369950 -0.000895371898
+upper_violation_rate 0.000000000000 0.000833333333
+abs_violation_rate 0.000000000000 0.000833333333
+qp_success_rate 1.000000000000
+infeasible_count 0
+max_recorded_qp_constraint 5.796474411568e-12
+constraint_active_rate 0.663809523810
+cover_warm_qp_success_time_fraction 1.000000000000
+avg_costJ 51.667523148693
+estimated_sigma_eps_mean 0.088381104954
+estimated_sigma_obs_mean 0.001746714485
+realized_sigma_w_mean 0.054176734279
+realized_sigma_e_mean 0.068018038617
+u_rms 0.242919275526 0.523189710116 0.322276920750
+u_sat_rate 0.000833333333 0.001666666667 0.001666666667

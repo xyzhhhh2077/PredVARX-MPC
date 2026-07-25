@@ -1,0 +1,23 @@
+copyAN vs copyAM same-seed plant comparison
+seed_note both runners use rng(20260710,twister)
+AN_objective fixed CRTE spectral surrogate (free complement)
+AM_objective empirical free-coordinate total covariance
+AN_selected_mu 0.2500
+AN_selected_alpha 0.5000
+AN_selected_beta 0.5000
+AN_selected_validation_nrmse 0.064687
+AN_MAE 0.060597 0.057434
+AM_MAE 0.063069 0.059873
+AN_RMSE 0.083437 0.079557
+AM_RMSE 0.087297 0.083231
+AN_avg_J 51.667523
+AM_avg_J 90.119052
+AN_qp_success 1.000000 fallbacks 0
+AM_qp_success 1.000000 fallbacks 0
+AN_constraint_active_rate 0.663810
+AM_constraint_active_rate 0.707619
+AN_cover 1.000000
+AM_cover 1.000000
+AN_dual_error 3.447639e-15
+AM_dual_error 3.692973e-16
+note neither result is recursive-feasibility or chance-certificate
