@@ -1,0 +1,28 @@
+copyAO_crte_teacher_profiled_unknown_noise metrics
+uses_true_Sigma_n 0
+noise_object two-fold cross-fitted free-output residual covariance proxy
+search_claim finite candidate verification; no Stiefel global-optimum claim
+selected_mu 0.500000000000
+selected_source spectral
+teacher_objective 3.329068247609e-02
+prediction_term 2.372605772453e-02
+task_term 1.059019975769e-03
+noise_term 1.062364472733e-02
+reach_min 3.943436466229e-01
+validation_nrmse 0.120536590802
+num_candidates 195
+num_feasible 195
+H0_idempotency_error 1.112250606740e-15
+dual_error 1.375260992673e-15
+Pi_idempotency_error 1.941586134338e-15
+spectral_radius 0.935611338820
+MAE 0.059480435983 0.061142231701
+RMSE 0.080545239626 0.082866217956
+Bias -0.003992578727 -0.003320931913
+upper_violation_rate 0.000833333333 0.000000000000
+qp_success_rate 1.000000000000
+infeasible_count 0
+max_recorded_qp_constraint 3.027911255060e-12
+constraint_active_rate 0.718095238095
+cover_warm_qp_success_time_fraction 1.000000000000
+avg_internal_costJ 72.747191573985
