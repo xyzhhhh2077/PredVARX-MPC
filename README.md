@@ -1,98 +1,212 @@
-# MATLAB 实验目录总览
+# PredVARX-MPC
 
-> **仓库**：`代码/PredVARX-MPC`（原 `PredVAR+MPC/matlab/git_repo_2026-07-09`，2026-07-18 迁入统一代码入口）
-> **原则**：每个版本目录只放本版本的主代码、辅助函数、局部测试、结果和说明；基础版本不被实验版本覆盖。
->
-> **完整版本差异和指标总表**：[`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md)。该文档覆盖 main、copyO–copyZ，明确哪些版本可公平比较、copyX/copyY 的无白化事实和 copyZ 的白化消融结果。
->
-> **旧版 OPQSTR/QZ/SM 考古**：[`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md)。用于区分旧工作区中重用字母的 Q/S/Z 系列与现行 Git 中的 `copyQ_control_aware`、`copyZ_strict_whitened_copyX_plant` 等版本。
->
-> **统一参数 OPQSTR 还原实验**：[`experiments/copyOPQSTR_unified/`](experiments/copyOPQSTR_unified/README.md)。在同一 copyX-family plant、噪声、参考和 SMPC 下还原 Obsidian 中 O/P/Q/R/S/T 的算法差异。
->
-> **带运行图的完整版本报告**：[`docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md)。以 `main/copyS_nosoft.m` 为原始基线，逐版说明修改、实跑效果，并嵌入对应 PNG。
+Public MATLAB experiment suite for **PredVAR / PredVARX + SMPC** copies.
 
-## 目录结构
+- **GitHub**: https://github.com/xyzhhhh2077/PredVARX-MPC
+- **Visibility**: public
+- **Default branch**: `main`
+- **Large files**: experiment `.mat` / `.png` / `.fig` tracked with **Git LFS**
+
+> Principle: each `copy*` directory is a self-contained version (code, helpers, local tests, results, notes).  
+> Do **not** mix different copies into one algorithm. Archive letters may reuse Q/S/Z names with **different** meanings from the active suite.
+
+---
+
+## Clone
+
+```bash
+git lfs install
+git clone https://github.com/xyzhhhh2077/PredVARX-MPC.git
+cd PredVARX-MPC
+```
+
+Without LFS you will only get pointer files for mats/figures.
+
+---
+
+## Repository layout
 
 ```text
-main/                              # 基础版本
-├── copyS_nosoft.m
-├── predvarx_identify.m
-├── README.md
-└── results/
-
-experiments/
-├── copyO_oblique/                 # 斜投影双基诊断副本
-│   ├── copyO_oblique.m
-│   ├── predvarx_identify_oblique.m
-│   ├── tests/
-│   ├── results/
-│   └── README.md
-├── copyP_centered_smpc/           # 全阶：控制逻辑正确性验证
-│   ├── copyP_centered_smpc.m
-│   ├── control_ready_subspace_varx.m
-│   ├── centered_smpc_step.m
-│   ├── tests/
-│   ├── results/
-│   └── README.md
-└── copyQ_control_aware/           # 低阶：控制感知子空间版本
-    ├── copyQ_control_aware.m
-    ├── control_aware_subspace_varx.m
-    ├── tests/
-    ├── results/
-    └── README.md
-└── copyR_moqin_oblique/           # 原文 Algorithm-1 严格 realization 基线
-    ├── copyR_moqin_oblique.m
-    ├── predvarx_identify_moqin.m
-    ├── tests/
-    ├── results/
-    └── README.md
+PredVARX-MPC/
+├── main/                         # historical baseline (copyS_nosoft)
+├── experiments/                  # active copy suite (preferred entry)
+│   ├── copyO_oblique/ ...
+│   ├── copyAO_crte_teacher_profiled_unknown_noise/
+│   ├── copyAP_crte_multistep_task_20x4/
+│   └── ...
+├── archive/                      # non-active historical MATLAB versions
+│   ├── early_snapshot_2026-07-09/
+│   ├── organized_legacy_2026-07-10/
+│   └── routeC_delta_inc/
+├── tests/                        # root matlab.unittest suite
+├── docs/version-summary/         # illustrated version report
+├── VERSION_EVOLUTION_AND_METRICS.md
+├── LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md
+└── README.md                     # this file
 ```
 
-## 基础版本与副本差异
+---
 
-| 版本 | 相对基础版本的主要变化 | 目的 | 本次实测结论 |
-|:---|:---|:---|:---|
-| `main` | 原始 QR 正交化、差分 MPC、`alpha_cc=0.45` | 保存原始对照 | 只作历史基线；MAT 现在额外保存辨识快照，便于诊断 |
-| `copyO_oblique` | SVD 双基，$R^TP=I$；静态残差改用 $\bar R^T$ | 验证斜投影数学身份 | 双基恒等式正确，但旧在线中心化/SMPC 逻辑仍导致反向跟踪 |
-| `copyP_centered_smpc` | 全阶 $\ell=n$；中心化坐标；绝对预测 MPC；Boole 联合机会约束 | 先验证控制逻辑本身 | $y_1,y_2$ MAE 为 0.093/0.087，零越界，QP 1200/1200 可行 |
-| `copyQ_control_aware` | 低阶 $\ell=4$；强制保留 $y_1,y_2$ 输出轴；其余方向按数据取子空间 | 在降维下保留控制方向 | MAE 0.114/0.093，零越界，QP 1200/1200 可行 |
-| `copyR_moqin_oblique` | 直接采用 Mo--Qin Algorithm 1 的白化 IVR、反白化 $P=UD^{1/2}P^*,R=UD^{-1/2}P^*$ 与 Eq. (34) 补空间；不做后验 SVD 对齐 | 分离“原文预测子空间”与“控制覆盖”的差异 | 四个对偶恒等式与 PSD 测试通过；在当前 $\ell=4$、同一 SMPC 约束下第 1 步 QP 已不可行，且 $PR^Te_1,e_2$ 覆盖误差为 2.34/10.82；这是诊断结果，不是控制性能主结论 |
+## Related docs
 
-## 如何运行
+| Doc | Content |
+|---|---|
+| [`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md) | Active O–Z evolution, fairness rules, metrics |
+| [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md) | Old workspace letter reuse vs current Git names |
+| [`docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md) | Illustrated per-version report with PNGs |
+| [`archive/README.md`](archive/README.md) | What is archived and why |
 
-在仓库根目录：
+---
+
+## Active experiments (`experiments/`)
+
+Current preferred work lives here. Counts below are from the published tree (code + tracked results).
+
+### A. Identification / geometry / control spine
+
+| Directory | Role |
+|---|---|
+| `main/` | Historical baseline: `copyS_nosoft` + `predvarx_identify` |
+| `copyO_oblique` | Oblique dual-basis identity diagnostics |
+| `copyP_centered_smpc` | Centered absolute-prediction SMPC (full-order control check) |
+| `copyQ_control_aware` | Low-order control-aware orthogonal subspace |
+| `copyR_moqin_oblique` | Mo–Qin Algorithm-1 style whitened realization baseline |
+| `copyT_process_lv_smpc` | High-dim process-like plant + online cov scale |
+| `copyU_smooth_noise_smpc` | Smooth time-varying noise stress of copyT-style loop |
+| `copyV_iterative_ivr` | Tracked-complement iterative IVR (orthogonal) |
+| `copyW_fair_identifier_compare` | Fair multi-identifier ablation, fixed plant/controller |
+| `copyX_control_aware_oblique` | Control-aware mild oblique reader $R_\alpha$ (no whitening) |
+| `copyY_no_whitening_direct_update` | Explicit “copyX fact label”; not a new algorithm |
+| `copyZ_strict_whitened_copyX_plant` | Whitening ablation on copyX plant (not full Alg.1 claim) |
+
+### B. Opinion / closure / guarantee probes
+
+| Directory | Role |
+|---|---|
+| `copyAA_split_control_free_oblique` | Split control/free oblique construction |
+| `copyAB_opinion_fixes` | Opinion hard-fix bundle + unit tests |
+| `copyAC_open_problems_trial` | Open-problem trial vs AB fair compare |
+| `copyAD_closure_ladder` | Closure ladder diagnostics |
+| `copyAE_stress_calibration` | Stress / calibration probe |
+| `copyAF_op9_and_p1pp` | Opinion-9 / Prop-1 related probe |
+| `copyAG_original_alpha_cert` | Original-alpha certificate experiment |
+| `copyAH_multistep_alpha_backup` | Multi-step alpha backup after primary fail |
+| `copyAI_crosscov_chance` | Cross-covariance chance probe |
+| `copyAJ_safety_filter_cert` | Safety-filter certificate probe |
+| `copyAK_terminal_set_rf` | Terminal-set / recursive-feasibility probe |
+| `copyAL_split_empirical_cov_oblique` | Empirical-cov split oblique variant |
+| `copyAM_tracked_cov_only` | Tracked-only covariance chance path |
+| `copyAN_crte_fixed_surrogate` | CRTE fixed spectral surrogate in free complement |
+| `copyAN_closed_loop_audit_grade` | Placeholder (empty run; branch-name continuity only) |
+
+### C. Unified compare packs
+
+| Directory | Role |
+|---|---|
+| `copyOPQSTR_unified` | Same plant/noise/SMPC; restore O/P/Q/R/S/T algorithm differences |
+| `copyALL_unified` | Broader unified multi-copy compare pack + individual figures |
+
+### D. CRTE profiled-teacher line (current research edge)
+
+| Directory | Role | Status |
+|---|---|---|
+| `copyAO_crte_teacher_profiled_unknown_noise` | Complete profiled teacher, unknown-noise proxy, strict FWL SVD support, single full run | **Main CRTE structure result** |
+| `copyAP_crte_multistep_task_20x4` | Multi-step task stack $t+1:t+H$, $\mu=1$, blocked forward noise proxy | Structure tests + smoke + one full $H=3$ confirm |
+| `copyAQ_crte_varx_order_20x4` | VARX order / companion draft for $s>1$ ablation | Draft cores/tests; not a finished 20×4 campaign |
+
+**CRTE reading order**
+
+1. Geometry / FWL / teacher structure → `copyAO`
+2. Multi-step task + blocked proxy contract → `copyAP`
+3. Higher-order latent AR draft → `copyAQ` (incomplete)
+
+Do not merge AO/AP/AQ numbers into one “best method” claim without a paired protocol.
+
+---
+
+## Archive (`archive/`)
+
+Non-active historical MATLAB. Prefer `experiments/` for new work.
+
+| Path | Content |
+|---|---|
+| `archive/early_snapshot_2026-07-09/` | Early independent snapshot: main + O/P/Q |
+| `archive/organized_legacy_2026-07-10/` | Themed legacy pack (01–10): old Q/S/Z/SM/D/oracle letters |
+| `archive/routeC_delta_inc/` | v10 Δ-tracking acceleration line (C/E/F/G/H/I/P1–P4) |
+
+Legacy letter reuse is documented in `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`.  
+Example: archive `copyQ_*` is **not** the same algorithm as active `copyQ_control_aware`.
+
+---
+
+## How to run (MATLAB R2024a+)
+
+From repo root:
 
 ```matlab
+% historical baseline
 run('main/copyS_nosoft.m')
-run('experiments/copyO_oblique/copyO_oblique.m')
+
+% active examples
 run('experiments/copyP_centered_smpc/copyP_centered_smpc.m')
-run('experiments/copyQ_control_aware/copyQ_control_aware.m')
-run('experiments/copyR_moqin_oblique/copyR_moqin_oblique.m')
+run('experiments/copyX_control_aware_oblique/copyX_control_aware_oblique.m')
+
+% CRTE main structure run
+cd('experiments/copyAO_crte_teacher_profiled_unknown_noise')
+test_crte_profiled_teacher_unknown_noise
+copyAO_crte_teacher_profiled_unknown_noise
+
+% CRTE multistep task tests
+cd('../copyAP_crte_multistep_task_20x4')
+runtests('tests/test_copyAP_multistep_task.m')
 ```
 
-> 现在主脚本会直接将新的 `.mat` 和 `.png` 写入各自 `results/`；这里保存的是可覆写的运行快照，避免生成物混入代码目录根部。
+Each active copy writes snapshots under its own `results/` (`.mat` / `.png` / metrics text).
 
-## 测试入口
+---
 
-根目录标准套件（`matlab.unittest`，class-based）：
+## Root tests
 
 ```matlab
 cd('tests')
 run_all_tests
 ```
 
-或：
+| Test class | Coverage |
+|---|---|
+| `tPredvarxIdentifyOblique` | Oblique dual-basis identities |
+| `tCenteredSmpcStep` | Centered prediction + Boole tightening |
+| `tControlAwareSubspace` | Tracked-axis coverage under reduction |
 
-```matlab
-results = runtests('tests', 'IncludeSubfolders', false);
-assertSuccess(results);
-```
+Per-copy opinion/diagnostic tests live in `experiments/copy*/tests/`.
 
-| 测试类 | 覆盖 |
-|--------|------|
-| `tPredvarxIdentifyOblique` | 斜投影双基恒等式 |
-| `tCenteredSmpcStep` | 中心化预测 + Boole 机会约束收紧 |
-| `tControlAwareSubspace` | 跟踪轴覆盖的降维子空间 |
+---
 
-各实验副本自有 opinion/诊断测试仍在 `experiments/copy*/tests/`。
+## Data & figures policy
 
+- **Tracked with Git LFS**: `*.mat`, `*.png`, `*.fig` under experiment/archive results
+- **Not tracked**: literature PDF caches, stray `experiments/*.pdf`, local editor helpers
+- Result figures are **run evidence**, not automatically “paper-final” claims
+- Cross-copy MAE ranking is invalid unless plant, noise, horizon, and controller protocol match
+
+---
+
+## Quick map: what to open first
+
+| Goal | Open |
+|---|---|
+| Understand O–Z evolution | `VERSION_EVOLUTION_AND_METRICS.md` |
+| Fair OPQSTR compare | `experiments/copyOPQSTR_unified/` |
+| Current CRTE teacher structure | `experiments/copyAO_crte_teacher_profiled_unknown_noise/` |
+| Multi-step task extension | `experiments/copyAP_crte_multistep_task_20x4/` |
+| Old letter archaeology | `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md` + `archive/` |
+| Illustrated summary | `docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md` |
+
+---
+
+## Notes
+
+- MATLAB path often needs `addpath` to the chosen copy directory (and sometimes `tests/`).
+- Optimization Toolbox `quadprog` is required for SMPC loops in most copies.
+- Parallel pools are optional; some later scripts support multi-process launchers instead of large parpools.
+- When reporting results, always name the **exact copy directory** and whether the figure/mat is smoke, single-seed, or full campaign.
