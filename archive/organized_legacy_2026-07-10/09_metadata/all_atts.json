@@ -1,0 +1,5196 @@
+[
+    {
+        "key": "827R5QET",
+        "version": 9579,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/827R5QET",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/827R5QET",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3WQXDPD7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "827R5QET",
+            "version": 9579,
+            "parentItem": "3WQXDPD7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Li 等 - 2023 - Ensemble Nonlinear Model Predictive Control for Residential Solar Battery Energy Management.pdf",
+            "md5": "f3d1554083181d03c23f2f8f697df882",
+            "mtime": 1783364426005,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T19:00:28Z",
+            "dateModified": "2026-07-06T19:00:28Z"
+        }
+    },
+    {
+        "key": "Z2HLKWUW",
+        "version": 9575,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/Z2HLKWUW",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/Z2HLKWUW",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/I7NIH9EW",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "Z2HLKWUW",
+            "version": 9575,
+            "parentItem": "I7NIH9EW",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Ge 等 - 2020 - Event‐triggered distributed model predictive control for resilient voltage control of an islanded mi.pdf",
+            "md5": "12ea8e613cccbd22e52d713038cfdfd6",
+            "mtime": 1783364390164,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T19:00:14Z",
+            "dateModified": "2026-07-06T19:00:14Z"
+        }
+    },
+    {
+        "key": "SAJWVH9Q",
+        "version": 9574,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/SAJWVH9Q",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/SAJWVH9Q",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/R7C8H2H4",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "SAJWVH9Q",
+            "version": 9574,
+            "parentItem": "R7C8H2H4",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Ji 等 - 2020 - Event‐triggered predictor‐based control of distributed parameter systems.pdf",
+            "md5": "82f51f790cc81b08e81393a3e2456a4e",
+            "mtime": 1783364386739,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T19:00:10Z",
+            "dateModified": "2026-07-06T19:00:10Z"
+        }
+    },
+    {
+        "key": "E93VBL5N",
+        "version": 9569,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/E93VBL5N",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/E93VBL5N",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/F5FDT4NN",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "E93VBL5N",
+            "version": 9569,
+            "parentItem": "F5FDT4NN",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Conte 等 - 2022 - Fault Detection Problems for Switching Linear Systems A Structural Approach.pdf",
+            "md5": "a1ad85bba87159451f335e6e2195a837",
+            "mtime": 1783364348045,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:59:15Z",
+            "dateModified": "2026-07-06T18:59:15Z"
+        }
+    },
+    {
+        "key": "J29U2UPE",
+        "version": 9567,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/J29U2UPE",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/J29U2UPE",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/GIQIJI33",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "J29U2UPE",
+            "version": 9567,
+            "parentItem": "GIQIJI33",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Vicente 等 - 2022 - Fast Tube Model Predictive Control for Driverless Cars Using Linear Data-Driven Models.pdf",
+            "md5": "f87e0701bd240ee4efb516c6830b6e72",
+            "mtime": 1783364349786,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:59:13Z",
+            "dateModified": "2026-07-06T18:59:13Z"
+        }
+    },
+    {
+        "key": "3NMRSPPI",
+        "version": 9563,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/3NMRSPPI",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/3NMRSPPI",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/XE4A3ZIW",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "3NMRSPPI",
+            "version": 9563,
+            "parentItem": "XE4A3ZIW",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Abolfazl Lavaei和David Angeli - 2026 - From Dissipativity Property to Data-Driven GAS Certificate of Degree-One Homogeneous Networks With U.pdf",
+            "md5": "8404ee8280bfe3920da71b65f1ad6f58",
+            "mtime": 1783364284125,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:58:10Z",
+            "dateModified": "2026-07-06T18:58:10Z"
+        }
+    },
+    {
+        "key": "M26G6XUD",
+        "version": 9558,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/M26G6XUD",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/M26G6XUD",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/T9FZ7TD8",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "M26G6XUD",
+            "version": 9558,
+            "parentItem": "T9FZ7TD8",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Voorhoeve 等 - 2020 - Identifying Position-Dependent Mechanical Systems A Modal Approach Applied to a Flexible Wafer Stag.pdf",
+            "md5": "5d7559049c9ed4f3be9aaa41bc6dd343",
+            "mtime": 1783364227991,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:57:12Z",
+            "dateModified": "2026-07-06T18:57:12Z"
+        }
+    },
+    {
+        "key": "A8KWEWHZ",
+        "version": 9557,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/A8KWEWHZ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/A8KWEWHZ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/X7T3N6IA",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "A8KWEWHZ",
+            "version": 9557,
+            "parentItem": "X7T3N6IA",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Sadeghzadeh和Tóth - 2022 - Improved Embedding of Nonlinear Systems in Linear Parameter-Varying Models With Polynomial Dependenc.pdf",
+            "md5": "dfac90cfd625c74ff9fb23f3d5f6bede",
+            "mtime": 1783364219806,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:57:04Z",
+            "dateModified": "2026-07-06T18:57:04Z"
+        }
+    },
+    {
+        "key": "WY5FXZNI",
+        "version": 9554,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/WY5FXZNI",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/WY5FXZNI",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/C8TJMV2K",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "WY5FXZNI",
+            "version": 9554,
+            "parentItem": "C8TJMV2K",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Sinquin和Verhaegen - 2018 - K4SID Large-Scale Subspace Identification With Kronecker Modeling.pdf",
+            "md5": "f72f9a7ac3dbb8d6a8d61348513847a1",
+            "mtime": 1783364180223,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:56:29Z",
+            "dateModified": "2026-07-06T18:56:29Z"
+        }
+    },
+    {
+        "key": "GA7IU3LK",
+        "version": 9551,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/GA7IU3LK",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/GA7IU3LK",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/WJMXZR3E",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "GA7IU3LK",
+            "version": 9551,
+            "parentItem": "WJMXZR3E",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Bakhtiaridoust 等 - 2024 - Koopman fault‐tolerant model predictive control.pdf",
+            "md5": "b1a0fc9ee226ebfc5ddb806a3fa345c7",
+            "mtime": 1783364166410,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:56:14Z",
+            "dateModified": "2026-07-06T18:56:14Z"
+        }
+    },
+    {
+        "key": "CYZPGDD6",
+        "version": 9547,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/CYZPGDD6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/CYZPGDD6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/57SWCSZD",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "CYZPGDD6",
+            "version": 9547,
+            "parentItem": "57SWCSZD",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Bae 等 - 2022 - Lane-Change in Dense Traffic With Model Predictive Control and Neural Networks.pdf",
+            "md5": "dd8d0bd61e2a7e85de47ec0a12416741",
+            "mtime": 1783364130567,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:55:40Z",
+            "dateModified": "2026-07-06T18:55:40Z"
+        }
+    },
+    {
+        "key": "LUQ9BL88",
+        "version": 9546,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/LUQ9BL88",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/LUQ9BL88",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/W6W6FX65",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "LUQ9BL88",
+            "version": 9546,
+            "parentItem": "W6W6FX65",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Persis 等 - 2023 - Learning Controllers From Data via Approximate Nonlinearity Cancellation.pdf",
+            "md5": "ea729e1a1906c54769f533df3f61911c",
+            "mtime": 1783364127855,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:55:35Z",
+            "dateModified": "2026-07-06T18:55:35Z"
+        }
+    },
+    {
+        "key": "ZK3JK755",
+        "version": 9541,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZK3JK755",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZK3JK755",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/8JZ8C7XN",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZK3JK755",
+            "version": 9541,
+            "parentItem": "8JZ8C7XN",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Bonzanini 等 - 2021 - Learning-Based SMPC for Reference Tracking Under State-Dependent Uncertainty An Application to Atmo.pdf",
+            "md5": "ba5fe41105aa0c8dff18d3efcca32510",
+            "mtime": 1783364098180,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:55:01Z",
+            "dateModified": "2026-07-06T18:55:01Z"
+        }
+    },
+    {
+        "key": "FJNGZ32M",
+        "version": 9540,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/FJNGZ32M",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/FJNGZ32M",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/FVCQ9R5F",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "FJNGZ32M",
+            "version": 9540,
+            "parentItem": "FVCQ9R5F",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Bao 等 - 2022 - Learning‐based adaptive‐scenario‐tree model predictive control with improved probabilistic safety us.pdf",
+            "md5": "9412726d2beead51bebd8b6cd9f2fffa",
+            "mtime": 1783364089160,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:54:53Z",
+            "dateModified": "2026-07-06T18:54:53Z"
+        }
+    },
+    {
+        "key": "ZMZ6ER2F",
+        "version": 9537,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZMZ6ER2F",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZMZ6ER2F",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/K3FSQZMP",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZMZ6ER2F",
+            "version": 9537,
+            "parentItem": "K3FSQZMP",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Yaghmaie 等 - 2022 - Linear Quadratic Control Using Model-Free Reinforcement Learning.pdf",
+            "md5": "cfb4a9c2252a0ae89310a60c5f125dbc",
+            "mtime": 1783364010381,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:53:33Z",
+            "dateModified": "2026-07-06T18:53:33Z"
+        }
+    },
+    {
+        "key": "DVGVZY96",
+        "version": 9534,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/DVGVZY96",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/DVGVZY96",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6Q9T3RQE",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "DVGVZY96",
+            "version": 9534,
+            "parentItem": "6Q9T3RQE",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Benattia 等 - 2019 - Linearized min‐max robust model predictive control Application to the control of a bioprocess.pdf",
+            "md5": "c7c0c83537c31f1363b8171d58630a8f",
+            "mtime": 1783363980504,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:53:03Z",
+            "dateModified": "2026-07-06T18:53:03Z"
+        }
+    },
+    {
+        "key": "XBJ3GDMW",
+        "version": 9531,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/XBJ3GDMW",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/XBJ3GDMW",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/CNMB3KQK",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "XBJ3GDMW",
+            "version": 9531,
+            "parentItem": "CNMB3KQK",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Abbas 等 - 2021 - LPV modeling of nonlinear systems A multi‐path feedback linearization approach.pdf",
+            "md5": "9b2771d10dfac46833232e3168b43a7a",
+            "mtime": 1783363931192,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:52:14Z",
+            "dateModified": "2026-07-06T18:52:14Z"
+        }
+    },
+    {
+        "key": "GSKBG6F9",
+        "version": 9528,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/GSKBG6F9",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/GSKBG6F9",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/FKHSGWUT",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "GSKBG6F9",
+            "version": 9528,
+            "parentItem": "FKHSGWUT",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Luque 等 - 2024 - Model Predictive Control for Dynamic Cloth Manipulation Parameter Learning and Experimental Validat.pdf",
+            "md5": "5e8b70477ea87760af84980508ab39fe",
+            "mtime": 1783363903168,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:51:47Z",
+            "dateModified": "2026-07-06T18:51:47Z"
+        }
+    },
+    {
+        "key": "L9NTUW3V",
+        "version": 9525,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/L9NTUW3V",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/L9NTUW3V",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/7T3JVGCK",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "L9NTUW3V",
+            "version": 9525,
+            "parentItem": "7T3JVGCK",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Xu 等 - 2018 - Model Predictive Control for Stochastic Max-Plus Linear Systems With Chance Constraints.pdf",
+            "md5": "9a38860e707fd03d32d493833b64dfc2",
+            "mtime": 1783363759866,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:49:28Z",
+            "dateModified": "2026-07-06T18:49:28Z"
+        }
+    },
+    {
+        "key": "6IFSRC8M",
+        "version": 9522,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/6IFSRC8M",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/6IFSRC8M",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/4H277A7J",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "6IFSRC8M",
+            "version": 9522,
+            "parentItem": "4H277A7J",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Svensen 等 - 2023 - Model Predictive Control of Urban Drainage Systems Considering Uncertainty.pdf",
+            "md5": "b0eec881f01730143daa2c45c9ea7019",
+            "mtime": 1783363745554,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:49:09Z",
+            "dateModified": "2026-07-06T18:49:09Z"
+        }
+    },
+    {
+        "key": "KQN5CDZ6",
+        "version": 9519,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/KQN5CDZ6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/KQN5CDZ6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/EQJFB8CJ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "KQN5CDZ6",
+            "version": 9519,
+            "parentItem": "EQJFB8CJ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Costanzo 等 - 2023 - Modeling and Control of Sampled-Data Image-Based Visual Servoing With Three-Dimensional Features.pdf",
+            "md5": "239e8e2c2b36b75a6a29a39d6e3cb9c4",
+            "mtime": 1783363653363,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:47:42Z",
+            "dateModified": "2026-07-06T18:47:42Z"
+        }
+    },
+    {
+        "key": "V5RT4USR",
+        "version": 9516,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/V5RT4USR",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/V5RT4USR",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/NSUM6M7M",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "V5RT4USR",
+            "version": 9516,
+            "parentItem": "NSUM6M7M",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Saccani 等 - 2022 - Multitrajectory Model Predictive Control for Safe UAV Navigation in an Unknown Environment.pdf",
+            "md5": "eb7d56cc98cb8262835de4205cfac82b",
+            "mtime": 1783363624890,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:47:07Z",
+            "dateModified": "2026-07-06T18:47:07Z"
+        }
+    },
+    {
+        "key": "EWUK3JXR",
+        "version": 9513,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/EWUK3JXR",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/EWUK3JXR",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/QQ7SX9HT",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "EWUK3JXR",
+            "version": 9513,
+            "parentItem": "QQ7SX9HT",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Mennemann 等 - 2019 - Nonlinear Model Predictive Control of a Variable-Speed Pumped-Storage Power Plant.pdf",
+            "md5": "345b41e4d847df4beec19157c00cefe9",
+            "mtime": 1783363438611,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:44:02Z",
+            "dateModified": "2026-07-06T18:44:02Z"
+        }
+    },
+    {
+        "key": "5VWXFMRP",
+        "version": 9510,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/5VWXFMRP",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/5VWXFMRP",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3W7Q5FIR",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "5VWXFMRP",
+            "version": 9510,
+            "parentItem": "3W7Q5FIR",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zheng 等 - 2022 - Nonparameteric Event-Triggered Learning With Applications to Adaptive Model Predictive Control.pdf",
+            "md5": "b8097488f68a503daa54be3df64a87d3",
+            "mtime": 1783363411378,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:43:37Z",
+            "dateModified": "2026-07-06T18:43:37Z"
+        }
+    },
+    {
+        "key": "QR3MTVME",
+        "version": 9507,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/QR3MTVME",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/QR3MTVME",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3G7SQFXU",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "QR3MTVME",
+            "version": 9507,
+            "parentItem": "3G7SQFXU",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Sadamoto - 2022 - On Equivalence of Data Informativity for Identification and Data-Driven Control of Partially Observa.pdf",
+            "md5": "7dc5e3d677f67b84082c08abaaef14a5",
+            "mtime": 1783363380947,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:43:05Z",
+            "dateModified": "2026-07-06T18:43:05Z"
+        }
+    },
+    {
+        "key": "7TPP4DH8",
+        "version": 9504,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/7TPP4DH8",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/7TPP4DH8",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/9WECP3G5",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "7TPP4DH8",
+            "version": 9504,
+            "parentItem": "9WECP3G5",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Metzler 等 - 2020 - On Prediction Model Fidelity in Explicit Nonlinear Model Predictive Vehicle Stability Control.pdf",
+            "md5": "2f0dface36d4830ac81bb919b5d675fd",
+            "mtime": 1783363364537,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:42:47Z",
+            "dateModified": "2026-07-06T18:42:47Z"
+        }
+    },
+    {
+        "key": "YGFZKLRU",
+        "version": 9501,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/YGFZKLRU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/YGFZKLRU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/JXUXIWVE",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "YGFZKLRU",
+            "version": 9501,
+            "parentItem": "JXUXIWVE",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "McAllister和Rawlings - 2023 - On the Inherent Distributional Robustness of Stochastic and Nominal Model Predictive Control.pdf",
+            "md5": "314c83101d045240f42dd35f3b032916",
+            "mtime": 1783363326325,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:42:11Z",
+            "dateModified": "2026-07-06T18:42:11Z"
+        }
+    },
+    {
+        "key": "2RR6KJNW",
+        "version": 9498,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/2RR6KJNW",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/2RR6KJNW",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/A36CKVGI",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "2RR6KJNW",
+            "version": 9498,
+            "parentItem": "A36CKVGI",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Casagrande 等 - 2024 - Online End-to-End Learning-Based Predictive Control for Microgrid Energy Management.pdf",
+            "md5": "a8330c135eafb7e3fb6d68a668173044",
+            "mtime": 1783363308250,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:41:53Z",
+            "dateModified": "2026-07-06T18:41:53Z"
+        }
+    },
+    {
+        "key": "47JW5BAG",
+        "version": 9495,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/47JW5BAG",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/47JW5BAG",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6GBEN4F4",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "47JW5BAG",
+            "version": 9495,
+            "parentItem": "6GBEN4F4",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Li 等 - 2022 - Online learning stochastic model predictive control of linear uncertain systems.pdf",
+            "md5": "5676d95a58591920f733542f20e6ff48",
+            "mtime": 1783363286263,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:41:30Z",
+            "dateModified": "2026-07-06T18:41:30Z"
+        }
+    },
+    {
+        "key": "QDZBJFW6",
+        "version": 9492,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/QDZBJFW6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/QDZBJFW6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/GGIBD8HN",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "QDZBJFW6",
+            "version": 9492,
+            "parentItem": "GGIBD8HN",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lago 等 - 2020 - Optimal Control Strategies for Seasonal Thermal Energy Storage Systems With Market Interaction.pdf",
+            "md5": "8b031cc84eacd7c28798976616bfd4ab",
+            "mtime": 1783363233009,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:40:36Z",
+            "dateModified": "2026-07-06T18:40:36Z"
+        }
+    },
+    {
+        "key": "9QVYECMJ",
+        "version": 9488,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9QVYECMJ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9QVYECMJ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/P78TD8SJ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9QVYECMJ",
+            "version": 9488,
+            "parentItem": "P78TD8SJ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zhang和Ohtsuka - 2023 - Output‐feedback stochastic model predictive control of chance‐constrained nonlinear systems.pdf",
+            "md5": "941c5b5a54a0fca28ee362df0c829e44",
+            "mtime": 1783363170780,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:39:36Z",
+            "dateModified": "2026-07-06T18:39:36Z"
+        }
+    },
+    {
+        "key": "KA82YJSY",
+        "version": 9485,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/KA82YJSY",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/KA82YJSY",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/DMQECZ8U",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "KA82YJSY",
+            "version": 9485,
+            "parentItem": "DMQECZ8U",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Giuli 等 - 2024 - Physics-Informed Neural Network Modeling and Predictive Control of District Heating Systems.pdf",
+            "md5": "dbd4cca64d26a93ec8684f38d8684e9f",
+            "mtime": 1783363148578,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:39:14Z",
+            "dateModified": "2026-07-06T18:39:14Z"
+        }
+    },
+    {
+        "key": "4U824JVH",
+        "version": 9482,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/4U824JVH",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/4U824JVH",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3EFBVA27",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "4U824JVH",
+            "version": 9482,
+            "parentItem": "3EFBVA27",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Nair 等 - 2024 - Predictive Control for Autonomous Driving With Uncertain, Multimodal Predictions.pdf",
+            "md5": "2ed405d41d0847593a97780a9ab09a44",
+            "mtime": 1783363088628,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:38:12Z",
+            "dateModified": "2026-07-06T18:38:12Z"
+        }
+    },
+    {
+        "key": "A4YN49PE",
+        "version": 9479,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/A4YN49PE",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/A4YN49PE",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/5E467AXG",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "A4YN49PE",
+            "version": 9479,
+            "parentItem": "5E467AXG",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Wabersich 等 - 2021 - Probabilistic Model Predictive Safety Certification for Learning-Based Control.pdf",
+            "md5": "4101e68824c68e7f3594248053d7c184",
+            "mtime": 1783363057516,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:37:40Z",
+            "dateModified": "2026-07-06T18:37:40Z"
+        }
+    },
+    {
+        "key": "ARZ2XIK6",
+        "version": 9476,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ARZ2XIK6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ARZ2XIK6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6NVAQWFZ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ARZ2XIK6",
+            "version": 9476,
+            "parentItem": "6NVAQWFZ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Dong 等 - 2019 - Recursive identification for Wiener non‐linear systems with non‐stationary disturbances.pdf",
+            "md5": "b34179fde8c178cc443677f7cc4fd5c3",
+            "mtime": 1783363016061,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:37:12Z",
+            "dateModified": "2026-07-06T18:37:12Z"
+        }
+    },
+    {
+        "key": "ZEP674R6",
+        "version": 9473,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZEP674R6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZEP674R6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/4EA9Z4UJ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZEP674R6",
+            "version": 9473,
+            "parentItem": "4EA9Z4UJ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hans 等 - 2019 - Risk-Averse Model Predictive Operation Control of Islanded Microgrids.pdf",
+            "md5": "c406611b56a505e19cc653471e72d631",
+            "mtime": 1783362990881,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:36:38Z",
+            "dateModified": "2026-07-06T18:36:38Z"
+        }
+    },
+    {
+        "key": "H8GZD7HG",
+        "version": 9470,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/H8GZD7HG",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/H8GZD7HG",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/A9I583ZZ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "H8GZD7HG",
+            "version": 9470,
+            "parentItem": "A9I583ZZ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lu 等 - 2020 - Robust adaptive model predictive control Performance and parameter estimation.pdf",
+            "md5": "f51a05eb332949f1c5897f78e6651a47",
+            "mtime": 1783362962620,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:36:06Z",
+            "dateModified": "2026-07-06T18:36:06Z"
+        }
+    },
+    {
+        "key": "6SYHRBTL",
+        "version": 9467,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/6SYHRBTL",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/6SYHRBTL",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/RHUV6FEJ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "6SYHRBTL",
+            "version": 9467,
+            "parentItem": "RHUV6FEJ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hu和Liu - 2025 - Robust Data-Driven Predictive Control for Unknown Linear Systems With Bounded Disturbances.pdf",
+            "md5": "902f26f4c88cee71ba643564a66f4263",
+            "mtime": 1783362937321,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:35:43Z",
+            "dateModified": "2026-07-06T18:35:43Z"
+        }
+    },
+    {
+        "key": "CBWIBLM9",
+        "version": 9464,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/CBWIBLM9",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/CBWIBLM9",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/5QRJB4S2",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "CBWIBLM9",
+            "version": 9464,
+            "parentItem": "5QRJB4S2",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lan和Zhao - 2020 - Robust model predictive control for nonlinear parameter varying systems without computational delay.pdf",
+            "md5": "30ed91f59379690f1ef5aa0c683bddf9",
+            "mtime": 1783362908570,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:35:12Z",
+            "dateModified": "2026-07-06T18:35:12Z"
+        }
+    },
+    {
+        "key": "ADWW3RU2",
+        "version": 9461,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ADWW3RU2",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ADWW3RU2",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/CX5WKB5I",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ADWW3RU2",
+            "version": 9461,
+            "parentItem": "CX5WKB5I",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Shang 等 - 2019 - Robust Model Predictive Control of Irrigation Systems With Active Uncertainty Learning and Data Anal.pdf",
+            "md5": "4ea8820f6e0671090b37c4945356de0c",
+            "mtime": 1783362889523,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:34:52Z",
+            "dateModified": "2026-07-06T18:34:52Z"
+        }
+    },
+    {
+        "key": "UENLWAWJ",
+        "version": 9458,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/UENLWAWJ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/UENLWAWJ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6E886C37",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "UENLWAWJ",
+            "version": 9458,
+            "parentItem": "6E886C37",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Bongard 等 - 2022 - Robust Stability Analysis of a Simple Data-Driven Model Predictive Control Approach.pdf",
+            "md5": "449d4d147e5f374494db58e98fc3b45e",
+            "mtime": 1783362859464,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:34:23Z",
+            "dateModified": "2026-07-06T18:34:23Z"
+        }
+    },
+    {
+        "key": "9HEHM5XF",
+        "version": 9455,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9HEHM5XF",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9HEHM5XF",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/MRQU8TKQ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9HEHM5XF",
+            "version": 9455,
+            "parentItem": "MRQU8TKQ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lanza 等 - 2025 - Safe Continual Learning in Model Predictive Control With Prescribed Bounds on the Tracking Error.pdf",
+            "md5": "052ba0355308cd7bc00828fecca1357e",
+            "mtime": 1783362810129,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:33:35Z",
+            "dateModified": "2026-07-06T18:33:35Z"
+        }
+    },
+    {
+        "key": "AUMGQBVR",
+        "version": 9452,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/AUMGQBVR",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/AUMGQBVR",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/J4CMAGVX",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "AUMGQBVR",
+            "version": 9452,
+            "parentItem": "J4CMAGVX",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "PDF",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Matschek 等 - 2023 - Safe Machine-Learning-Supported Model Predictive Force and Motion Control in Robotics.pdf",
+            "md5": "052ba0355308cd7bc00828fecca1357e",
+            "mtime": 1783362265414,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:24:29Z",
+            "dateModified": "2026-07-06T18:24:29Z"
+        }
+    },
+    {
+        "key": "J39QJBJF",
+        "version": 9450,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/J39QJBJF",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/J39QJBJF",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/S5A25JX6",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "J39QJBJF",
+            "version": 9450,
+            "parentItem": "S5A25JX6",
+            "itemType": "attachment",
+            "linkMode": "linked_file",
+            "title": "Sharma, Czégel, 2023. Assembly theory explains and quantifies selection and evolution.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "path": "files/Q2YWZVEB/Sharma, Czégel, 2023. Assembly theory explains and quantifies selection and evolution.pdf",
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:16:12Z",
+            "dateModified": "2026-07-06T18:16:12Z"
+        }
+    },
+    {
+        "key": "SVTXPQIU",
+        "version": 9449,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/SVTXPQIU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/SVTXPQIU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/IFIR6NNK",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "SVTXPQIU",
+            "version": 9449,
+            "parentItem": "IFIR6NNK",
+            "itemType": "attachment",
+            "linkMode": "linked_file",
+            "title": "Fabiani, Filippo, Franci, Barbara, 2026. Finite-Sample Guarantees for Data-Driven Forward_Backward Operator Methods.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "path": "files/DFFBFQA7/Fabiani, Filippo, Franci, Barbara, 2026. Finite-Sample Guarantees for Data-Driven Forward_Backward Operator Methods.pdf",
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:16:09Z",
+            "dateModified": "2026-07-06T18:16:09Z"
+        }
+    },
+    {
+        "key": "M7MFNVMF",
+        "version": 9448,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/M7MFNVMF",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/M7MFNVMF",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/24UPQC2T",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "M7MFNVMF",
+            "version": 9448,
+            "parentItem": "24UPQC2T",
+            "itemType": "attachment",
+            "linkMode": "linked_file",
+            "title": "Gao, Longsen, Danielson, Claus, 2026. Safe On-Orbit Dislodging of Deployable Structures via Robust Adaptive MPC.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "path": "files/GE9X7018/Gao, Longsen, Danielson, Claus, 2026. Safe On-Orbit Dislodging of Deployable Structures via Robust Adaptive MPC.pdf",
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T18:16:05Z",
+            "dateModified": "2026-07-06T18:16:05Z"
+        }
+    },
+    {
+        "key": "IS8QIVGA",
+        "version": 9447,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/IS8QIVGA",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/IS8QIVGA",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/9TW5ZKIT",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "IS8QIVGA",
+            "version": 9447,
+            "parentItem": "9TW5ZKIT",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Padilla, Garnier, 2019. Identification of continuous-time models with slowly time-varying parameters.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Padilla, Garnier, 2019. Identification of continuous-time models with slowly time-varying parameters.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:38Z",
+            "dateModified": "2026-07-06T17:32:38Z"
+        }
+    },
+    {
+        "key": "MR3JVWHR",
+        "version": 9446,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/MR3JVWHR",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/MR3JVWHR",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/978M9TWI",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "MR3JVWHR",
+            "version": 9446,
+            "parentItem": "978M9TWI",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Xing, Ding, 2024. Highly-efficient filtered hierarchical identification algorithms for multiple-in.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Xing, Ding, 2024. Highly-efficient filtered hierarchical identification algorithms for multiple-in.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:36Z",
+            "dateModified": "2026-07-06T17:32:36Z"
+        }
+    },
+    {
+        "key": "QWN7E28G",
+        "version": 9445,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/QWN7E28G",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/QWN7E28G",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/ABPE23N7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "QWN7E28G",
+            "version": 9445,
+            "parentItem": "ABPE23N7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Yan, Wang, 2019. Robust distributed control of plantwide processes based on dissipativity.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Yan, Wang, 2019. Robust distributed control of plantwide processes based on dissipativity.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:34Z",
+            "dateModified": "2026-07-06T17:32:34Z"
+        }
+    },
+    {
+        "key": "ZNHAFWV6",
+        "version": 9444,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZNHAFWV6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZNHAFWV6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/5XXNFCPD",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZNHAFWV6",
+            "version": 9444,
+            "parentItem": "5XXNFCPD",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Nozari, Nazeri, 2018. Model-free fault detection and isolation of a benchmark process control system b.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Nozari, Nazeri, 2018. Model-free fault detection and isolation of a benchmark process control system b.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:33Z",
+            "dateModified": "2026-07-06T17:32:33Z"
+        }
+    },
+    {
+        "key": "DFS4UTS8",
+        "version": 9443,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/DFS4UTS8",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/DFS4UTS8",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/PEP4AEAH",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "DFS4UTS8",
+            "version": 9443,
+            "parentItem": "PEP4AEAH",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Zhang, Lang, 2020. SCADA-data-based wind turbine fault detection_ A dynamic model sensor method.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zhang, Lang, 2020. SCADA-data-based wind turbine fault detection_ A dynamic model sensor method.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:31Z",
+            "dateModified": "2026-07-06T17:32:31Z"
+        }
+    },
+    {
+        "key": "J44KTXXU",
+        "version": 9442,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/J44KTXXU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/J44KTXXU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/GNZI5EZQ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "J44KTXXU",
+            "version": 9442,
+            "parentItem": "GNZI5EZQ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Korda, Mezić, Automatica. Linear predictors for nonlinear dynamical systems_ Koopman o.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Korda, Mezić, Automatica. Linear predictors for nonlinear dynamical systems_ Koopman o.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:29Z",
+            "dateModified": "2026-07-06T17:32:29Z"
+        }
+    },
+    {
+        "key": "U36R63SU",
+        "version": 9441,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/U36R63SU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/U36R63SU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/F8NKMJXM",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "U36R63SU",
+            "version": 9441,
+            "parentItem": "F8NKMJXM",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Fan, Yi, Rye, Automatica. Learning stable Koopman embeddings for identification and co.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Fan, Yi, Rye, Automatica. Learning stable Koopman embeddings for identification and co.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:27Z",
+            "dateModified": "2026-07-06T17:32:27Z"
+        }
+    },
+    {
+        "key": "INRIMKBN",
+        "version": 9440,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/INRIMKBN",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/INRIMKBN",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/EJB8678T",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "INRIMKBN",
+            "version": 9440,
+            "parentItem": "EJB8678T",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Zhao, Zhang, Liang, Systems &amp; Control Letters. Distributed integral observer-based data-driven control for.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zhao, Zhang, Liang, Systems &amp; Control Letters. Distributed integral observer-based data-driven control for.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:25Z",
+            "dateModified": "2026-07-06T17:32:25Z"
+        }
+    },
+    {
+        "key": "S4UVW3NJ",
+        "version": 9439,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/S4UVW3NJ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/S4UVW3NJ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3457ZXQ4",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "S4UVW3NJ",
+            "version": 9439,
+            "parentItem": "3457ZXQ4",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Engelaar, Lazar, Haesaert, Systems &amp; Control Letters. Planning with elastic chance constraints in stochastic model.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Engelaar, Lazar, Haesaert, Systems &amp; Control Letters. Planning with elastic chance constraints in stochastic model.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:23Z",
+            "dateModified": "2026-07-06T17:32:23Z"
+        }
+    },
+    {
+        "key": "IID9WE2K",
+        "version": 9438,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/IID9WE2K",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/IID9WE2K",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/DQDZSD53",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "IID9WE2K",
+            "version": 9438,
+            "parentItem": "DQDZSD53",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Wang, Ye, Chen, Control Engineering Practice. Nonlinear model predictive position control based on an adap.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Wang, Ye, Chen, Control Engineering Practice. Nonlinear model predictive position control based on an adap.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:21Z",
+            "dateModified": "2026-07-06T17:32:21Z"
+        }
+    },
+    {
+        "key": "5S4UK9D3",
+        "version": 9437,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/5S4UK9D3",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/5S4UK9D3",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/7HSIM2E5",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "5S4UK9D3",
+            "version": 9437,
+            "parentItem": "7HSIM2E5",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Rupenyan, Bayanduryan-Levasgani, Khosravi, Control Engineering Practice. Data-driven high-performance motion system optimization in p.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Rupenyan, Bayanduryan-Levasgani, Khosravi, Control Engineering Practice. Data-driven high-performance motion system optimization in p.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:19Z",
+            "dateModified": "2026-07-06T17:32:19Z"
+        }
+    },
+    {
+        "key": "MPD855FM",
+        "version": 9436,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/MPD855FM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/MPD855FM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/E6XJ5W52",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "MPD855FM",
+            "version": 9436,
+            "parentItem": "E6XJ5W52",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Pang, Li, Liu, Control Engineering Practice. Multi-agent deep reinforcement learning for intelligent and.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Pang, Li, Liu, Control Engineering Practice. Multi-agent deep reinforcement learning for intelligent and.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:17Z",
+            "dateModified": "2026-07-06T17:32:17Z"
+        }
+    },
+    {
+        "key": "KPIJZVQG",
+        "version": 9435,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/KPIJZVQG",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/KPIJZVQG",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/VIUFN2AD",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "KPIJZVQG",
+            "version": 9435,
+            "parentItem": "VIUFN2AD",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Pan, Hu, Hua, Control Engineering Practice. A real-time nonlinear robust MPC strategy for electric vehic.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Pan, Hu, Hua, Control Engineering Practice. A real-time nonlinear robust MPC strategy for electric vehic.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:15Z",
+            "dateModified": "2026-07-06T17:32:15Z"
+        }
+    },
+    {
+        "key": "5QJDKD6P",
+        "version": 9434,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/5QJDKD6P",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/5QJDKD6P",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/K7DWXT48",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "5QJDKD6P",
+            "version": 9434,
+            "parentItem": "K7DWXT48",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Hierholz, Reß, Hentschel, Control Engineering Practice. Active visual SLAM using potential fields and model predicti.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hierholz, Reß, Hentschel, Control Engineering Practice. Active visual SLAM using potential fields and model predicti.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:13Z",
+            "dateModified": "2026-07-06T17:32:13Z"
+        }
+    },
+    {
+        "key": "6WE7WPWI",
+        "version": 9433,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/6WE7WPWI",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/6WE7WPWI",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/8X8UVQAE",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "6WE7WPWI",
+            "version": 9433,
+            "parentItem": "8X8UVQAE",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Markovsky, Dörfler, Annual Reviews in Control. Behavioral systems theory in data-driven analysis, signal pr.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Markovsky, Dörfler, Annual Reviews in Control. Behavioral systems theory in data-driven analysis, signal pr.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:11Z",
+            "dateModified": "2026-07-06T17:32:11Z"
+        }
+    },
+    {
+        "key": "N75IKMXP",
+        "version": 9432,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/N75IKMXP",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/N75IKMXP",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/CUUQZ44R",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "N75IKMXP",
+            "version": 9432,
+            "parentItem": "CUUQZ44R",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Han, Yan, Bao, Journal of Process Control. A big data-driven predictive control approach for nonlinear.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Han, Yan, Bao, Journal of Process Control. A big data-driven predictive control approach for nonlinear.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:09Z",
+            "dateModified": "2026-07-06T17:32:09Z"
+        }
+    },
+    {
+        "key": "9WQCIJ23",
+        "version": 9431,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9WQCIJ23",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9WQCIJ23",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/C56BN8QB",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9WQCIJ23",
+            "version": 9431,
+            "parentItem": "C56BN8QB",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Gao, Luo, Yin, Journal of Process Control. A recursive modified partial least square aided data-driven.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Gao, Luo, Yin, Journal of Process Control. A recursive modified partial least square aided data-driven.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:08Z",
+            "dateModified": "2026-07-06T17:32:08Z"
+        }
+    },
+    {
+        "key": "UG9WBRAQ",
+        "version": 9430,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/UG9WBRAQ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/UG9WBRAQ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/A9GVMQPX",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "UG9WBRAQ",
+            "version": 9430,
+            "parentItem": "A9GVMQPX",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Verheijen, Breschi, Lazar, Annual Reviews in Control. Handbook of linear data-driven predictive control_ Theory, i.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Verheijen, Breschi, Lazar, Annual Reviews in Control. Handbook of linear data-driven predictive control_ Theory, i.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:06Z",
+            "dateModified": "2026-07-06T17:32:06Z"
+        }
+    },
+    {
+        "key": "MNPSWXUU",
+        "version": 9429,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/MNPSWXUU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/MNPSWXUU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6SZH4CTP",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "MNPSWXUU",
+            "version": 9429,
+            "parentItem": "6SZH4CTP",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Pillonetto, Aravkin, Gedon, Automatica. Deep networks for system identification_ A survey.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Pillonetto, Aravkin, Gedon, Automatica. Deep networks for system identification_ A survey.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:04Z",
+            "dateModified": "2026-07-06T17:32:04Z"
+        }
+    },
+    {
+        "key": "F9VR5ENM",
+        "version": 9428,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/F9VR5ENM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/F9VR5ENM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/MTFASFQ7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "F9VR5ENM",
+            "version": 9428,
+            "parentItem": "MTFASFQ7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Askari, Hajizadeh, Rashid, Annual Reviews in Control. Adaptive-learning model predictive control for complex physi.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Askari, Hajizadeh, Rashid, Annual Reviews in Control. Adaptive-learning model predictive control for complex physi.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:02Z",
+            "dateModified": "2026-07-06T17:32:02Z"
+        }
+    },
+    {
+        "key": "SQNW7T8I",
+        "version": 9427,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/SQNW7T8I",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/SQNW7T8I",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/9ZPG6VZ8",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "SQNW7T8I",
+            "version": 9427,
+            "parentItem": "9ZPG6VZ8",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Hajizadeh, Rashid, Çınar, Journal of Process Control. Plasma-insulin-cognizant adaptive model predictive control f.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hajizadeh, Rashid, Çınar, Journal of Process Control. Plasma-insulin-cognizant adaptive model predictive control f.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:32:00Z",
+            "dateModified": "2026-07-06T17:32:00Z"
+        }
+    },
+    {
+        "key": "V2HFPV96",
+        "version": 9426,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/V2HFPV96",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/V2HFPV96",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/HEKX7MEG",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "V2HFPV96",
+            "version": 9426,
+            "parentItem": "HEKX7MEG",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Han, Yan, Bao, Journal of Process Control. Big data-driven predictive control for nonlinear systemsA t.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Han, Yan, Bao, Journal of Process Control. Big data-driven predictive control for nonlinear systemsA t.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:58Z",
+            "dateModified": "2026-07-06T17:31:58Z"
+        }
+    },
+    {
+        "key": "ZA4F7ZPD",
+        "version": 9425,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZA4F7ZPD",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZA4F7ZPD",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/E3QWFGI7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZA4F7ZPD",
+            "version": 9425,
+            "parentItem": "E3QWFGI7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Gidon, Abbas, Bonzanini, Control Engineering Practice. Data-driven LPV model predictive control of a cold atmospher.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Gidon, Abbas, Bonzanini, Control Engineering Practice. Data-driven LPV model predictive control of a cold atmospher.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:57Z",
+            "dateModified": "2026-07-06T17:31:57Z"
+        }
+    },
+    {
+        "key": "I42P32NW",
+        "version": 9424,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/I42P32NW",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/I42P32NW",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/QCN9HHFF",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "I42P32NW",
+            "version": 9424,
+            "parentItem": "QCN9HHFF",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Drgoňa, Arroyo, Figueroa, Annual Reviews in Control. All you need to know about model predictive control for buil.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Drgoňa, Arroyo, Figueroa, Annual Reviews in Control. All you need to know about model predictive control for buil.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:55Z",
+            "dateModified": "2026-07-06T17:31:55Z"
+        }
+    },
+    {
+        "key": "ZVSAA7SU",
+        "version": 9423,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZVSAA7SU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZVSAA7SU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3GP3RNWC",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZVSAA7SU",
+            "version": 9423,
+            "parentItem": "3GP3RNWC",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Weerts, Hof, Dankers, Automatica. Prediction error identification of linear dynamic networks w.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Weerts, Hof, Dankers, Automatica. Prediction error identification of linear dynamic networks w.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:53Z",
+            "dateModified": "2026-07-06T17:31:53Z"
+        }
+    },
+    {
+        "key": "52FV8TTM",
+        "version": 9422,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/52FV8TTM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/52FV8TTM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3NNG2F6Z",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "52FV8TTM",
+            "version": 9422,
+            "parentItem": "3NNG2F6Z",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Wu, Zhang, Lu, Automatica. Efficient and smooth robust model predictive control for sto.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Wu, Zhang, Lu, Automatica. Efficient and smooth robust model predictive control for sto.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:51Z",
+            "dateModified": "2026-07-06T17:31:51Z"
+        }
+    },
+    {
+        "key": "NQ92VEA2",
+        "version": 9421,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/NQ92VEA2",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/NQ92VEA2",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/4GPW8Z7S",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "NQ92VEA2",
+            "version": 9421,
+            "parentItem": "4GPW8Z7S",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Jin, He-ping, Xie, Control Engineering Practice. A direct yaw moment control frame through model predictive c.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Jin, He-ping, Xie, Control Engineering Practice. A direct yaw moment control frame through model predictive c.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:48Z",
+            "dateModified": "2026-07-06T17:31:48Z"
+        }
+    },
+    {
+        "key": "9CQJ8HHM",
+        "version": 9420,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9CQJ8HHM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9CQJ8HHM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/DS7DSAPF",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9CQJ8HHM",
+            "version": 9420,
+            "parentItem": "DS7DSAPF",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Buşoniu, Bruin, Tolić, Annual Reviews in Control. Reinforcement learning for control_ Performance, stability,.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Buşoniu, Bruin, Tolić, Annual Reviews in Control. Reinforcement learning for control_ Performance, stability,.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:46Z",
+            "dateModified": "2026-07-06T17:31:46Z"
+        }
+    },
+    {
+        "key": "QPNHCEQC",
+        "version": 9419,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/QPNHCEQC",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/QPNHCEQC",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/C54K72PQ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "QPNHCEQC",
+            "version": 9419,
+            "parentItem": "C54K72PQ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Drgoňa, Picard, Helsen, Journal of Process Control. Cloud-based implementation of white-box model predictive con.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Drgoňa, Picard, Helsen, Journal of Process Control. Cloud-based implementation of white-box model predictive con.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:44Z",
+            "dateModified": "2026-07-06T17:31:44Z"
+        }
+    },
+    {
+        "key": "9QCPFT6Q",
+        "version": 9418,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9QCPFT6Q",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9QCPFT6Q",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/9826AFVV",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9QCPFT6Q",
+            "version": 9418,
+            "parentItem": "9826AFVV",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Ramaswamy, Csurcsia, Schoukens, Automatica. A frequency domain approach for local module identification.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Ramaswamy, Csurcsia, Schoukens, Automatica. A frequency domain approach for local module identification.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:43Z",
+            "dateModified": "2026-07-06T17:31:43Z"
+        }
+    },
+    {
+        "key": "Z6JSREZF",
+        "version": 9417,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/Z6JSREZF",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/Z6JSREZF",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/4GNNPTID",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "Z6JSREZF",
+            "version": 9417,
+            "parentItem": "4GNNPTID",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "You, Huang, Zhang, Systems & Control Letters. Combined invariant subspace &amp; frequency-domain subspace.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "You, Huang, Zhang, Systems & Control Letters. Combined invariant subspace &amp; frequency-domain subspace.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:40Z",
+            "dateModified": "2026-07-06T17:31:40Z"
+        }
+    },
+    {
+        "key": "94TKEWID",
+        "version": 9416,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/94TKEWID",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/94TKEWID",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/AA9XHSK7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "94TKEWID",
+            "version": 9416,
+            "parentItem": "AA9XHSK7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Hou, Chen, Li, Journal of Process Control. Prior-knowledge-based subspace identification for batch proc.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hou, Chen, Li, Journal of Process Control. Prior-knowledge-based subspace identification for batch proc.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:38Z",
+            "dateModified": "2026-07-06T17:31:38Z"
+        }
+    },
+    {
+        "key": "9EUUP3HU",
+        "version": 9415,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9EUUP3HU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9EUUP3HU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/C3VN2PMH",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9EUUP3HU",
+            "version": 9415,
+            "parentItem": "C3VN2PMH",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Ning, You, Automatica. Online learning based risk-averse stochastic MPC of constrai.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Ning, You, Automatica. Online learning based risk-averse stochastic MPC of constrai.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:36Z",
+            "dateModified": "2026-07-06T17:31:36Z"
+        }
+    },
+    {
+        "key": "9Z6JEIBP",
+        "version": 9414,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9Z6JEIBP",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9Z6JEIBP",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/D95FCA6W",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9Z6JEIBP",
+            "version": 9414,
+            "parentItem": "D95FCA6W",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Petreczky, Tóth, Mercère, Systems & Control Letters. LPV-ARX representations of LPV state-space models with affin.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Petreczky, Tóth, Mercère, Systems & Control Letters. LPV-ARX representations of LPV state-space models with affin.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:34Z",
+            "dateModified": "2026-07-06T17:31:34Z"
+        }
+    },
+    {
+        "key": "4DHBZ8PI",
+        "version": 9413,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/4DHBZ8PI",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/4DHBZ8PI",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/7D8X6EFQ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "4DHBZ8PI",
+            "version": 9413,
+            "parentItem": "7D8X6EFQ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Celi, Baggio, Pasqualetti, Annual Reviews in Control. Closed-form and robust expressions for data-driven LQ contro.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Celi, Baggio, Pasqualetti, Annual Reviews in Control. Closed-form and robust expressions for data-driven LQ contro.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:32Z",
+            "dateModified": "2026-07-06T17:31:32Z"
+        }
+    },
+    {
+        "key": "M8QAU7NA",
+        "version": 9412,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/M8QAU7NA",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/M8QAU7NA",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/H5IRRC3M",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "M8QAU7NA",
+            "version": 9412,
+            "parentItem": "H5IRRC3M",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Lawrence, Damarla, Kim, Control Engineering Practice. Machine learning for industrial sensing and control_ A surve.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lawrence, Damarla, Kim, Control Engineering Practice. Machine learning for industrial sensing and control_ A surve.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:30Z",
+            "dateModified": "2026-07-06T17:31:30Z"
+        }
+    },
+    {
+        "key": "A8V6IPG6",
+        "version": 9411,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/A8V6IPG6",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/A8V6IPG6",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/939B3PV7",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "A8V6IPG6",
+            "version": 9411,
+            "parentItem": "939B3PV7",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Markovsky, Automatica. On the behavior of autonomous Wiener systems.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Markovsky, Automatica. On the behavior of autonomous Wiener systems.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:28Z",
+            "dateModified": "2026-07-06T17:31:28Z"
+        }
+    },
+    {
+        "key": "Z9F3SKZC",
+        "version": 9410,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/Z9F3SKZC",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/Z9F3SKZC",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/6U9KXRKR",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "Z9F3SKZC",
+            "version": 9410,
+            "parentItem": "6U9KXRKR",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Khusainov, Kerrigan, Suardi, Control Engineering Practice. Nonlinear predictive control on a heterogeneous computing pl.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Khusainov, Kerrigan, Suardi, Control Engineering Practice. Nonlinear predictive control on a heterogeneous computing pl.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:27Z",
+            "dateModified": "2026-07-06T17:31:27Z"
+        }
+    },
+    {
+        "key": "BM6DXKEC",
+        "version": 9409,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/BM6DXKEC",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/BM6DXKEC",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/GK33DIBU",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "BM6DXKEC",
+            "version": 9409,
+            "parentItem": "GK33DIBU",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Arunan, Qin, Li, Control Engineering Practice. A change point detection integrated remaining useful life es.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Arunan, Qin, Li, Control Engineering Practice. A change point detection integrated remaining useful life es.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:25Z",
+            "dateModified": "2026-07-06T17:31:25Z"
+        }
+    },
+    {
+        "key": "WKAF373D",
+        "version": 9408,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/WKAF373D",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/WKAF373D",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/JBC7F5RJ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "WKAF373D",
+            "version": 9408,
+            "parentItem": "JBC7F5RJ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Zheng, Luan, Liu, Journal of Process Control. Dynamiccontrolledpatternextractionandpattern-based mode.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zheng, Luan, Liu, Journal of Process Control. Dynamiccontrolledpatternextractionandpattern-based mode.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:23Z",
+            "dateModified": "2026-07-06T17:31:23Z"
+        }
+    },
+    {
+        "key": "HXGWDTDB",
+        "version": 9407,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/HXGWDTDB",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/HXGWDTDB",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/H9WJ3G4Z",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "HXGWDTDB",
+            "version": 9407,
+            "parentItem": "H9WJ3G4Z",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Tsay, Bâldea, Control Engineering Practice. Integrating production scheduling and process control using.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Tsay, Bâldea, Control Engineering Practice. Integrating production scheduling and process control using.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:21Z",
+            "dateModified": "2026-07-06T17:31:21Z"
+        }
+    },
+    {
+        "key": "M44M2VSU",
+        "version": 9406,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/M44M2VSU",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/M44M2VSU",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/GX9VVW9Z",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "M44M2VSU",
+            "version": 9406,
+            "parentItem": "GX9VVW9Z",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Albaba, Yıldız, Annual Reviews in Control. Modeling cyber-physical human systems via an interplay betwe.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Albaba, Yıldız, Annual Reviews in Control. Modeling cyber-physical human systems via an interplay betwe.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:19Z",
+            "dateModified": "2026-07-06T17:31:19Z"
+        }
+    },
+    {
+        "key": "3E3B2XBT",
+        "version": 9405,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/3E3B2XBT",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/3E3B2XBT",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/SJSATEVU",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "3E3B2XBT",
+            "version": 9405,
+            "parentItem": "SJSATEVU",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Liu, Chen, Yang, Journal of Process Control. Efficient adaptive deep gradient RBF network for multi-outpu.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Liu, Chen, Yang, Journal of Process Control. Efficient adaptive deep gradient RBF network for multi-outpu.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:17Z",
+            "dateModified": "2026-07-06T17:31:17Z"
+        }
+    },
+    {
+        "key": "F5KVPDQ4",
+        "version": 9404,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/F5KVPDQ4",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/F5KVPDQ4",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/7M9TQXPQ",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "F5KVPDQ4",
+            "version": 9404,
+            "parentItem": "7M9TQXPQ",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Aboudonia, Lygeros, Automatica. Adaptive learning-based model predictive control for uncerta.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Aboudonia, Lygeros, Automatica. Adaptive learning-based model predictive control for uncerta.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:15Z",
+            "dateModified": "2026-07-06T17:31:15Z"
+        }
+    },
+    {
+        "key": "RMMTCV7G",
+        "version": 9403,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/RMMTCV7G",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/RMMTCV7G",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/JBV282HT",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "RMMTCV7G",
+            "version": 9403,
+            "parentItem": "JBV282HT",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Liu, Young, Jafarpour, Journal of Process Control. Longshort-term memory encoderdecoder with regularized hidd.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Liu, Young, Jafarpour, Journal of Process Control. Longshort-term memory encoderdecoder with regularized hidd.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:13Z",
+            "dateModified": "2026-07-06T17:31:13Z"
+        }
+    },
+    {
+        "key": "4E2HDGC5",
+        "version": 9402,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/4E2HDGC5",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/4E2HDGC5",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3ZS3RF2S",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "4E2HDGC5",
+            "version": 9402,
+            "parentItem": "3ZS3RF2S",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Lanza, Dennstädt, Worthmann, Systems & Control Letters. Sampled-data funnel control and its use for safe continual l.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Lanza, Dennstädt, Worthmann, Systems & Control Letters. Sampled-data funnel control and its use for safe continual l.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:12Z",
+            "dateModified": "2026-07-06T17:31:12Z"
+        }
+    },
+    {
+        "key": "ZIWKQGUZ",
+        "version": 9401,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/ZIWKQGUZ",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/ZIWKQGUZ",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3CSE4K2Z",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "ZIWKQGUZ",
+            "version": 9401,
+            "parentItem": "3CSE4K2Z",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Hamdan, Coirault, Mercère, Control Engineering Practice. Data enabled Predictive Control of LPV systems.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hamdan, Coirault, Mercère, Control Engineering Practice. Data enabled Predictive Control of LPV systems.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:10Z",
+            "dateModified": "2026-07-06T17:31:10Z"
+        }
+    },
+    {
+        "key": "DJRKXMPS",
+        "version": 9400,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/DJRKXMPS",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/DJRKXMPS",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/MT6KEKZV",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "DJRKXMPS",
+            "version": 9400,
+            "parentItem": "MT6KEKZV",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Faulwasser, Ou, Pan, Annual Reviews in Control. Behavioral theory for stochastic systems_ A data-driven jour.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Faulwasser, Ou, Pan, Annual Reviews in Control. Behavioral theory for stochastic systems_ A data-driven jour.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:08Z",
+            "dateModified": "2026-07-06T17:31:08Z"
+        }
+    },
+    {
+        "key": "95EJTTQM",
+        "version": 9399,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/95EJTTQM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/95EJTTQM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/3EZT9Q4A",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "95EJTTQM",
+            "version": 9399,
+            "parentItem": "3EZT9Q4A",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Jia, Panetto, Macchi, Annual Reviews in Control. Control for smart systems_ Challenges and trends in smart ci.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Jia, Panetto, Macchi, Annual Reviews in Control. Control for smart systems_ Challenges and trends in smart ci.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:06Z",
+            "dateModified": "2026-07-06T17:31:06Z"
+        }
+    },
+    {
+        "key": "9GKSRTBM",
+        "version": 9398,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/9GKSRTBM",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/9GKSRTBM",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/BXRQ4CGF",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "9GKSRTBM",
+            "version": 9398,
+            "parentItem": "BXRQ4CGF",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Zhu, Ding, Jiang, Control Engineering Practice. Anomaly detection using invariant rules in Industrial Contro.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Zhu, Ding, Jiang, Control Engineering Practice. Anomaly detection using invariant rules in Industrial Contro.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:04Z",
+            "dateModified": "2026-07-06T17:31:04Z"
+        }
+    },
+    {
+        "key": "WI7E34AF",
+        "version": 9397,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/WI7E34AF",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/WI7E34AF",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/CSD26Q4D",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "WI7E34AF",
+            "version": 9397,
+            "parentItem": "CSD26Q4D",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Yu, Chen, Li, Automatica. Identification of affinely parameterized statespace models.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Yu, Chen, Li, Automatica. Identification of affinely parameterized statespace models.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:02Z",
+            "dateModified": "2026-07-06T17:31:02Z"
+        }
+    },
+    {
+        "key": "769D8WF8",
+        "version": 9396,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/769D8WF8",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/769D8WF8",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/HGPRVMSF",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "769D8WF8",
+            "version": 9396,
+            "parentItem": "HGPRVMSF",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Ying, Wu, Huang, Control Engineering Practice. Data-driven modeling and stability control for industrial zi.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Ying, Wu, Huang, Control Engineering Practice. Data-driven modeling and stability control for industrial zi.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:31:00Z",
+            "dateModified": "2026-07-06T17:31:00Z"
+        }
+    },
+    {
+        "key": "3XP2KX6R",
+        "version": 9395,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/3XP2KX6R",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/3XP2KX6R",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/XVPJX9HX",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "3XP2KX6R",
+            "version": 9395,
+            "parentItem": "XVPJX9HX",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Baros, Chang, Colón-Reyes, Automatica. Online data-enabled predictive control.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Baros, Chang, Colón-Reyes, Automatica. Online data-enabled predictive control.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:30:59Z",
+            "dateModified": "2026-07-06T17:30:59Z"
+        }
+    },
+    {
+        "key": "IPFRCDCI",
+        "version": 9394,
+        "library": {
+            "type": "user",
+            "id": 15730810,
+            "name": "XieYuezheng",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/xieyuezheng",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/users/15730810/items/IPFRCDCI",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/xieyuezheng/items/IPFRCDCI",
+                "type": "text/html"
+            },
+            "up": {
+                "href": "https://api.zotero.org/users/15730810/items/4A58TRDK",
+                "type": "application/json"
+            }
+        },
+        "meta": {
+            "numChildren": 0
+        },
+        "data": {
+            "key": "IPFRCDCI",
+            "version": 9394,
+            "parentItem": "4A58TRDK",
+            "itemType": "attachment",
+            "linkMode": "imported_file",
+            "title": "Hadid, Duviella, Lecoeuche, Journal of Process Control. Data-driven modeling for river flood forecasting based on a.pdf",
+            "accessDate": "",
+            "url": "",
+            "note": "",
+            "contentType": "application/pdf",
+            "charset": "",
+            "filename": "Hadid, Duviella, Lecoeuche, Journal of Process Control. Data-driven modeling for river flood forecasting based on a.pdf",
+            "md5": null,
+            "mtime": null,
+            "tags": [],
+            "relations": {},
+            "dateAdded": "2026-07-06T17:30:57Z",
+            "dateModified": "2026-07-06T17:30:57Z"
+        }
+    }
+]

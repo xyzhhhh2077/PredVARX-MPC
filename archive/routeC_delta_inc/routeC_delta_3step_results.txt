@@ -1,0 +1,9 @@
+ROUTE_C_DELTA_3STEP_RESULTS
+ref_seg1: 1.00  ref_seg2: 2.00  ref_seg3: 0.50
+y_mean_y1_seg1: 0.2683
+y_mean_y2_seg1: 1.0367
+y_mean_y1_seg2: 0.1795
+y_mean_y2_seg2: 0.5040
+y_mean_y1_seg3: 0.2235
+y_mean_y2_seg3: 0.0418
+QP_fail: 0/1200

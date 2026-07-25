@@ -45,3 +45,7 @@ desktop.ini
 # NOTE:
 # Experiment .mat / .png / .fig under experiments/ are TRACKED via Git LFS
 # for reproducibility of all copy* MATLAB runs.
+
+# Syncthing local markers
+**/.stfolder/
+**/.stversions/

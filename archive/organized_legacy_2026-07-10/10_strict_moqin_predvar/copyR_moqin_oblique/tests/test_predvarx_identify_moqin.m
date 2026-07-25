@@ -1,0 +1,28 @@
+function test_predvarx_identify_moqin
+% RED test for the Mo--Qin (2025) Algorithm-1 realization:
+% whitened IVR eigenvectors are de-normalized directly, with no QR or
+% post-hoc SVD realignment. The full complementary pair follows Eq. (34).
+
+rng(11, 'twister');
+p=6; n=3; m=2; ell=2; T=500;
+A=diag([.80,.62,.43]); B=0.4*randn(n,m);
+C=randn(p,n); [C,~]=qr(C,0);
+u=randn(m,T); x=zeros(n,T+1); y=zeros(p,T);
+for k=1:T
+    y(:,k)=C*x(:,k)+0.04*randn(p,1);
+    x(:,k+1)=A*x(:,k)+B*u(:,k)+0.03*randn(n,1);
+end
+
+[~,~,P,Pbar,R,Rbar,~,Sigma_eps,Sigma_ebar,~,~,~,info] = ...
+    predvarx_identify_moqin(y,u,ell);
+
+assert(norm(R'*P-eye(ell),'fro') < 1e-8, 'Eq. (28)/(29) de-normalization must yield R''P=I.');
+assert(norm(R'*Pbar,'fro') < 1e-8, 'Eq. (34) complement must satisfy R''Pbar=0.');
+assert(norm(Rbar'*P,'fro') < 1e-8, 'Eq. (34) complement must satisfy Rbar''P=0.');
+assert(norm(Rbar'*Pbar-eye(p-ell),'fro') < 1e-8, 'Full dual basis must satisfy Rbar''Pbar=I.');
+assert(norm(info.R_raw'*info.P_raw-eye(ell),'fro') < 1e-8, ...
+    'Raw Mo--Qin de-normalization must already satisfy R''P=I; no SVD alignment is allowed.');
+assert(all(eig((Sigma_eps+Sigma_eps')/2) >= -1e-10), 'Dynamic covariance must be PSD.');
+assert(all(eig((Sigma_ebar+Sigma_ebar')/2) >= -1e-10), 'Static covariance must be PSD.');
+fprintf('PASS: Mo--Qin Algorithm-1 de-normalized oblique realization holds.\n');
+end
