@@ -1,19 +1,24 @@
-%% copyAO_crte_teacher_profiled_unknown_noise — complete profiled teacher, unknown-noise proxy
-% Implements the executable fixed spectral surrogate from CRTE draft Sec 3.3.
-% It is NOT the profiled teacher objective: surrogate uses a weighted Frobenius-
-% normalized linear combination of S_yu, A_T, and a free-output residual noise
-% proxy, then solves a symmetric generalized eigenproblem in the metric C_mu.
+%% copyAO_crte_teacher_profiled_unknown_noise — complete profiled teacher (Sec. 5.3 support, unknown-noise proxy)
+% Implements the full CRTE teacher structure from Sec. 3:
+%   J_teacher(X) = F_{N_p}(X) - alpha*E_task(X) + beta*E_noise(X)
+% for X in St(d, ell-q). Every candidate rebuilds (P_X,R_X), re-extracts z,
+% refits VARX, evaluates multi-step free-DLV residual, exact OLS-FWL task,
+% cross-fitted residual-noise proxy, and candidate-specific Ru^{-1} authority.
+%
+% FWL is handled strictly per Sec. 5.3: Z0=W*M0 is compact-SVD'd, candidates
+% are born inside range(B_T) as V0=Us*Ss^{-1}*Zeta, then paired-metric
+% normalized to V=V0*(V0'*C_mu*V0)^{-1/2}. Denominator ridge is never used
+% to mask undefined 0/0; rank-deficient ell_f raises InsufficientFWLRank.
 %
 % Boundaries:
 % - True sensor-noise Sigma_n is unknown and never passed in.
 % - Each candidate rebuilds the complete metric-dual basis and refits VARX.
-% - Selection is from a frozen (mu, alpha, beta) grid using validation-set
-%   one-step NRMSE on the controlled outputs; closed-loop simulation uses
-%   the chosen candidate rebuilt on all offline data.
+% - Search is finite 195-candidate verification (5 mu * (9 spectral + 30
+%   random Stiefel)), not a continuous Stiefel/Grassmann global optimum.
 % - Coverage is reported as a warm-horizon QP-success time-fraction proxy
 %   only. It is NOT a chance-constraint probability certificate.
-% - No claim of recursive feasibility, closed-loop stability, or global
-%   surrogate-vs-teacher optimality is made.
+% - No claim of recursive feasibility, closed-loop stability, or surrogate-
+%   vs-teacher optimality is made.
 clear; clc; close all; addpath(fileparts(mfilename('fullpath')));
 rng(20260710,'twister');  % same plant seed as copyAA / copyAM for fair compare
 
@@ -314,6 +319,10 @@ fprintf(fid,'validation_nrmse %.12f\n',stats.selected_validation_nrmse);
 fprintf(fid,'num_candidates %d\n',stats.num_candidates);
 fprintf(fid,'num_feasible %d\n',stats.num_feasible);
 fprintf(fid,'H0_idempotency_error %.12e\n',stats.H0_idempotency_error);
+fprintf(fid,'fwl_support_rank %d\n',stats.fwl_support_rank);
+fprintf(fid,'fwl_support_tol %.12e\n',stats.fwl_support_tol);
+fprintf(fid,'support_B_identity_error %.12e\n',stats.support_B_identity_error);
+fprintf(fid,'max_candidate_support_residual %.12e\n',stats.max_candidate_support_residual);
 fprintf(fid,'dual_error %.12e\n',stats.dual_error);
 fprintf(fid,'Pi_idempotency_error %.12e\n',stats.Pi_idempotency_error);
 fprintf(fid,'spectral_radius %.12f\n',stats.spectral_radius);

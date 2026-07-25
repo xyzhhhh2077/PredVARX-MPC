@@ -15,9 +15,13 @@ assert(~contains(regexp(src,'function[^\n]+','match','once'),'Sigma_n'),'Signatu
 assert(st.uses_true_Sigma_n==false);
 assert(contains(st.noise_object,'cross-fitted'));
 
-%% Exact OLS FWL projector and domain
+%% Exact OLS FWL projector, compact-SVD support, and domain
 assert(st.H0_idempotency_error<1e-8,'H0 is not an OLS projector.');
+assert(st.fwl_support_rank >= ell-numel(tracked));
+assert(st.support_B_identity_error < 1e-8,'Qsupport''*B_T*Qsupport is not identity.');
+assert(st.max_candidate_support_residual < 1e-8,'Candidate left the compact-SVD FWL support.');
 assert(all(arrayfun(@(r) r.fwl_valid || isnan(r.task_term),st.rows)));
+assert(all([st.rows.fwl_valid]),'Support-generated candidates must have positive FWL denominator.');
 
 %% Complete candidate-dependent reconstruction/refit
 assert(norm(R'*P-eye(ell),'fro')<1e-8);
@@ -42,7 +46,24 @@ opt2=opt; opt2.Ru=2*opt.Ru;
 r1=[st.rows.reach_min]; r2=[st2.rows.reach_min];
 assert(max(abs(r2-.5*r1)./max(abs(r1),1e-12))<1e-6,'Ru^{-1} is missing or incorrectly applied.');
 
-fprintf('PASS profiled teacher unknown-noise: candidates=%d feasible=%d selected=%d J=%.6g [pred=%.6g task=%.6g noise=%.6g] reach=%.3e dual=%.2e rho=%.4f val=%.4f\n', ...
+%% Rank-deficient support must reject ell_f larger than effective FWL rank
+% Construct free data with only one residualized free direction, but request
+% ell_f=3. Sec. 5.3 requires an explicit rank rejection, not denominator ridge.
+p2=7; tracked2=[1 2]; ell2=5; T2=300; u2=randn(2,T2);
+t=(1:T2); latent=sin(.03*t)+.1*randn(1,T2);
+y2=zeros(p2,T2); y2(1,:)=.2*latent; y2(2,:)=.1*cos(.02*t);
+y2(3:end,:)=repmat(latent,p2-2,1); % free block rank 1
+caught=false;
+try
+    crte_profiled_teacher_unknown_noise(y2,u2,ell2,tracked2, ...
+        struct('mu_grid',0,'prediction_horizon',3,'num_random_subspaces',0,'rank_tol',1e-8));
+catch ME
+    caught=strcmp(ME.identifier,'crte_profiled_teacher_unknown_noise:InsufficientFWLRank');
+end
+assert(caught,'Rank-deficient FWL support did not reject ell_f > effective rank.');
+
+fprintf('PASS profiled teacher unknown-noise + Sec5.3 SVD support: rank=%d support-I=%.2e support-res=%.2e candidates=%d feasible=%d selected=%d J=%.6g [pred=%.6g task=%.6g noise=%.6g] reach=%.3e dual=%.2e rho=%.4f val=%.4f\n', ...
+    st.fwl_support_rank,st.support_B_identity_error,st.max_candidate_support_residual, ...
     st.num_candidates,st.num_feasible,st.best_index,st.selected_teacher_objective, ...
     st.selected_prediction_term,st.selected_task_term,st.selected_noise_term, ...
     st.selected_reach_min,st.dual_error,st.spectral_radius,st.selected_validation_nrmse);

@@ -52,42 +52,72 @@ base=[yc(tracked,tr(1:end-1));uc(:,tr(1:end-1))];
 W=Yp(:,tr(1:end-1)); Tfuture=yc(tracked,tr(2:end));
 H0=base'*pinv(base*base')*base; H0=(H0+H0')/2;
 M0=eye(size(H0))-H0; M0=(M0+M0')/2;
-B_T=W*M0*W'; A_T=W*M0*Tfuture'*Tfuture*M0*W';
+Z0=W*M0;
+B_T=Z0*Z0';
+TaskGram=Tfuture'*Tfuture;
+A_T=Z0*((TaskGram+TaskGram')/2)*Z0';
 B_T=(B_T+B_T')/2; A_T=(A_T+A_T')/2;
 proj_idempotency=norm(H0*H0-H0,'fro');
+
+% Strict Sec. 5.3 support parameterization: Z0=Us*Ss*Vs'.
+% All candidates are generated as V0=Us*Ss^{-1}*Zeta, so they are born in
+% range(B_T) and have V0'*B_T*V0=I before metric renormalization.
+[Us,Ss,~]=svd(Z0,'econ');
+svals=diag(Ss);
+svd_tol=opt.rank_tol*max(max(svals),1);
+fwl_rank=sum(svals>svd_tol);
+if fwl_rank<r
+    error('crte_profiled_teacher_unknown_noise:InsufficientFWLRank', ...
+        'FWL support rank %d is smaller than requested ell_f=%d.',fwl_rank,r);
+end
+Us=Us(:,1:fwl_rank); svals=svals(1:fwl_rank);
+Qsupport=Us*diag(1./svals);
+Psupport=Us*Us';
+support_B_identity_error=norm(Qsupport'*B_T*Qsupport-eye(fwl_rank),'fro');
 
 % Unknown-noise object, estimated without using a candidate or true Sigma_n.
 Sigma_noise_proxy=crossfit_free_residual_cov(Yp,uc,tr,ridge);
 
-% Candidate pool: fixed spectral initializers plus seeded random Stiefel bases.
+% Candidate pool generated only in the compact-SVD FWL support.
 pool={}; ncan=0;
 Syu=fixed_prediction_content(Yp,uc,tr,ridge);
 NtrS=fro_norm(Syu); NtrA=fro_norm(A_T); NtrN=fro_norm(Sigma_noise_proxy);
 for im=1:numel(opt.mu_grid)
-    mu=opt.mu_grid(im); [Csqrt,Cinvhalf,Cmu]=metric_roots(Sigma_perp,G,tauG,mu,ridge);
+    mu=opt.mu_grid(im); [Csqrt,~,Cmu]=metric_roots(Sigma_perp,G,tauG,mu,ridge);
+    Ceta=Qsupport'*Cmu*Qsupport; Ceta=(Ceta+Ceta')/2;
+    [~,Cei]=spd_roots(Ceta,ridge);
     for aa=[0 0.5 1]
         for bb=[0 0.5 1]
-            M=Cinvhalf*(NtrS+aa*NtrA-bb*NtrN)*Cinvhalf; M=(M+M')/2;
-            [U,D]=eig(M); [~,ord]=sort(real(diag(D)),'descend'); X=fix_sign(U(:,ord(1:r)));
-            ncan=ncan+1; pool{ncan}=make_candidate(mu,X,'spectral',aa,bb,Cmu,Csqrt,Cinvhalf); %#ok<AGROW>
+            Aeta=Qsupport'*(NtrS+aa*NtrA-bb*NtrN)*Qsupport;
+            M=Cei*((Aeta+Aeta')/2)*Cei; M=(M+M')/2;
+            [U,D]=eig(M); [~,ord]=sort(real(diag(D)),'descend'); Zeta=fix_sign(U(:,ord(1:r)));
+            Vread=Qsupport*(Cei*Zeta);
+            Vread=metric_normalize(Vread,Cmu,ridge);
+            Vload=Cmu*Vread;
+            X=Csqrt*Vread;
+            ncan=ncan+1; pool{ncan}=make_candidate(mu,X,Vread,Vload,'spectral',aa,bb,Cmu); %#ok<AGROW>
         end
     end
 end
 rng(opt.seed,'twister');
 for im=1:numel(opt.mu_grid)
-    mu=opt.mu_grid(im); [Csqrt,Cinvhalf,Cmu]=metric_roots(Sigma_perp,G,tauG,mu,ridge);
+    mu=opt.mu_grid(im); [Csqrt,~,Cmu]=metric_roots(Sigma_perp,G,tauG,mu,ridge);
     for k=1:opt.num_random_subspaces
-        [X,~]=qr(randn(d,r),0); X=fix_sign(X);
-        ncan=ncan+1; pool{ncan}=make_candidate(mu,X,'random',NaN,NaN,Cmu,Csqrt,Cinvhalf); %#ok<AGROW>
+        [Zeta,~]=qr(randn(fwl_rank,r),0); Zeta=fix_sign(Zeta);
+        V0=Qsupport*Zeta;
+        Vread=metric_normalize(V0,Cmu,ridge);
+        Vload=Cmu*Vread;
+        X=Csqrt*Vread;
+        ncan=ncan+1; pool{ncan}=make_candidate(mu,X,Vread,Vload,'random',NaN,NaN,Cmu); %#ok<AGROW>
     end
 end
 
 rows=struct([]);
 for i=1:ncan
     cand=pool{i};
-    Vread=cand.Cinvhalf*cand.X;
-    Vload=cand.Csqrt*cand.X;
-    [Ac,Bc,Pc,Rc,Sc,det]=refit(yc,uc,E,Nperp,Vload,Vread,tr,ridge);
+    Vread=cand.Vread;
+    Vload=cand.Vload;
+    [Ac,Bc,Pc,Rc,~,det]=refit(yc,uc,E,Nperp,Vload,Vread,tr,ridge);
 
     % Complete profiled teacher term 1: multi-step residual in selected free DLVs.
     pred_term=multistep_free_residual(yc,uc,Rc,Ac,Bc,q,tr,Np,omega);
@@ -123,9 +153,10 @@ for i=1:ncan
     rows(i).prediction_term=pred_term; rows(i).task_term=task_term;
     rows(i).noise_term=noise_term; rows(i).teacher_objective=teacher;
     rows(i).reach_min=reach_min; rows(i).fwl_min_eig=min(b_eigs);
+    rows(i).support_residual=norm((eye(d)-Psupport)*Vread,'fro');
     rows(i).fwl_valid=fwl_valid; rows(i).validation_nrmse=val;
     rows(i).spectral_radius=det.rho; rows(i).dual_error=det.dual_error;
-    rows(i).feasible=feasible; rows(i).X=cand.X;
+    rows(i).feasible=feasible; rows(i).X=cand.X; rows(i).Vread=Vread;
 end
 feas=[rows.feasible]; assert(any(feas),'No feasible profiled-teacher candidate.');
 idx=find(feas); [~,k]=min([rows(idx).teacher_objective]); bestidx=idx(k); best=rows(bestidx);
@@ -133,8 +164,9 @@ idx=find(feas); [~,k]=min([rows(idx).teacher_objective]); bestidx=idx(k); best=r
 % Refit the selected subspace on all offline data. X and mu remain frozen.
 ybarF=mean(y,2); ubarF=mean(u,2); ycF=y-ybarF; ucF=u-ubarF;
 YpF=Nperp'*ycF; SigF=cov(YpF',1); SigF=(SigF+SigF')/2+ridge*eye(d);
-tauF=trace(G\SigF)/d; [CsF,CihF,CmuF]=metric_roots(SigF,G,tauF,best.mu,ridge);
-Vread=CihF*best.X; Vload=CsF*best.X;
+tauF=trace(G\SigF)/d; [~,~,CmuF]=metric_roots(SigF,G,tauF,best.mu,ridge);
+Vread=metric_normalize(best.Vread,CmuF,ridge);
+Vload=CmuF*Vread;
 [Ahat,Bhat,P,R,Sigma_eps,det]=refit(ycF,ucF,E,Nperp,Vload,Vread,1:T,ridge);
 Pbar=null(R'); Qfull=[P,Pbar]; assert(rcond(Qfull)>1e-12,'Complete dual basis ill-conditioned.');
 Dmat=inv(Qfull'); Rbar=Dmat(:,ell+1:end);
@@ -150,6 +182,10 @@ stats.alpha=opt.alpha; stats.beta=opt.beta; stats.omega=omega; stats.horizon=Np;
 stats.uses_true_Sigma_n=false; stats.noise_object='two-fold cross-fitted free-output residual covariance proxy';
 stats.search_claim='finite candidate verification; no Stiefel global-optimum claim';
 stats.H0_idempotency_error=proj_idempotency; stats.B_T=B_T; stats.A_T=A_T;
+stats.Z0=Z0; stats.fwl_support_rank=fwl_rank; stats.fwl_support_tol=svd_tol;
+stats.fwl_support_basis=Us; stats.fwl_support_singular_values=svals;
+stats.support_B_identity_error=support_B_identity_error;
+stats.max_candidate_support_residual=max([rows.support_residual]);
 stats.Sigma_noise_proxy=Sigma_noise_proxy; stats.C_mu=CmuF;
 stats.dual_error=norm(R'*P-eye(ell),'fro');
 stats.tracked_right_error=norm(P*R'*E-E,'fro'); stats.tracked_left_error=norm(E'*P*R'-E','fro');
@@ -158,8 +194,20 @@ stats.dual_errors_4piece=[stats.dual_error,norm(R'*Pbar,'fro'),norm(Rbar'*P,'fro
 stats.spectral_radius=max(abs(eig(Ahat))); stats.detail=det;
 end
 
-function c=make_candidate(mu,X,source,aa,bb,Cmu,Csqrt,Cinvhalf)
-c=struct('mu',mu,'X',X,'source',source,'aa',aa,'bb',bb,'Cmu',Cmu,'Csqrt',Csqrt,'Cinvhalf',Cinvhalf);
+function c=make_candidate(mu,X,Vread,Vload,source,aa,bb,Cmu)
+c=struct('mu',mu,'X',X,'Vread',Vread,'Vload',Vload, ...
+    'source',source,'aa',aa,'bb',bb,'Cmu',Cmu);
+end
+
+function V=metric_normalize(V0,C,ridge)
+Gram=V0'*C*V0; Gram=(Gram+Gram')/2;
+[~,Gih]=spd_roots(Gram,ridge);
+V=V0*Gih;
+end
+
+function [Gh,Gih]=spd_roots(G,ridge)
+[U,D]=eig((G+G')/2); d=max(real(diag(D)),ridge);
+Gh=U*diag(sqrt(d))*U'; Gih=U*diag(1./sqrt(d))*U';
 end
 
 function [Cs,Cih,C]=metric_roots(S,G,tau,mu,ridge)
