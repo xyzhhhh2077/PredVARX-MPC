@@ -14,29 +14,24 @@ codegen/
 # MEX compiled files
 *.mex*
 
-# Large MATLAB data/results files: track manually only if needed
-*.mat
-
-# Figures can become large; track manually only if they are final paper figures
-*.fig
-
 # Common generated outputs
 *.log
 *.out
 *.cache
 
-# Per-experiment PNG figures (generated; do not track. README mentions paper-level figures explicitly)
-experiments/*/results/*.png
-
-# Stray PDFs dropped into experiments (e.g., downloaded plant PDFs, teaching copies)
+# Stray PDFs dropped into experiments (not part of MATLAB copy suite)
 experiments/*.pdf
 
-# Literature download cache (PDFs + analysis .md) -- too large, should live outside this git repo
+# Literature download cache (PDFs + analysis) -- keep outside this repo
 experiments/_lit_dl/
 experiments/_tmp_*.txt
 
-# Teaching PPT project (separate repo concern; not part of MATLAB identifier suite)
+# Teaching PPT project (separate concern)
 projects/
+
+# Local one-off editor helpers (not experiment code)
+seqedit.bat
+seqedit.py
 
 # OS junk
 .DS_Store
@@ -46,3 +41,7 @@ desktop.ini
 # Editor folders
 .vscode/
 .idea/
+
+# NOTE:
+# Experiment .mat / .png / .fig under experiments/ are TRACKED via Git LFS
+# for reproducibility of all copy* MATLAB runs.

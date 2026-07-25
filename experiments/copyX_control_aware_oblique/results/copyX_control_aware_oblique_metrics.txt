@@ -1,0 +1,25 @@
+copyX_control_aware_oblique metrics
+tracked_projection_error 0.000000000000e+00
+tracked_oblique_error 1.025002229805e-14
+dual_error 1.040413799773e-14
+pr_asymmetry 1.594996531953e-01
+cond_dual_gram 6.186156830836e+03
+reconstruction_residual 0.119087634520
+MAE 0.097283030579 0.095015949314
+RMSE 0.144365688454 0.137546049973
+Bias -0.037793139349 -0.041506129842
+upper_violation_rate 0.000000000000 0.000000000000
+abs_violation_rate 0.000000000000 0.000000000000
+qp_success_rate 1.000000000000
+infeasible_count 0
+max_recorded_qp_constraint 2.103872631665e-14
+constraint_active_rate 0.690476190476
+avg_costJ 109.161150732837
+estimated_sigma_eps_mean 0.136445041230
+estimated_sigma_obs_mean 0.079350566079
+realized_sigma_w_mean 0.054176734279
+realized_sigma_e_mean 0.059384573986
+sigma_w_profile_range 0.020000000000 0.090000000000
+sigma_e_profile_range 0.025000514041 0.099999485959
+u_rms 0.242567491762 0.509391667557 0.313019168419
+u_sat_rate 0.000833333333 0.000000000000 0.000833333333
