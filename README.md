@@ -31,8 +31,10 @@ PredVARX-MPC/
 ├── main/                         # 历史基线（copyS_nosoft）
 ├── experiments/                  # 现行 copy 套件（优先入口）
 │   ├── copyO_oblique/ ...
+│   ├── copyAN_crte_fixed_surrogate/
 │   ├── copyAO_crte_teacher_profiled_unknown_noise/
 │   ├── copyAP_crte_multistep_task_20x4/
+│   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
 │   └── ...
 ├── archive/                      # 非现行历史 MATLAB 版本
 │   ├── early_snapshot_2026-07-09/
@@ -96,7 +98,6 @@ PredVARX-MPC/
 | `copyAK_terminal_set_rf` | 终端集 / 递归可行探针 |
 | `copyAL_split_empirical_cov_oblique` | 经验协方差分块斜投影变体 |
 | `copyAM_tracked_cov_only` | 仅被控轴协方差的机会约束路径 |
-| `copyAN_crte_fixed_surrogate` | CRTE 固定谱代理（自由补空间） |
 | `copyAN_closed_loop_audit_grade` | 占位目录（无完整运行；仅保留分支名连续性） |
 
 ### C. 统一对照包
@@ -106,21 +107,32 @@ PredVARX-MPC/
 | `copyOPQSTR_unified` | 同一 plant/噪声/SMPC 下还原 O/P/Q/R/S/T 算法差异 |
 | `copyALL_unified` | 更广的多 copy 统一对照 + 分图 |
 
-### D. CRTE profiled-teacher 线（当前研究前沿）
+### D. CRTE 两条线（勿混算法）
+
+**D1. 文稿 draft 实验算法（固定谱 surrogate + validation 选型 + 未知噪声）**
 
 | 目录 | 作用 | 状态 |
 |---|---|---|
-| `copyAO_crte_teacher_profiled_unknown_noise` | 完整 profiled teacher、unknown-noise proxy、严格 FWL SVD 支撑、单次全长运行 | **CRTE 主结构结果** |
+| `copyAN_crte_fixed_surrogate` | CRTE 固定谱代理（自由补空间）骨架 | 早期固定谱路径 |
+| `copyAR_crte_paper_spectral_validation_unknown_noise` | **文稿 Sec. 3.3–3.4 路径**：paper $N_{tr}$、$\mu$ 网格、percentile 门控、**validation-only 选型**、自由输出一步残差 proxy；`uses_true_Sigma_n=0`（**不用**真 $\Sigma_n$ Oracle） | 单元测试 + 单种子全长闭环（`.mat`/图/metrics 已入库） |
+
+**D2. profiled-teacher 线（研究结构线，非文稿 draft 选型）**
+
+| 目录 | 作用 | 状态 |
+|---|---|---|
+| `copyAO_crte_teacher_profiled_unknown_noise` | 完整 profiled teacher、unknown-noise proxy、严格 FWL SVD 支撑、单次全长运行 | **结构主结果（profiled + min teacher）** |
 | `copyAP_crte_multistep_task_20x4` | 多步 task 堆叠 $t+1:t+H$、$\mu=1$、blocked forward noise proxy | 结构测试 + smoke + 一次 $H=3$ 全长确认 |
 | `copyAQ_crte_varx_order_20x4` | VARX 阶数 / companion 草稿，用于 $s>1$ 消融 | 核心与测试草稿；**不是**完成的 20×4 全网格 |
 
 **CRTE 阅读顺序**
 
-1. 几何 / FWL / teacher 结构 → `copyAO`
-2. 多步 task + blocked proxy 合同 → `copyAP`
-3. 更高阶潜变量 AR 草稿 → `copyAQ`（未完成）
+1. 文稿 draft 算法（谱 surrogate + validation + 未知残差 proxy）→ `copyAR`（骨架对照 → `copyAN`）
+2. 几何 / FWL / teacher 结构 → `copyAO`（**不是** validation 主选型）
+3. 多步 task + blocked proxy 合同 → `copyAP`
+4. 更高阶潜变量 AR 草稿 → `copyAQ`（未完成）
 
-没有配对协议时，不要把 AO/AP/AQ 数字揉成“最优方法”结论。
+没有配对协议时，不要把 AN/AR 与 AO/AP/AQ 数字揉成“同一算法最优”结论。  
+**噪声口径**：工程默认未知传感器噪声 → residual proxy；真 $\Sigma_n$ 仅适合仿真 Oracle 对照，不是 copyAR 主路径。
 
 ---
 
@@ -151,8 +163,14 @@ run('main/copyS_nosoft.m')
 run('experiments/copyP_centered_smpc/copyP_centered_smpc.m')
 run('experiments/copyX_control_aware_oblique/copyX_control_aware_oblique.m')
 
-% CRTE 主结构
-cd('experiments/copyAO_crte_teacher_profiled_unknown_noise')
+% CRTE 文稿 draft 算法（谱 + validation + 未知噪声 residual proxy）
+cd('experiments/copyAR_crte_paper_spectral_validation_unknown_noise')
+run('tests/test_crte_paper_spectral_varx.m')
+copyAR_crte_paper_spectral_validation_unknown_noise
+% 结果：results/*_data.mat / *_fig.png / *_metrics.txt
+
+% CRTE profiled-teacher 结构线（非 validation 主选型）
+cd('../copyAO_crte_teacher_profiled_unknown_noise')
 test_crte_profiled_teacher_unknown_noise
 copyAO_crte_teacher_profiled_unknown_noise
 
@@ -197,6 +215,7 @@ run_all_tests
 |---|---|
 | 了解 O–Z 演化 | `VERSION_EVOLUTION_AND_METRICS.md` |
 | 公平 OPQSTR 对照 | `experiments/copyOPQSTR_unified/` |
+| 文稿 draft CRTE（谱+val+未知噪声） | `experiments/copyAR_crte_paper_spectral_validation_unknown_noise/` |
 | 当前 CRTE teacher 结构 | `experiments/copyAO_crte_teacher_profiled_unknown_noise/` |
 | 多步 task 扩展 | `experiments/copyAP_crte_multistep_task_20x4/` |
 | 旧字母考古 | `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md` + `archive/` |
@@ -207,6 +226,6 @@ run_all_tests
 ## 备注
 
 - 多数 copy 需要把对应目录 `addpath` 进 MATLAB（有时还要加 `tests/`）。
-- SMPC 主路径通常需要 Optimization Toolbox 的 `quadprog`。
+- SMPC 主路径通常需要 Optimization Toolbox 的 `quadprog`。若 PATH 上有损坏的 MOSEK `quadprog` 包装，需优先 MATLAB `toolbox/optim`（copyAR runner 会临时剥离 mosek 路径）。
 - 并行池可选；部分后续脚本更倾向多进程 launcher，而不是超大 parpool。
-- 汇报结果时务必写明**确切 copy 目录**，以及图/mat 属于 smoke、单种子还是完整战役。
+- 汇报结果时务必写明**确切 copy 目录**、噪声是否 `uses_true_Sigma_n`、选型是 validation 还是 min-teacher，以及图/mat 属于 smoke、单种子还是完整战役。
