@@ -1,0 +1,16 @@
+copyAS learned-task-anchor experimental extension
+not_original_CRTE 1
+uses_true_Sigma_n 0
+anchor_eigengap 0.0277663565296
+selected_mu 0
+validation_nrmse 0.562180251184
+dual_error 1.75539564067e-15
+task_preservation_error 7.99455246879e-16
+principal_angles_deg [55.733808 87.863506]
+MAE [0.19624528 0.41627277]
+RMSE [0.22951513 0.47822784]
+Bias [0.18095124 -0.41597735]
+qp_success_rate 1
+fallback_count 0
+cover 1
+max_qp_constraint 1.20037313422e-12

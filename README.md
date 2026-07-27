@@ -35,6 +35,7 @@ PredVARX-MPC/
 │   ├── copyAO_crte_teacher_profiled_unknown_noise/
 │   ├── copyAP_crte_multistep_task_20x4/
 │   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
+│   ├── copyAS_learned_task_anchor_smpc/
 │   └── ...
 ├── archive/                      # 非现行历史 MATLAB 版本
 │   ├── early_snapshot_2026-07-09/
@@ -115,6 +116,7 @@ PredVARX-MPC/
 |---|---|---|
 | `copyAN_crte_fixed_surrogate` | CRTE 固定谱代理（自由补空间）骨架 | 早期固定谱路径 |
 | `copyAR_crte_paper_spectral_validation_unknown_noise` | **文稿 Sec. 3.3–3.4 路径**：paper $N_{tr}$、$\mu$ 网格、percentile 门控、**validation-only 选型**、自由输出一步残差 proxy；`uses_true_Sigma_n=0`（**不用**真 $\Sigma_n$ Oracle） | 单元测试 + 单种子全长闭环（`.mat`/图/metrics 已入库） |
+| `copyAS_learned_task_anchor_smpc` | **非原文扩展**：不用 tracked 索引；由完整输出任务参考学习混合任务锚 $E_T$，配对锚后在补空间选自由方向，再进同类 SMPC | 单元测试 + 单种子 smoke；QP 100%、fallback 0，但当前 MAE 高于 copyAR，不能声称改进 |
 
 **D2. profiled-teacher 线（研究结构线，非文稿 draft 选型）**
 
