@@ -36,6 +36,9 @@ PredVARX-MPC/
 │   ├── copyAP_crte_multistep_task_20x4/
 │   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
 │   ├── copyAS_learned_task_anchor_smpc/
+│   ├── copyAT_learned_output_directions/
+│   ├── copyAU_soft_preference_output/
+│   ├── copyAV_hard_preference_output/
 │   └── ...
 ├── archive/                      # 非现行历史 MATLAB 版本
 │   ├── early_snapshot_2026-07-09/
@@ -136,6 +139,24 @@ PredVARX-MPC/
 没有配对协议时，不要把 AN/AR 与 AO/AP/AQ 数字揉成“同一算法最优”结论。  
 **噪声口径**：工程默认未知传感器噪声 → residual proxy；真 $\Sigma_n$ 仅适合仿真 Oracle 对照，不是 copyAR 主路径。
 
+**D3. 学习输出方向与偏好实验（非文稿算法）**
+
+| 目录 | 最终控制输出 | 1200步单种子结果 | 结论 |
+|---|---|---|---|
+| `copyAT_learned_output_directions` | fixed / supervised / input-authority 三分支 | 方向学习与短程闭环诊断 | 区分“任务需要的输出”与“输入最易推动的方向” |
+| `copyAU_soft_preference_output` | 递减权重与输入权威共同学习的两个线性组合 $s=E^Ty$ | MAE `[1.0600, 1.2582]`；QP `100%`；fallback `0` | 数值可行，但未能跟踪给定参考，作为负面实验保留 |
+| `copyAV_hard_preference_output` | 权重最高的两个原始输出，当前为 $y_1,y_2$ | MAE `[0.05973, 0.06185]`；QP `100%`；fallback `0` | 硬锁任务输出后恢复良好跟踪；单次实验不等于普遍最优 |
+
+两份偏好实验复用 copyAR 的1500个离线样本，均未增加训练数据；闭环噪声、参考与运行长度一致。
+
+### 软偏好：copyAU
+
+![copyAU软偏好1200步结果](experiments/copyAU_soft_preference_output/results/copyAU_soft_preference_output_fig.png)
+
+### 硬偏好：copyAV
+
+![copyAV硬偏好1200步结果](experiments/copyAV_hard_preference_output/results/copyAV_hard_preference_output_fig.png)
+
 ---
 
 ## 归档（`archive/`）
@@ -179,6 +200,10 @@ copyAO_crte_teacher_profiled_unknown_noise
 % CRTE 多步 task 测试
 cd('../copyAP_crte_multistep_task_20x4')
 runtests('tests/test_copyAP_multistep_task.m')
+
+% 输出偏好实验：分别生成1200步 PNG、MAT和metrics
+run('../copyAU_soft_preference_output/copyAU_soft_preference_output.m')
+run('../copyAV_hard_preference_output/copyAV_hard_preference_output.m')
 ```
 
 各现行 copy 会把快照写到各自 `results/`（`.mat` / `.png` / 指标文本）。
@@ -220,6 +245,8 @@ run_all_tests
 | 文稿 draft CRTE（谱+val+未知噪声） | `experiments/copyAR_crte_paper_spectral_validation_unknown_noise/` |
 | 当前 CRTE teacher 结构 | `experiments/copyAO_crte_teacher_profiled_unknown_noise/` |
 | 多步 task 扩展 | `experiments/copyAP_crte_multistep_task_20x4/` |
+| 软偏好学习输出（当前负面结果） | `experiments/copyAU_soft_preference_output/` |
+| 硬偏好锁定输出 | `experiments/copyAV_hard_preference_output/` |
 | 旧字母考古 | `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md` + `archive/` |
 | 带图总览 | `docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md` |
 
