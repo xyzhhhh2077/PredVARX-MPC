@@ -1,0 +1,36 @@
+copyAT same-old-data learned output directions
+not_original_CRTE 1
+uses_true_Sigma_n 0
+old_training_samples 1500
+new_training_samples 0
+common_closed_loop_disturbance 1
+authority_fraction_fixed 0.367850158372
+authority_fraction_supervised 0.367850158372
+authority_fraction_authority 0.447902076532
+fixed_angles_to_fixed_deg [0 0]
+fixed_MAE [0.07400838897 0.06891596438]
+fixed_RMSE [0.09306089285 0.08687273778]
+fixed_Bias [0.001699278197 0.009226015043]
+fixed_qp_success 1.000000000000
+fixed_fallback 0
+fixed_max_qp 9.744705042891e-13
+fixed_dual_error 5.967712096460e-15
+fixed_anchor_preservation 0.000000000000e+00
+supervised_angles_to_fixed_deg [0 1.2074183e-06]
+supervised_MAE [0.07400838897 0.06891596438]
+supervised_RMSE [0.09306089285 0.08687273778]
+supervised_Bias [0.001699278197 0.009226015043]
+supervised_qp_success 1.000000000000
+supervised_fallback 0
+supervised_max_qp 9.744705042891e-13
+supervised_dual_error 5.967712096460e-15
+supervised_anchor_preservation 0.000000000000e+00
+authority_angles_to_fixed_deg [50.38887 76.553994]
+authority_MAE [0.2091554506 0.1178003911]
+authority_RMSE [0.263848147 0.1438240818]
+authority_Bias [-0.1783329742 -0.08604478963]
+authority_qp_success 1.000000000000
+authority_fallback 0
+authority_max_qp 6.583277673000e-11
+authority_dual_error 2.491596303335e-15
+authority_anchor_preservation 8.771401155957e-16
