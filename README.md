@@ -1,18 +1,130 @@
 # PredVARX-MPC
 
-面向 **PredVAR / PredVARX + SMPC** 的公开 MATLAB 实验副本库。
+面向 **PredVAR / PredVARX、斜投影潜变量辨识与随机模型预测控制（SMPC）** 的 MATLAB 实验仓库。
 
-- **GitHub**：https://github.com/xyzhhhh2077/PredVARX-MPC
-- **可见性**：public（公开）
-- **默认分支**：`main`
-- **大文件**：实验 `.mat` / `.png` / `.fig` 通过 **Git LFS** 跟踪
+仓库采用“一个 `copy*` 目录对应一个独立实验版本”的组织方式。每个副本保留自己的算法、测试、指标和图片，便于区分：
 
-> **原则**：每个 `copy*` 目录自成一版（代码、辅助函数、局部测试、结果、说明）。  
-> **不要**把不同 copy 混成一个算法。归档区里的 Q/S/Z 等字母可能与现行目录**同名不同义**。
+- 原始构造；
+- 理论或实现修复；
+- 诊断性消融；
+- 新方法试验；
+- 尚未完成的研究草稿。
 
----
+> 不要仅按字母判断算法先后，也不要把不同副本的指标直接排名。只有 plant、训练数据、参考、控制器、噪声与闭环时域一致时，数值才可公平比较。
 
-## 克隆
+## 当前研究主线
+
+### 1. PredVARX 几何与 SMPC
+
+研究低维潜变量模型
+
+$$
+z_{k+1}=A z_k+B(u_k-\bar u)+\varepsilon_{k+1},
+\qquad \hat y_k=\bar y+Pz_k,
+$$
+
+以及斜投影双基关系
+
+$$
+R^\top P=I,
+$$
+
+如何与控制目标、预测误差协方差和机会约束保持一致。
+
+主要目录：
+
+- `copyO`–`copyZ`：正交/斜投影辨识、中心化 SMPC、控制感知子空间和公平消融；
+- `copyAA`–`copyAM`：分块双基、意见修复、闭环诊断、协方差与保证层探针；
+- `copyOPQSTR_unified`、`copyALL_unified`：统一工况对照。
+
+### 2. CRTE 文稿实验算法
+
+[`copyAR_crte_paper_spectral_validation_unknown_noise`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/) 是当前文稿 Sec. 3.3–3.4 对应的实验路径：
+
+- 固定谱 surrogate；
+- paper trace normalization；
+- percentile 门控；
+- validation-only 选型；
+- 自由输出一步残差协方差 proxy；
+- `uses_true_Sigma_n = 0`。
+
+它不是 `copyAO` 的 profiled-teacher/min-teacher 路径，也不是已知真实 $\Sigma_n$ 的 Oracle。
+
+单种子1200步结果：
+
+| MAE $y_1$ | MAE $y_2$ | QP成功率 | fallback/不可行 |
+|---:|---:|---:|---:|
+| 0.06048 | 0.05706 | 100% | 0 |
+
+### 3. AR 之后：学习任务方向与偏好
+
+这些实验全部复用 copyAR 的1500个离线样本，不增加训练集。它们是 CRTE 之外的扩展或诊断，不应写成文稿原算法。
+
+| 副本 | 学习/选择对象 | 1200步结果 | 证据边界 |
+|---|---|---|---|
+| [`copyAS`](experiments/copyAS_learned_task_anchor_smpc/) | 从完整输出任务参考学习混合任务锚 $E_T$ | MAE `[0.1962, 0.4163]`；QP 100%；fallback 0 | 学习锚与固定任务平面主角度 `[55.73°, 87.86°]`，未改善原任务跟踪 |
+| [`copyAT`](experiments/copyAT_learned_output_directions/) | fixed / supervised / input-authority 三分支公平比较 | fixed=sup=`[0.0605, 0.0573]`；authority=`[0.2969, 0.3294]` | 任务输出与最易被输入推动的方向不是同一概念 |
+| [`copyAU`](experiments/copyAU_soft_preference_output/) | 软偏好矩阵与输入权威共同学习两个输出组合 | MAE `[1.0600, 1.2582]`；QP 100%；fallback 0 | 数值求解成功，但没有实现给定任务跟踪；负面实验 |
+| [`copyAV`](experiments/copyAV_hard_preference_output/) | 硬锁权重最高的原始输出轴，当前为 $y_1,y_2$ | MAE `[0.05973, 0.06185]`；QP 100%；fallback 0 | 单种子恢复良好跟踪，不证明普遍最优 |
+
+copyAT统一使用：
+
+- 相同旧 `(u,y)`；
+- 相同随机种子和闭环扰动；
+- 1200步、5段参考、每段240步；
+- 相同控制器与约束；
+- 原始物理输出 `y1,y2` 评价；
+- `new_training_samples = 0`。
+
+![copyAT三种输出方向比较](experiments/copyAT_learned_output_directions/results/copyAT_learned_output_directions_fig.png)
+
+![copyAU软偏好结果](experiments/copyAU_soft_preference_output/results/copyAU_soft_preference_output_fig.png)
+
+![copyAV硬偏好结果](experiments/copyAV_hard_preference_output/results/copyAV_hard_preference_output_fig.png)
+
+## CRTE 路径不要混用
+
+| 路径 | 目录 | 定位 |
+|---|---|---|
+| 固定谱 + validation | `copyAN_crte_fixed_surrogate` → `copyAR_crte_paper_spectral_validation_unknown_noise` | 文稿实验算法 |
+| profiled teacher | `copyAO_crte_teacher_profiled_unknown_noise` | 结构研究线，不是文稿 validation 选型 |
+| 多步 task | `copyAP_crte_multistep_task_20x4` | $t+1:t+H$ task 与 blocked proxy 扩展 |
+| 高阶 VARX | `copyAQ_crte_varx_order_20x4` | $s>1$ 草稿；不是完成的20×4全网格 |
+| 学习输出方向 | `copyAS`–`copyAV` | 非原文扩展与偏好实验 |
+
+## 仓库结构
+
+```text
+PredVARX-MPC/
+├── main/                         # 历史基线
+├── experiments/                  # 现行独立实验副本
+│   ├── copyO_oblique/ ... copyAM_tracked_cov_only/
+│   ├── copyAN_crte_fixed_surrogate/
+│   ├── copyAO_crte_teacher_profiled_unknown_noise/
+│   ├── copyAP_crte_multistep_task_20x4/
+│   ├── copyAQ_crte_varx_order_20x4/
+│   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
+│   ├── copyAS_learned_task_anchor_smpc/
+│   ├── copyAT_learned_output_directions/
+│   ├── copyAU_soft_preference_output/
+│   ├── copyAV_hard_preference_output/
+│   ├── copyOPQSTR_unified/
+│   └── copyALL_unified/
+├── archive/                      # 非现行历史版本
+├── tests/                        # 根目录 matlab.unittest
+├── docs/version-summary/         # 版本图文说明
+└── README.md
+```
+
+`copyAN_closed_loop_audit_grade` 只是空占位目录，不代表完成实验。
+
+## 环境
+
+- MATLAB R2024a 或更高版本；
+- Optimization Toolbox（SMPC 的 `quadprog`）；
+- Git LFS（结果 `.mat`、`.png`、`.fig` 等大文件）。
+
+克隆：
 
 ```bash
 git lfs install
@@ -20,195 +132,45 @@ git clone https://github.com/xyzhhhh2077/PredVARX-MPC.git
 cd PredVARX-MPC
 ```
 
-未安装 LFS 时，`.mat`/图片只会得到指针文件，不是真实数据。
+未安装 Git LFS 时，大文件只会下载指针。
 
----
+## 运行 AR–AV
 
-## 仓库结构
-
-```text
-PredVARX-MPC/
-├── main/                         # 历史基线（copyS_nosoft）
-├── experiments/                  # 现行 copy 套件（优先入口）
-│   ├── copyO_oblique/ ...
-│   ├── copyAN_crte_fixed_surrogate/
-│   ├── copyAO_crte_teacher_profiled_unknown_noise/
-│   ├── copyAP_crte_multistep_task_20x4/
-│   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
-│   ├── copyAS_learned_task_anchor_smpc/
-│   ├── copyAT_learned_output_directions/
-│   ├── copyAU_soft_preference_output/
-│   ├── copyAV_hard_preference_output/
-│   └── ...
-├── archive/                      # 非现行历史 MATLAB 版本
-│   ├── early_snapshot_2026-07-09/
-│   ├── organized_legacy_2026-07-10/
-│   └── routeC_delta_inc/
-├── tests/                        # 根目录 matlab.unittest 套件
-├── docs/version-summary/         # 带图的版本说明
-├── VERSION_EVOLUTION_AND_METRICS.md
-├── LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md
-└── README.md                     # 本文件
-```
-
----
-
-## 相关文档
-
-| 文档 | 内容 |
-|---|---|
-| [`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md) | 现行 O–Z 演化、公平比较口径、指标总表 |
-| [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md) | 旧工作区字母复用 vs 现行 Git 目录名 |
-| [`docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md) | 逐版说明 + PNG |
-| [`archive/README.md`](archive/README.md) | 归档内容与使用边界 |
-
----
-
-## 现行实验（`experiments/`）
-
-新工作优先放这里。下列目录均为已发布树中的现行副本。
-
-### A. 辨识 / 几何 / 控制主链
-
-| 目录 | 作用 |
-|---|---|
-| `main/` | 历史基线：`copyS_nosoft` + `predvarx_identify` |
-| `copyO_oblique` | 斜投影双基恒等式诊断 |
-| `copyP_centered_smpc` | 中心化绝对预测 SMPC（全阶控制逻辑验证） |
-| `copyQ_control_aware` | 低阶、强制保留被控轴的控制感知正交子空间 |
-| `copyR_moqin_oblique` | Mo–Qin Algorithm-1 风格白化 realization 基线 |
-| `copyT_process_lv_smpc` | 高维 process-like plant + 在线协方差尺度 |
-| `copyU_smooth_noise_smpc` | 平滑时变噪声压力测试（copyT 风格） |
-| `copyV_iterative_ivr` | 被控补空间迭代 IVR（正交） |
-| `copyW_fair_identifier_compare` | 固定 plant/controller 的多辨识器公平消融 |
-| `copyX_control_aware_oblique` | 控制感知、轻度斜读取 $R_\alpha$（无白化） |
-| `copyY_no_whitening_direct_update` | 显式标注 copyX 真实路径；**不是新算法** |
-| `copyZ_strict_whitened_copyX_plant` | 在 copyX plant 上的白化消融（不是完整 Alg.1 主张） |
-
-### B. 意见修复 / 闭环与保证层探针
-
-| 目录 | 作用 |
-|---|---|
-| `copyAA_split_control_free_oblique` | 控制/自由分块斜投影构造 |
-| `copyAB_opinion_fixes` | 意见硬修合集 + 单元测试 |
-| `copyAC_open_problems_trial` | 开放问题试验，并与 AB 公平对照 |
-| `copyAD_closure_ladder` | 闭环/证书阶梯诊断 |
-| `copyAE_stress_calibration` | 压力与校准探针 |
-| `copyAF_op9_and_p1pp` | 意见 9 / Prop-1 相关探针 |
-| `copyAG_original_alpha_cert` | 原始 alpha 证书实验 |
-| `copyAH_multistep_alpha_backup` | 主路径失败后的多步 alpha 备份 |
-| `copyAI_crosscov_chance` | 交叉协方差机会约束探针 |
-| `copyAJ_safety_filter_cert` | 安全滤波器证书探针 |
-| `copyAK_terminal_set_rf` | 终端集 / 递归可行探针 |
-| `copyAL_split_empirical_cov_oblique` | 经验协方差分块斜投影变体 |
-| `copyAM_tracked_cov_only` | 仅被控轴协方差的机会约束路径 |
-| `copyAN_closed_loop_audit_grade` | 占位目录（无完整运行；仅保留分支名连续性） |
-
-### C. 统一对照包
-
-| 目录 | 作用 |
-|---|---|
-| `copyOPQSTR_unified` | 同一 plant/噪声/SMPC 下还原 O/P/Q/R/S/T 算法差异 |
-| `copyALL_unified` | 更广的多 copy 统一对照 + 分图 |
-
-### D. CRTE 两条线（勿混算法）
-
-**D1. 文稿 draft 实验算法（固定谱 surrogate + validation 选型 + 未知噪声）**
-
-| 目录 | 作用 | 状态 |
-|---|---|---|
-| `copyAN_crte_fixed_surrogate` | CRTE 固定谱代理（自由补空间）骨架 | 早期固定谱路径 |
-| `copyAR_crte_paper_spectral_validation_unknown_noise` | **文稿 Sec. 3.3–3.4 路径**：paper $N_{tr}$、$\mu$ 网格、percentile 门控、**validation-only 选型**、自由输出一步残差 proxy；`uses_true_Sigma_n=0`（**不用**真 $\Sigma_n$ Oracle） | 单元测试 + 单种子全长闭环（`.mat`/图/metrics 已入库） |
-| `copyAS_learned_task_anchor_smpc` | **非原文扩展**：不用 tracked 索引；由完整输出任务参考学习混合任务锚 $E_T$，配对锚后在补空间选自由方向，再进同类 SMPC | 单元测试 + 单种子 smoke；QP 100%、fallback 0，但当前 MAE 高于 copyAR，不能声称改进 |
-
-**D2. profiled-teacher 线（研究结构线，非文稿 draft 选型）**
-
-| 目录 | 作用 | 状态 |
-|---|---|---|
-| `copyAO_crte_teacher_profiled_unknown_noise` | 完整 profiled teacher、unknown-noise proxy、严格 FWL SVD 支撑、单次全长运行 | **结构主结果（profiled + min teacher）** |
-| `copyAP_crte_multistep_task_20x4` | 多步 task 堆叠 $t+1:t+H$、$\mu=1$、blocked forward noise proxy | 结构测试 + smoke + 一次 $H=3$ 全长确认 |
-| `copyAQ_crte_varx_order_20x4` | VARX 阶数 / companion 草稿，用于 $s>1$ 消融 | 核心与测试草稿；**不是**完成的 20×4 全网格 |
-
-**CRTE 阅读顺序**
-
-1. 文稿 draft 算法（谱 surrogate + validation + 未知残差 proxy）→ `copyAR`（骨架对照 → `copyAN`）
-2. 几何 / FWL / teacher 结构 → `copyAO`（**不是** validation 主选型）
-3. 多步 task + blocked proxy 合同 → `copyAP`
-4. 更高阶潜变量 AR 草稿 → `copyAQ`（未完成）
-
-没有配对协议时，不要把 AN/AR 与 AO/AP/AQ 数字揉成“同一算法最优”结论。  
-**噪声口径**：工程默认未知传感器噪声 → residual proxy；真 $\Sigma_n$ 仅适合仿真 Oracle 对照，不是 copyAR 主路径。
-
-**D3. 学习输出方向与偏好实验（非文稿算法）**
-
-| 目录 | 最终控制输出 | 1200步单种子结果 | 结论 |
-|---|---|---|---|
-| `copyAT_learned_output_directions` | fixed / supervised / input-authority 三分支 | 方向学习与短程闭环诊断 | 区分“任务需要的输出”与“输入最易推动的方向” |
-| `copyAU_soft_preference_output` | 递减权重与输入权威共同学习的两个线性组合 $s=E^Ty$ | MAE `[1.0600, 1.2582]`；QP `100%`；fallback `0` | 数值可行，但未能跟踪给定参考，作为负面实验保留 |
-| `copyAV_hard_preference_output` | 权重最高的两个原始输出，当前为 $y_1,y_2$ | MAE `[0.05973, 0.06185]`；QP `100%`；fallback `0` | 硬锁任务输出后恢复良好跟踪；单次实验不等于普遍最优 |
-
-两份偏好实验复用 copyAR 的1500个离线样本，均未增加训练数据；闭环噪声、参考与运行长度一致。
-
-### 软偏好：copyAU
-
-![copyAU软偏好1200步结果](experiments/copyAU_soft_preference_output/results/copyAU_soft_preference_output_fig.png)
-
-### 硬偏好：copyAV
-
-![copyAV硬偏好1200步结果](experiments/copyAV_hard_preference_output/results/copyAV_hard_preference_output_fig.png)
-
----
-
-## 归档（`archive/`）
-
-非现行历史 MATLAB。新工作请只改 `experiments/` 与 `main/`。
-
-| 路径 | 内容 |
-|---|---|
-| `archive/early_snapshot_2026-07-09/` | 早期独立快照：main + O/P/Q |
-| `archive/organized_legacy_2026-07-10/` | 按 01–10 主题归档的旧实验（旧 Q/S/Z/SM/D/oracle 字母） |
-| `archive/routeC_delta_inc/` | v10 Δ-tracking 加速线（C/E/F/G/H/I/P1–P4） |
-
-旧字母复用见 `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`。  
-例如：归档里的 `copyQ_*` **不等于** 现行 `copyQ_control_aware`。
-
----
-
-## 如何运行（MATLAB R2024a+）
-
-在仓库根目录：
+在 MATLAB 中进入仓库根目录：
 
 ```matlab
-% 历史基线
-run('main/copyS_nosoft.m')
+repo = pwd;
 
-% 现行示例
-run('experiments/copyP_centered_smpc/copyP_centered_smpc.m')
-run('experiments/copyX_control_aware_oblique/copyX_control_aware_oblique.m')
-
-% CRTE 文稿 draft 算法（谱 + validation + 未知噪声 residual proxy）
-cd('experiments/copyAR_crte_paper_spectral_validation_unknown_noise')
+% copyAR：文稿实验算法
+cd(fullfile(repo,'experiments','copyAR_crte_paper_spectral_validation_unknown_noise'))
 run('tests/test_crte_paper_spectral_varx.m')
 copyAR_crte_paper_spectral_validation_unknown_noise
-% 结果：results/*_data.mat / *_fig.png / *_metrics.txt
 
-% CRTE profiled-teacher 结构线（非 validation 主选型）
-cd('../copyAO_crte_teacher_profiled_unknown_noise')
-test_crte_profiled_teacher_unknown_noise
-copyAO_crte_teacher_profiled_unknown_noise
+% copyAS：学习式任务锚
+cd(fullfile(repo,'experiments','copyAS_learned_task_anchor_smpc'))
+run('tests/test_learned_task_anchor_varx.m')
+copyAS_learned_task_anchor_smpc
 
-% CRTE 多步 task 测试
-cd('../copyAP_crte_multistep_task_20x4')
-runtests('tests/test_copyAP_multistep_task.m')
+% copyAT：三种输出方向公平比较
+cd(fullfile(repo,'experiments','copyAT_learned_output_directions'))
+run('tests/test_learn_output_directions.m')
+copyAT_learned_output_directions
 
-% 输出偏好实验：分别生成1200步 PNG、MAT和metrics
-run('../copyAU_soft_preference_output/copyAU_soft_preference_output.m')
-run('../copyAV_hard_preference_output/copyAV_hard_preference_output.m')
+% copyAU / copyAV：软偏好与硬偏好
+cd(fullfile(repo,'experiments','copyAU_soft_preference_output'))
+runtests('tests/learnPreferredOutputDirectionsTest.m')
+copyAU_soft_preference_output
+
+cd(fullfile(repo,'experiments','copyAV_hard_preference_output'))
+runtests('tests/selectHardPreferenceOutputsTest.m')
+copyAV_hard_preference_output
 ```
 
-各现行 copy 会把快照写到各自 `results/`（`.mat` / `.png` / 指标文本）。
+各副本把结果写入自己的 `results/`：
 
----
+- `*_metrics.txt`：可审计指标；
+- `*_data.mat`：运行数据；
+- `*_fig.png`：结果图。
 
 ## 根目录测试
 
@@ -217,44 +179,35 @@ cd('tests')
 run_all_tests
 ```
 
-| 测试类 | 覆盖 |
+当前根测试覆盖：
+
+- `tPredvarxIdentifyOblique`：斜投影双基恒等式；
+- `tCenteredSmpcStep`：中心化预测与机会约束收紧；
+- `tControlAwareSubspace`：降阶空间中的被控轴保持。
+
+各 `copy*` 的专用合同测试位于对应 `tests/`。
+
+## 结果解释规则
+
+1. **数学证明、代码合同和单次仿真分开表述。**
+2. `QP成功率=100%`、`fallback=0` 只说明该轨迹由主QP路径完成，不证明递归可行或稳定。
+3. residual covariance 是未知噪声下的工程 proxy，不是真实传感器噪声。
+4. Oracle 参数只能用于仿真对照，不能包装成未知噪声算法结论。
+5. 输入权威高表示方向容易被输入推动，不表示它就是任务需要跟踪的输出。
+6. 单种子结果不证明跨工况泛化、全局最优或普遍性能提升。
+
+## 其他文档
+
+| 文档 | 内容 |
 |---|---|
-| `tPredvarxIdentifyOblique` | 斜投影双基恒等式 |
-| `tCenteredSmpcStep` | 中心化预测 + Boole 收紧 |
-| `tControlAwareSubspace` | 降维下被控轴覆盖 |
+| [`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md) | O–Z 演化与指标 |
+| [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md) | 旧字母复用与现行目录辨析 |
+| [`docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md) | 带图版本总览 |
+| [`archive/README.md`](archive/README.md) | 历史归档说明 |
 
-各 copy 自有的意见/诊断测试在 `experiments/copy*/tests/`。
+## 数据与版本管理
 
----
-
-## 数据与图片策略
-
-- **Git LFS 跟踪**：实验/归档结果下的 `*.mat`、`*.png`、`*.fig`
-- **不跟踪**：文献 PDF 缓存、散落的 `experiments/*.pdf`、本地编辑器小工具
-- 结果图是**运行证据**，不等于自动可投稿的“最终主图”
-- 除非 plant、噪声、时域、控制器协议一致，否则**不能**跨 copy 直接比 MAE 排名
-
----
-
-## 先看哪里
-
-| 目标 | 打开 |
-|---|---|
-| 了解 O–Z 演化 | `VERSION_EVOLUTION_AND_METRICS.md` |
-| 公平 OPQSTR 对照 | `experiments/copyOPQSTR_unified/` |
-| 文稿 draft CRTE（谱+val+未知噪声） | `experiments/copyAR_crte_paper_spectral_validation_unknown_noise/` |
-| 当前 CRTE teacher 结构 | `experiments/copyAO_crte_teacher_profiled_unknown_noise/` |
-| 多步 task 扩展 | `experiments/copyAP_crte_multistep_task_20x4/` |
-| 软偏好学习输出（当前负面结果） | `experiments/copyAU_soft_preference_output/` |
-| 硬偏好锁定输出 | `experiments/copyAV_hard_preference_output/` |
-| 旧字母考古 | `LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md` + `archive/` |
-| 带图总览 | `docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md` |
-
----
-
-## 备注
-
-- 多数 copy 需要把对应目录 `addpath` 进 MATLAB（有时还要加 `tests/`）。
-- SMPC 主路径通常需要 Optimization Toolbox 的 `quadprog`。若 PATH 上有损坏的 MOSEK `quadprog` 包装，需优先 MATLAB `toolbox/optim`（copyAR runner 会临时剥离 mosek 路径）。
-- 并行池可选；部分后续脚本更倾向多进程 launcher，而不是超大 parpool。
-- 汇报结果时务必写明**确切 copy 目录**、噪声是否 `uses_true_Sigma_n`、选型是 validation 还是 min-teacher，以及图/mat 属于 smoke、单种子还是完整战役。
+- `.mat`、`.png`、`.fig`、`.pdf` 由 Git LFS 跟踪；
+- 新试验应建立新副本，不覆盖已有实验身份；
+- 不同协议的指标不得直接合并为排名；
+- 汇报时需注明 copy、随机种子、训练数据、噪声口径、闭环长度及是否完整运行。
