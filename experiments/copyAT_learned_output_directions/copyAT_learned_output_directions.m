@@ -18,7 +18,9 @@ D=load(basefile);
 % Reuse the exact copyAR plant, old offline dataset, reference, and settings.
 y_off=D.y_off; u_off=D.u_off; A=D.A_true; B=D.B_true; C=D.C_true;
 [p,T_off]=size(y_off); m=size(u_off,1); n=size(A,1); ell=D.ell; q=2;
-T_cl_full=D.T_cl; T_cl=min(T_cl_full,300); N=D.N; Rf=D.Rf(:,1:T_cl); tracked=D.tracked;
+T_cl=D.T_cl; N=D.N; Rf=D.Rf(:,1:T_cl); tracked=D.tracked;
+assert(T_cl==1200 && size(Rf,2)==1200,'copyAT must use the common 1200-step reference.');
+assert(all(diff([0 240 480 720 960 1200])==240),'The common reference must use five 240-step segments.');
 u_min=D.u_min; u_max=D.u_max; y_max=D.y_max; alpha_joint=D.alpha_joint;
 Sigma_n_plant=D.Sigma_n_plant; L_n=chol(Sigma_n_plant,'lower');
 Ru=0.18*eye(m); Q=zeros(p); Q(1,1)=80; Q(2,2)=80;
@@ -94,6 +96,7 @@ fid=fopen(metrics_path,'w');
 fprintf(fid,'copyAT same-old-data learned output directions\n');
 fprintf(fid,'not_original_CRTE 1\nuses_true_Sigma_n 0\n');
 fprintf(fid,'old_training_samples %d\nnew_training_samples 0\n',T_off);
+fprintf(fid,'closed_loop_steps %d\nreference_segments 5\nsegment_length 240\n',T_cl);
 fprintf(fid,'common_closed_loop_disturbance 1\n');
 fprintf(fid,'authority_fraction_fixed %.12f\n',dir_fixed_authority);
 fprintf(fid,'authority_fraction_supervised %.12f\n',dir_sup_authority);
@@ -124,10 +127,13 @@ for ib=1:3
     plot(ax,t,b.y(1,:),'Color',colors{ib},'LineWidth',0.75);
     plot(ax,t,Rf(2,:),'Color',[.25 .25 .25],'LineStyle',':','LineWidth',1.0);
     plot(ax,t,b.y(2,:),'Color',0.65*colors{ib},'LineWidth',0.75);
-    yline(ax,y_max,'m--'); grid(ax,'on'); ylabel(ax,'output');
+    yline(ax,y_max,'m--'); grid(ax,'on'); ylabel(ax,'physical outputs');
+    ylim(ax,[-0.5 y_max+0.5]);
     title(ax,sprintf('%s | angle=%s deg | MAE=%s | QP=%.3f', ...
         names{ib},mat2str(b.angles_to_fixed',3),mat2str(b.MAE',3),b.qp_success));
     legend(ax,{'r_1','y_1','r_2','y_2','limit'},'Location','eastoutside');
+    xlim(ax,[1 T_cl]);
+    if ib==3, xlabel(ax,'time step'); end
 end
 ax=nexttile(tlo,4);
 M=[branches{1}.MAE branches{2}.MAE branches{3}.MAE]';
@@ -135,7 +141,7 @@ bar(ax,M); grid(ax,'on'); ylabel(ax,'MAE'); xlabel(ax,'anchor method');
 set(ax,'XTick',1:3,'XTickLabel',names); legend(ax,{'y_1','y_2'},'Location','eastoutside');
 title(ax,sprintf('Same old training set; authority fractions=[%.3f %.3f %.3f]', ...
     dir_fixed_authority,dir_sup_authority,dir_auth_authority));
-title(tlo,'copyAT: fixed versus learned output directions (no new training set)');
+title(tlo,'copyAT: physical outputs y_1,y_2 under learned representation anchors | 1200 steps, 5 segments');
 fig_path=fullfile(results_dir,'copyAT_learned_output_directions_fig.png');
 print(fig,fig_path,'-dpng','-r160'); close(fig);
 fprintf('metrics: %s\nfigure: %s\n',metrics_path,fig_path);
