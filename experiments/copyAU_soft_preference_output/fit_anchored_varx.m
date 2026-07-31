@@ -1,10 +1,14 @@
 function [Ahat,Bhat,P,R,Sigma_eps,stats] = fit_anchored_varx(y,u,Eanchor,ell,opt)
-%FIT_ANCHORED_VARX Preserve a learned output anchor and fit a dual VARX.
+%FIT_ANCHORED_VARX Fixed-mu CRTE free block around learned output anchors.
 if nargin < 5 || isempty(opt), opt=struct(); end
 if ~isfield(opt,'ridge'), opt.ridge=1e-8; end
+if ~isfield(opt,'mu'), opt.mu=0.10; end
+if ~isfield(opt,'ntr_epsilon'), opt.ntr_epsilon=10e-6; end
 [p,T]=size(y); m=size(u,1); q=size(Eanchor,2); r=ell-q;
 assert(size(u,2)==T,'y and u sample counts must match.');
 assert(r>=0 && ell<=p && rank(Eanchor)==q,'Invalid anchor or latent dimension.');
+assert(opt.mu>0 && opt.mu<1,'mu must be an interior metric blend.');
+assert(opt.ntr_epsilon>0,'ntr_epsilon must be positive.');
 
 ymean=mean(y,2); umean=mean(u,2);
 yc=y-ymean; uc=u-umean;
@@ -12,33 +16,54 @@ scale=max(trace(yc*yc'/T)/p,1e-12);
 ridge=opt.ridge*max(scale,1)+1e-12;
 Cy=yc*yc'/T+ridge*eye(p); Cy=(Cy+Cy')/2;
 
-% Normalize the anchor in the output covariance metric.
+% Preserve the learned physical output subspace exactly.
 [Qe,~]=qr(Eanchor,0);
-Ptask=Qe/real_sqrtm(Qe'*Cy*Qe,ridge);
-Rtask=Cy*Ptask;
-assert(norm(Rtask'*Ptask-eye(q),'fro')<1e-7,'Anchor normalization failed.');
+Ptask=deterministic_sign(Qe);
+Rtask=Ptask;
 
 if r>0
-    Ntask=null(Rtask');
-    % Predictable residual directions from the same old data only.
-    Ylag=yc(:,1:end-1); Ycur=yc(:,2:end); Ulag=uc(:,1:end-1);
-    Phi=[Ylag;Ulag];
-    Theta=(Phi*Phi'+ridge*eye(p+m))\(Phi*Ycur');
-    Ypred=Theta'*Phi;
-    Sp=(Ypred*Ypred')/size(Ypred,2); Sp=(Sp+Sp')/2;
-    Sf=Ntask'*Sp*Ntask; Cf=Ntask'*Cy*Ntask;
-    [Uc,Dc]=eig((Cf+Cf')/2); dc=max(real(diag(Dc)),ridge);
-    Cih=Uc*diag(1./sqrt(dc))*Uc';
-    M=Cih*((Sf+Sf')/2)*Cih; M=(M+M')/2;
-    [V,D]=eig(M); [~,ord]=sort(real(diag(D)),'descend');
+    Ntask=null(Ptask');
+    d=size(Ntask,2);
+    Yp=Ntask'*yc;
+    Sigma_perp=Yp*Yp'/T;
+    Sigma_perp=(Sigma_perp+Sigma_perp')/2+ridge*eye(d);
+    tau_G=trace(Sigma_perp)/d;
+    Cmu=(1-opt.mu)*Sigma_perp+opt.mu*tau_G*eye(d);
+    Cmu=(Cmu+Cmu')/2+ridge*eye(d);
+
+    Ylag=Yp(:,1:end-1); Ycur=Yp(:,2:end); Ulag=uc(:,1:end-1);
+    Phi_free=[Ylag;Ulag];
+    Theta_free=(Phi_free*Phi_free'+ridge*eye(d+m))\(Phi_free*Ycur');
+    Ypred=Theta_free'*Phi_free;
+    S_yu=Ypred*Ypred'/size(Ypred,2); S_yu=(S_yu+S_yu')/2;
+    Efree=Ycur-Ypred;
+    C_n=Efree*Efree'/size(Efree,2); C_n=(C_n+C_n')/2+ridge*eye(d);
+
+    base=[Ptask'*yc(:,1:end-1);uc(:,1:end-1)];
+    W=Yp(:,1:end-1); Tfuture=Ptask'*yc(:,2:end);
+    H0=base'/(base*base'+ridge*eye(size(base,1)))*base;
+    M0=eye(size(H0))-H0;
+    task_gram=Tfuture'*Tfuture;
+    A_T=W*M0*task_gram*M0*W'; A_T=(A_T+A_T')/2;
+
+    NtrS=paper_ntr(S_yu,opt.ntr_epsilon);
+    NtrA=paper_ntr(A_T,opt.ntr_epsilon);
+    NtrN=paper_ntr(C_n,opt.ntr_epsilon);
+    Acrte=NtrS+NtrA-NtrN; Acrte=(Acrte+Acrte')/2;
+
+    [Uc,Dc]=eig(Cmu); dc=max(real(diag(Dc)),ridge);
+    Csqrt=Uc*diag(sqrt(dc))*Uc';
+    Cinvhalf=Uc*diag(1./sqrt(dc))*Uc';
+    Mgev=Cinvhalf*Acrte*Cinvhalf; Mgev=(Mgev+Mgev')/2;
+    [V,D]=eig(Mgev); [evals,ord]=sort(real(diag(D)),'descend');
     V=deterministic_sign(V(:,ord(1:r)));
-    Pfree=Ntask*(Cih*V);
-    Zfree=null(Ptask'); K=Zfree'*Pfree;
-    assert(rank(K)==r,'Free loading is dependent on anchor.');
-    Rfree=Zfree*K/(K'*K);
+    Pfree=Ntask*(Csqrt*V);
+    Rfree=Ntask*(Cinvhalf*V);
     P=[Ptask,Pfree]; R=[Rtask,Rfree];
 else
     P=Ptask; R=Rtask;
+    d=0; Sigma_perp=[]; tau_G=[]; Cmu=[];
+    S_yu=[]; A_T=[]; C_n=[]; NtrS=[]; NtrA=[]; NtrN=[]; evals=[];
 end
 assert(norm(R'*P-eye(ell),'fro')<1e-7,'Full dual identity failed.');
 
@@ -52,14 +77,31 @@ stats=struct();
 stats.y_mean=ymean; stats.u_mean=umean; stats.C_y=Cy;
 stats.P_anchor=Ptask; stats.R_anchor=Rtask;
 stats.dual_error=norm(R'*P-eye(ell),'fro');
-stats.anchor_preservation_error=norm(P*R'*Ptask-Ptask,'fro');
+stats.anchor_preservation_error=max(norm(P*R'*Ptask-Ptask,'fro'), ...
+    norm(Ptask'*P*R'-Ptask','fro'));
 stats.spectral_radius=max(abs(eig(Ahat)));
 stats.uses_new_training_data=false;
+stats.selected_mu=opt.mu;
+stats.ntr_epsilon=opt.ntr_epsilon;
+stats.ntr_mode='paper_trace_normalize_by_mean_trace';
+stats.ntr_formula='A/max(abs(trace(A))/d,10e-6)';
+stats.free_dimension=d;
+stats.Sigma_perp=Sigma_perp;
+stats.tau_G=tau_G;
+stats.C_mu=Cmu;
+stats.S_yu=S_yu;
+stats.A_T=A_T;
+stats.C_n=C_n;
+stats.Ntr_S_yu=NtrS;
+stats.Ntr_A_T=NtrA;
+stats.Ntr_C_n=NtrN;
+stats.crte_eigenvalues=evals(1:min(r,numel(evals)));
 end
 
-function S=real_sqrtm(A,ridge)
-A=(A+A')/2; [U,D]=eig(A); d=max(real(diag(D)),ridge);
-S=U*diag(sqrt(d))*U';
+function A=paper_ntr(A,epsilon_ntr)
+A=(A+A')/2;
+d=size(A,1);
+A=A/max(abs(trace(A))/d,epsilon_ntr);
 end
 
 function X=deterministic_sign(X)
