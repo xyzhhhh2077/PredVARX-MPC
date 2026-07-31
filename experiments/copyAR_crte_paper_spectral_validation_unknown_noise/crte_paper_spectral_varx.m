@@ -275,11 +275,9 @@ end
 function A = paper_ntr(A)
 A = (A+A')/2;
 trv = abs(trace(A));
-if trv <= 1e-12
-    A = zeros(size(A));
-else
-    A = A/trv;
-end
+d = size(A,1);
+epsilon_ntr = 10e-6;
+A = A/max(trv/d,epsilon_ntr);
 end
 
 function X = deterministic_sign(X)

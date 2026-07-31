@@ -74,7 +74,7 @@ for k = 1:T_off
 end
 
 %% CRTE candidate grid search + final refit
-mu_grid = [0 0.25 0.5 0.75 1];
+mu_grid = [0.10 0.25 0.50 0.75];  % interior metric blends only
 alpha_grid = 1;  % paper ACRTE has fixed weight 1
 beta_grid = 1;   % paper ACRTE has fixed weight 1
 [Ahat,Bhat,Phat,Rhat,Sigma_eps,stats] = crte_paper_spectral_varx( ...
@@ -84,6 +84,8 @@ beta_grid = 1;   % paper ACRTE has fixed weight 1
           'task_gate_fraction',0.10,'noise_gate_factor',2.0, ...
           'reach_gate_fraction',0.05,'reach_horizon',N, ...
           'Ru',0.18*eye(m)));
+assert(stats.selected_mu>0 && stats.selected_mu<1, ...
+    'copyAR requires an interior metric blend, 0 < mu < 1.');
 stats.true_A_eigs = eig(A);
 stats.id_A_eigs = eig(Ahat);
 stats.ell = ell;

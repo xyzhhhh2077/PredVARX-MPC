@@ -32,9 +32,18 @@ sig_line = regexp(src, ...
 assert(~isempty(sig_line),'could not parse identifier signature');
 assert(~contains(sig_line{1},'Sigma_n'),'signature must not include Sigma_n');
 assert(contains(src,'paper_ntr'),'must implement paper Ntr');
+assert(contains(src,'trv/d'),'paper Ntr must normalize trace by matrix dimension');
+assert(contains(src,'epsilon_ntr = 10e-6'),'paper Ntr epsilon must be 10e-6');
 assert(contains(src,'residual'),'must document residual proxy');
 assert(contains(src,'validation_nrmse'),'must use validation selection');
 assert(~contains(lower(src),'j_teacher'),'must NOT use profiled min-teacher');
+
+runner_src = fileread(fullfile(fileparts(here), ...
+    'copyAR_crte_paper_spectral_validation_unknown_noise.m'));
+assert(contains(runner_src,'mu_grid = [0.10 0.25 0.50 0.75]'), ...
+    'final copyAR grid must contain interior mu candidates only');
+assert(contains(runner_src,'stats.selected_mu>0 && stats.selected_mu<1'), ...
+    'final copyAR runner must enforce an interior selected mu');
 
 %% 2) Default run
 [A,B,P,R,S,st] = crte_paper_spectral_varx(y,u,ell,tracked);

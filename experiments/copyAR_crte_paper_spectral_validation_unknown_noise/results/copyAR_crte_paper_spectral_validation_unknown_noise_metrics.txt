@@ -1,38 +1,38 @@
 copyAR_crte_paper_spectral_validation_unknown_noise metrics
 metric_name CRTE fixed spectral surrogate (free complement only)
 uses_true_Sigma_n 0
-selected_mu 0.000000000000
+selected_mu 0.100000000000
 selected_alpha 1.000000000000
 selected_beta 1.000000000000
-selected_validation_nrmse 0.064535632614
-num_candidates 5
+selected_validation_nrmse 0.064557029102
+num_candidates 4
 valid_candidates 4
 tracked_right_error 0.000000000000e+00
 tracked_left_error 0.000000000000e+00
 tracked_column_error 0.000000000000e+00
-dual_error 5.967712096460e-15
-dual_error_RPbar 3.158452900037e-16
-dual_error_RbarP 8.616967432561e-16
-dual_error_RbarPbar 1.746820887380e-15
+dual_error 2.746684455578e-15
+dual_error_RPbar 2.240004167538e-16
+dual_error_RbarP 9.233740213970e-16
+dual_error_RbarPbar 1.560805670132e-15
 dual_basis_completion 1
-Pi_idempotency_err 8.085383467270e-15
-pr_asymmetry 1.838027360550e+00
-spectral_radius 0.943661518034
-reconstruction_residual 0.122888065887
-MAE 0.060479475519 0.057059299335
-RMSE 0.083196451748 0.079114579595
-Bias -0.008204006643 -0.002036988545
+Pi_idempotency_err 3.589722465893e-15
+pr_asymmetry 1.239822672202e+00
+spectral_radius 0.943071568697
+reconstruction_residual 0.120277485763
+MAE 0.060563848829 0.057175641846
+RMSE 0.083348266667 0.079230581757
+Bias -0.008134230786 -0.001551226267
 upper_violation_rate 0.000000000000 0.000833333333
 abs_violation_rate 0.000000000000 0.000833333333
 qp_success_rate 1.000000000000
 infeasible_count 0
-max_recorded_qp_constraint 2.299396784089e-12
+max_recorded_qp_constraint 1.525200105101e-12
 constraint_active_rate 0.662857142857
 cover_warm_qp_success_time_fraction 1.000000000000
-avg_costJ 51.107750662075
-estimated_sigma_eps_mean 0.090148255939
-estimated_sigma_obs_mean 0.001842917039
+avg_costJ 50.858185975477
+estimated_sigma_eps_mean 0.088078870553
+estimated_sigma_obs_mean 0.001777221564
 realized_sigma_w_mean 0.054176734279
 realized_sigma_e_mean 0.068018038617
-u_rms 0.243132762184 0.520226274201 0.325392896882
+u_rms 0.242804416892 0.521332654079 0.324429566161
 u_sat_rate 0.000833333333 0.001666666667 0.001666666667
