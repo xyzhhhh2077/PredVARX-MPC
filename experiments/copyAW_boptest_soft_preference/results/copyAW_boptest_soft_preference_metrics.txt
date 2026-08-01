@@ -1,0 +1,27 @@
+copyAW BOPTEST soft preference offline validation
+testcase multizone_office_complex_air
+native_measurements 30
+manipulated_inputs 6
+latent_dimension 5
+training_segments [1 2]
+validation_segments 3
+training_samples 48
+validation_samples 24
+training_transitions 46
+validation_transitions 23
+preference_weights temperature=1.0 co2=0.85
+preference_strength 0.78000000
+selected_mu 0.100000000000
+ntr_epsilon 1.000000000000e-05
+dual_error 4.636434217592e-15
+spectral_radius 0.999385327567
+preference_capture 0.069999507823
+latent_RMSE [0.01421200523 0.03839994433 1.33216347 41.81520734 17.6909619]
+latent_persistence_RMSE [0.005447571897 0.01891239308 0.1709816741 0.3823513979 0.4665555249]
+task_RMSE [0.01421200523 0.03839994433]
+task_persistence_RMSE [0.005447571897 0.01891239308]
+task_R2 [-1.136208179 0.3257183365]
+full_output_standardized_RMSE 9.039947117645
+scope active_boptest_data_offline_one_step_prediction_only
+closed_loop_mpc_run 0
+weather_disturbance_modeled 0

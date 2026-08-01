@@ -13,7 +13,9 @@ valid=find(run_id(1:end-1)==run_id(2:end));
 yc=y-mean(y,2); uc=u-mean(u,2);
 scale=max(trace(yc*yc'/T)/p,1e-12); ridge=opt.ridge*max(scale,1)+1e-12;
 Cy=yc*yc'/T+ridge*eye(p); Cy=(Cy+Cy')/2;
-Phi=[yc(:,valid);uc(:,valid)]; Ycur=yc(:,valid+1);
+% A collector record stores the control sent to /advance together with the
+% measurement returned by that call. Thus y(:,k+1) is driven by u(:,k+1).
+Phi=[yc(:,valid);uc(:,valid+1)]; Ycur=yc(:,valid+1);
 Theta=(Phi*Phi'+ridge*eye(p+m))\(Phi*Ycur');
 Ay=Theta(1:p,:)'; By=Theta(p+1:end,:)'; Wy=zeros(p);
 for h=0:opt.reach_horizon-1

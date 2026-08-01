@@ -26,7 +26,7 @@ if r>0
     Cmu=(1-opt.mu)*Sigma_perp+opt.mu*tau_G*eye(d);
     Cmu=(Cmu+Cmu')/2+ridge*eye(d);
 
-    Ylag=Yp(:,valid); Ycur=Yp(:,valid+1); Ulag=uc(:,valid);
+    Ylag=Yp(:,valid); Ycur=Yp(:,valid+1); Ulag=uc(:,valid+1);
     Phi_free=[Ylag;Ulag];
     Theta_free=(Phi_free*Phi_free'+ridge*eye(d+m))\(Phi_free*Ycur');
     Ypred=Theta_free'*Phi_free;
@@ -34,7 +34,7 @@ if r>0
     Efree=Ycur-Ypred;
     C_n=Efree*Efree'/size(Efree,2); C_n=(C_n+C_n')/2+ridge*eye(d);
 
-    base=[Ptask'*yc(:,valid);uc(:,valid)]; W=Yp(:,valid);
+    base=[Ptask'*yc(:,valid);uc(:,valid+1)]; W=Yp(:,valid);
     Tfuture=Ptask'*yc(:,valid+1);
     H0=base'/(base*base'+ridge*eye(size(base,1)))*base;
     M0=eye(size(H0))-H0;
@@ -58,7 +58,7 @@ else
 end
 assert(norm(R'*P-eye(ell),'fro')<1e-7,'Full dual identity failed.');
 
-z=R'*yc; zn=z(:,valid+1); zc=z(:,valid); ur=uc(:,valid);
+z=R'*yc; zn=z(:,valid+1); zc=z(:,valid); ur=uc(:,valid+1);
 Phi=[zc;ur]; Theta=(Phi*Phi'+ridge*eye(ell+m))\(Phi*zn');
 Ahat=Theta(1:ell,:)'; Bhat=Theta(ell+1:end,:)';
 Eps=zn-Ahat*zc-Bhat*ur;

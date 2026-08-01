@@ -4,7 +4,7 @@ run_id=run_id(:)'; valid=find(run_id(1:end-1)==run_id(2:end));
 yc=y-model.y_mean; uc=u-model.u_mean;
 z=model.R'*yc;
 z_actual=z(:,valid+1);
-z_predicted=model.A*z(:,valid)+model.B*uc(:,valid);
+z_predicted=model.A*z(:,valid)+model.B*uc(:,valid+1);
 z_persistence=z(:,valid);
 y_predicted=model.y_mean+model.P*z_predicted;
 task_actual=Etask'*y(:,valid+1);

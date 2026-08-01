@@ -1,0 +1,693 @@
+{
+  "api_base": "https://api.boptest.net",
+  "collected_utc": "2026-08-01T12:06:36.651529+00:00",
+  "control_policy": "bounded two-level PRBS base held four samples with samplewise small deterministic dither; seed 20260801",
+  "samples_per_segment": 24,
+  "segments": [
+    {
+      "input_metadata": {
+        "floor1_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor1_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor2_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor2_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor3_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor3_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        }
+      },
+      "output_metadata": {
+        "floor1_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        }
+      },
+      "segment": 1,
+      "start_time": 1209600,
+      "testid": "c5698a1c-3afb-4ab3-a478-39d752edb0a2"
+    },
+    {
+      "input_metadata": {
+        "floor1_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor1_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor2_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor2_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor3_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor3_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        }
+      },
+      "output_metadata": {
+        "floor1_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        }
+      },
+      "segment": 2,
+      "start_time": 8985600,
+      "testid": "a38f7b26-c825-46eb-b063-c60795857e49"
+    },
+    {
+      "input_metadata": {
+        "floor1_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor1_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor2_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor2_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        },
+        "floor3_TSupAirSet_u": {
+          "Description": "Supply air temperature setpoint for AHU",
+          "Maximum": 313.15,
+          "Minimum": 285.15,
+          "Unit": "K"
+        },
+        "floor3_dpSet_u": {
+          "Description": "Supply duct pressure setpoint for AHU",
+          "Maximum": 410,
+          "Minimum": 50,
+          "Unit": "Pa"
+        }
+      },
+      "output_metadata": {
+        "floor1_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor1_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor1_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone bot_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor2_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor2_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone mid_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonCor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonCor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_cor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonEas_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonEas_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_eas",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonNor_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonNor_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_nor",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonSou_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonSou_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_sou",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        },
+        "floor3_reaZonWes_CO2Zon_y": {
+          "Description": "Zone air CO2 measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "ppm"
+        },
+        "floor3_reaZonWes_TZon_y": {
+          "Description": "Zone air temperature measurement for zone top_floor_wes",
+          "Maximum": null,
+          "Minimum": null,
+          "Unit": "K"
+        }
+      },
+      "segment": 3,
+      "start_time": 16848000,
+      "testid": "63a4148f-881c-4e1c-b03a-c230553f1e89"
+    }
+  ],
+  "step_seconds": 900,
+  "study_scope": "three-season pilot after public instance allocation blocked segment 4",
+  "testcase": "multizone_office_complex_air",
+  "train_segments": [
+    1,
+    2
+  ],
+  "validation_segments": [
+    3
+  ]
+}
