@@ -1,0 +1,18 @@
+copyAY Pelican multi-step benchmark (ICRA 2018 protocol)
+horizon_steps 190
+horizon_seconds 1.90
+starts 1796
+speed_error_mean_1p9s_cmps 99.6677
+speed_error_p99_1p9s_cmps 367.4417
+body_rate_error_mean_1p9s_radps 1.005851
+body_rate_error_p99_1p9s_radps 7.336555
+pos_error_mean_1p9s_cm 137.3622
+pos_persistence_mean_1p9s_cm 126.1053
+att_error_mean_1p9s_rad 2.281130
+att_persistence_mean_1p9s_rad 0.329297
+speed_error_mean_0p4s_cmps 101.4125
+speed_error_p99_0p4s_cmps 393.1238
+paper_hybrid_speed_99pct_cmps 9.0
+paper_hybrid_bodyrate_99pct_radps 0.12
+spectral_radius 1.0000044491
+model copyAY one-step latent VARX (5 latent, first-order, standardized)

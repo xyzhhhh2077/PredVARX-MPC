@@ -39,6 +39,15 @@ class PelicanDatasetTest(unittest.TestCase):
         self.assertEqual(self.dataset["output_names"].tolist(), list(OUTPUT_NAMES))
         self.assertEqual(self.dataset["input_names"].tolist(), list(INPUT_NAMES))
 
+    def test_speed_state_contract(self):
+        # speed-state output [Vel(3); pqr(3); Motors(4)]: one sample shorter
+        # per flight (velocities are finite differences), segments re-aligned.
+        self.assertEqual(self.dataset["y_speed_state"].shape, (10, 1_388_410 - 54))
+        self.assertEqual(self.dataset["u_speed_state"].shape, (4, 1_388_410 - 54))
+        spd = self.dataset["segment_id_speed_state"]
+        self.assertEqual(spd.size, 1_388_410 - 54)
+        self.assertEqual(np.unique(spd).tolist(), list(ALL_SEGMENTS))
+
     def test_segment_ids_cover_exactly_54_flights_in_order(self):
         ids = np.unique(self.dataset["segment_id"])
         self.assertEqual(ids.tolist(), list(ALL_SEGMENTS))

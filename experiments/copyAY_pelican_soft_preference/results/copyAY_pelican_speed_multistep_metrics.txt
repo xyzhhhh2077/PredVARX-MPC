@@ -1,0 +1,27 @@
+copyAY Pelican SPEED-STATE multi-step benchmark (ICRA 2018 protocol)
+state [Vel(3);pqr(3);Motors(4)]  latent_dim 10
+horizon_steps 190
+horizon_seconds 1.90
+starts 1796
+one_step_validation_R2 0.998513
+speed_error_mean_1p9s_cmps 118.3589
+speed_error_p99_1p9s_cmps 464.0034
+body_rate_error_mean_1p9s_radps 1.451364
+body_rate_error_p99_1p9s_radps 4.246710
+speed_error_mean_0p4s_cmps 46.4831
+speed_error_p99_0p4s_cmps 243.7053
+body_rate_error_mean_0p4s_radps 0.923415
+body_rate_error_p99_0p4s_radps 3.297861
+speed_error_mean_0p18s_cmps 22.7819
+speed_error_p99_0p18s_cmps 118.3504
+body_rate_error_mean_0p18s_radps 0.590486
+body_rate_error_p99_0p18s_radps 2.899888
+mae_speed_1p9s_cmps 58.0143
+mae_bodyrate_1p9s_radps 0.723591
+paper_hybrid_speed_99pct_cmps 9.0
+paper_hybrid_bodyrate_99pct_radps 0.12
+paper_blackbox_lstm_bodyrate_mean_1p9s_degps 3.5
+speed_persistence_mean_1p9s_cmps 129.8167
+bodyrate_persistence_mean_1p9s_radps 0.820520
+fit_spectral_radius 0.9999388563
+model copyAY pipeline on speed state (ell=10 latent, first-order, standardized)

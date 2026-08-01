@@ -13,7 +13,11 @@ Papers:
 Data contract (this copy)
 -------------------------
 54 flights (segments), 100 Hz sampling, Vicon indoor motion capture
-(Position: mm, +/-5mm; Euler: deg, +/-0.1 deg), motor speeds integer [0,218].
+# Units (verified on raw .mat, 2026-08-02): Pos in **m**, Euler in **rad**,
+# Vel in m/s == 100*diff(Pos) EXACTLY (dataset stores this as a field),
+# pqr in rad/s (body-frame), Motors/Motors_CMD dimensionless integers [0,218].
+# NOTE: earlier comments saying "mm / deg" were wrong; raw values never
+# converted, only the documentation was misleading.
 
 Outputs y (10 rows):  [Pos(3); Euler(3); Motors(4)]  -- raw measurements only.
   - Vel and pqr are EXCLUDED on purpose: Vel is exactly 100*diff(Pos)
@@ -72,8 +76,8 @@ def load_flights(path: str | os.PathLike) -> list:
 def flight_to_arrays(flight) -> tuple[np.ndarray, np.ndarray]:
     """Return (y, u) for one flight: y 10xN, u 4xN, N = flight.len."""
     n = int(flight.len)
-    pos = np.asarray(flight.Pos, dtype=float).T        # 3 x N (mm)
-    euler = np.asarray(flight.Euler, dtype=float).T    # 3 x N (deg)
+    pos = np.asarray(flight.Pos, dtype=float).T        # 3 x N (m)
+    euler = np.asarray(flight.Euler, dtype=float).T    # 3 x N (rad)
     motors = np.asarray(flight.Motors, dtype=float).T  # 4 x N
     cmd = np.asarray(flight.Motors_CMD, dtype=float).T  # 4 x N
     y = np.vstack([pos, euler, motors])
@@ -85,21 +89,60 @@ def flight_to_arrays(flight) -> tuple[np.ndarray, np.ndarray]:
     return y, u
 
 
+def flight_to_speed_state(flight) -> tuple[np.ndarray, np.ndarray]:
+    """Return (y_spd, u) for one flight: y_spd 10xN, u 4xN, N = flight.len.
+
+    Speed-state benchmark state (ICRA 2018 protocol): the paper predicts
+    translational velocity and body rates, NOT position/attitude. To compare
+    fairly we build y = [Vel(3); pqr(3); Motors(4)] (10 rows). Vel and pqr
+    appear WITHOUT Pos/Euler here, so C_y stays full-rank (cond ~6 after
+    standardization, verified) -- the singularity only occurs when Pos and
+    Vel are in y together. Vel is 1 sample shorter than Pos; we align by
+    dropping the first sample of every other channel (Vel(k) = 100*(Pos(k+1)
+    - Pos(k)) is a forward difference, so y_spd(:,k) is paired with u(:,k)
+    and drives y_spd(:,k+1) under the standard causality contract).
+    """
+    n = int(flight.len)
+    vel = np.asarray(flight.Vel, dtype=float).T        # 3 x (N-1) (m/s)
+    pqr = np.asarray(flight.pqr, dtype=float).T        # 3 x N (rad/s)
+    motors = np.asarray(flight.Motors, dtype=float).T  # 4 x N
+    cmd = np.asarray(flight.Motors_CMD, dtype=float).T  # 4 x N
+    assert vel.shape[1] == n - 1 and pqr.shape[1] == n and motors.shape[1] == n
+    y_spd = np.vstack([vel, pqr[:, 1:], motors[:, 1:]])
+    u_spd = cmd[:, 1:]
+    assert y_spd.shape == (10, n - 1) and u_spd.shape == (4, n - 1)
+    assert np.all(np.isfinite(y_spd)) and np.all(np.isfinite(u_spd)), "non-finite values"
+    return y_spd, u_spd
+
+
 def build_dataset(path: str | os.PathLike) -> dict:
     flights = load_flights(path)
     assert len(flights) == 54, f"expected 54 flights, got {len(flights)}"
     columns_y, columns_u, segment_ids = [], [], []
+    columns_ys, columns_us, segment_ids_spd = [], [], []
     for idx, flight in enumerate(flights, start=1):
         y, u = flight_to_arrays(flight)
         columns_y.append(y)
         columns_u.append(u)
         segment_ids.extend([idx] * y.shape[1])
+        y_spd, u_spd = flight_to_speed_state(flight)
+        columns_ys.append(y_spd)
+        columns_us.append(u_spd)
+        segment_ids_spd.extend([idx] * y_spd.shape[1])
     y = np.concatenate(columns_y, axis=1)
     u = np.concatenate(columns_u, axis=1)
+    y_spd = np.concatenate(columns_ys, axis=1)
+    u_spd = np.concatenate(columns_us, axis=1)
+    assert y_spd.shape[1] == y.shape[1] - 54, (  # one sample dropped per flight
+        f"speed-state length mismatch {y_spd.shape[1]} vs {y.shape[1]}"
+    )
     return {
         "y": y,
         "u": u,
+        "y_speed_state": y_spd,
+        "u_speed_state": u_spd,
         "segment_id": np.asarray(segment_ids, dtype=np.int32),
+        "segment_id_speed_state": np.asarray(segment_ids_spd, dtype=np.int32),
         "output_names": np.asarray(OUTPUT_NAMES, dtype=object),
         "input_names": np.asarray(INPUT_NAMES, dtype=object),
     }

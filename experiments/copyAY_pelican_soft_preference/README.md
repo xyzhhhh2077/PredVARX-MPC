@@ -63,8 +63,13 @@ results/                            metrics txt + fig png + full state .mat
 ## Data
 
 - 54 flights = 54 segments, 1,388,410 samples total at 100 Hz (~3h50m flight
-  time), Vicon indoor cube ~5 m; position mm ±5 mm, Euler deg ±0.1 deg,
-  motor speeds integer [0, 218].
+  time), Vicon indoor cube ~5 m.
+- **Units (verified on the raw .mat, 2026-08-02)**: `Pos` is in **metres**
+  (max |Vel| = 3.89 m/s matches the paper's "maximum translational velocity
+  ≈ 4 m/s", and `Vel` ≡ 100·diff(Pos) exactly), `Euler` is in **radians**
+  (±0.92 rad ≈ ±53°), `Vel` in m/s, `pqr` in rad/s, motor speeds integer
+  [0, 218]. The dataset documentation's "mm / deg" wording does not match the
+  stored values — this copy uses the stored values.
 - All channels smoothed by the dataset authors (window-5 local regression,
   robust for motor speeds).
 - Split by flight: segments 1–36 train, 37–54 validation; never shuffled
@@ -126,4 +131,53 @@ measurements Pos/Euler/Motors are the honest observation set.
 | BOPTEST pilot | d_k-dominated sim | — | disturbance dominates |
 | ControlGym CDR (copyAX) | linear sim | [0.814, 0.802] | prediction OK, control failed |
 | **Pelican (copyAY)** | **real flight data** | **[0.982, 0.982]** | **prediction PASS** |
+
+## Multi-step benchmark vs ICRA 2018 (honest boundary)
+
+The dataset's own evaluation task (Mohajerin & Waslander, ICRA 2018) is
+**multi-step prediction of translational velocity and body rates**, not
+position. The paper reports: hybrid (physics + NN) model within **9 cm/s and
+0.12 rad/s over 1.9 s with 99% confidence** (speed max ≈ 4 m/s); black-box
+LSTM body-rate mean error < 3.5 deg/s over 1.9 s. Protocol: 10-step (0.1 s)
+init window, recursive prediction over 190 steps with recorded inputs.
+
+Two benchmark scripts implement this protocol on the validation flights
+(1,796 start points):
+
+| Model | One-step R² (val) | 0.18 s | 0.4 s | 1.9 s mean | 1.9 s p99 | persistence 1.9 s |
+|---|---|---|---|---|---|---|
+| Position state (copyAY main, ell=5) | 0.98 (task) | — | 101 cm/s | 99.7 cm/s | 367 cm/s | 87.9 cm/s |
+| **Speed state (ell=10)** | **0.9985** | **22.8 cm/s** | **46.5 cm/s** | **118 cm/s** | **464 cm/s** | 129.8 cm/s |
+| Paper hybrid (nonlinear + physics) | — | — | — | — | **9 cm/s** (99%) | — |
+
+Body-rate equivalents: speed-state model 0.59 rad/s @0.18 s, 0.92 @0.4 s,
+1.45 @1.9 s (persistence 0.82); paper hybrid 0.12 rad/s (99%).
+
+**Honest conclusions**:
+
+1. **The linear latent VARX is excellent one-step (R² 0.9985 on the speed
+   state at ell=10) and usable over an MPC-scale horizon (22.8 cm/s at
+   0.18 s)**, but **degrades under long recursive rollout** (118 cm/s at
+   1.9 s, barely better than persistence 130 cm/s). The identified A sits at
+   ρ = 0.99994 — the speed dynamics are near-integrator, so one-step
+   innovation error accumulates over 190 roll-out steps. The paper's hybrid
+   model does not have this problem because the physics block (known mass,
+   moment of inertia, exact integrator structure) anchors the rollout.
+2. **This is precisely the boundary the copyAU MPC design targets**: a short
+   horizon (N = 18 steps = 0.18 s) with re-initialization at every step uses
+   only the one-step model, where the method is strong. It does not rely on
+   long open-loop rollout. The benchmark therefore supports the closed-loop
+   design rather than contradicting it.
+3. The position-state model collapses in multi-step (attitude error 131° vs
+   persistence 19°): position is an integrated quantity, and a 5-dim latent
+   trained on one-step targets cannot carry fast dynamics through recursion.
+   This motivated the speed-state formulation above.
+4. Units and norms follow the paper: Vel m/s, pqr rad/s, MAE per axis
+   (eq. 30: e = ⅓ Σ|eᵢ|). MAE speed 58.0 cm/s @1.9 s (persistence 64.0),
+   MAE rate 0.72 rad/s (persistence 0.40).
+
+Files: `copyAY_pelican_speed_multistep_benchmark.m` (+
+`evaluate_multistep_speed_state.m`, `copyAY_pelican_multistep_benchmark.m` +
+`evaluate_multistep_prediction.m`), results
+`copyAY_pelican_speed_multistep_{metrics.txt,data.mat,fig.png}`.
 
