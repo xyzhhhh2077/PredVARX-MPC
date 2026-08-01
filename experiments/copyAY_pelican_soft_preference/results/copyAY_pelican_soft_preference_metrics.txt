@@ -1,0 +1,27 @@
+copyAY Waterloo Pelican quadrotor soft preference offline validation
+environment real_flight_data_vicon_100hz
+native_measurements 10
+manipulated_inputs 4
+latent_dimension 5
+training_segments [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36]
+validation_segments [37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54]
+training_samples 1045715
+validation_samples 342695
+training_transitions 1045679
+validation_transitions 342677
+preference_weights pos=1.0 euler=0.9 motors=0.7
+preference_strength 0.78000000
+selected_mu 0.100000000000
+ntr_epsilon 1.000000000000e-05
+dual_error 2.790748641516e-15
+spectral_radius 1.000004449108
+preference_capture 0.169176827272
+latent_RMSE [0.09179933786 0.0992129045 0.05500644057 0.06321576304 0.00662183217]
+latent_persistence_RMSE [0.1044678531 0.1159954413 0.06299410479 0.07181186691 0.006962464432]
+task_RMSE [0.09179933786 0.0992129045]
+task_persistence_RMSE [0.1044678531 0.1159954413]
+task_R2 [0.9818514343 0.9816745522]
+full_output_standardized_RMSE 0.874151609236
+scope offline_one_step_prediction_only
+closed_loop_mpc_run 0
+exogenous_disturbance_modeled 0
