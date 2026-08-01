@@ -1,0 +1,8 @@
+{
+  "steps": 1200,
+  "ctrl_freq": 100,
+  "seed": 7,
+  "N": 18,
+  "task_limit": 0.8,
+  "note": "phase-2 method validation: CF2X != Pelican plant"
+}

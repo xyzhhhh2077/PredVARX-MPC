@@ -48,12 +48,17 @@ test `tests/cdrSegmentContractTest.m` verifies this by recovering
 
 ```
 collect_cdr_data.py                  seeded PRBS collection -> data/*.mat
+export_cdr_plant.py                  export exact ControlGym A/B2/C/x0
 copyAX_cdr_soft_preference.m         main runner (learn E -> fit -> evaluate)
 fit_segmented_anchored_varx.m        copyAU anchored CRTE fit (aligned u_k)
 learn_segmented_preferred_output_directions.m
 evaluate_segmented_prediction.m
+build_cdr_closed_loop_config.m       AU-coordinate SMPC configuration
+simulate_cdr_closed_loop.m           y -> AU QP -> physical u -> true CDR
+run_cdr_au_closed_loop.m             formal 1200-step closed-loop runner
 tests/test_cdr_dataset.py            Python dataset contract (6 tests)
 tests/cdrSegmentContractTest.m       MATLAB contract (3 tests)
+tests/cdrClosedLoopContractTest.m    MATLAB closed-loop contract (3 tests)
 data/copyAX_cdr_dataset.mat          y 30x8008, u 8x8008, segments 1..8 (LFS)
 data/copyAX_cdr_dataset.json          full generation record
 results/                             metrics txt + fig png + full state .mat
@@ -123,7 +128,30 @@ CRTE construction (learned output directions + anchored free block) from the
 confound that sank BOPTEST (dominant exogenous `d_k`), and the construction
 clearly wins on held-out segments.
 
-## Scope
+## AU-based closed-loop control (2026-08-02)
 
-Offline, one-step prediction validation on held-out segments only. No MPC
-loop is closed here; the linear CDR benchmark is MPC-ready for a follow-up.
+`run_cdr_au_closed_loop.m` closes the actual loop for 1200 steps:
+
+```
+physical y_k -> training standardization -> z_k -> AU centered SMPC QP
+             -> standardized u_k -> physical u_k -> true 200-state CDR
+```
+
+The controller preserves copyAU settings (`ell=5`, `N=18`, task `Q=80`,
+`Ru=0.18`) and tracks the two learned task axes. Reference amplitude and
+orientation are derived from the identified AU model only. The exact CDR
+`A/B2/C` matrices are used only to advance the simulated plant and for
+post-run evaluation, not for controller or reference design.
+
+Against a zero-input run with the same initial state, sensor-noise seed and
+reference, task RMSE changed from `[0.001496 0.002784]` to
+`[0.001383 0.002721]`: improvements of `[7.58%, 2.23%]`. All 1200 QPs
+succeeded, fallback count was zero, physical input RMS was `0.0227`, and
+input/task violation rates were zero.
+
+This is a real but modest empirical control improvement. The responses remain
+near zero rather than strongly following each nonzero reference plateau. The
+identified and true steady-state task gains have relative Frobenius error
+`1.36` (singular values `[0.0162, 0.00371]` vs `[0.0170, 0.00740]`), so the
+current AU model loses important control-direction information. The run does
+not prove stability, recursive feasibility, or calibrated chance coverage.

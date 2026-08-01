@@ -1,0 +1,31 @@
+experiment copyAX CDR AU closed loop
+closed_loop_mpc_run 1
+controller AU centered_smpc_step
+T 1200
+warmup 150
+N 18
+Q_task_scale 80
+Ru_scale 0.18
+reference_source identified_AU_model_only
+true_plant_used_for controller_design 0 reference_design 0 simulation 1 evaluation 1
+reference_amplitude 0.00565781408098
+task_limit 0.0259186051117
+max_chance_tightening 0.0150770700084
+AU_RMSE [0.001382726891 0.002721396962]
+zero_input_RMSE [0.001496142831 0.002783503175]
+RMSE_improvement_fraction [0.07580555653 0.02231224802]
+AU_MAE [0.001143578755 0.002149550086]
+zero_input_MAE [0.001263204868 0.002239552265]
+AU_Bias [0.001125360636 -5.737080621e-05]
+QP_success 1.000000000000
+fallback 0
+max_qp_row -1.047158608008e-02
+physical_action_rms 0.0227033626294
+input_saturation_rate 0
+input_violation_rate 0
+task_violation_rate [0 0]
+AU_gain_singular_values [0.01616518309 0.003710562744]
+true_gain_singular_values [0.0170013072 0.007404113926]
+gain_relative_error 1.36024947656
+interpretation closed_loop_executed_and_both_task_RMSEs_improved_vs_same-noise_zero-input_baseline
+boundary improvement_is_empirical_not_a_stability_or_recursive-feasibility_proof; identified_gain_mismatch_remains

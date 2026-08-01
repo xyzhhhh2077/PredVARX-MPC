@@ -1,0 +1,8 @@
+copyAZ pybullet CF2X identification (copyAY pipeline)
+y [pos(3);rpy(3);rpm(4)] u [rpm_cmd(4)] ell 5
+T 36000 train_flights 4 val_flights 2
+one_step_validation_R2 0.518119
+task_axis_R2 [0.9976110323 0.9907062819]
+spectral_radius 1.0079032324
+dual_error 2.736e-15
+note method-validation-only: CF2X dynamics != Pelican plant

@@ -1,0 +1,42 @@
+{
+  "source": "ControlGym convection_diffusion_reaction",
+  "controlgym_revision": "86f4d02680c1c5f20e1f6b3a846b5ed57cbc3852",
+  "controlgym_path": "C:\\tmp\\controlgym",
+  "seed": 20260801,
+  "matrices": {
+    "A_plant": [
+      200,
+      200
+    ],
+    "B_plant": [
+      200,
+      8
+    ],
+    "C_plant": [
+      30,
+      200
+    ],
+    "x0": [
+      200,
+      1
+    ],
+    "y0_noise_free": [
+      30,
+      1
+    ],
+    "y0_observed": [
+      30,
+      1
+    ],
+    "sample_time": [
+      1,
+      1
+    ],
+    "seed": [
+      1,
+      1
+    ]
+  },
+  "dynamics": "x_next=A_plant*x+B_plant*u_raw; y=C_plant*x+v",
+  "process_noise": "disabled"
+}
