@@ -1,0 +1,41 @@
+{
+  "source": "ControlGym convection_diffusion_reaction (linear analytical CDR)",
+  "controlgym_revision": "86f4d02680c1c5f20e1f6b3a846b5ed57cbc3852",
+  "controlgym_path": "C:\\tmp\\controlgym",
+  "paper": "Zhang et al., ControlGym: Large-Scale Neuro-Evolutionary PDE Control",
+  "env_kwargs": {
+    "n_steps": 1001,
+    "sample_time": 0.01,
+    "process_noise_cov": 0.0,
+    "sensor_noise_cov": 0.0001,
+    "n_state": 200,
+    "n_observation": 30,
+    "n_action": 8,
+    "control_sup_width": 0.1,
+    "action_limit": null,
+    "observation_limit": null,
+    "reward_limit": null
+  },
+  "steps_per_segment": 1001,
+  "train_segments": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "validation_segments": [
+    7,
+    8
+  ],
+  "transitions_per_segment": 1000,
+  "prbs_amplitude": 1.0,
+  "prbs_hold": 4,
+  "segment_seed_formula": "SEGMENT_BASE_SEED + segment*101, base=20260801",
+  "alignment": "u[:,k] drives y[:,k+1] (standard causality; controlgym returns pre-update observation)",
+  "sensor_noise_std": 0.01,
+  "process_noise": "disabled",
+  "collected_at_utc": "2026-08-01T13:07:34+00:00",
+  "collector": "collect_cdr_data.py (copyAX)"
+}

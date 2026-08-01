@@ -1,0 +1,27 @@
+copyAX ControlGym CDR soft preference offline validation
+environment convection_diffusion_reaction (linear analytical)
+native_measurements 30
+manipulated_inputs 8
+latent_dimension 5
+training_segments [1 2 3 4 5 6]
+validation_segments [7 8]
+training_samples 6006
+validation_samples 2002
+training_transitions 6000
+validation_transitions 2000
+preference_weights central_sensors=1.0 edge_sensors=0.85
+preference_strength 0.78000000
+selected_mu 0.100000000000
+ntr_epsilon 1.000000000000e-05
+dual_error 2.001084085482e-15
+spectral_radius 0.998148018643
+preference_capture 0.069028511351
+latent_RMSE [0.001932840215 0.0027725946 0.05375020427 0.02749204074 0.007653698724]
+latent_persistence_RMSE [0.002066135677 0.002967910389 0.08343377455 0.03923645838 0.008386551947]
+task_RMSE [0.001932840215 0.0027725946]
+task_persistence_RMSE [0.002066135677 0.002967910389]
+task_R2 [0.8143978647 0.8015790598]
+full_output_standardized_RMSE 0.491482860304
+scope active_cdr_simulator_offline_one_step_prediction_only
+closed_loop_mpc_run 0
+exogenous_disturbance_modeled 0
