@@ -94,7 +94,7 @@ The complete auditable outputs are stored beside the experiment:
 
 ### Learned output-direction experiments
 
-These copies reuse the same 1500 offline samples and add no training data. They are extensions and diagnostics, not part of the original CRTE algorithm.
+Copies AS through AV reuse the same 1500 offline samples and add no training data. CopyAW instead uses 1500 samples from three public Tennessee Eastman runs and validates on two disjoint runs. All are extensions and diagnostics, not part of the original CRTE algorithm.
 
 | Copy | Question | 1200-step observation |
 |---|---|---|
@@ -102,6 +102,7 @@ These copies reuse the same 1500 offline samples and add no training data. They 
 | [`copyAT`](experiments/copyAT_learned_output_directions/) | Fixed task, supervised recovery, or maximum input authority? | Fixed and supervised directions agree; high input authority alone gives worse task tracking |
 | [`copyAU`](experiments/copyAU_soft_preference_output/) | Can soft output preferences define the final controlled outputs? | QP remained feasible, but original-task tracking failed |
 | [`copyAV`](experiments/copyAV_hard_preference_output/) | What happens when the highest-priority physical outputs are hard locked? | Good single-seed tracking was recovered; this is not a general optimality result |
+| [`copyAW`](experiments/copyAW_te_soft_preference/) | Does the copyAU construction run on native 41-output Tennessee Eastman data? | Offline held-out prediction beat persistence slightly, but R2 remained weak; no COSTEP closed loop was run |
 
 The copyAT comparison uses the same old `(u,y)`, seed, closed-loop disturbance, controller, constraints, 1200-step horizon, and five 240-step reference segments. Performance is evaluated on the original physical outputs `y1,y2`.
 
@@ -123,6 +124,7 @@ PredVARX-MPC/
 │   ├── copyAT_learned_output_directions/
 │   ├── copyAU_soft_preference_output/
 │   ├── copyAV_hard_preference_output/
+│   ├── copyAW_te_soft_preference/
 │   ├── copyOPQSTR_unified/
 │   └── copyALL_unified/
 ├── tests/                        # canonical matlab.unittest suite
