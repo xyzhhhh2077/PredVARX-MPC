@@ -1,0 +1,11 @@
+copyBE xyz-anchor second-order latent VARX
+model_order 2
+controlled_directions standardized_x_y_z
+dual_error 1.762168199055e-15
+anchor_error 0.000000000000e+00
+spectral_radius_augmented 0.999656758368
+task_RMSE [0.0001439954733 0.0001314561008 7.5376793e-05]
+task_persistence_RMSE [0.007746638219 0.007283957913 0.005549504166]
+collective_one_step_xyz [-3.484285619e-06 -2.737630777e-06 5.362365223e-05]
+collective_horizon_gain_xyz [0.004833766937 0.00767353823 0.217297016]
+all_input_horizon_gain_xyz [0.1307014845 0.1056399944 0.5172620448]

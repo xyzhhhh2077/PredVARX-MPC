@@ -1,0 +1,289 @@
+{
+  "experiment": "copyBH_pelican_u_cap_ablation",
+  "parent_experiment": "copyBG_pelican_physical_wind_smpc",
+  "ablation_variable": "INPUT_COMMAND_BOUND_STANDARDIZED",
+  "validation_type": "Pelican-data-identified model-in-the-loop",
+  "is_real_flight_validation": false,
+  "requested_steps": 18000,
+  "sample_rate_hz": 100.0,
+  "dt_used_seconds": 0.01,
+  "control_interval_steps": 10,
+  "horizon_steps": 18,
+  "horizon_seconds": 1.8,
+  "Q_weight": 80.0,
+  "Ru": 0.18,
+  "alpha_joint": 0.05,
+  "input_bound_normalized": [
+    -7.0,
+    7.0
+  ],
+  "hard_bound_standardized": 3.9124117280376636,
+  "source_model_hard_bound_standardized": 3.9124117280376636,
+  "reference_mode": "face-petal-stress",
+  "reference_pressures_standardized": [
+    3.9,
+    3.9,
+    3.9
+  ],
+  "rising_turns": 1.0,
+  "smooth_square_dwell_fraction": null,
+  "reference_path": "six-face petal stress: center\u2192face\u2192on-face diagonal slide\u2192center for +x/\u2212x/+y/\u2212y/+z/\u2212z; pressures=(3.9, 3.9, 3.9), slide=0.75; targets above chance mean bounds, inside hard=3.91241",
+  "growing_smooth_square": null,
+  "smooth_square_dc_feasibility": null,
+  "forward_gif": null,
+  "playback_gif": null,
+  "sigma_wind_mps": 0.04,
+  "position_unit": "m",
+  "wind_seed": 7007,
+  "innovation_seed": 7,
+  "training_segments": 36,
+  "training_samples": 1045715,
+  "transition_count": 1045643,
+  "uses_true_Sigma_n": 0,
+  "obs_tracked_leakage_norm": 0.0,
+  "Sigma_eps_trace": 0.0017793604585459922,
+  "Sigma_obs_proxy_trace": 5.138566375267071,
+  "Sigma_wind_aug_trace": 5.866267717650816e-07,
+  "Sigma_total_aug_trace": 0.001779947085317758,
+  "noise_actual_vs_estimated": {
+    "n_steps": 18000,
+    "ell": 5,
+    "dt_seconds": 0.01,
+    "sigma_wind_mps_prescribed": 0.04,
+    "wind_velocity_std_actual_mps": [
+      0.0396390673820391,
+      0.03997198552954234,
+      0.040379655020313945
+    ],
+    "wind_velocity_std_estimated_mps": [
+      0.04,
+      0.04,
+      0.04
+    ],
+    "wind_velocity_std_ratio_actual_over_est": [
+      0.9909766845509775,
+      0.9992996382385585,
+      1.0094913755078485
+    ],
+    "eps_std_actual": [
+      0.00010997815653537518,
+      9.501616964545397e-05,
+      5.992010238502892e-05,
+      0.03414974326728807,
+      0.02472630818178997
+    ],
+    "eps_std_estimated": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "eps_std_ratio_actual_over_est": [
+      1.0015273975837573,
+      1.0001614417246307,
+      0.9960197567279077,
+      1.0007036101386468,
+      0.9972473376265732
+    ],
+    "wind_latent_std_actual": [
+      0.0004362232185332383,
+      0.00043507164129947683,
+      0.00045523436550441807,
+      0.0,
+      0.0
+    ],
+    "wind_latent_std_estimated": [
+      0.000440181398814829,
+      0.0004353600656390818,
+      0.00045091986111640326,
+      0.0,
+      0.0
+    ],
+    "total_plant_std_actual": [
+      0.00044984710414952626,
+      0.00044470499134963474,
+      0.000458893635467595,
+      0.03414974326728807,
+      0.02472630818178997
+    ],
+    "total_plant_std_est_chance_Sigma_eps": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "total_plant_std_est_Sigma_total": [
+      0.00045367168185207675,
+      0.00044560469582136336,
+      0.0004549152589774909,
+      0.03412573205622457,
+      0.02479455923205375
+    ],
+    "fro_rel_emp_eps_vs_Sigma_eps": 0.0028479647282099113,
+    "fro_rel_emp_wind_z_vs_Sigma_wind": 0.017849930881741475,
+    "fro_rel_emp_total_vs_Sigma_eps_chance": 0.002865196643906328,
+    "fro_rel_emp_total_vs_Sigma_total": 0.002853679305995264,
+    "chance_uses": "Sigma_eps only (not physical wind, not Sigma_n)",
+    "plant_injects": "eps ~ N(0,Sigma_eps) + wind_latent (physical v)",
+    "note": "Actual = realized closed-loop sequences. Estimated = offline Sigma_eps from train innovations + analytic Sigma_wind from sigma_wind and G_w. SMPC chance tightening uses Sigma_eps only; Sigma_total is a diagnostic upper envelope including wind.",
+    "figure": "copyBH_pelican_u_cap_ablation_noise_actual_vs_estimated.png",
+    "verdict": "MATCH",
+    "wind_max_abs_error_pct": 0.949137550784851,
+    "eps_max_abs_std_error_pct": 0.3980243272092343,
+    "eps_fro_error_pct": 0.28479647282099113,
+    "total_fro_error_pct": 0.28536793059952636,
+    "roll_window_seconds": 8.0,
+    "shown_latent_modes": [
+      4,
+      5
+    ],
+    "read_guide": "Top panels: actual waveform inside estimated \u00b1\u03c3 band. Middle: rolling actual std should hug the estimated \u03c3 line. Bottom: actual/est ratio should stay near 1 over time."
+  },
+  "shared_noise_exact": 1,
+  "disturbance_sha256": "ad49956f127ce23e4608133eb1627d85d31658531697426cfa9d7889cd347952",
+  "initialization": {
+    "dynamic_residual": 3.3526588471893e-29,
+    "task_residual": 7.533621644860663e-29,
+    "maximum_absolute_input": 3.0970642816309626e-13,
+    "control": [
+      1.2535541910131837e-13,
+      1.917433048078779e-13,
+      3.0970642816309626e-13,
+      -1.461673754632813e-14
+    ]
+  },
+  "smpc": {
+    "completed_steps": 11030,
+    "qp_count": 1104,
+    "qp_failure_count": 1,
+    "qp_failure_step": 11030,
+    "qp_failure_status": "user_limit",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 1102,
+      "optimal_inaccurate": 1,
+      "user_limit": 1
+    },
+    "maximum_qp_constraint_residual": 2.3022158845975582e-08,
+    "mean_qp_solve_time_seconds": 0.020225311060743427,
+    "active_qp_steps": 696,
+    "positive_dual_qp_steps": 696,
+    "minimum_predicted_slack": -2.3022158845975582e-08,
+    "maximum_constraint_dual": 3345.0854605633795,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.01683392981119214,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.01683392981119214,
+      0.023807499540827948,
+      0.0828537184942717
+    ],
+    "rmse_standardized": [
+      0.5671029399014803,
+      0.3742631885219688,
+      0.1183593762451685
+    ],
+    "peak_absolute_position_standardized": [
+      3.8955777982264714,
+      3.8886042284968356,
+      3.829558009543392
+    ],
+    "input_saturation_steps": 6220,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "ad49956f127ce23e4608133eb1627d85d31658531697426cfa9d7889cd347952"
+  },
+  "deterministic_mpc": {
+    "completed_steps": 470,
+    "qp_count": 48,
+    "qp_failure_count": 1,
+    "qp_failure_step": 470,
+    "qp_failure_status": "infeasible",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 47,
+      "infeasible": 1
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.005157138297872341,
+    "active_qp_steps": 8,
+    "positive_dual_qp_steps": 8,
+    "minimum_predicted_slack": 9.023892744153272e-13,
+    "maximum_constraint_dual": 714.7866012552333,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.09662541276486847,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.09662541276486847,
+      3.7547013582705637,
+      3.716153089854419
+    ],
+    "rmse_standardized": [
+      0.22795641764937527,
+      0.08347039722905865,
+      0.08684144820700862
+    ],
+    "peak_absolute_position_standardized": [
+      3.815786315272795,
+      0.1577103697670997,
+      0.1962586381832447
+    ],
+    "input_saturation_steps": 200,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "ad49956f127ce23e4608133eb1627d85d31658531697426cfa9d7889cd347952"
+  },
+  "smpc_vs_mpc": {
+    "active_qp_steps_smpc": 696,
+    "active_qp_steps_mpc": 8,
+    "positive_dual_qp_steps_smpc": 696,
+    "positive_dual_qp_steps_mpc": 8,
+    "hard_violation_steps_smpc": 0,
+    "hard_violation_steps_mpc": 0,
+    "minimum_hard_margin_smpc": 0.01683392981119214,
+    "minimum_hard_margin_mpc": 0.09662541276486847,
+    "rmse_smpc": [
+      0.5671029399014803,
+      0.3742631885219688,
+      0.1183593762451685
+    ],
+    "rmse_mpc": [
+      0.22795641764937527,
+      0.08347039722905865,
+      0.08684144820700862
+    ],
+    "chance_expected_active": false,
+    "note": "Input-cap-only ablation: the selected normalized \u00b17 experiment cap is not a claimed Pelican hardware rating. Identification, Q/Ru, horizon, chance tightening, QP structure, reference, and disturbance seeds remain fixed across the sweep."
+  },
+  "interpretation": "The deterministic MPC trace ends at its first non-optimal QP; no fallback or post-failure trajectory is synthesized. This copy changes only the standardized motor-command box. Any unchanged x/y ceiling despite a larger cap is evidence that the frozen chance mean bound, rather than the input box, is the active limitation in this experiment.",
+  "artifacts": {
+    "json": "copyBH_pelican_u_cap_ablation.json",
+    "npz": "copyBH_pelican_u_cap_ablation.npz",
+    "mat": "copyBH_pelican_u_cap_ablation.mat",
+    "smpc_png": "copyBH_pelican_u_cap_ablation_smpc.png",
+    "deterministic_mpc_png": "copyBH_pelican_u_cap_ablation_deterministic_mpc.png",
+    "noise_compare_png": "copyBH_pelican_u_cap_ablation_noise_actual_vs_estimated.png"
+  }
+}

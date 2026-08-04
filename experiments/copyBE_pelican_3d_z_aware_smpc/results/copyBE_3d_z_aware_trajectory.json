@@ -1,0 +1,80 @@
+{
+  "scope": "second-order z-aware 3D frozen-model-in-the-loop simulation",
+  "model_order": 2,
+  "seeds": [
+    7,
+    19,
+    31
+  ],
+  "steps": 1200,
+  "d": 10,
+  "horizon": 18,
+  "q_weight": 80.0,
+  "ru": 0.18,
+  "alpha_joint": 0.05,
+  "hard_bound": 3.9124117280376636,
+  "per_seed": {
+    "7": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.04803172992848074,
+        0.045210420684591746,
+        0.012818086364264103
+      ],
+      "mpc_rmse": [
+        0.04803172992848074,
+        0.045210420684591746,
+        0.012818086364264103
+      ]
+    },
+    "19": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.05322832438478429,
+        0.05594068175957114,
+        0.011161187295170613
+      ],
+      "mpc_rmse": [
+        0.05322832438478429,
+        0.05594068175957114,
+        0.011161187295170613
+      ]
+    },
+    "31": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.08290270986706612,
+        0.05583856345576421,
+        0.01345245217984093
+      ],
+      "mpc_rmse": [
+        0.08290270986706612,
+        0.05583856345576421,
+        0.01345245217984093
+      ]
+    }
+  },
+  "physical_reference_ranges": {
+    "x_mm": [
+      0.24005331107274633,
+      0.6944106675449141
+    ],
+    "y_mm": [
+      -0.2812887906261592,
+      0.7293680360652028
+    ],
+    "z_mm": [
+      0.988432513278565,
+      1.5561604010581753
+    ]
+  }
+}

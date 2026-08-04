@@ -1,0 +1,19 @@
+copyBA Waterloo Pelican: SMPC closed loop on the REAL identified model (model in-the-loop)
+plant copyBA model (A,B,P,R,Sigma_eps) identified from training segments 1:36
+task_axis position-dominant E: weights pos=1.0 euler=0.3 motors=0.05, preference_strength=0.99
+closed_loop reference real flight trajectory of each validation segment itself (1200 samples each)
+initial_state real segment start
+control_multirate d=10 (10 Hz decisions on the 100 Hz plant), N=18 (1.8 s horizon)
+Q diag([1x6, 0.05x4])/6*10, Ru=0.06 (input magnitude matched to real expert), u bounds +-6 std,
+task bound h=2.0, alpha_joint=0.05, lifted noise Sigma_d = sum_{i=0}^{d-1} A^i Sigma_eps A'^i
+process_noise Sigma_eps from identification (drawn per 100 Hz step)
+segments 37..41 (all validation segments outside training 1:36)
+seg  rmse_smpc(s1,s2)  rmse_openloop(s1,s2)  u_sat%  violations  u_std_smpc/expert (per ch)
+37   (0.589, 0.452)    (0.841, 1.113)         0       0           [0.33 0.29 0.76 0.86]/[0.38 0.38 0.69 0.67]
+38   (0.209, 0.492)    -                       0       0           [0.55 0.31 0.62 0.87]/[0.29 0.34 0.52 0.50]
+39   (0.780, 0.713)    -                       0       0           [0.31 0.30 0.75 1.03]/[0.98 0.92 1.02 1.01]
+40   (0.529, 0.432)    -                       0       0           [0.54 0.33 0.51 0.89]/[0.37 0.39 0.35 0.31]
+41   (0.559, 0.301)    -                       0       0           [0.27 0.26 0.58 0.73]/[0.40 0.43 0.39 0.43]
+notes:
+- Ru scan seg37: 0.01 -> rmse(0.426,0.243) u_std 4x expert; 0.03 -> (0.551,0.364) 1.5x; 0.06 -> (0.589,0.452) ~1x (matched); 0.10 -> (0.600,0.514) 0.6x
+- open-loop baseline (u=u_mean hold, same noise stream): seg37 rmse (0.841,1.113)

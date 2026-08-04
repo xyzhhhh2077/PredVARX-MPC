@@ -1,0 +1,287 @@
+{
+  "experiment": "copyBG_pelican_physical_wind_smpc",
+  "validation_type": "Pelican-data-identified model-in-the-loop",
+  "is_real_flight_validation": 0,
+  "requested_steps": 48000,
+  "sample_rate_hz": 100.0,
+  "dt_used_seconds": 0.01,
+  "control_interval_steps": 10,
+  "horizon_steps": 18,
+  "horizon_seconds": 1.8,
+  "Q_weight": 80.0,
+  "Ru": 0.18,
+  "alpha_joint": 0.05,
+  "input_bound_normalized": [
+    -6.0,
+    6.0
+  ],
+  "hard_bound_standardized": 3.9124117280376636,
+  "source_model_hard_bound_standardized": 3.9124117280376636,
+  "reference_mode": "growing-smooth-square-helix",
+  "reference_pressures_standardized": [
+    1.8,
+    1.8,
+    2.8
+  ],
+  "rising_turns": 2.0,
+  "smooth_square_dwell_fraction": 0.0,
+  "reference_path": "envelope small\u2192large\u2192small: multi-axis n=4 box (0.8, 0.8, 1.2)\u2194(1.8, 1.8, 2.8) (mid corner u_inf\u22485.45); peak chapter = boundary-tour SMPC pressure at (3.6, 3.55, 3.75) (~38% of trajectory); turns/leg=2.0, 48000 samples",
+  "growing_smooth_square": {
+    "structure": "small\u2192large multi-axis \u2192 peak SMPC boundary-tour \u2192 shrink\u2192small",
+    "pressures_start": [
+      0.8,
+      0.8,
+      1.2
+    ],
+    "pressures_mid_multiaxis": [
+      1.8,
+      1.8,
+      2.8
+    ],
+    "pressures_end": [
+      1.8,
+      1.8,
+      2.8
+    ],
+    "peak_smpc_targets": [
+      3.6,
+      3.55,
+      3.75
+    ],
+    "phase_fractions": [
+      0.26,
+      0.05,
+      0.38,
+      0.05,
+      0.26
+    ],
+    "phase_counts": [
+      12480,
+      2400,
+      18240,
+      2400,
+      12480
+    ],
+    "phase_names": [
+      "grow",
+      "blend_to_peak",
+      "smpc_peak",
+      "blend_to_shrink",
+      "shrink"
+    ],
+    "r_xy_max": 3.6,
+    "r_box_max": 3.6,
+    "r_linf_max": 3.7499999661830374,
+    "fraction_dc_feasible_samples": 0.6479375,
+    "fraction_beyond_dc_samples": 0.3520625,
+    "fraction_smpc_peak": 0.38,
+    "fraction_grow": 0.26,
+    "fraction_shrink": 0.26,
+    "near_hard_fraction": 0.159375
+  },
+  "smooth_square_dc_feasibility": {
+    "pressures": [
+      1.8,
+      1.8,
+      2.8
+    ],
+    "corner_power": 4.0,
+    "u_inf_cap": 5.5,
+    "worst_u_inf": 5.454470485658902,
+    "worst_task": [
+      1.5136135474566859,
+      -1.5136135474566863,
+      2.8
+    ],
+    "worst_u": [
+      -2.249422525659226,
+      5.454470485658902,
+      0.3767821974043995,
+      1.6608000915175771
+    ],
+    "feasible": 1,
+    "note": "Steady-state actuator demand on the rounded-square orbit. Infeasible means the reference is not DC-reachable under \u00b16; closed-loop RMSE then reflects saturation/shrink, not CRTE/copyAU."
+  },
+  "forward_gif": {
+    "path": "experiments\\copyBG_pelican_physical_wind_smpc\\results_growing\\copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 200,
+    "frame_ms": 120,
+    "fps": 8.333333333333334,
+    "play_seconds": 24.0,
+    "completed_steps": 48000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "playback_gif": {
+    "path": "experiments\\copyBG_pelican_physical_wind_smpc\\results_growing\\copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 200,
+    "frame_ms": 120,
+    "fps": 8.333333333333334,
+    "play_seconds": 24.0,
+    "completed_steps": 48000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "sigma_wind_mps": 0.02,
+  "position_unit": "m",
+  "wind_seed": 7007,
+  "innovation_seed": 7,
+  "training_segments": 36,
+  "training_samples": 1045715,
+  "transition_count": 1045643,
+  "uses_true_Sigma_n": 0,
+  "obs_tracked_leakage_norm": 0.0,
+  "Sigma_eps_trace": 0.0017793604585459922,
+  "Sigma_obs_proxy_trace": 5.138566375267071,
+  "Sigma_wind_aug_trace": 1.466566929412704e-07,
+  "Sigma_total_aug_trace": 0.0017795071152389343,
+  "shared_noise_exact": 1,
+  "disturbance_sha256": "e51c67e1043654ddf0a909e63f45d483cd79aa3b2a8aba9c8072f69b95ca4d39",
+  "initialization": {
+    "dynamic_residual": 1.1102230246251565e-15,
+    "task_residual": 3.3306690738754696e-15,
+    "maximum_absolute_input": 1.4212670459895862,
+    "control": [
+      -1.012218441566115,
+      1.4212670459895862,
+      -1.2247403322342658,
+      1.2481405358901627
+    ]
+  },
+  "smpc": {
+    "completed_steps": 48000,
+    "qp_count": 4800,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 4800
+    },
+    "maximum_qp_constraint_residual": 2.7610447261849913e-10,
+    "mean_qp_solve_time_seconds": 0.005617188479166667,
+    "active_qp_steps": 404,
+    "positive_dual_qp_steps": 404,
+    "minimum_predicted_slack": -2.7610447261849913e-10,
+    "maximum_constraint_dual": 589.5634365467497,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.15192319943041133,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.19172883481144698,
+      0.2886538698003598,
+      0.15192319943041133
+    ],
+    "rmse_standardized": [
+      0.2010845014617157,
+      0.16225659203264384,
+      0.04846568646934094
+    ],
+    "peak_absolute_position_standardized": [
+      3.7206828932262166,
+      3.623757858237304,
+      3.7604885286072522
+    ],
+    "input_saturation_steps": 14750,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "e51c67e1043654ddf0a909e63f45d483cd79aa3b2a8aba9c8072f69b95ca4d39"
+  },
+  "deterministic_mpc": {
+    "completed_steps": 48000,
+    "qp_count": 4800,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 4800
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.004853993791666666,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.006604443556287087,
+    "maximum_constraint_dual": 0.0,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.023370625335397133,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.023370625335397133,
+      0.26864533640394095,
+      0.1568007872512447
+    ],
+    "rmse_standardized": [
+      0.2025529783648749,
+      0.16249401525997895,
+      0.04813658566163944
+    ],
+    "peak_absolute_position_standardized": [
+      3.8890411027022664,
+      3.6437663916337226,
+      3.755610940786419
+    ],
+    "input_saturation_steps": 14870,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "e51c67e1043654ddf0a909e63f45d483cd79aa3b2a8aba9c8072f69b95ca4d39"
+  },
+  "smpc_vs_mpc": {
+    "active_qp_steps_smpc": 404,
+    "active_qp_steps_mpc": 0,
+    "positive_dual_qp_steps_smpc": 404,
+    "positive_dual_qp_steps_mpc": 0,
+    "hard_violation_steps_smpc": 0,
+    "hard_violation_steps_mpc": 0,
+    "minimum_hard_margin_smpc": 0.15192319943041133,
+    "minimum_hard_margin_mpc": 0.023370625335397133,
+    "rmse_smpc": [
+      0.2010845014617157,
+      0.16225659203264384,
+      0.04846568646934094
+    ],
+    "rmse_mpc": [
+      0.2025529783648749,
+      0.16249401525997895,
+      0.04813658566163944
+    ],
+    "chance_expected_active": 1,
+    "note": "Chance constraints bind when the planned trajectory presses stage_mean_bound (near-hard single-axis legs). Interior multi-axis DC-feasible orbits track well but leave chance idle by geometry \u2014 that is not a CRTE/copyAU failure. Default growing-smooth-square-helix activates chance only in the peak boundary-tour chapter (~38% of samples)."
+  },
+  "interpretation": "The deterministic MPC trace ends at its first non-optimal QP; no fallback or post-failure trajectory is synthesized. Default narrative is small\u2192large multi-axis envelope, peak single-axis boundary-tour SMPC pressure test, then shrink\u2192small. SMPC value is read from active_qp / duals / hard-margin vs MPC on the peak chapter (and pure boundary-tour), not from interior multi-axis tracking RMSE alone.",
+  "artifacts": {
+    "json": "copyBG_pelican_physical_wind_smpc.json",
+    "npz": "copyBG_pelican_physical_wind_smpc.npz",
+    "mat": "copyBG_pelican_physical_wind_smpc.mat",
+    "smpc_png": "copyBG_pelican_physical_wind_smpc_smpc.png",
+    "deterministic_mpc_png": "copyBG_pelican_physical_wind_smpc_deterministic_mpc.png",
+    "smpc_playback_gif": "copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "smpc_forward_gif": "copyBG_pelican_physical_wind_smpc_smpc_forward.gif"
+  }
+}

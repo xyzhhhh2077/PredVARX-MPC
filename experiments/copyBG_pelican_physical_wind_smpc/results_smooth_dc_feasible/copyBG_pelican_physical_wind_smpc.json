@@ -1,0 +1,212 @@
+{
+  "experiment": "copyBG_pelican_physical_wind_smpc",
+  "validation_type": "Pelican-data-identified model-in-the-loop",
+  "is_real_flight_validation": 0,
+  "requested_steps": 36000,
+  "sample_rate_hz": 100.0,
+  "dt_used_seconds": 0.01,
+  "control_interval_steps": 10,
+  "horizon_steps": 18,
+  "horizon_seconds": 1.8,
+  "Q_weight": 80.0,
+  "Ru": 0.18,
+  "alpha_joint": 0.05,
+  "input_bound_normalized": [
+    -6.0,
+    6.0
+  ],
+  "hard_bound_standardized": 3.9124117280376636,
+  "source_model_hard_bound_standardized": 3.9124117280376636,
+  "reference_mode": "smooth-square-helix",
+  "reference_pressures_standardized": [
+    1.8,
+    1.8,
+    2.8
+  ],
+  "rising_turns": 2.0,
+  "smooth_square_dwell_fraction": 0.1,
+  "reference_path": "smooth square helix: bottom dwell, rising n=4 superellipse (rounded-box) turns=2.0 dwell=0.1 at DC-feasible pressures (1.8, 1.8, 2.8) (corner u_inf\u22485.45), top dwell \u2014 multi-axis orbit (36000 samples, arc-length paced)",
+  "smooth_square_dc_feasibility": {
+    "pressures": [
+      1.8,
+      1.8,
+      2.8
+    ],
+    "corner_power": 4.0,
+    "u_inf_cap": 5.5,
+    "worst_u_inf": 5.454470485658902,
+    "worst_task": [
+      1.5136135474566859,
+      -1.5136135474566863,
+      2.8
+    ],
+    "worst_u": [
+      -2.249422525659226,
+      5.454470485658902,
+      0.3767821974043995,
+      1.6608000915175771
+    ],
+    "feasible": 1,
+    "note": "Steady-state actuator demand on the rounded-square orbit. Infeasible means the reference is not DC-reachable under \u00b16; closed-loop RMSE then reflects saturation/shrink, not CRTE/copyAU."
+  },
+  "forward_gif": {
+    "path": "experiments\\copyBG_pelican_physical_wind_smpc\\results\\copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 120,
+    "frame_ms": 180,
+    "fps": 5.555555555555555,
+    "play_seconds": 21.6,
+    "completed_steps": 36000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "playback_gif": {
+    "path": "experiments\\copyBG_pelican_physical_wind_smpc\\results\\copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 120,
+    "frame_ms": 180,
+    "fps": 5.555555555555555,
+    "play_seconds": 21.6,
+    "completed_steps": 36000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "sigma_wind_mps": 0.02,
+  "position_unit": "m",
+  "wind_seed": 7007,
+  "innovation_seed": 7,
+  "training_segments": 36,
+  "training_samples": 1045715,
+  "transition_count": 1045643,
+  "uses_true_Sigma_n": 0,
+  "obs_tracked_leakage_norm": 0.0,
+  "Sigma_eps_trace": 0.0017793604585459922,
+  "Sigma_obs_proxy_trace": 5.138566375267071,
+  "Sigma_wind_aug_trace": 1.466566929412704e-07,
+  "Sigma_total_aug_trace": 0.0017795071152389343,
+  "shared_noise_exact": 1,
+  "disturbance_sha256": "d5f6f988a3323d733441b1433d727babaffb7d479e00e30214ebfcbb9dc92a02",
+  "initialization": {
+    "dynamic_residual": 2.6663301219156076e-15,
+    "task_residual": 6.661338147750939e-15,
+    "maximum_absolute_input": 3.1957456839818565,
+    "control": [
+      -2.302164780235611,
+      3.1957456839818565,
+      -2.775879273831003,
+      2.7999572880607624
+    ]
+  },
+  "smpc": {
+    "completed_steps": 36000,
+    "qp_count": 3600,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 3600
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.00547890875,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.7818785691808952,
+    "maximum_constraint_dual": 0.0,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 1.0303851510335247,
+    "minimum_hard_margin_per_axis_standardized": [
+      1.8314235500430702,
+      1.788004132594982,
+      1.0303851510335247
+    ],
+    "rmse_standardized": [
+      0.11885599694850996,
+      0.12875451055599643,
+      0.03266387504987097
+    ],
+    "peak_absolute_position_standardized": [
+      2.0809881779945933,
+      2.1244075954426815,
+      2.882026577004139
+    ],
+    "input_saturation_steps": 10930,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "d5f6f988a3323d733441b1433d727babaffb7d479e00e30214ebfcbb9dc92a02"
+  },
+  "deterministic_mpc": {
+    "completed_steps": 36000,
+    "qp_count": 3600,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 3600
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.005591520722222223,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 1.0284511498427844,
+    "maximum_constraint_dual": 0.0,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 1.0303851510335247,
+    "minimum_hard_margin_per_axis_standardized": [
+      1.8314235500430702,
+      1.788004132594982,
+      1.0303851510335247
+    ],
+    "rmse_standardized": [
+      0.11885599694850996,
+      0.12875451055599643,
+      0.03266387504987097
+    ],
+    "peak_absolute_position_standardized": [
+      2.0809881779945933,
+      2.1244075954426815,
+      2.882026577004139
+    ],
+    "input_saturation_steps": 10930,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "d5f6f988a3323d733441b1433d727babaffb7d479e00e30214ebfcbb9dc92a02"
+  },
+  "interpretation": "The deterministic MPC trace ends at its first non-optimal QP; no fallback or post-failure trajectory is synthesized.",
+  "artifacts": {
+    "json": "copyBG_pelican_physical_wind_smpc.json",
+    "npz": "copyBG_pelican_physical_wind_smpc.npz",
+    "mat": "copyBG_pelican_physical_wind_smpc.mat",
+    "smpc_png": "copyBG_pelican_physical_wind_smpc_smpc.png",
+    "deterministic_mpc_png": "copyBG_pelican_physical_wind_smpc_deterministic_mpc.png",
+    "smpc_playback_gif": "copyBG_pelican_physical_wind_smpc_smpc_playback.gif",
+    "smpc_forward_gif": "copyBG_pelican_physical_wind_smpc_smpc_forward.gif"
+  }
+}

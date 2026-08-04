@@ -1,0 +1,253 @@
+{
+  "scope": "identified-model-in-the-loop boundary stress test",
+  "comparison": "SMPC versus deterministic MPC with common random disturbances",
+  "hard_bound": 3.9124117280376636,
+  "terminal_tightening": [
+    0.3374071080873984,
+    0.32326070266238305
+  ],
+  "terminal_tightened_mean_bound": [
+    3.575004619950265,
+    3.5891510253752807
+  ],
+  "critical_references": {
+    "x_critical": [
+      3.9074117280376637,
+      0.0
+    ],
+    "y_critical": [
+      0.0,
+      3.9074117280376637
+    ]
+  },
+  "reference_margin_to_hard_bound": 0.005,
+  "steps": 1200,
+  "warmup_steps": 0,
+  "seeds": [
+    7,
+    19,
+    31
+  ],
+  "d": 10,
+  "horizon": 18,
+  "q_weight": 80.0,
+  "ru": 0.18,
+  "metrics": {
+    "x_critical": {
+      "smpc": {
+        "7": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.004999999999999893,
+          "maximum_abs_position": [
+            3.9074117280376637,
+            0.0664077588959683
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.77398340619638,
+          "rmse_to_reference_after_step": [
+            0.1081550747716633,
+            0.019946777122853213
+          ]
+        },
+        "19": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.004999999999999893,
+          "maximum_abs_position": [
+            3.9074117280376637,
+            0.06577170397068442
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.77398340619638,
+          "rmse_to_reference_after_step": [
+            0.12117350927556475,
+            0.028293718406747378
+          ]
+        },
+        "31": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.004999999999999893,
+          "maximum_abs_position": [
+            3.9074117280376637,
+            0.12209521970836593
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.77398340619638,
+          "rmse_to_reference_after_step": [
+            0.09883318458392581,
+            0.04070844190431641
+          ]
+        }
+      },
+      "deterministic_mpc": {
+        "7": {
+          "violation_steps": 423,
+          "minimum_hard_margin": -0.047183299524984346,
+          "maximum_abs_position": [
+            3.959595027562648,
+            0.06690788826094282
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 96,
+          "positive_dual_qp_steps": 96,
+          "minimum_predicted_slack": -1.3583839086894756e-05,
+          "maximum_constraint_dual": 170.9569109278175,
+          "rmse_to_reference_after_step": [
+            0.03238523820210403,
+            0.020652633106283617
+          ]
+        },
+        "19": {
+          "violation_steps": 226,
+          "minimum_hard_margin": -0.053178290281323815,
+          "maximum_abs_position": [
+            3.9655900183189874,
+            0.06690128384995214
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 102,
+          "positive_dual_qp_steps": 102,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 205.26081749432106,
+          "rmse_to_reference_after_step": [
+            0.04112745394742589,
+            0.028626144124773132
+          ]
+        },
+        "31": {
+          "violation_steps": 461,
+          "minimum_hard_margin": -0.048838419347118744,
+          "maximum_abs_position": [
+            3.9612501473847823,
+            0.12161193873118505
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 99,
+          "positive_dual_qp_steps": 99,
+          "minimum_predicted_slack": -2.0214812967545015e-05,
+          "maximum_constraint_dual": 195.88947061802256,
+          "rmse_to_reference_after_step": [
+            0.024823055301704856,
+            0.04070283045480977
+          ]
+        }
+      }
+    },
+    "y_critical": {
+      "smpc": {
+        "7": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.0019915582180498603,
+          "maximum_abs_position": [
+            0.12389966075831908,
+            3.9104201698196137
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.123740580236,
+          "rmse_to_reference_after_step": [
+            0.05011719083857321,
+            0.0924912427398369
+          ]
+        },
+        "19": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.004999999999999893,
+          "maximum_abs_position": [
+            0.10695370551255615,
+            3.9074117280376637
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.123740580236,
+          "rmse_to_reference_after_step": [
+            0.0401116029938472,
+            0.09798150916860779
+          ]
+        },
+        "31": {
+          "violation_steps": 0,
+          "minimum_hard_margin": 0.00390125534176633,
+          "maximum_abs_position": [
+            0.12505687330682427,
+            3.9085104726958972
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 120,
+          "positive_dual_qp_steps": 120,
+          "minimum_predicted_slack": -4.440892098500626e-16,
+          "maximum_constraint_dual": 159.123740580236,
+          "rmse_to_reference_after_step": [
+            0.0450427911887256,
+            0.10747474048220915
+          ]
+        }
+      },
+      "deterministic_mpc": {
+        "7": {
+          "violation_steps": 159,
+          "minimum_hard_margin": -0.026502267848285133,
+          "maximum_abs_position": [
+            0.12080256376058915,
+            3.9389139958859487
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 10,
+          "positive_dual_qp_steps": 10,
+          "minimum_predicted_slack": 0.0,
+          "maximum_constraint_dual": 127.42267119753444,
+          "rmse_to_reference_after_step": [
+            0.04943166302566333,
+            0.02588272073362951
+          ]
+        },
+        "19": {
+          "violation_steps": 174,
+          "minimum_hard_margin": -0.03809408547680837,
+          "maximum_abs_position": [
+            0.1044429019765059,
+            3.950505813514472
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 11,
+          "positive_dual_qp_steps": 11,
+          "minimum_predicted_slack": 0.0,
+          "maximum_constraint_dual": 142.10143989665283,
+          "rmse_to_reference_after_step": [
+            0.04081588392982788,
+            0.03459601870561371
+          ]
+        },
+        "31": {
+          "violation_steps": 131,
+          "minimum_hard_margin": -0.029772708899388878,
+          "maximum_abs_position": [
+            0.12102868648118272,
+            3.9421844369370524
+          ],
+          "fallback_count": 0,
+          "active_qp_steps": 8,
+          "positive_dual_qp_steps": 8,
+          "minimum_predicted_slack": 0.0,
+          "maximum_constraint_dual": 101.27181603690526,
+          "rmse_to_reference_after_step": [
+            0.042670361953464006,
+            0.044230738270528216
+          ]
+        }
+      }
+    }
+  }
+}

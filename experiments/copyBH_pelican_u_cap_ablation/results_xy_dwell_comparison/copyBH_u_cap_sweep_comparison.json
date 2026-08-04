@@ -1,0 +1,323 @@
+{
+  "experiment": "copyBH_pelican_u_cap_ablation",
+  "scope": "input-cap-only ablation; controller and theory unchanged",
+  "hard_bound": 3.9124117280376636,
+  "near_hard_threshold": 3.5124117280376637,
+  "terminal_mean_bound_abs": [
+    2.935428335885822,
+    3.148504892150341,
+    3.583293760582082
+  ],
+  "fairness": {
+    "reference_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "43ee1b305c8a7c1e9d4188d1588de4d797d748587d5f470a04c550f3cd49ca2a",
+        "6.5": "43ee1b305c8a7c1e9d4188d1588de4d797d748587d5f470a04c550f3cd49ca2a",
+        "7.0": "43ee1b305c8a7c1e9d4188d1588de4d797d748587d5f470a04c550f3cd49ca2a"
+      }
+    },
+    "initial_state": {
+      "identical": true,
+      "hashes": {
+        "6.0": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96",
+        "6.5": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96",
+        "7.0": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96"
+      }
+    },
+    "initial_control": {
+      "identical": true,
+      "hashes": {
+        "6.0": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e",
+        "6.5": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e",
+        "7.0": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e"
+      }
+    },
+    "innovation_latent": {
+      "identical": true,
+      "hashes": {
+        "6.0": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3",
+        "6.5": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3",
+        "7.0": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3"
+      }
+    },
+    "wind_velocity_mps": {
+      "identical": true,
+      "hashes": {
+        "6.0": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6",
+        "6.5": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6",
+        "7.0": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6"
+      }
+    },
+    "stage_tightening_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76",
+        "6.5": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76",
+        "7.0": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76"
+      }
+    },
+    "stage_mean_bound_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233",
+        "6.5": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233",
+        "7.0": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233"
+      }
+    }
+  },
+  "runs": {
+    "6.0": {
+      "cap": 6.0,
+      "reference_path": "center \u2192 x-face dwell (20%) \u2192 center \u2192 y-face dwell (20%) \u2192 center at targets (3.57, 3.57)",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.870933405674584,
+            3.8532233859442604,
+            0.46349488692982793
+          ],
+          "max_u_inf": 6.0,
+          "input_saturation_steps": 7720,
+          "input_saturation_fraction": 0.6433333333333333,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 665,
+              "attained_fraction_during_target": 0.23325149070501577,
+              "longest_attained_seconds": 2.64,
+              "mean_task_during_target": 3.1123860209179237,
+              "rmse_during_target": 0.7050417720218818
+            },
+            "y": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 747,
+              "attained_fraction_during_target": 0.2620133286566117,
+              "longest_attained_seconds": 2.77,
+              "mean_task_during_target": 3.172931630280189,
+              "rmse_during_target": 0.584275464564782
+            }
+          },
+          "run_status": {
+            "completed_steps": 12000,
+            "qp_failure_count": 0,
+            "qp_failure_step": null,
+            "qp_failure_status": "",
+            "fallback_count": 0,
+            "active_qp_steps": 336,
+            "maximum_qp_constraint_residual": 3.0001467976603635e-10,
+            "minimum_hard_margin_standardized": 0.04147832236307947
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.897759049510164,
+            0.9837491823778355,
+            0.2070159770617682
+          ],
+          "max_u_inf": 6.0,
+          "input_saturation_steps": 1140,
+          "input_saturation_fraction": 0.6,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 325,
+              "attained_near_hard_steps": 139,
+              "attained_fraction_during_target": 0.4276923076923077,
+              "longest_attained_seconds": 1.3900000000000001,
+              "mean_task_during_target": 3.3718718168658386,
+              "rmse_during_target": 0.43318457949383854
+            },
+            "y": {
+              "target_near_hard_steps": 0,
+              "attained_near_hard_steps": 0,
+              "attained_fraction_during_target": 0.0,
+              "longest_attained_seconds": 0.0,
+              "mean_task_during_target": null,
+              "rmse_during_target": null
+            }
+          },
+          "run_status": {
+            "completed_steps": 1900,
+            "qp_failure_count": 1,
+            "qp_failure_step": 1900,
+            "qp_failure_status": "infeasible",
+            "fallback_count": 0,
+            "active_qp_steps": 0,
+            "maximum_qp_constraint_residual": 0.0,
+            "minimum_hard_margin_standardized": 0.014652678527499408
+          }
+        }
+      }
+    },
+    "6.5": {
+      "cap": 6.5,
+      "reference_path": "center \u2192 x-face dwell (20%) \u2192 center \u2192 y-face dwell (20%) \u2192 center at targets (3.57, 3.57)",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.890203725926255,
+            3.8535290783037035,
+            0.39611576610695265
+          ],
+          "max_u_inf": 6.5,
+          "input_saturation_steps": 7030,
+          "input_saturation_fraction": 0.5858333333333333,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 830,
+              "attained_fraction_during_target": 0.29112592072956855,
+              "longest_attained_seconds": 2.85,
+              "mean_task_during_target": 3.2312741125351856,
+              "rmse_during_target": 0.5499642372300858
+            },
+            "y": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 961,
+              "attained_fraction_during_target": 0.3370747106278499,
+              "longest_attained_seconds": 3.72,
+              "mean_task_during_target": 3.310045408881249,
+              "rmse_during_target": 0.4252024270938491
+            }
+          },
+          "run_status": {
+            "completed_steps": 12000,
+            "qp_failure_count": 0,
+            "qp_failure_step": null,
+            "qp_failure_status": "",
+            "fallback_count": 0,
+            "active_qp_steps": 438,
+            "maximum_qp_constraint_residual": 2.9803048917642627e-10,
+            "minimum_hard_margin_standardized": 0.022208002111408387
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.908987117316034,
+            0.877765212792717,
+            0.2070159770617682
+          ],
+          "max_u_inf": 6.5,
+          "input_saturation_steps": 1110,
+          "input_saturation_fraction": 0.581151832460733,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 335,
+              "attained_near_hard_steps": 167,
+              "attained_fraction_during_target": 0.49850746268656715,
+              "longest_attained_seconds": 1.67,
+              "mean_task_during_target": 3.474002376749875,
+              "rmse_during_target": 0.3678505588797422
+            },
+            "y": {
+              "target_near_hard_steps": 0,
+              "attained_near_hard_steps": 0,
+              "attained_fraction_during_target": 0.0,
+              "longest_attained_seconds": 0.0,
+              "mean_task_during_target": null,
+              "rmse_during_target": null
+            }
+          },
+          "run_status": {
+            "completed_steps": 1910,
+            "qp_failure_count": 1,
+            "qp_failure_step": 1910,
+            "qp_failure_status": "infeasible",
+            "fallback_count": 0,
+            "active_qp_steps": 4,
+            "maximum_qp_constraint_residual": 0.0,
+            "minimum_hard_margin_standardized": 0.003424610721629584
+          }
+        }
+      }
+    },
+    "7.0": {
+      "cap": 7.0,
+      "reference_path": "center \u2192 x-face dwell (20%) \u2192 center \u2192 y-face dwell (20%) \u2192 center at targets (3.57, 3.57)",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.8989803648057273,
+            3.852772670016683,
+            0.3391515981057916
+          ],
+          "max_u_inf": 7.0,
+          "input_saturation_steps": 6480,
+          "input_saturation_fraction": 0.54,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 993,
+              "attained_fraction_during_target": 0.34829884251139953,
+              "longest_attained_seconds": 3.02,
+              "mean_task_during_target": 3.3410726156220427,
+              "rmse_during_target": 0.42742165161158147
+            },
+            "y": {
+              "target_near_hard_steps": 2851,
+              "attained_near_hard_steps": 1087,
+              "attained_fraction_during_target": 0.38126972991932656,
+              "longest_attained_seconds": 3.95,
+              "mean_task_during_target": 3.3951687107408945,
+              "rmse_during_target": 0.33381763006909926
+            }
+          },
+          "run_status": {
+            "completed_steps": 12000,
+            "qp_failure_count": 0,
+            "qp_failure_step": null,
+            "qp_failure_status": "",
+            "fallback_count": 0,
+            "active_qp_steps": 486,
+            "maximum_qp_constraint_residual": 3.048024055374299e-10,
+            "minimum_hard_margin_standardized": 0.013431363231936277
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.9226192468755556,
+            0.908751275810532,
+            0.2317673293814003
+          ],
+          "max_u_inf": 7.0,
+          "input_saturation_steps": 2780,
+          "input_saturation_fraction": 0.6780487804878049,
+          "hard_violation_steps": 14,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 2525,
+              "attained_near_hard_steps": 973,
+              "attained_fraction_during_target": 0.38534653465346536,
+              "longest_attained_seconds": 3.14,
+              "mean_task_during_target": 3.36310851644256,
+              "rmse_during_target": 0.448462111835579
+            },
+            "y": {
+              "target_near_hard_steps": 0,
+              "attained_near_hard_steps": 0,
+              "attained_fraction_during_target": 0.0,
+              "longest_attained_seconds": 0.0,
+              "mean_task_during_target": null,
+              "rmse_during_target": null
+            }
+          },
+          "run_status": {
+            "completed_steps": 4100,
+            "qp_failure_count": 1,
+            "qp_failure_step": 4100,
+            "qp_failure_status": "infeasible",
+            "fallback_count": 0,
+            "active_qp_steps": 13,
+            "maximum_qp_constraint_residual": 4.263256414560601e-14,
+            "minimum_hard_margin_standardized": -0.01020751883789206
+          }
+        }
+      }
+    }
+  }
+}

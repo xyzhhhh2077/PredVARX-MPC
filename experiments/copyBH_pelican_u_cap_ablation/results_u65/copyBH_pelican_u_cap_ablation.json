@@ -1,0 +1,312 @@
+{
+  "experiment": "copyBH_pelican_u_cap_ablation",
+  "parent_experiment": "copyBG_pelican_physical_wind_smpc",
+  "ablation_variable": "INPUT_COMMAND_BOUND_STANDARDIZED",
+  "validation_type": "Pelican-data-identified model-in-the-loop",
+  "is_real_flight_validation": false,
+  "requested_steps": 12000,
+  "sample_rate_hz": 100.0,
+  "dt_used_seconds": 0.01,
+  "control_interval_steps": 10,
+  "horizon_steps": 18,
+  "horizon_seconds": 1.8,
+  "Q_weight": 80.0,
+  "Ru": 0.18,
+  "alpha_joint": 0.05,
+  "input_bound_normalized": [
+    -6.5,
+    6.5
+  ],
+  "hard_bound_standardized": 3.9124117280376636,
+  "source_model_hard_bound_standardized": 3.9124117280376636,
+  "reference_mode": "tour",
+  "reference_pressures_standardized": [
+    3.57,
+    3.57,
+    3.57
+  ],
+  "rising_turns": 1.0,
+  "smooth_square_dwell_fraction": null,
+  "reference_path": "center -> +x -> +y -> +z -> center, C1 smooth",
+  "growing_smooth_square": null,
+  "smooth_square_dc_feasibility": null,
+  "forward_gif": {
+    "path": "experiments\\copyBH_pelican_u_cap_ablation\\results_u65\\copyBH_pelican_u_cap_ablation_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 200,
+    "frame_ms": 120,
+    "fps": 8.333333333333334,
+    "play_seconds": 24.0,
+    "completed_steps": 12000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "playback_gif": {
+    "path": "experiments\\copyBH_pelican_u_cap_ablation\\results_u65\\copyBH_pelican_u_cap_ablation_smpc_playback.gif",
+    "style": "matlab_fixed_camera_playback",
+    "frames": 200,
+    "frame_ms": 120,
+    "fps": 8.333333333333334,
+    "play_seconds": 24.0,
+    "completed_steps": 12000,
+    "view": {
+      "elev": 22,
+      "azim": -52
+    }
+  },
+  "sigma_wind_mps": 0.04,
+  "position_unit": "m",
+  "wind_seed": 7007,
+  "innovation_seed": 7,
+  "training_segments": 36,
+  "training_samples": 1045715,
+  "transition_count": 1045643,
+  "uses_true_Sigma_n": 0,
+  "obs_tracked_leakage_norm": 0.0,
+  "Sigma_eps_trace": 0.0017793604585459922,
+  "Sigma_obs_proxy_trace": 5.138566375267071,
+  "Sigma_wind_aug_trace": 5.866267717650816e-07,
+  "Sigma_total_aug_trace": 0.001779947085317758,
+  "noise_actual_vs_estimated": {
+    "n_steps": 12000,
+    "ell": 5,
+    "dt_seconds": 0.01,
+    "sigma_wind_mps_prescribed": 0.04,
+    "wind_velocity_std_actual_mps": [
+      0.039554428306566185,
+      0.04004211443803764,
+      0.04039411580307854
+    ],
+    "wind_velocity_std_estimated_mps": [
+      0.04,
+      0.04,
+      0.04
+    ],
+    "wind_velocity_std_ratio_actual_over_est": [
+      0.9888607076641546,
+      1.0010528609509408,
+      1.0098528950769636
+    ],
+    "eps_std_actual": [
+      0.00010967987335134925,
+      9.53449162075763e-05,
+      5.954574082261563e-05,
+      0.03418553525569665,
+      0.02455116414081862
+    ],
+    "eps_std_estimated": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "eps_std_ratio_actual_over_est": [
+      0.9988110510795823,
+      1.003621901525959,
+      0.989796945059009,
+      1.0017524371161783,
+      0.9901835282104765
+    ],
+    "wind_latent_std_actual": [
+      0.00043529864955517894,
+      0.0004358348525117769,
+      0.00045537990480823073,
+      0.0,
+      0.0
+    ],
+    "wind_latent_std_estimated": [
+      0.000440181398814829,
+      0.0004353600656390818,
+      0.00045091986111640326,
+      0.0,
+      0.0
+    ],
+    "total_plant_std_actual": [
+      0.00044930523994395164,
+      0.0004459000766581892,
+      0.0004594094167652785,
+      0.03418553525569665,
+      0.02455116414081862
+    ],
+    "total_plant_std_est_chance_Sigma_eps": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "total_plant_std_est_Sigma_total": [
+      0.00045367168185207675,
+      0.00044560469582136336,
+      0.0004549152589774909,
+      0.03412573205622457,
+      0.02479455923205375
+    ],
+    "fro_rel_emp_eps_vs_Sigma_eps": 0.011049118965142702,
+    "fro_rel_emp_wind_z_vs_Sigma_wind": 0.024117315976298525,
+    "fro_rel_emp_total_vs_Sigma_eps_chance": 0.011056000158999437,
+    "fro_rel_emp_total_vs_Sigma_total": 0.0110530100495974,
+    "chance_uses": "Sigma_eps only (not physical wind, not Sigma_n)",
+    "plant_injects": "eps ~ N(0,Sigma_eps) + wind_latent (physical v)",
+    "note": "Actual = realized closed-loop sequences. Estimated = offline Sigma_eps from train innovations + analytic Sigma_wind from sigma_wind and G_w. SMPC chance tightening uses Sigma_eps only; Sigma_total is a diagnostic upper envelope including wind.",
+    "figure": "copyBH_pelican_u_cap_ablation_noise_actual_vs_estimated.png",
+    "verdict": "MATCH",
+    "wind_max_abs_error_pct": 1.113929233584543,
+    "eps_max_abs_std_error_pct": 1.0203054940991052,
+    "eps_fro_error_pct": 1.1049118965142701,
+    "total_fro_error_pct": 1.10530100495974,
+    "roll_window_seconds": 8.0,
+    "shown_latent_modes": [
+      4,
+      5
+    ],
+    "read_guide": "Top panels: actual waveform inside estimated \u00b1\u03c3 band. Middle: rolling actual std should hug the estimated \u03c3 line. Bottom: actual/est ratio should stay near 1 over time."
+  },
+  "shared_noise_exact": 1,
+  "disturbance_sha256": "8c3a9d091e0bddc87712ee484c362af16bc6df659a8ca664697e37f65184880b",
+  "initialization": {
+    "dynamic_residual": 3.3526588471893e-29,
+    "task_residual": 7.533621644860663e-29,
+    "maximum_absolute_input": 3.0970642816309626e-13,
+    "control": [
+      1.2535541910131837e-13,
+      1.917433048078779e-13,
+      3.0970642816309626e-13,
+      -1.461673754632813e-14
+    ]
+  },
+  "smpc": {
+    "completed_steps": 12000,
+    "qp_count": 1200,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 1200
+    },
+    "maximum_qp_constraint_residual": 2.514242147810819e-10,
+    "mean_qp_solve_time_seconds": 0.011321170666666667,
+    "active_qp_steps": 122,
+    "positive_dual_qp_steps": 121,
+    "minimum_predicted_slack": -2.514242147810819e-10,
+    "maximum_constraint_dual": 394.1760192347468,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.06367366752731751,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.33518946902996927,
+      0.06367366752731751,
+      0.16713560782971015
+    ],
+    "rmse_standardized": [
+      0.29066374828305724,
+      0.27246986961240377,
+      0.07078132914267067
+    ],
+    "peak_absolute_position_standardized": [
+      3.5772222590076943,
+      3.848738060510346,
+      3.7452761202079534
+    ],
+    "input_saturation_steps": 5020,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "8c3a9d091e0bddc87712ee484c362af16bc6df659a8ca664697e37f65184880b"
+  },
+  "deterministic_mpc": {
+    "completed_steps": 12000,
+    "qp_count": 1200,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 1200
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.010032852916666665,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.01704048070099695,
+    "maximum_constraint_dual": 0.0,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.029448223184887823,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.25941621850285257,
+      0.029448223184887823,
+      0.1671356078319688
+    ],
+    "rmse_standardized": [
+      0.2919450050625113,
+      0.27497147935079796,
+      0.07014372994271505
+    ],
+    "peak_absolute_position_standardized": [
+      3.652995509534811,
+      3.8829635048527757,
+      3.745276120205695
+    ],
+    "input_saturation_steps": 5020,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "8c3a9d091e0bddc87712ee484c362af16bc6df659a8ca664697e37f65184880b"
+  },
+  "smpc_vs_mpc": {
+    "active_qp_steps_smpc": 122,
+    "active_qp_steps_mpc": 0,
+    "positive_dual_qp_steps_smpc": 121,
+    "positive_dual_qp_steps_mpc": 0,
+    "hard_violation_steps_smpc": 0,
+    "hard_violation_steps_mpc": 0,
+    "minimum_hard_margin_smpc": 0.06367366752731751,
+    "minimum_hard_margin_mpc": 0.029448223184887823,
+    "rmse_smpc": [
+      0.29066374828305724,
+      0.27246986961240377,
+      0.07078132914267067
+    ],
+    "rmse_mpc": [
+      0.2919450050625113,
+      0.27497147935079796,
+      0.07014372994271505
+    ],
+    "chance_expected_active": true,
+    "note": "Input-cap-only ablation: the selected normalized \u00b16.5 experiment cap is not a claimed Pelican hardware rating. Identification, Q/Ru, horizon, chance tightening, QP structure, reference, and disturbance seeds remain fixed across the sweep."
+  },
+  "interpretation": "The deterministic MPC trace ends at its first non-optimal QP; no fallback or post-failure trajectory is synthesized. This copy changes only the standardized motor-command box. Any unchanged x/y ceiling despite a larger cap is evidence that the frozen chance mean bound, rather than the input box, is the active limitation in this experiment.",
+  "artifacts": {
+    "json": "copyBH_pelican_u_cap_ablation.json",
+    "npz": "copyBH_pelican_u_cap_ablation.npz",
+    "mat": "copyBH_pelican_u_cap_ablation.mat",
+    "smpc_png": "copyBH_pelican_u_cap_ablation_smpc.png",
+    "deterministic_mpc_png": "copyBH_pelican_u_cap_ablation_deterministic_mpc.png",
+    "noise_compare_png": "copyBH_pelican_u_cap_ablation_noise_actual_vs_estimated.png",
+    "smpc_playback_gif": "copyBH_pelican_u_cap_ablation_smpc_playback.gif",
+    "smpc_forward_gif": "copyBH_pelican_u_cap_ablation_smpc_forward.gif"
+  }
+}

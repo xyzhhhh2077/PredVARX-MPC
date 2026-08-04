@@ -1,0 +1,30 @@
+{
+  "simulator": "gym-pybullet-drones 2.1.0 / pybullet 3.2.7",
+  "drone": "CF2X (CtrlAviary, direct RPM)",
+  "control": "DSLPID position controller (closed loop)",
+  "excitation": "x/y independent swept sines (amp 0.3 m, x 0.05->0.40 Hz, y 0.08->0.50 Hz, z hold 0.1 m)",
+  "seed": 7,
+  "ctrl_freq": 100,
+  "n_seconds": 60.0,
+  "n_flights": 6,
+  "y_channels": [
+    "pos_x",
+    "pos_y",
+    "pos_z",
+    "roll",
+    "pitch",
+    "yaw",
+    "rpm_1",
+    "rpm_2",
+    "rpm_3",
+    "rpm_4"
+  ],
+  "u_channels": [
+    "rpm_cmd_1",
+    "rpm_cmd_2",
+    "rpm_cmd_3",
+    "rpm_cmd_4"
+  ],
+  "hover_rpm": 14468.429183500699,
+  "cond_Cy": 64200311446.293365
+}

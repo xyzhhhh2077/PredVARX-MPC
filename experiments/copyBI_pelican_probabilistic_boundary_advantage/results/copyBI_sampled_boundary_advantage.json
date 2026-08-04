@@ -1,0 +1,63 @@
+{
+  "experiment": "copyBI sampled probabilistic hard-boundary advantage",
+  "scope": "one deliberately selected sampled disturbance event; mechanism demonstration, not a Monte Carlo violation-probability estimate",
+  "steps": 18000,
+  "sample_time_seconds": 0.01,
+  "hard_bound_standardized": 3.9124117280376636,
+  "face_pressures_standardized": [
+    3.46,
+    3.46,
+    3.57
+  ],
+  "input_command_cap_standardized": 7.0,
+  "sigma_wind_mps": 0.04,
+  "wind_seed": 7016,
+  "innovation_seed": 16,
+  "seed_selection": "selected after an exploratory scan of 10 consecutive seed pairs. Six of the 10 deterministic-MPC probes ended at a non-optimal QP, so the scan is not retained or interpreted as a violation-frequency estimate. This pair was selected because both controllers completed all 18,000 steps and the sampled MPC crossing occurred.",
+  "shared_disturbance_sha256": "7671c9ab8a456370278ed9052267a126890699a23d8731eeb42e38fe263b3375",
+  "chance_covariance": "identified Sigma_eps_aug only; physical wind is injected into both plants but is not added to the SMPC chance covariance",
+  "smpc": {
+    "completed_steps": 18000,
+    "qp_failure_step": null,
+    "fallback_count": 0,
+    "hard_violation_steps": 0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "minimum_hard_margin": 0.019399713347257652,
+    "peak_absolute_task": [
+      3.7973409151100763,
+      3.893012014690406,
+      3.79851697476876
+    ],
+    "active_qp_steps": 375,
+    "maximum_qp_constraint_residual": 2.8091085013670636e-10
+  },
+  "deterministic_mpc": {
+    "completed_steps": 18000,
+    "qp_failure_step": null,
+    "fallback_count": 0,
+    "hard_violation_steps": 6,
+    "hard_violation_steps_per_axis": [
+      0,
+      6,
+      0
+    ],
+    "minimum_hard_margin": -0.002569612298191082,
+    "peak_absolute_task": [
+      3.8923552840638056,
+      3.9149813403358547,
+      3.7985169747687624
+    ],
+    "active_qp_steps": 4,
+    "maximum_qp_constraint_residual": 4.405364961712621e-13
+  },
+  "claim_boundary": "This selected run demonstrates one sampled outward disturbance crossing for hard-constrained nominal MPC while SMPC remains inside. It does not establish empirical calibration, recursive feasibility, or a robust hard guarantee under physical wind.",
+  "artifacts": {
+    "data": "copyBI_sampled_boundary_advantage.npz",
+    "figure": "copyBI_sampled_boundary_advantage.png",
+    "report": "REPORT.md"
+  }
+}

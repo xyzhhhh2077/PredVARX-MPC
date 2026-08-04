@@ -1,0 +1,307 @@
+{
+  "scope": "continuous 120 s frozen-model-in-the-loop tightened-bound spiral with Gaussian process wind; not real flight",
+  "seed": 7,
+  "wind_seed": 7007,
+  "sigma_w": 0.045,
+  "wind_channel": "per-step independent Gaussian process noise w_k ~ N(0, 0.045^2 I_ell) injected in latent coordinates",
+  "residual_channel": "latent innovation N(0, Sigma_eps[:ell,:ell]) estimated from the Pelican dataset; not measurement noise; SMPC and MPC see the same realization",
+  "steps": 12000,
+  "duration_seconds": 120.0,
+  "state_resets": 0,
+  "turns": 5,
+  "hard_bound": 3.9124117280376636,
+  "terminal_tightened_bound": [
+    2.935428335929699,
+    3.1485048921738406,
+    3.5832937605766224
+  ],
+  "reference_min": [
+    -2.7,
+    -2.8,
+    -3.75
+  ],
+  "reference_max": [
+    2.7,
+    2.8,
+    3.75
+  ],
+  "tightened_bound_at_terminal": [
+    2.935428335929699,
+    3.1485048921738406,
+    3.5832937605766224
+  ],
+  "smpc": {
+    "violation_steps": 11991,
+    "minimum_hard_margin": -698.9621964724998,
+    "fallback_count": 1199,
+    "input_saturation_steps": 10,
+    "active_qp_steps": 1,
+    "positive_dual_qp_steps": 1,
+    "minimum_predicted_slack": 4.440892098500626e-16,
+    "maximum_constraint_dual": 94.9124219771105,
+    "rmse": [
+      148.3514280823718,
+      264.57567843866934,
+      327.52053175268475
+    ],
+    "cycle_metrics": [
+      {
+        "cycle": 1,
+        "start_step": 0,
+        "stop_step": 1200,
+        "violation_steps": 1191,
+        "rmse": [
+          54.707859057961706,
+          72.10827234344131,
+          240.27449856057467
+        ],
+        "minimum_hard_margin": -485.2191978714732
+      },
+      {
+        "cycle": 2,
+        "start_step": 1200,
+        "stop_step": 2400,
+        "violation_steps": 1200,
+        "rmse": [
+          63.20840869055622,
+          136.08325284245538,
+          493.67223275395065
+        ],
+        "minimum_hard_margin": -668.6283432305933
+      },
+      {
+        "cycle": 3,
+        "start_step": 2400,
+        "stop_step": 3600,
+        "violation_steps": 1200,
+        "rmse": [
+          138.93609254858632,
+          91.33385408040152,
+          406.59526865045854
+        ],
+        "minimum_hard_margin": -698.9621964724998
+      },
+      {
+        "cycle": 4,
+        "start_step": 3600,
+        "stop_step": 4800,
+        "violation_steps": 1200,
+        "rmse": [
+          119.28481692156842,
+          312.8837927483581,
+          317.02522598405614
+        ],
+        "minimum_hard_margin": -528.255241693999
+      },
+      {
+        "cycle": 5,
+        "start_step": 4800,
+        "stop_step": 6000,
+        "violation_steps": 1200,
+        "rmse": [
+          227.79638981397758,
+          373.0854189215482,
+          265.70754872316826
+        ],
+        "minimum_hard_margin": -649.1157610610792
+      },
+      {
+        "cycle": 6,
+        "start_step": 6000,
+        "stop_step": 7200,
+        "violation_steps": 1200,
+        "rmse": [
+          120.91883142269677,
+          142.35937334490026,
+          187.3884993492256
+        ],
+        "minimum_hard_margin": -312.19301514756006
+      },
+      {
+        "cycle": 7,
+        "start_step": 7200,
+        "stop_step": 8400,
+        "violation_steps": 1200,
+        "rmse": [
+          174.06017644316913,
+          172.3063455953982,
+          312.71879108628707
+        ],
+        "minimum_hard_margin": -457.07810618164444
+      },
+      {
+        "cycle": 8,
+        "start_step": 8400,
+        "stop_step": 9600,
+        "violation_steps": 1200,
+        "rmse": [
+          219.2875515998101,
+          284.2555940889703,
+          407.5071006876109
+        ],
+        "minimum_hard_margin": -652.7931156602183
+      },
+      {
+        "cycle": 9,
+        "start_step": 9600,
+        "stop_step": 10800,
+        "violation_steps": 1200,
+        "rmse": [
+          172.8770806712344,
+          408.91068374679804,
+          327.2359287593017
+        ],
+        "minimum_hard_margin": -591.0698314760516
+      },
+      {
+        "cycle": 10,
+        "start_step": 10800,
+        "stop_step": 12000,
+        "violation_steps": 1200,
+        "rmse": [
+          69.12369110387822,
+          364.53931629646786,
+          169.6313329799194
+        ],
+        "minimum_hard_margin": -647.6288123112002
+      }
+    ]
+  },
+  "deterministic_mpc": {
+    "violation_steps": 11991,
+    "minimum_hard_margin": -698.9596851840621,
+    "fallback_count": 1199,
+    "input_saturation_steps": 10,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.14120912390887774,
+    "maximum_constraint_dual": 0.0,
+    "rmse": [
+      148.35142435583484,
+      264.5756923104329,
+      327.5190553892878
+    ],
+    "cycle_metrics": [
+      {
+        "cycle": 1,
+        "start_step": 0,
+        "stop_step": 1200,
+        "violation_steps": 1191,
+        "rmse": [
+          54.70731119191286,
+          72.1084070912424,
+          240.26943085879816
+        ],
+        "minimum_hard_margin": -485.2114438962997
+      },
+      {
+        "cycle": 2,
+        "start_step": 1200,
+        "stop_step": 2400,
+        "violation_steps": 1200,
+        "rmse": [
+          63.20795922358518,
+          136.0832283399908,
+          493.6694600307832
+        ],
+        "minimum_hard_margin": -668.6241712402401
+      },
+      {
+        "cycle": 3,
+        "start_step": 2400,
+        "stop_step": 3600,
+        "violation_steps": 1200,
+        "rmse": [
+          138.93670158223495,
+          91.33320932961173,
+          406.5930885003378
+        ],
+        "minimum_hard_margin": -698.9596851840621
+      },
+      {
+        "cycle": 4,
+        "start_step": 3600,
+        "stop_step": 4800,
+        "violation_steps": 1200,
+        "rmse": [
+          119.28456667822292,
+          312.88409330077855,
+          317.0235322961088
+        ],
+        "minimum_hard_margin": -528.2553092116578
+      },
+      {
+        "cycle": 5,
+        "start_step": 4800,
+        "stop_step": 6000,
+        "violation_steps": 1200,
+        "rmse": [
+          227.79640785710154,
+          373.0853577472314,
+          265.7062599480708
+        ],
+        "minimum_hard_margin": -649.1157244459647
+      },
+      {
+        "cycle": 6,
+        "start_step": 6000,
+        "stop_step": 7200,
+        "violation_steps": 1200,
+        "rmse": [
+          120.91864078184133,
+          142.35926682128428,
+          187.387587102971
+        ],
+        "minimum_hard_margin": -312.1925733085543
+      },
+      {
+        "cycle": 7,
+        "start_step": 7200,
+        "stop_step": 8400,
+        "violation_steps": 1200,
+        "rmse": [
+          174.06026695973418,
+          172.3063875392205,
+          312.7182949505864
+        ],
+        "minimum_hard_margin": -457.07725342027607
+      },
+      {
+        "cycle": 8,
+        "start_step": 8400,
+        "stop_step": 9600,
+        "violation_steps": 1200,
+        "rmse": [
+          219.28754354810167,
+          284.25554398155185,
+          407.5069493418153
+        ],
+        "minimum_hard_margin": -652.7928774225738
+      },
+      {
+        "cycle": 9,
+        "start_step": 9600,
+        "stop_step": 10800,
+        "violation_steps": 1200,
+        "rmse": [
+          172.87708799976025,
+          408.9107287121887,
+          327.2357146305673
+        ],
+        "minimum_hard_margin": -591.0698745410407
+      },
+      {
+        "cycle": 10,
+        "start_step": 10800,
+        "stop_step": 12000,
+        "violation_steps": 1200,
+        "rmse": [
+          69.12371674736325,
+          364.5393760588981,
+          169.63118389185576
+        ],
+        "minimum_hard_margin": -647.628870166341
+      }
+    ]
+  }
+}

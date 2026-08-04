@@ -1,0 +1,14 @@
+copyBD three-dimensional fixed-anchor Pelican identification
+training_source real_waterloo_pelican_flights_1_36
+validation_source held_out_flights_37_54
+controlled_directions prescribed_standardized_x_y_z_position
+latent_dimension 5
+free_dimension 2
+task_bound_training_only 3.912411728038
+dual_error 1.762168199055e-15
+anchor_preservation_error 0.000000000000e+00
+spectral_radius 0.999939900453
+task_RMSE [0.007787502588 0.007338252658 0.005528262949]
+task_persistence_RMSE [0.00774643476 0.007283766606 0.005549358413]
+task_R2 [0.9999549824 0.9999588816 0.9999615878]
+scope offline_identification_before_3d_model_in_loop_control

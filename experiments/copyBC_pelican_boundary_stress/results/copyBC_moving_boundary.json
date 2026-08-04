@@ -1,0 +1,126 @@
+{
+  "scope": "moving-reference identified-model-in-the-loop boundary stress test",
+  "path": "x fixed near positive hard bound; y sinusoidal",
+  "hard_bound": 3.9124117280376636,
+  "reference_margin_to_hard_bound": 0.005,
+  "y_amplitude": 1.0,
+  "period_steps": 600,
+  "terminal_tightening": [
+    0.3374071080873984,
+    0.32326070266238305
+  ],
+  "steps": 1200,
+  "seeds": [
+    7,
+    19,
+    31
+  ],
+  "metrics": {
+    "smpc": {
+      "7": {
+        "violation_steps": 0,
+        "minimum_hard_margin": 0.004999999999999893,
+        "maximum_abs_position": [
+          3.9074117280376637,
+          0.9050522030155022
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 120,
+        "positive_dual_qp_steps": 120,
+        "minimum_predicted_slack": -8.881784197001252e-16,
+        "maximum_constraint_dual": 195.64793548491326,
+        "rmse_to_reference_after_step": [
+          0.10560729326136431,
+          0.3687221173788598
+        ]
+      },
+      "19": {
+        "violation_steps": 0,
+        "minimum_hard_margin": 0.004999999999999893,
+        "maximum_abs_position": [
+          3.9074117280376637,
+          0.9229340462117621
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 120,
+        "positive_dual_qp_steps": 120,
+        "minimum_predicted_slack": -8.881784197001252e-16,
+        "maximum_constraint_dual": 202.50587299658127,
+        "rmse_to_reference_after_step": [
+          0.11922169680006808,
+          0.3734403092907135
+        ]
+      },
+      "31": {
+        "violation_steps": 0,
+        "minimum_hard_margin": 0.004999999999999893,
+        "maximum_abs_position": [
+          3.9074117280376637,
+          0.9407763173713956
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 120,
+        "positive_dual_qp_steps": 120,
+        "minimum_predicted_slack": -8.881784197001252e-16,
+        "maximum_constraint_dual": 193.38560605961698,
+        "rmse_to_reference_after_step": [
+          0.09663767015160771,
+          0.37993190013210204
+        ]
+      }
+    },
+    "deterministic_mpc": {
+      "7": {
+        "violation_steps": 424,
+        "minimum_hard_margin": -0.047031680130243725,
+        "maximum_abs_position": [
+          3.9594434081679073,
+          0.9055042937141298
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 90,
+        "positive_dual_qp_steps": 90,
+        "minimum_predicted_slack": -2.8075069913313655e-06,
+        "maximum_constraint_dual": 240.64159808316174,
+        "rmse_to_reference_after_step": [
+          0.030007591879341117,
+          0.36918871264686287
+        ]
+      },
+      "19": {
+        "violation_steps": 228,
+        "minimum_hard_margin": -0.045082680336781866,
+        "maximum_abs_position": [
+          3.9574944083744454,
+          0.9236196223642212
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 81,
+        "positive_dual_qp_steps": 81,
+        "minimum_predicted_slack": -1.257381629260479e-05,
+        "maximum_constraint_dual": 295.7291878401033,
+        "rmse_to_reference_after_step": [
+          0.03751480241701268,
+          0.3750084898371987
+        ]
+      },
+      "31": {
+        "violation_steps": 456,
+        "minimum_hard_margin": -0.051059607543728625,
+        "maximum_abs_position": [
+          3.963471335581392,
+          0.941091916627144
+        ],
+        "fallback_count": 0,
+        "active_qp_steps": 80,
+        "positive_dual_qp_steps": 80,
+        "minimum_predicted_slack": -3.072542457704941e-05,
+        "maximum_constraint_dual": 395.4204130695096,
+        "rmse_to_reference_after_step": [
+          0.024647769871710558,
+          0.38137722301628635
+        ]
+      }
+    }
+  }
+}

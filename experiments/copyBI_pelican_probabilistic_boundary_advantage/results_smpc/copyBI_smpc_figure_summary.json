@@ -1,0 +1,26 @@
+{
+  "steps": 18000,
+  "hard_bound_standardized": 3.8,
+  "source_hard_bound_standardized": 3.9124117280376636,
+  "reference_peak_standardized": [
+    3.46,
+    3.46,
+    3.46
+  ],
+  "hard_violation_steps": 0,
+  "minimum_hard_margin": 0.007149964466711456,
+  "fallback_count": 0,
+  "active_qp_steps": 564,
+  "stage_cost_definition": "Q||s-r||^2 + R||u-u_mean||^2",
+  "stage_cost_mean": 38.83863496895554,
+  "stage_cost_maximum": 670.9594570458889,
+  "noise_scope": "composite identified latent innovation and injected physical wind; not separately identified process-noise Qw and measurement-noise Rv",
+  "artifacts": {
+    "xyz": "copyBI_smpc_xyz_reference.png",
+    "trajectory_3d": "copyBI_smpc_3d_trajectory.png",
+    "noise": "copyBI_smpc_noise_timeseries.png",
+    "cost": "copyBI_smpc_stage_cost.png",
+    "data": "copyBI_smpc_figure_data.npz",
+    "summary": "copyBI_smpc_figure_summary.json"
+  }
+}

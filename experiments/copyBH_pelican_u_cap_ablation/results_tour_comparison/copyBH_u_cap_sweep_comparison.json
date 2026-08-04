@@ -1,0 +1,263 @@
+{
+  "experiment": "copyBH_pelican_u_cap_ablation",
+  "scope": "input-cap-only ablation; controller and theory unchanged",
+  "hard_bound": 3.9124117280376636,
+  "near_hard_threshold": 3.5124117280376637,
+  "terminal_mean_bound_abs": [
+    2.935428335885822,
+    3.148504892150341,
+    3.583293760582082
+  ],
+  "fairness": {
+    "reference_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "ab0acc06ce0a9f60daf67919520209041e2b2afe5e2f7717516dcf22cc011c4e",
+        "6.5": "ab0acc06ce0a9f60daf67919520209041e2b2afe5e2f7717516dcf22cc011c4e",
+        "7.0": "ab0acc06ce0a9f60daf67919520209041e2b2afe5e2f7717516dcf22cc011c4e"
+      }
+    },
+    "initial_state": {
+      "identical": true,
+      "hashes": {
+        "6.0": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96",
+        "6.5": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96",
+        "7.0": "9b3ddc77add9daec1f7e76afb7b098577d7489ead16fb45537fdd8bfa5dcbe96"
+      }
+    },
+    "initial_control": {
+      "identical": true,
+      "hashes": {
+        "6.0": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e",
+        "6.5": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e",
+        "7.0": "e4d65ef977f1180e8bc40c43003acdae9255b6dbe5bf4e881ef2d3f09734df1e"
+      }
+    },
+    "innovation_latent": {
+      "identical": true,
+      "hashes": {
+        "6.0": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3",
+        "6.5": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3",
+        "7.0": "15ac0b50d9a04685a4fd80d35c6e83893d2e5f858a59a975ccad157e59c724a3"
+      }
+    },
+    "wind_velocity_mps": {
+      "identical": true,
+      "hashes": {
+        "6.0": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6",
+        "6.5": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6",
+        "7.0": "cd391a9608f181c216b4911441cfb65c9c4145c060894910ea031c55d7d0e1f6"
+      }
+    },
+    "stage_tightening_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76",
+        "6.5": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76",
+        "7.0": "8bbec8d7c50583ad00d5e735f0bcc481b39b901c0b5a16391af1d7aec0e7fe76"
+      }
+    },
+    "stage_mean_bound_standardized": {
+      "identical": true,
+      "hashes": {
+        "6.0": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233",
+        "6.5": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233",
+        "7.0": "d6666445b06a2a4e60d6f5d405f45a8e49c048d28a200c630207bf2bace0a233"
+      }
+    }
+  },
+  "runs": {
+    "6.0": {
+      "cap": 6.0,
+      "reference_path": "center -> +x -> +y -> +z -> center, C1 smooth",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.5208410829574204,
+            3.8523175200336195,
+            3.7603024798093867
+          ],
+          "max_u_inf": 6.0,
+          "input_saturation_steps": 5750,
+          "input_saturation_fraction": 0.4791666666666667,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 0,
+              "attained_fraction_during_target": 0.0,
+              "longest_attained_seconds": 0.0,
+              "mean_task_during_target": 2.8091195097329873,
+              "rmse_during_target": 0.8256602886588665
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 249,
+              "attained_fraction_during_target": 0.5521064301552107,
+              "longest_attained_seconds": 2.49,
+              "mean_task_during_target": 3.427655369569497,
+              "rmse_during_target": 0.3849427128283156
+            }
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.5802320499506632,
+            3.90004561952339,
+            3.7603024797857607
+          ],
+          "max_u_inf": 6.0,
+          "input_saturation_steps": 5720,
+          "input_saturation_fraction": 0.4766666666666667,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 47,
+              "attained_fraction_during_target": 0.10421286031042129,
+              "longest_attained_seconds": 0.47000000000000003,
+              "mean_task_during_target": 2.8020994682014306,
+              "rmse_during_target": 0.84715358449837
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 253,
+              "attained_fraction_during_target": 0.5609756097560976,
+              "longest_attained_seconds": 2.5300000000000002,
+              "mean_task_during_target": 3.4634958944329637,
+              "rmse_during_target": 0.40423216156147374
+            }
+          }
+        }
+      }
+    },
+    "6.5": {
+      "cap": 6.5,
+      "reference_path": "center -> +x -> +y -> +z -> center, C1 smooth",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.5772222590076943,
+            3.848738060510346,
+            3.7452761202079534
+          ],
+          "max_u_inf": 6.5,
+          "input_saturation_steps": 5020,
+          "input_saturation_fraction": 0.41833333333333333,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 84,
+              "attained_fraction_during_target": 0.18625277161862527,
+              "longest_attained_seconds": 0.84,
+              "mean_task_during_target": 3.1261292238637344,
+              "rmse_during_target": 0.5057147578965996
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 281,
+              "attained_fraction_during_target": 0.623059866962306,
+              "longest_attained_seconds": 2.81,
+              "mean_task_during_target": 3.5428331978303307,
+              "rmse_during_target": 0.2550343387984925
+            }
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.652995509534811,
+            3.8829635048527757,
+            3.745276120205695
+          ],
+          "max_u_inf": 6.5,
+          "input_saturation_steps": 5020,
+          "input_saturation_fraction": 0.41833333333333333,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 99,
+              "attained_fraction_during_target": 0.21951219512195122,
+              "longest_attained_seconds": 0.99,
+              "mean_task_during_target": 3.1329466534694315,
+              "rmse_during_target": 0.5204910236560139
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 292,
+              "attained_fraction_during_target": 0.647450110864745,
+              "longest_attained_seconds": 2.92,
+              "mean_task_during_target": 3.5822633728091295,
+              "rmse_during_target": 0.27594705357397636
+            }
+          }
+        }
+      }
+    },
+    "7.0": {
+      "cap": 7.0,
+      "reference_path": "center -> +x -> +y -> +z -> center, C1 smooth",
+      "controllers": {
+        "smpc": {
+          "max_abs_task": [
+            3.647338384978035,
+            3.8504128126974964,
+            3.7400493961362167
+          ],
+          "max_u_inf": 7.0,
+          "input_saturation_steps": 4360,
+          "input_saturation_fraction": 0.36333333333333334,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 162,
+              "attained_fraction_during_target": 0.35920177383592017,
+              "longest_attained_seconds": 1.62,
+              "mean_task_during_target": 3.3886569674592324,
+              "rmse_during_target": 0.2504934245941763
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 338,
+              "attained_fraction_during_target": 0.7494456762749445,
+              "longest_attained_seconds": 3.38,
+              "mean_task_during_target": 3.605769449521026,
+              "rmse_during_target": 0.18851631055484996
+            }
+          }
+        },
+        "deterministic_mpc": {
+          "max_abs_task": [
+            3.739174754370716,
+            3.882381593931942,
+            3.740049396133537
+          ],
+          "max_u_inf": 7.0,
+          "input_saturation_steps": 4360,
+          "input_saturation_fraction": 0.36333333333333334,
+          "hard_violation_steps": 0,
+          "axes": {
+            "x": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 181,
+              "attained_fraction_during_target": 0.401330376940133,
+              "longest_attained_seconds": 1.81,
+              "mean_task_during_target": 3.416309182671306,
+              "rmse_during_target": 0.2649711121011117
+            },
+            "y": {
+              "target_near_hard_steps": 451,
+              "attained_near_hard_steps": 351,
+              "attained_fraction_during_target": 0.7782705099778271,
+              "longest_attained_seconds": 3.5100000000000002,
+              "mean_task_during_target": 3.6446895591623147,
+              "rmse_during_target": 0.21360807134232118
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "scope": "3D fixed-anchor noisy model-in-the-loop simulation; not real flight",
+  "fixed_anchor": "standardized x/y/z position channels",
+  "training_flights": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "seeds": [
+    7,
+    19,
+    31
+  ],
+  "steps": 1200,
+  "d": 10,
+  "horizon": 18,
+  "q_weight": 80.0,
+  "ru": 0.18,
+  "alpha_joint": 0.05,
+  "hard_bound": 3.9124117280376636,
+  "physical_reference_ranges": {
+    "x_mm": [
+      0.24005331107274633,
+      0.6944106675449141
+    ],
+    "y_mm": [
+      -0.2812887906261592,
+      0.7293680360652028
+    ],
+    "z_mm": [
+      0.988432513278565,
+      1.5561604010581753
+    ]
+  },
+  "per_seed": {
+    "7": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.053557450882048246,
+        0.12704315678038078,
+        0.19540624373635973
+      ],
+      "mpc_rmse": [
+        0.053557450882048246,
+        0.12704315678038078,
+        0.19540624373635973
+      ]
+    },
+    "19": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.058802331212556166,
+        0.12356691351996317,
+        0.22253913475147102
+      ],
+      "mpc_rmse": [
+        0.058802331212556166,
+        0.12356691351996317,
+        0.22253913475147102
+      ]
+    },
+    "31": {
+      "smpc_violation_steps": 0,
+      "mpc_violation_steps": 0,
+      "smpc_fallback_count": 0,
+      "mpc_fallback_count": 0,
+      "smpc_rmse": [
+        0.06859426601664265,
+        0.13981212689059175,
+        0.21990884624161064
+      ],
+      "mpc_rmse": [
+        0.06859426601664265,
+        0.13981212689059175,
+        0.21990884624161064
+      ]
+    }
+  }
+}

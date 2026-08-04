@@ -1,0 +1,16 @@
+copyBB fixed-anchor CRTE Pelican identification
+training_source real_waterloo_pelican_flights_1_36
+validation_source held_out_flights_37_54
+controlled_directions prescribed_standardized_x_y_position
+task_direction_learned_from_data 0
+free_complement_crte_spectral 1
+latent_dimension 5
+selected_mu 0.100000000000
+task_bound_training_only 3.912411728038
+dual_error 1.455234013051e-15
+anchor_preservation_error 0.000000000000e+00
+spectral_radius 1.000051636813
+task_RMSE [0.007788596424 0.007338469318]
+task_persistence_RMSE [0.00774643476 0.007283766606]
+task_R2 [0.9999549698 0.9999588792]
+scope offline_identification_before_model_in_loop_control

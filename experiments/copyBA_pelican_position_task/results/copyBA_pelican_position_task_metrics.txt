@@ -1,0 +1,27 @@
+copyBA Waterloo Pelican quadrotor POSITION-DOMINANT task axis offline validation
+environment real_flight_data_vicon_100hz
+native_measurements 10
+manipulated_inputs 4
+latent_dimension 5
+training_segments [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36]
+validation_segments [37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54]
+training_samples 1045715
+validation_samples 342695
+training_transitions 1045679
+validation_transitions 342677
+preference_weights pos=1.0 euler=0.3 motors=0.05
+preference_strength 0.99000000
+selected_mu 0.100000000000
+ntr_epsilon 1.000000000000e-05
+dual_error 1.544590848328e-15
+spectral_radius 0.999992975275
+preference_capture 0.452878769153
+latent_RMSE [0.02012727818 0.02741542015 0.1184754079 0.01289003559 0.00430755069]
+latent_persistence_RMSE [0.02034665899 0.03026690044 0.1347332969 0.01322443878 0.004462301467]
+task_RMSE [0.02012727818 0.02741542015]
+task_persistence_RMSE [0.02034665899 0.03026690044]
+task_R2 [0.9994393453 0.9990136188]
+full_output_standardized_RMSE 0.903023726596
+scope offline_one_step_prediction_only
+closed_loop_mpc_run 0
+exogenous_disturbance_modeled 0

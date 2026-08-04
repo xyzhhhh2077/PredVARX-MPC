@@ -1,0 +1,1911 @@
+{
+  "scope": "three long second-order frozen-model-in-the-loop boundary scenarios; not continuous flight",
+  "noise_statement": "identified residual innovation plus separately prescribed external task-space gusts",
+  "scenario_steps": 4000,
+  "scenario_duration_seconds": 40.0,
+  "total_plotted_steps": 12000,
+  "total_plotted_duration_seconds": 120.0,
+  "scenario_resets": [
+    40.0,
+    80.0
+  ],
+  "sample_rate_hz": 100,
+  "period_steps": 600,
+  "seeds": [
+    7,
+    19,
+    31
+  ],
+  "d": 10,
+  "horizon": 18,
+  "q_weight": 80.0,
+  "ru": 0.18,
+  "alpha_joint": 0.05,
+  "hard_bound": 3.9124117280376636,
+  "gust_width_steps": 20,
+  "terminal_tightening": [
+    0.9769833921079645,
+    0.763906835863823,
+    0.329117967461041
+  ],
+  "terminal_tightened_bound": [
+    2.935428335929699,
+    3.1485048921738406,
+    3.5832937605766224
+  ],
+  "scenarios": {
+    "x_reachable_limit": {
+      "axis": 0,
+      "reference_target": 3.6,
+      "initial_task": [
+        2.8854283359296993,
+        0.0,
+        0.0
+      ],
+      "gust_amplitude": 0.0003,
+      "per_seed": {
+        "7": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.18495436218729422,
+            "fallback_count": 0,
+            "input_saturation_steps": 3540,
+            "active_qp_steps": 284,
+            "positive_dual_qp_steps": 284,
+            "minimum_predicted_slack": -8.881784197001252e-16,
+            "maximum_constraint_dual": 628.5075939503131,
+            "rmse": [
+              0.462739158508354,
+              0.2556442062084179,
+              0.08426421121330765
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.3176426837324259,
+                  0.06862999947855329,
+                  0.06371939934929209
+                ],
+                "minimum_hard_margin": 0.26464157956248835
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.227601535455399,
+                  0.08472249879305874,
+                  0.06149505585058911
+                ],
+                "minimum_hard_margin": 0.38945745157668465
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.49711307110365377,
+                  0.12384727265334215,
+                  0.09543845833447326
+                ],
+                "minimum_hard_margin": 0.35769380882102775
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.6070021325583784,
+                  0.35311471507959613,
+                  0.10334614617055131
+                ],
+                "minimum_hard_margin": 0.21052925566373792
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5511168147475368,
+                  0.29677007757520385,
+                  0.07759139156195646
+                ],
+                "minimum_hard_margin": 0.18495436218729422
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5204645071604479,
+                  0.12219429965048403,
+                  0.1119548866880452
+                ],
+                "minimum_hard_margin": 0.4286596401483398
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.3562965426564814,
+                  0.5207297971053231,
+                  0.04155716977402408
+                ],
+                "minimum_hard_margin": 0.5225386304977633
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.027467067292774594,
+            "fallback_count": 0,
+            "input_saturation_steps": 3610,
+            "active_qp_steps": 2,
+            "positive_dual_qp_steps": 2,
+            "minimum_predicted_slack": 0.0,
+            "maximum_constraint_dual": 623.1801866800129,
+            "rmse": [
+              0.474993677581861,
+              0.2699743971260308,
+              0.08037419157544008
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.33002881322848765,
+                  0.06863544865850506,
+                  0.05837587747660339
+                ],
+                "minimum_hard_margin": 0.14191951300847405
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1948708525368781,
+                  0.08945460429681884,
+                  0.04279558066577697
+                ],
+                "minimum_hard_margin": 0.3467259055980403
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5234308283937165,
+                  0.13263006487916074,
+                  0.09489467447598651
+                ],
+                "minimum_hard_margin": 0.31077147048441667
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5906439529757762,
+                  0.37691306753563675,
+                  0.09048327641617165
+                ],
+                "minimum_hard_margin": 0.08018822787902424
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.61112272441756,
+                  0.27805555649248165,
+                  0.08945862286289376
+                ],
+                "minimum_hard_margin": 0.027467067292774594
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5019305957151504,
+                  0.12907214565191955,
+                  0.10811286271989803
+                ],
+                "minimum_hard_margin": 0.3080799231763538
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.40432822009079855,
+                  0.5738895936233678,
+                  0.03763125367484099
+                ],
+                "minimum_hard_margin": 0.47396782616629585
+              }
+            ]
+          }
+        },
+        "19": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.18959692165124187,
+            "fallback_count": 0,
+            "input_saturation_steps": 3430,
+            "active_qp_steps": 328,
+            "positive_dual_qp_steps": 328,
+            "minimum_predicted_slack": -8.881784197001252e-16,
+            "maximum_constraint_dual": 617.1187503494326,
+            "rmse": [
+              0.4035204161838351,
+              0.21614945156256293,
+              0.0734471654705066
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.42687526864910014,
+                  0.09920526135781277,
+                  0.08590021143698115
+                ],
+                "minimum_hard_margin": 0.2756575391440954
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.34172333853472525,
+                  0.1118932482051409,
+                  0.08412787699934039
+                ],
+                "minimum_hard_margin": 0.3294517099720906
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.08227642060796889,
+                  0.08244840961878444,
+                  0.026095889156840437
+                ],
+                "minimum_hard_margin": 0.25549645754582695
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.24199120568626004,
+                  0.16821001298736618,
+                  0.05537311418765368
+                ],
+                "minimum_hard_margin": 0.43714791320899815
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.6876654749998057,
+                  0.4934013700082226,
+                  0.09208336159631875
+                ],
+                "minimum_hard_margin": 0.34073082076936156
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.35706758613515266,
+                  0.07861804436424827,
+                  0.08506133053166494
+                ],
+                "minimum_hard_margin": 0.18959692165124187
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.4257063903178449,
+                  0.08115475020123002,
+                  0.05538423219552183
+                ],
+                "minimum_hard_margin": 0.2886467764102649
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.04117640290853286,
+            "fallback_count": 0,
+            "input_saturation_steps": 3430,
+            "active_qp_steps": 1,
+            "positive_dual_qp_steps": 1,
+            "minimum_predicted_slack": 0.0,
+            "maximum_constraint_dual": 466.0934095248804,
+            "rmse": [
+              0.4005574698923086,
+              0.21894505611092438,
+              0.0675797798310235
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.4330211088724956,
+                  0.10336479161157737,
+                  0.07657606424995356
+                ],
+                "minimum_hard_margin": 0.14101348647456602
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.33425542590494245,
+                  0.1123282711122968,
+                  0.07378866717901919
+                ],
+                "minimum_hard_margin": 0.22284098183648116
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.13938472957572154,
+                  0.07028957008108086,
+                  0.02308264821367081
+                ],
+                "minimum_hard_margin": 0.11796958408891278
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.24304148339788648,
+                  0.1628324288779775,
+                  0.054314526182444485
+                ],
+                "minimum_hard_margin": 0.37116394624769455
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.6771131073678263,
+                  0.5019092737798708,
+                  0.08833293569070927
+                ],
+                "minimum_hard_margin": 0.2655279925501124
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.39055469793201536,
+                  0.08310053609535951,
+                  0.08016372042448978
+                ],
+                "minimum_hard_margin": 0.04117640290853286
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.34834367303763486,
+                  0.09490011779285704,
+                  0.04625544168496322
+                ],
+                "minimum_hard_margin": 0.21117630948166832
+              }
+            ]
+          }
+        },
+        "31": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.24137102990372128,
+            "fallback_count": 0,
+            "input_saturation_steps": 3370,
+            "active_qp_steps": 300,
+            "positive_dual_qp_steps": 300,
+            "minimum_predicted_slack": -8.881784197001252e-16,
+            "maximum_constraint_dual": 592.2222715157521,
+            "rmse": [
+              0.47840529595854225,
+              0.21246283602228505,
+              0.08953387512325325
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.30723726018457426,
+                  0.12076478904661986,
+                  0.04566650617234325
+                ],
+                "minimum_hard_margin": 0.3224273495919032
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.8437712725094253,
+                  0.2590995925031377,
+                  0.16938571133168168
+                ],
+                "minimum_hard_margin": 0.24137102990372128
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.4307317734423022,
+                  0.2733840967968044,
+                  0.05790647183163732
+                ],
+                "minimum_hard_margin": 0.3225922584226817
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.4803714120416205,
+                  0.288015553054781,
+                  0.0946893737054469
+                ],
+                "minimum_hard_margin": 0.2801320320656977
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.49602390914078126,
+                  0.08043024681004705,
+                  0.0939419570544653
+                ],
+                "minimum_hard_margin": 0.39259970145045475
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.19887358119431212,
+                  0.2023313296262027,
+                  0.028172326472331703
+                ],
+                "minimum_hard_margin": 0.29491257771355217
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.16243081490594838,
+                  0.14553777909374985,
+                  0.03302593059496476
+                ],
+                "minimum_hard_margin": 0.3468406100166881
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.08054161917734604,
+            "fallback_count": 0,
+            "input_saturation_steps": 3440,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.0395801418693158,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.4788288139360042,
+              0.21667756104155209,
+              0.08773816552151462
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.3004091747050859,
+                  0.10807786647602063,
+                  0.038376070430515066
+                ],
+                "minimum_hard_margin": 0.1789600636925317
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.908421498513693,
+                  0.2793009824968943,
+                  0.17795793993769585
+                ],
+                "minimum_hard_margin": 0.08054161917734604
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.40598531659629394,
+                  0.2713914738222753,
+                  0.058659012297289925
+                ],
+                "minimum_hard_margin": 0.23070589602791136
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.5095806828075319,
+                  0.29691731661940196,
+                  0.09697642226782902
+                ],
+                "minimum_hard_margin": 0.13854515723105942
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.38787107312845087,
+                  0.0677535874503729,
+                  0.06666060641635546
+                ],
+                "minimum_hard_margin": 0.3639474827244862
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.16338992975917163,
+                  0.20520431996425817,
+                  0.022847720193072164
+                ],
+                "minimum_hard_margin": 0.19871588492273107
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.13077542426604113,
+                  0.14895629810828448,
+                  0.023468887700608433
+                ],
+                "minimum_hard_margin": 0.2503918243150358
+              }
+            ]
+          }
+        }
+      }
+    },
+    "y_near_boundary": {
+      "axis": 1,
+      "reference_target": 3.55,
+      "initial_task": [
+        0.0,
+        3.0985048921738407,
+        0.0
+      ],
+      "gust_amplitude": 0.0002,
+      "per_seed": {
+        "7": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.18049865548990818,
+            "fallback_count": 0,
+            "input_saturation_steps": 3060,
+            "active_qp_steps": 263,
+            "positive_dual_qp_steps": 263,
+            "minimum_predicted_slack": -1.3689186969756406e-05,
+            "maximum_constraint_dual": 280.88558493859455,
+            "rmse": [
+              0.14788339270555506,
+              0.23661160400076267,
+              0.03664748724609248
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.2401660056650817,
+                  0.31014509258279727,
+                  0.035375528774319334
+                ],
+                "minimum_hard_margin": 0.35346200876696887
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07473448974878831,
+                  0.08289432529671932,
+                  0.014939098938289095
+                ],
+                "minimum_hard_margin": 0.27117408499244666
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07504481940074717,
+                  0.10923639547850443,
+                  0.02046194909216642
+                ],
+                "minimum_hard_margin": 0.29970546739362725
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.2399523048297786,
+                  0.3416523048428044,
+                  0.04702309113194421
+                ],
+                "minimum_hard_margin": 0.18049865548990818
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.08344162176327621,
+                  0.36033423297279005,
+                  0.06703660758918258
+                ],
+                "minimum_hard_margin": 0.18781841192028814
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.09335486745098853,
+                  0.07741880968788864,
+                  0.016219402210162073
+                ],
+                "minimum_hard_margin": 0.29520005367746815
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07394486785044939,
+                  0.09229496995004921,
+                  0.011756649469010063
+                ],
+                "minimum_hard_margin": 0.20355694413836467
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.1297329235582576,
+            "fallback_count": 0,
+            "input_saturation_steps": 3060,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.12168457022106605,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.14793947662499254,
+              0.24806647170981608,
+              0.037500809034653484
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.23551392288738623,
+                  0.3024227477739956,
+                  0.03352017431878542
+                ],
+                "minimum_hard_margin": 0.3112524027172623
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07470745116007783,
+                  0.08806033203864179,
+                  0.014762633596801687
+                ],
+                "minimum_hard_margin": 0.24425871828097723
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07618083690288655,
+                  0.1132306597472009,
+                  0.020359811779083168
+                ],
+                "minimum_hard_margin": 0.2691025424018947
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.24725985166883194,
+                  0.35715150048332284,
+                  0.04818014497223429
+                ],
+                "minimum_hard_margin": 0.1297329235582576
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.08046746697094154,
+                  0.3941573609412585,
+                  0.0706045739562382
+                ],
+                "minimum_hard_margin": 0.13761339134223105
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.08789011127285959,
+                  0.0706032485482782,
+                  0.014838324951037528
+                ],
+                "minimum_hard_margin": 0.2564687897796616
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07468542129235245,
+                  0.12435313606677394,
+                  0.011800658572432973
+                ],
+                "minimum_hard_margin": 0.14760651809860237
+              }
+            ]
+          }
+        },
+        "19": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.14602408420970425,
+            "fallback_count": 0,
+            "input_saturation_steps": 3130,
+            "active_qp_steps": 264,
+            "positive_dual_qp_steps": 264,
+            "minimum_predicted_slack": -1.1760784925485268e-05,
+            "maximum_constraint_dual": 253.4001822056248,
+            "rmse": [
+              0.15917412858382768,
+              0.22705246131547305,
+              0.03169729168297354
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.10766194111130444,
+                  0.2144920567602244,
+                  0.030910929144818536
+                ],
+                "minimum_hard_margin": 0.27445914318760023
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.14209624276304408,
+                  0.21686611136687767,
+                  0.03738773555385483
+                ],
+                "minimum_hard_margin": 0.27085792962794075
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.25181206106809934,
+                  0.2891662163976318,
+                  0.027295306020184446
+                ],
+                "minimum_hard_margin": 0.30924023995689254
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.0881216177234407,
+                  0.20158189921083416,
+                  0.028367858490568623
+                ],
+                "minimum_hard_margin": 0.2736455125402273
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.13768983303043122,
+                  0.17885401579849963,
+                  0.018397576727918193
+                ],
+                "minimum_hard_margin": 0.14602408420970425
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.21354792427945576,
+                  0.2987200178539803,
+                  0.047192282053330495
+                ],
+                "minimum_hard_margin": 0.30276549236607275
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04567788203287318,
+                  0.08808755100215589,
+                  0.01855164071686903
+                ],
+                "minimum_hard_margin": 0.26959715748067703
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.08642612688985851,
+            "fallback_count": 0,
+            "input_saturation_steps": 3170,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.048441663449903416,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.16443287659452968,
+              0.23669675095325504,
+              0.032423016619438506
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.10804994968181138,
+                  0.2196504305451609,
+                  0.03163749396477302
+                ],
+                "minimum_hard_margin": 0.23320512132866922
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1454632109096951,
+                  0.23202954184578364,
+                  0.03957614998714356
+                ],
+                "minimum_hard_margin": 0.2382083709457361
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.26655000234844145,
+                  0.2983090897366582,
+                  0.02624589320673298
+                ],
+                "minimum_hard_margin": 0.27593413630985264
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.08866620179431446,
+                  0.20319462302198557,
+                  0.028083033402476636
+                ],
+                "minimum_hard_margin": 0.2574395587290792
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1366042374760144,
+                  0.19691339388180307,
+                  0.01721919399017874
+                ],
+                "minimum_hard_margin": 0.08642612688985851
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.22047583482922795,
+                  0.3088963324348846,
+                  0.04894237556422398
+                ],
+                "minimum_hard_margin": 0.26523544430114754
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04311423455158065,
+                  0.10210383997194211,
+                  0.02019097309474609
+                ],
+                "minimum_hard_margin": 0.2268781060012186
+              }
+            ]
+          }
+        },
+        "31": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.21279606468806067,
+            "fallback_count": 0,
+            "input_saturation_steps": 2850,
+            "active_qp_steps": 265,
+            "positive_dual_qp_steps": 265,
+            "minimum_predicted_slack": -2.1120901081417287e-05,
+            "maximum_constraint_dual": 254.3663852140053,
+            "rmse": [
+              0.16967687111481825,
+              0.22794729918786455,
+              0.028936956372407927
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1586398005964325,
+                  0.20845612673763753,
+                  0.014946675145326742
+                ],
+                "minimum_hard_margin": 0.28207142811875263
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1606414467574488,
+                  0.07715926329465687,
+                  0.018593764993361895
+                ],
+                "minimum_hard_margin": 0.24680858605443934
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.11855991554763566,
+                  0.25722428407286724,
+                  0.05260013084268854
+                ],
+                "minimum_hard_margin": 0.24275820034578288
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07577265114752792,
+                  0.05751487937743402,
+                  0.01571636340701318
+                ],
+                "minimum_hard_margin": 0.2486925988726747
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.15635618583371733,
+                  0.19281378692553955,
+                  0.02461085692185152
+                ],
+                "minimum_hard_margin": 0.2946484046883384
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.28398143822151023,
+                  0.40308437600842806,
+                  0.03003532733130616
+                ],
+                "minimum_hard_margin": 0.21279606468806067
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.15526757961540022,
+                  0.20444743242350602,
+                  0.02715489154075644
+                ],
+                "minimum_hard_margin": 0.2951314604965556
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.15656976230877095,
+            "fallback_count": 0,
+            "input_saturation_steps": 2840,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.13053348777980034,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.16895331667132776,
+              0.2358265296181226,
+              0.02901854090580162
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.15926822468398474,
+                  0.21240294639401602,
+                  0.014072502085402736
+                ],
+                "minimum_hard_margin": 0.2462657647266071
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1631072205787692,
+                  0.08611427504685736,
+                  0.018936422825516084
+                ],
+                "minimum_hard_margin": 0.22805717358465305
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.1151694888987197,
+                  0.2780692987284462,
+                  0.05505775065013697
+                ],
+                "minimum_hard_margin": 0.1987652508965767
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.0725086066504938,
+                  0.08296245438567795,
+                  0.015313752745676996
+                ],
+                "minimum_hard_margin": 0.1990095992525056
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.15320944430516226,
+                  0.18843683452681942,
+                  0.024022382960474178
+                ],
+                "minimum_hard_margin": 0.2673135582667183
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.28170365822233595,
+                  0.4106257913023728,
+                  0.028222907046632887
+                ],
+                "minimum_hard_margin": 0.15656976230877095
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.15959117082859833,
+                  0.21178898337353555,
+                  0.025032190951948627
+                ],
+                "minimum_hard_margin": 0.2482280278351201
+              }
+            ]
+          }
+        }
+      }
+    },
+    "z_near_boundary": {
+      "axis": 2,
+      "reference_target": 3.75,
+      "initial_task": [
+        0.0,
+        0.0,
+        3.5332937605766226
+      ],
+      "gust_amplitude": 0.0003,
+      "per_seed": {
+        "7": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.10451629350919278,
+            "fallback_count": 0,
+            "input_saturation_steps": 40,
+            "active_qp_steps": 400,
+            "positive_dual_qp_steps": 400,
+            "minimum_predicted_slack": -8.19826293962933e-06,
+            "maximum_constraint_dual": 99.90065045181174,
+            "rmse": [
+              0.05364630867180966,
+              0.06628510593516128,
+              0.023336371381574263
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04593227146811919,
+                  0.038606796137045124,
+                  0.050975851364534794
+                ],
+                "minimum_hard_margin": 0.10451629350919278
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.041619754849290966,
+                  0.033747854944121525,
+                  0.01078910123515347
+                ],
+                "minimum_hard_margin": 0.13045448025405193
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.048563389057783735,
+                  0.04375049636522636,
+                  0.016808829470740798
+                ],
+                "minimum_hard_margin": 0.11997744557981749
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05960104158031094,
+                  0.09337519114446226,
+                  0.012548769451063506
+                ],
+                "minimum_hard_margin": 0.1192349405017592
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06519428339268919,
+                  0.08160948604021026,
+                  0.012894483441554569
+                ],
+                "minimum_hard_margin": 0.1260063922466248
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06004668304186326,
+                  0.03721148466982737,
+                  0.014545072893207884
+                ],
+                "minimum_hard_margin": 0.11010121627311742
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04864585839235231,
+                  0.10943626671075429,
+                  0.012111824118472517
+                ],
+                "minimum_hard_margin": 0.14223932115921256
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.11078515778339959,
+            "fallback_count": 0,
+            "input_saturation_steps": 40,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.09193902959710964,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.05399948024893028,
+              0.06629051171010344,
+              0.023015560444715297
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04789670360460186,
+                  0.03844808633336947,
+                  0.05120890957068786
+                ],
+                "minimum_hard_margin": 0.11078515778339959
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04286308923726246,
+                  0.03375234364225355,
+                  0.009794618319601324
+                ],
+                "minimum_hard_margin": 0.13671901414700383
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04677282868786876,
+                  0.043645974267973106,
+                  0.016235490602544388
+                ],
+                "minimum_hard_margin": 0.1263921207982901
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.060800101371325584,
+                  0.09344367782233916,
+                  0.01206469481839867
+                ],
+                "minimum_hard_margin": 0.12569774387627497
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06548388615707522,
+                  0.08156497381206153,
+                  0.013300320924197933
+                ],
+                "minimum_hard_margin": 0.13240422991478118
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05967272857908396,
+                  0.03705405627523807,
+                  0.013110067804041274
+                ],
+                "minimum_hard_margin": 0.11649842758763862
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04860499099909643,
+                  0.10965534784288712,
+                  0.009102149672228606
+                ],
+                "minimum_hard_margin": 0.14822680118554876
+              }
+            ]
+          }
+        },
+        "19": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.09650856220615278,
+            "fallback_count": 0,
+            "input_saturation_steps": 30,
+            "active_qp_steps": 400,
+            "positive_dual_qp_steps": 400,
+            "minimum_predicted_slack": -4.440892098500626e-16,
+            "maximum_constraint_dual": 102.07590337001366,
+            "rmse": [
+              0.054573680764791216,
+              0.04903093016082276,
+              0.022694120799585535
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05173807888326906,
+                  0.03123547058380891,
+                  0.049527452110653354
+                ],
+                "minimum_hard_margin": 0.11217248544239267
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.048356700435249936,
+                  0.049643264713656154,
+                  0.012272843981827765
+                ],
+                "minimum_hard_margin": 0.12377558553650436
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.042876030517508976,
+                  0.04635988338204888,
+                  0.013492374457497049
+                ],
+                "minimum_hard_margin": 0.1076301957871788
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05144684163675708,
+                  0.05085545138121432,
+                  0.012969452157298254
+                ],
+                "minimum_hard_margin": 0.11494593964897337
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07192820161499063,
+                  0.07150772561729042,
+                  0.01587787009884022
+                ],
+                "minimum_hard_margin": 0.09650856220615278
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06287162096442823,
+                  0.03407421847945894,
+                  0.013115551410790188
+                ],
+                "minimum_hard_margin": 0.11742514751100863
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.042925630694301456,
+                  0.048634085041561116,
+                  0.009125865029083332
+                ],
+                "minimum_hard_margin": 0.14197413720360297
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.10265447010784223,
+            "fallback_count": 0,
+            "input_saturation_steps": 30,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.09100965313445775,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.05466425150476929,
+              0.04899260189248153,
+              0.022324522503588302
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.051442022726356965,
+                  0.03134159012606942,
+                  0.049872651918985364
+                ],
+                "minimum_hard_margin": 0.11856631138324358
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04835511227735783,
+                  0.04946953184578515,
+                  0.011164563055580619
+                ],
+                "minimum_hard_margin": 0.13014374554622243
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04539785098769124,
+                  0.04621776431438742,
+                  0.01185767872157596
+                ],
+                "minimum_hard_margin": 0.11387690067497713
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05065006804536039,
+                  0.050778934130681304,
+                  0.012006000756111662
+                ],
+                "minimum_hard_margin": 0.1214365643569506
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.0714375478348368,
+                  0.07168491523994679,
+                  0.015214827826563517
+                ],
+                "minimum_hard_margin": 0.10265447010784223
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06387146347457812,
+                  0.033913211255417346,
+                  0.012273720305117978
+                ],
+                "minimum_hard_margin": 0.12383706190575916
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.041123399858906555,
+                  0.04851116709091259,
+                  0.008100866715392981
+                ],
+                "minimum_hard_margin": 0.14807668310640265
+              }
+            ]
+          }
+        },
+        "31": {
+          "smpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.10147630506203775,
+            "fallback_count": 0,
+            "input_saturation_steps": 10,
+            "active_qp_steps": 400,
+            "positive_dual_qp_steps": 400,
+            "minimum_predicted_slack": -4.440892098500626e-16,
+            "maximum_constraint_dual": 100.0176513533537,
+            "rmse": [
+              0.06382317415073228,
+              0.05576568073080948,
+              0.024306514105880455
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.07044723109938462,
+                  0.053846269638726324,
+                  0.05204756781277775
+                ],
+                "minimum_hard_margin": 0.11336268471375455
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.0915565879910836,
+                  0.03917918587483486,
+                  0.016109008568946866
+                ],
+                "minimum_hard_margin": 0.10427446387788875
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06388681298823538,
+                  0.06893028114872757,
+                  0.014051034184667912
+                ],
+                "minimum_hard_margin": 0.11323734281545939
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.051171867012857496,
+                  0.0556586631503234,
+                  0.015277146084048232
+                ],
+                "minimum_hard_margin": 0.12239852722559341
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.050251605927246805,
+                  0.05621179477823969,
+                  0.014463651712539638
+                ],
+                "minimum_hard_margin": 0.11548462468965948
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.053221703891704365,
+                  0.06680984404552706,
+                  0.01460052911440608
+                ],
+                "minimum_hard_margin": 0.10147630506203775
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05127432163734745,
+                  0.03517925623460992,
+                  0.01325137476724593
+                ],
+                "minimum_hard_margin": 0.1452280582920995
+              }
+            ]
+          },
+          "deterministic_mpc": {
+            "violation_steps": 0,
+            "minimum_hard_margin": 0.10780685907357368,
+            "fallback_count": 0,
+            "input_saturation_steps": 10,
+            "active_qp_steps": 0,
+            "positive_dual_qp_steps": 0,
+            "minimum_predicted_slack": 0.08959763012224942,
+            "maximum_constraint_dual": 0.0,
+            "rmse": [
+              0.06433947542048493,
+              0.055825785903223936,
+              0.023281369177485002
+            ],
+            "cycle_metrics": [
+              {
+                "cycle": 1,
+                "start_step": 0,
+                "stop_step": 600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.0718415022232531,
+                  0.05404177560772323,
+                  0.051800522468086266
+                ],
+                "minimum_hard_margin": 0.11951563150218236
+              },
+              {
+                "cycle": 2,
+                "start_step": 600,
+                "stop_step": 1200,
+                "violation_steps": 0,
+                "rmse": [
+                  0.09185682773251838,
+                  0.03936389520555442,
+                  0.013628874170947063
+                ],
+                "minimum_hard_margin": 0.11056147366095948
+              },
+              {
+                "cycle": 3,
+                "start_step": 1200,
+                "stop_step": 1800,
+                "violation_steps": 0,
+                "rmse": [
+                  0.06362774583431142,
+                  0.06896848017889218,
+                  0.0121093151166239
+                ],
+                "minimum_hard_margin": 0.11962868677669425
+              },
+              {
+                "cycle": 4,
+                "start_step": 1800,
+                "stop_step": 2400,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05275391092420995,
+                  0.05586567159816438,
+                  0.013142648218970222
+                ],
+                "minimum_hard_margin": 0.12872515370408744
+              },
+              {
+                "cycle": 5,
+                "start_step": 2400,
+                "stop_step": 3000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.04938166170744802,
+                  0.05606045220883699,
+                  0.012206640618044702
+                ],
+                "minimum_hard_margin": 0.12201426259576031
+              },
+              {
+                "cycle": 6,
+                "start_step": 3000,
+                "stop_step": 3600,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05379782855988592,
+                  0.06676256631067558,
+                  0.015076068013245177
+                ],
+                "minimum_hard_margin": 0.10780685907357368
+              },
+              {
+                "cycle": 7,
+                "start_step": 3600,
+                "stop_step": 4000,
+                "violation_steps": 0,
+                "rmse": [
+                  0.05245029615659569,
+                  0.03526585397975884,
+                  0.008554476839822876
+                ],
+                "minimum_hard_margin": 0.1514010107767576
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "interpretation": "all scenarios prioritize active chance constraints with zero controller fallback; evidence is the retained hard-bound margin, not a forced deterministic-MPC violation"
+}

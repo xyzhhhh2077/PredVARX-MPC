@@ -102,11 +102,64 @@ Copies AS through AV reuse the same 1500 offline samples and add no training dat
 | [`copyAT`](experiments/copyAT_learned_output_directions/) | Fixed task, supervised recovery, or maximum input authority? | Fixed and supervised directions agree; high input authority alone gives worse task tracking |
 | [`copyAU`](experiments/copyAU_soft_preference_output/) | Can soft output preferences define the final controlled outputs? | QP remained feasible, but original-task tracking failed |
 | [`copyAV`](experiments/copyAV_hard_preference_output/) | What happens when the highest-priority physical outputs are hard locked? | Good single-seed tracking was recovered; this is not a general optimality result |
-| [`copyAW`](experiments/copyAW_te_soft_preference/) | Does the copyAU construction run on native 41-output Tennessee Eastman data? | Offline held-out prediction beat persistence slightly, but R2 remained weak; no COSTEP closed loop was run |
+| `copyAW` (retired) | Does the copyAU construction run on native 41-output Tennessee Eastman data? | Offline held-out prediction beat persistence slightly, but R2 remained weak; no COSTEP closed loop was run |
 
 The copyAT comparison uses the same old `(u,y)`, seed, closed-loop disturbance, controller, constraints, 1200-step horizon, and five 240-step reference segments. Performance is evaluated on the original physical outputs `y1,y2`.
 
 ![copyAT output-direction comparison](experiments/copyAT_learned_output_directions/results/copyAT_learned_output_directions_fig.png)
+
+## Pelican Real-Data Identification and SMPC
+
+Copies BA through BI form one traceable experiment line built from the public
+[Waterloo WAVELab AscTec Pelican flight dataset](https://github.com/wavelab/pelican_dataset).
+The dataset contains 54 indoor Vicon flights sampled at 100 Hz. Flights 1--36
+are used for identification and flights 37--54 are held out by complete flight,
+with no within-flight shuffling.
+
+The model input/output contract is:
+
+- measured output `y` in 10 dimensions: position (3, m), Euler angles (3, rad),
+  and measured motor speeds (4);
+- manipulated input `u` in 4 dimensions: commanded motor speeds;
+- loaded latent state `z` in 5 dimensions: three fixed standardized `xyz` task
+  directions plus two free directions;
+- second-order augmented MPC state `[z_k; z_{k-1}]` in 10 dimensions.
+
+| Copy | Role |
+|---|---|
+| [`copyBA`](experiments/copyBA_pelican_position_task/) | Position-dominant offline identification on the real-flight dataset |
+| [`copyBB`](experiments/copyBB_pelican_fixed_anchor_smpc/) | Fixed task-anchor SMPC |
+| [`copyBC`](experiments/copyBC_pelican_boundary_stress/) | Chance-constraint boundary stress test |
+| [`copyBD`](experiments/copyBD_pelican_3d_fixed_anchor_smpc/) | Three-axis fixed-anchor model and controller |
+| [`copyBE`](experiments/copyBE_pelican_3d_z_aware_smpc/) | Second-order latent VARX with `xyz` anchors |
+| [`copyBF`](experiments/copyBF_pelican_long_3d_boundary_disturbance/) | Long three-dimensional boundary trajectory |
+| [`copyBG`](experiments/copyBG_pelican_physical_wind_smpc/) | Physical-wind injection and sustained near-boundary cruise |
+| [`copyBH`](experiments/copyBH_pelican_u_cap_ablation/) | Standardized input-cap ablation |
+| [`copyBI`](experiments/copyBI_pelican_probabilistic_boundary_advantage/) | Six-face near-boundary SMPC run and synchronized visual audit |
+
+### Current Pelican visualization
+
+The following synchronized animation shows the `copyBI` SMPC trajectory,
+three-dimensional path, four standardized control commands with the absolute
+`-7 <= u_i <= 7` experiment bounds, the identified composite latent innovation,
+the independently injected physical wind, and the realized stage cost.
+
+![copyBI synchronized Pelican SMPC run](experiments/copyBI_pelican_probabilistic_boundary_advantage/results_smpc/copyBI_smpc_summary_200frames.gif)
+
+The retained run covers 18,000 plant samples (180 s): zero hard-bound violations,
+zero fallback calls, a minimum standardized hard-bound margin of `0.00715`, and
+564 active chance-constrained decisions among 1,800 QP solves. At least one of
+the four standardized motor commands reaches `+/-7` at 7,400 samples.
+
+This is a frozen identified-model closed-loop simulation, not a replay of one
+dataset flight and not hardware validation. The five-dimensional covariance
+`Sigma_eps` is estimated from training innovations and mixes unmodeled dynamics,
+fit error, and measurement-noise effects; it is not a separately identified
+process covariance `Q_w` or measurement covariance `R_v`. The injected physical
+wind has pooled RMS `0.04 m/s` and acts on the simulated plant, but is not included
+in the current chance-tightening covariance. The standardized `+/-7` command box
+is an experiment-design limit, not a Pelican hardware rating, and partly extends
+beyond the observed training-command support.
 
 ## Repository Layout
 
@@ -125,6 +178,7 @@ PredVARX-MPC/
 │   ├── copyAU_soft_preference_output/
 │   ├── copyAV_hard_preference_output/
 │   ├── copyAW_te_soft_preference/
+│   ├── copyBA_pelican_position_task/ ... copyBI_pelican_probabilistic_boundary_advantage/
 │   ├── copyOPQSTR_unified/
 │   └── copyALL_unified/
 ├── tests/                        # canonical matlab.unittest suite
@@ -139,7 +193,7 @@ PredVARX-MPC/
 
 - MATLAB R2024a or newer;
 - Optimization Toolbox (`quadprog`);
-- Git LFS for `.mat`, `.fig`, `.png`, `.jpg`, and `.pdf` artifacts.
+- Git LFS for `.mat`, `.fig`, `.png`, `.jpg`, `.pdf`, and `.gif` artifacts.
 
 ```bash
 git lfs install

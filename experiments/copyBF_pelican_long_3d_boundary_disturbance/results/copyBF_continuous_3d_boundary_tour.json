@@ -1,0 +1,287 @@
+{
+  "scope": "continuous 120 s frozen-model-in-the-loop 3D tour; not real flight",
+  "seed": 7,
+  "steps": 12000,
+  "duration_seconds": 120.0,
+  "state_resets": 0,
+  "hard_bound": 3.9124117280376636,
+  "terminal_tightened_bound": [
+    2.935428335929699,
+    3.1485048921738406,
+    3.5832937605766224
+  ],
+  "smpc": {
+    "violation_steps": 0,
+    "minimum_hard_margin": 0.14397229404358036,
+    "fallback_count": 0,
+    "input_saturation_steps": 4130,
+    "active_qp_steps": 269,
+    "positive_dual_qp_steps": 269,
+    "minimum_predicted_slack": -8.881784197001252e-16,
+    "maximum_constraint_dual": 462.6215129607278,
+    "rmse": [
+      0.10048504233351815,
+      0.07600863816756953,
+      0.018629889672713854
+    ],
+    "cycle_metrics": [
+      {
+        "cycle": 1,
+        "start_step": 0,
+        "stop_step": 1200,
+        "violation_steps": 0,
+        "rmse": [
+          0.23472302562959507,
+          0.06672284706247884,
+          0.045825633129584376
+        ],
+        "minimum_hard_margin": 0.3221910317563528
+      },
+      {
+        "cycle": 2,
+        "start_step": 1200,
+        "stop_step": 2400,
+        "violation_steps": 0,
+        "rmse": [
+          0.0713610325514053,
+          0.09153157314159736,
+          0.014334180537294112
+        ],
+        "minimum_hard_margin": 1.0148393787336145
+      },
+      {
+        "cycle": 3,
+        "start_step": 2400,
+        "stop_step": 3600,
+        "violation_steps": 0,
+        "rmse": [
+          0.07684358665371947,
+          0.07598474636644617,
+          0.011999109623607992
+        ],
+        "minimum_hard_margin": 0.48216443579954893
+      },
+      {
+        "cycle": 4,
+        "start_step": 3600,
+        "stop_step": 4800,
+        "violation_steps": 0,
+        "rmse": [
+          0.06712445469583243,
+          0.09489346781232026,
+          0.012317564102234483
+        ],
+        "minimum_hard_margin": 0.21495947903921842
+      },
+      {
+        "cycle": 5,
+        "start_step": 4800,
+        "stop_step": 6000,
+        "violation_steps": 0,
+        "rmse": [
+          0.0992579356223387,
+          0.04633856858484654,
+          0.010978385422581217
+        ],
+        "minimum_hard_margin": 0.6065669278165906
+      },
+      {
+        "cycle": 6,
+        "start_step": 6000,
+        "stop_step": 7200,
+        "violation_steps": 0,
+        "rmse": [
+          0.048034883258110596,
+          0.04708349975712177,
+          0.013030671539333004
+        ],
+        "minimum_hard_margin": 0.5553529202735468
+      },
+      {
+        "cycle": 7,
+        "start_step": 7200,
+        "stop_step": 8400,
+        "violation_steps": 0,
+        "rmse": [
+          0.05256302562909644,
+          0.06913019438089746,
+          0.009120330684634437
+        ],
+        "minimum_hard_margin": 0.14397229404358036
+      },
+      {
+        "cycle": 8,
+        "start_step": 8400,
+        "stop_step": 9600,
+        "violation_steps": 0,
+        "rmse": [
+          0.060001328659118634,
+          0.04367445782552433,
+          0.010577517396176494
+        ],
+        "minimum_hard_margin": 0.26884912061615873
+      },
+      {
+        "cycle": 9,
+        "start_step": 9600,
+        "stop_step": 10800,
+        "violation_steps": 0,
+        "rmse": [
+          0.0825916651427004,
+          0.12054293463476921,
+          0.011304532897508088
+        ],
+        "minimum_hard_margin": 1.0285793214824968
+      },
+      {
+        "cycle": 10,
+        "start_step": 10800,
+        "stop_step": 12000,
+        "violation_steps": 0,
+        "rmse": [
+          0.07092679552423846,
+          0.0677019322134698,
+          0.01601216332207527
+        ],
+        "minimum_hard_margin": 0.2892923508178127
+      }
+    ]
+  },
+  "deterministic_mpc": {
+    "violation_steps": 0,
+    "minimum_hard_margin": 0.1501421670518135,
+    "fallback_count": 0,
+    "input_saturation_steps": 4190,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.1346942238972506,
+    "maximum_constraint_dual": 0.0,
+    "rmse": [
+      0.10331686792086042,
+      0.07711005847307187,
+      0.017552130800019747
+    ],
+    "cycle_metrics": [
+      {
+        "cycle": 1,
+        "start_step": 0,
+        "stop_step": 1200,
+        "violation_steps": 0,
+        "rmse": [
+          0.24178952230079012,
+          0.06776922909361457,
+          0.041959575421275985
+        ],
+        "minimum_hard_margin": 0.22354806644227265
+      },
+      {
+        "cycle": 2,
+        "start_step": 1200,
+        "stop_step": 2400,
+        "violation_steps": 0,
+        "rmse": [
+          0.07130037107264456,
+          0.091526059225482,
+          0.014324150625878605
+        ],
+        "minimum_hard_margin": 1.015566108817215
+      },
+      {
+        "cycle": 3,
+        "start_step": 2400,
+        "stop_step": 3600,
+        "violation_steps": 0,
+        "rmse": [
+          0.07685848900118107,
+          0.07596785334848188,
+          0.011997388665329477
+        ],
+        "minimum_hard_margin": 0.4805053291851773
+      },
+      {
+        "cycle": 4,
+        "start_step": 3600,
+        "stop_step": 4800,
+        "violation_steps": 0,
+        "rmse": [
+          0.06590962211202232,
+          0.10308740008322836,
+          0.012277014782319318
+        ],
+        "minimum_hard_margin": 0.17564937907656075
+      },
+      {
+        "cycle": 5,
+        "start_step": 4800,
+        "stop_step": 6000,
+        "violation_steps": 0,
+        "rmse": [
+          0.09925915844576863,
+          0.04635143464441995,
+          0.010978216649151488
+        ],
+        "minimum_hard_margin": 0.6063749290456024
+      },
+      {
+        "cycle": 6,
+        "start_step": 6000,
+        "stop_step": 7200,
+        "violation_steps": 0,
+        "rmse": [
+          0.04803488320472249,
+          0.04708349921573317,
+          0.01303067153185328
+        ],
+        "minimum_hard_margin": 0.5553529202734606
+      },
+      {
+        "cycle": 7,
+        "start_step": 7200,
+        "stop_step": 8400,
+        "violation_steps": 0,
+        "rmse": [
+          0.05252827277598259,
+          0.06913418393291565,
+          0.00938267949440708
+        ],
+        "minimum_hard_margin": 0.1501421670518135
+      },
+      {
+        "cycle": 8,
+        "start_step": 8400,
+        "stop_step": 9600,
+        "violation_steps": 0,
+        "rmse": [
+          0.06000015576604753,
+          0.043672926910488866,
+          0.010577439024574553
+        ],
+        "minimum_hard_margin": 0.26881768849964516
+      },
+      {
+        "cycle": 9,
+        "start_step": 9600,
+        "stop_step": 10800,
+        "violation_steps": 0,
+        "rmse": [
+          0.0825916651936349,
+          0.12054293465240415,
+          0.011304532897531642
+        ],
+        "minimum_hard_margin": 1.0285793214822836
+      },
+      {
+        "cycle": 10,
+        "start_step": 10800,
+        "stop_step": 12000,
+        "violation_steps": 0,
+        "rmse": [
+          0.08721340785476231,
+          0.06714928167906059,
+          0.014223019108460947
+        ],
+        "minimum_hard_margin": 0.1591485671555759
+      }
+    ]
+  }
+}

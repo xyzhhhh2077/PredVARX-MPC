@@ -1,0 +1,358 @@
+{
+  "experiment": "copyBG_pelican_physical_wind_smpc",
+  "validation_type": "Pelican-data-identified model-in-the-loop",
+  "is_real_flight_validation": 0,
+  "requested_steps": 8000,
+  "sample_rate_hz": 100.0,
+  "dt_used_seconds": 0.01,
+  "control_interval_steps": 10,
+  "horizon_steps": 18,
+  "horizon_seconds": 1.8,
+  "Q_weight": 80.0,
+  "Ru": 0.18,
+  "alpha_joint": 0.05,
+  "input_bound_normalized": [
+    -6.0,
+    6.0
+  ],
+  "hard_bound_standardized": 3.9124117280376636,
+  "source_model_hard_bound_standardized": 3.9124117280376636,
+  "reference_mode": "growing-smooth-square-helix",
+  "reference_pressures_standardized": [
+    3.75,
+    3.75,
+    2.2
+  ],
+  "rising_turns": 2.0,
+  "smooth_square_dwell_fraction": 0.0,
+  "reference_path": "large-arc axial diamond envelope small\u2192near-hard\u2192small: (0.9, 0.9, 1.2) \u2192 peak (3.75, 3.75, 2.2) (family=large-arc-diamond, arc_offset=12, tip_slow=0.75, loiter 3 turns, worst u_inf\u22486.86, dc_feasible=True, max_joint_xy_unit\u22480.510) \u2192 shrink; grow/shrink turns=2.0, 8000 samples \u2014 axis tips near ~3.8, square corners cut",
+  "growing_smooth_square": {
+    "structure": "large-arc axial diamond small\u2192near-hard peak\u2192small (no square multi-axis corners; axis tips slowed)",
+    "path_family": "large-arc-diamond",
+    "arc_center_offset": 12.0,
+    "axis_tip_slowdown": 0.75,
+    "max_joint_xy_unit": 0.5099960031968029,
+    "pressures_start": [
+      0.9,
+      0.9,
+      1.2
+    ],
+    "pressures_peak_square": [
+      3.75,
+      3.75,
+      2.2
+    ],
+    "pressures_end": [
+      3.75,
+      3.75,
+      2.2
+    ],
+    "peak_turns": 3.0,
+    "phase_fractions": [
+      0.32,
+      0.36,
+      0.32
+    ],
+    "phase_counts": [
+      2560,
+      2880,
+      2560
+    ],
+    "phase_names": [
+      "grow",
+      "peak_square",
+      "shrink"
+    ],
+    "r_xy_max": 3.7480872962566063,
+    "r_box_max": 3.7480867232199437,
+    "r_linf_max": 3.7480867232199437,
+    "fraction_dc_feasible_samples": 1.0,
+    "fraction_beyond_dc_samples": 0.0,
+    "fraction_peak_square": 0.36,
+    "fraction_grow": 0.32,
+    "fraction_shrink": 0.32,
+    "near_hard_fraction": 0.212875,
+    "peak_dc_feasible": 1,
+    "peak_corner_u_inf": 6.8649160655118395,
+    "peak_dc_note": "peak large-arc axial orbit in boundary-tour DC band (u_inf\u22486.86, cap=7.0); axis extent near hard so chance QP can bind; no square corners"
+  },
+  "smooth_square_dc_feasibility": {
+    "pressures": [
+      3.75,
+      3.75,
+      2.2
+    ],
+    "family": "large-arc-diamond",
+    "corner_power": null,
+    "center_offset": 12.0,
+    "max_joint_xy_unit": 0.5099960031968029,
+    "u_inf_cap": 7.0,
+    "worst_u_inf": 6.8649160655118395,
+    "worst_task": [
+      -1.8081749677826306,
+      2.016563636504177,
+      -2.2
+    ],
+    "worst_u": [
+      3.1784214291664687,
+      -6.8649160655118395,
+      -0.4396600468677195,
+      -1.7252724008315365
+    ],
+    "feasible": 1,
+    "note": "Steady actuator demand on large-arc axial diamond (no square corners). Cap is diagnostic (boundary-tour band ~7); \u00b16 may be briefly saturated in closed loop while chance QP still binds."
+  },
+  "forward_gif": null,
+  "playback_gif": null,
+  "sigma_wind_mps": 0.04,
+  "position_unit": "m",
+  "wind_seed": 7007,
+  "innovation_seed": 7,
+  "training_segments": 36,
+  "training_samples": 1045715,
+  "transition_count": 1045643,
+  "uses_true_Sigma_n": 0,
+  "obs_tracked_leakage_norm": 0.0,
+  "Sigma_eps_trace": 0.0017793604585459922,
+  "Sigma_obs_proxy_trace": 5.138566375267071,
+  "Sigma_wind_aug_trace": 5.866267717650816e-07,
+  "Sigma_total_aug_trace": 0.001779947085317758,
+  "noise_actual_vs_estimated": {
+    "n_steps": 8000,
+    "ell": 5,
+    "dt_seconds": 0.01,
+    "sigma_wind_mps_prescribed": 0.04,
+    "wind_velocity_std_actual_mps": [
+      0.03960407603900512,
+      0.04019843278383227,
+      0.04017705213270049
+    ],
+    "wind_velocity_std_estimated_mps": [
+      0.04,
+      0.04,
+      0.04
+    ],
+    "wind_velocity_std_ratio_actual_over_est": [
+      0.990101900975128,
+      1.0049608195958066,
+      1.0044263033175123
+    ],
+    "eps_std_actual": [
+      0.00010987189866976366,
+      9.40727155760353e-05,
+      5.992274657740934e-05,
+      0.034113163615828564,
+      0.024574512559478345
+    ],
+    "eps_std_estimated": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "eps_std_ratio_actual_over_est": [
+      1.0005597493982337,
+      0.9902304332889956,
+      0.9960637097210879,
+      0.9996317019551318,
+      0.991125203294966
+    ],
+    "wind_latent_std_actual": [
+      0.0004358877635272343,
+      0.0004375842620014297,
+      0.00045298249906819117,
+      0.0,
+      0.0
+    ],
+    "wind_latent_std_estimated": [
+      0.000440181398814829,
+      0.0004353600656390818,
+      0.00045091986111640326,
+      0.0,
+      0.0
+    ],
+    "total_plant_std_actual": [
+      0.00044995336285521675,
+      0.0004467766766587521,
+      0.0004572758605111764,
+      0.034113163615828564,
+      0.024574512559478345
+    ],
+    "total_plant_std_est_chance_Sigma_eps": [
+      0.00010981043234633803,
+      9.500083254720619e-05,
+      6.015955203727738e-05,
+      0.034125732056224566,
+      0.024794559232053745
+    ],
+    "total_plant_std_est_Sigma_total": [
+      0.00045367168185207675,
+      0.00044560469582136336,
+      0.0004549152589774909,
+      0.03412573205622457,
+      0.02479455923205375
+    ],
+    "fro_rel_emp_eps_vs_Sigma_eps": 0.010915918961603712,
+    "fro_rel_emp_wind_z_vs_Sigma_wind": 0.03178999714236442,
+    "fro_rel_emp_total_vs_Sigma_eps_chance": 0.010921227217056661,
+    "fro_rel_emp_total_vs_Sigma_total": 0.010918207386448763,
+    "chance_uses": "Sigma_eps only (not physical wind, not Sigma_n)",
+    "plant_injects": "eps ~ N(0,Sigma_eps) + wind_latent (physical v)",
+    "note": "Actual = realized closed-loop sequences. Estimated = offline Sigma_eps from train innovations + analytic Sigma_wind from sigma_wind and G_w. SMPC chance tightening uses Sigma_eps only; Sigma_total is a diagnostic upper envelope including wind.",
+    "figure": "copyBG_pelican_physical_wind_smpc_noise_actual_vs_estimated.png",
+    "verdict": "MATCH",
+    "wind_max_abs_error_pct": 0.9898099024872042,
+    "eps_max_abs_std_error_pct": 0.9769566711004374,
+    "eps_fro_error_pct": 1.0915918961603712,
+    "total_fro_error_pct": 1.0918207386448764,
+    "roll_window_seconds": 8.0,
+    "shown_latent_modes": [
+      4,
+      5
+    ],
+    "read_guide": "Top panels: actual waveform inside estimated \u00b1\u03c3 band. Middle: rolling actual std should hug the estimated \u03c3 line. Bottom: actual/est ratio should stay near 1 over time."
+  },
+  "shared_noise_exact": 1,
+  "disturbance_sha256": "1a9e6076a08628814d682ba43745d9ff132dc799303d24f780639fc39a0e6f9a",
+  "initialization": {
+    "dynamic_residual": 1.3322676295501878e-15,
+    "task_residual": 3.552713678800501e-15,
+    "maximum_absolute_input": 1.602083180972579,
+    "control": [
+      -1.1017358166861329,
+      1.602083180972579,
+      -1.3475125843289917,
+      1.4166964794407095
+    ]
+  },
+  "smpc": {
+    "completed_steps": 8000,
+    "qp_count": 800,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 800
+    },
+    "maximum_qp_constraint_residual": 2.373989893555972e-10,
+    "mean_qp_solve_time_seconds": 0.010276973250000002,
+    "active_qp_steps": 208,
+    "positive_dual_qp_steps": 208,
+    "minimum_predicted_slack": -2.373989893555972e-10,
+    "maximum_constraint_dual": 704.7281407432349,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.14112497998427465,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.14112497998427465,
+      0.1753218626161357,
+      1.5003535102516605
+    ],
+    "rmse_standardized": [
+      0.3596048380584175,
+      0.3522591435387408,
+      0.08252549376703545
+    ],
+    "peak_absolute_position_standardized": [
+      3.771286748053389,
+      3.737089865421528,
+      2.412058217786003
+    ],
+    "input_saturation_steps": 4640,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "1a9e6076a08628814d682ba43745d9ff132dc799303d24f780639fc39a0e6f9a"
+  },
+  "deterministic_mpc": {
+    "completed_steps": 8000,
+    "qp_count": 800,
+    "qp_failure_count": 0,
+    "qp_failure_step": null,
+    "qp_failure_status": "",
+    "fallback_count": 0,
+    "qp_status_counts": {
+      "optimal": 800
+    },
+    "maximum_qp_constraint_residual": 0.0,
+    "mean_qp_solve_time_seconds": 0.011687277250000001,
+    "active_qp_steps": 0,
+    "positive_dual_qp_steps": 0,
+    "minimum_predicted_slack": 0.004274481247332762,
+    "maximum_constraint_dual": 0.0,
+    "hard_violation_steps": 0,
+    "hard_violation_rate": 0.0,
+    "hard_violation_steps_per_axis": [
+      0,
+      0,
+      0
+    ],
+    "hard_violation_rate_per_axis": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "minimum_hard_margin_standardized": 0.023704865572803602,
+    "minimum_hard_margin_per_axis_standardized": [
+      0.023704865572803602,
+      0.04989398768958431,
+      1.5026527358312896
+    ],
+    "rmse_standardized": [
+      0.3599626928643309,
+      0.3545572492330981,
+      0.08158568043640287
+    ],
+    "peak_absolute_position_standardized": [
+      3.88870686246486,
+      3.8625177403480793,
+      2.409758992206374
+    ],
+    "input_saturation_steps": 4660,
+    "state_resets": 0,
+    "controller_state_source": "true plant augmented state (model-in-the-loop)",
+    "disturbance_sha256": "1a9e6076a08628814d682ba43745d9ff132dc799303d24f780639fc39a0e6f9a"
+  },
+  "smpc_vs_mpc": {
+    "active_qp_steps_smpc": 208,
+    "active_qp_steps_mpc": 0,
+    "positive_dual_qp_steps_smpc": 208,
+    "positive_dual_qp_steps_mpc": 0,
+    "hard_violation_steps_smpc": 0,
+    "hard_violation_steps_mpc": 0,
+    "minimum_hard_margin_smpc": 0.14112497998427465,
+    "minimum_hard_margin_mpc": 0.023704865572803602,
+    "rmse_smpc": [
+      0.3596048380584175,
+      0.3522591435387408,
+      0.08252549376703545
+    ],
+    "rmse_mpc": [
+      0.3599626928643309,
+      0.3545572492330981,
+      0.08158568043640287
+    ],
+    "chance_expected_active": 1,
+    "note": "Chance constraints bind when the planned trajectory presses stage_mean_bound. Default growing mode uses a near-hard rounded square at peak (multi-axis); corners may DC-saturate under \u00b16 \u2014 expected pressure geometry, not a CRTE/copyAU bug. Pure boundary-tour remains available for single-axis legs."
+  },
+  "interpretation": "The deterministic MPC trace ends at its first non-optimal QP; no fallback or post-failure trajectory is synthesized. Default narrative is rounded-square small\u2192large\u2192small with peak square loiter as multi-axis pressure test. SMPC value is read from active_qp / duals / hard-margin vs MPC on the peak chapter (and pure boundary-tour).",
+  "artifacts": {
+    "json": "copyBG_pelican_physical_wind_smpc.json",
+    "npz": "copyBG_pelican_physical_wind_smpc.npz",
+    "mat": "copyBG_pelican_physical_wind_smpc.mat",
+    "smpc_png": "copyBG_pelican_physical_wind_smpc_smpc.png",
+    "deterministic_mpc_png": "copyBG_pelican_physical_wind_smpc_deterministic_mpc.png",
+    "noise_compare_png": "copyBG_pelican_physical_wind_smpc_noise_actual_vs_estimated.png"
+  }
+}
