@@ -1,199 +1,135 @@
 # PredVARX-MPC
 
-MATLAB research code for **PredVAR / PredVARX identification, oblique latent-variable models, and stochastic model predictive control (SMPC)**.
+MATLAB / Python research code for **PredVAR / PredVARX identification**, **oblique latent-variable models**, and **chance-constrained SMPC**.
 
-This repository studies how a reduced model
+Reduced model (typical form):
 
 $$
-z_{k+1}=Az_k+B(u_k-\bar u)+\varepsilon_{k+1},
+z_{k+1}=A z_k+B(u_k-\bar u)+\varepsilon_{k+1},
 \qquad
-\hat y_k=\bar y+Pz_k,
-$$
-
-can preserve control-relevant output directions while satisfying the oblique dual-basis condition
-
-$$
+\hat y_k=\bar y+P z_k,
+\qquad
 R^\top P=I.
 $$
 
-The main questions are:
+**Each `experiments/copy*` directory is an independent experiment.**  
+Compare closed-loop numbers only when plant, data, seed, reference, noise, controller, constraints, and horizon match.
 
-- how to construct and validate the oblique latent subspace;
-- how identification coordinates align with the controlled outputs;
-- how prediction covariance enters chance-constrained SMPC;
-- which conclusions are mathematical, implementation-level, or empirical.
+---
 
-> Each `copy*` directory is an independent experiment. Results from different copies are comparable only when the plant, data, seed, reference, noise, controller, constraints, and closed-loop horizon are the same.
+## What this repo is (and is not)
 
-## Current Reproducible Result
-
-The current paper-aligned experiment is [`copyAR_crte_paper_spectral_validation_unknown_noise`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/).
-
-It implements the CRTE experimental procedure used for manuscript Sections 3.3–3.4:
-
-- fixed spectral surrogate on the free output complement;
-- paper trace normalization
-  $N_{tr}(A)=A/\max\{|\operatorname{tr}(A)|/d,10^{-5}\}$;
-- task, noise, and reachability gates;
-- validation-only candidate selection;
-- one-step free-output residual covariance as an unknown-noise proxy;
-- no access to the true sensor-noise covariance (`uses_true_Sigma_n = 0`);
-- full-data refit followed by a 1200-step SMPC simulation.
-
-The endpoint metrics are excluded. The final search uses
-
-$$
-\mu\in\{0.10,0.25,0.50,0.75\},
-$$
-
-and selects the best valid interior candidate.
-
-### Latest copyAR run
-
-Plant seed: `20260710`.
-
-| Metric | Result |
-|---|---:|
-| Selected $\mu$ | **0.10** |
-| Validation NRMSE | **0.064557** |
-| Valid candidates | 4 / 4 |
-| Spectral radius | 0.943072 |
-| MAE $[y_1,y_2]$ | [0.06056, 0.05718] |
-| RMSE $[y_1,y_2]$ | [0.08335, 0.07923] |
-| QP success rate | 100% |
-| Fallback / infeasible steps | 0 / 0 |
-| Maximum recorded QP residual | $1.53\times10^{-12}$ |
-| Constraint-active fraction | 66.29% |
-
-![copyAR closed-loop result](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/results/copyAR_crte_paper_spectral_validation_unknown_noise_fig.png)
-
-The complete auditable outputs are stored beside the experiment:
-
-- [`metrics.txt`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/results/copyAR_crte_paper_spectral_validation_unknown_noise_metrics.txt)
-- [`data.mat`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/results/copyAR_crte_paper_spectral_validation_unknown_noise_data.mat)
-- [`figure.png`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/results/copyAR_crte_paper_spectral_validation_unknown_noise_fig.png)
-
-## Experiment Lines
-
-### PredVARX geometry and SMPC
-
-| Range | Purpose |
+| Is | Is not |
 |---|---|
-| `copyO`–`copyZ` | Orthogonal/oblique identification, centered SMPC, control-aware subspaces, and fair ablations |
-| `copyAA`–`copyAM` | Block dual bases, mathematical corrections, closed-loop diagnostics, covariance variants, and guarantee-layer probes |
-| `copyOPQSTR_unified`, `copyALL_unified` | Unified-condition comparisons |
+| Offline identification + closed-loop SMPC studies | A flight stack or ROS driver |
+| Frozen real-data models used as plants (model-in-the-loop) | Automatic claims of outdoor / hardware validation |
+| Separate copies for each algorithmic change | One “latest always overwrites” folder |
+| Explicit claim boundaries in each copy README | Oracle noise treated as a theorem |
 
-### CRTE algorithm variants
+---
 
-| Path | Role | Status |
-|---|---|---|
-| `copyAN_crte_fixed_surrogate` → [`copyAR`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/) | Fixed spectral surrogate plus validation selection | Current manuscript experiment |
-| [`copyAO`](experiments/copyAO_crte_teacher_profiled_unknown_noise/) | Profiled/min-teacher selection | Structural research variant, not the manuscript algorithm |
-| [`copyAP`](experiments/copyAP_crte_multistep_task_20x4/) | Multi-step task and blocked proxy | Extension |
-| [`copyAQ`](experiments/copyAQ_crte_varx_order_20x4/) | Higher-order VARX | Draft; not a completed 20x4 grid |
+## Start here (current endpoints)
 
-### Learned output-direction experiments
+### 1. Paper-aligned CRTE — `copyAR`
 
-Copies AS through AV reuse the same 1500 offline samples and add no training data. CopyAW instead uses 1500 samples from three public Tennessee Eastman runs and validates on two disjoint runs. All are extensions and diagnostics, not part of the original CRTE algorithm.
+Manuscript-style spectral validation under **unknown** sensor noise  
+(`uses_true_Sigma_n = 0`).
 
-| Copy | Question | 1200-step observation |
-|---|---|---|
-| [`copyAS`](experiments/copyAS_learned_task_anchor_smpc/) | Can the full reference trajectory define a learned task anchor? | The learned anchor did not improve tracking of the original physical outputs |
-| [`copyAT`](experiments/copyAT_learned_output_directions/) | Fixed task, supervised recovery, or maximum input authority? | Fixed and supervised directions agree; high input authority alone gives worse task tracking |
-| [`copyAU`](experiments/copyAU_soft_preference_output/) | Can soft output preferences define the final controlled outputs? | QP remained feasible, but original-task tracking failed |
-| [`copyAV`](experiments/copyAV_hard_preference_output/) | What happens when the highest-priority physical outputs are hard locked? | Good single-seed tracking was recovered; this is not a general optimality result |
-| `copyAW` (retired) | Does the copyAU construction run on native 41-output Tennessee Eastman data? | Offline held-out prediction beat persistence slightly, but R2 remained weak; no COSTEP closed loop was run |
+- Path: [`experiments/copyAR_crte_paper_spectral_validation_unknown_noise/`](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/)
+- Role: fixed spectral free-complement surrogate, paper \(N_{tr}\), gates, validation-only selection, residual proxy, then SMPC sim
+- Not the same as `copyAO` (min-teacher / profiled structural variant)
 
-The copyAT comparison uses the same old `(u,y)`, seed, closed-loop disturbance, controller, constraints, 1200-step horizon, and five 240-step reference segments. Performance is evaluated on the original physical outputs `y1,y2`.
+![copyAR closed-loop](experiments/copyAR_crte_paper_spectral_validation_unknown_noise/results/copyAR_crte_paper_spectral_validation_unknown_noise_fig.png)
 
-![copyAT output-direction comparison](experiments/copyAT_learned_output_directions/results/copyAT_learned_output_directions_fig.png)
+### 2. Pelican real-data SMPC — `copyBI` → `copyBJ`
 
-## Pelican Real-Data Identification and SMPC
-
-Copies BA through BI form one traceable experiment line built from the public
-[Waterloo WAVELab AscTec Pelican flight dataset](https://github.com/wavelab/pelican_dataset).
-The dataset contains 54 indoor Vicon flights sampled at 100 Hz. Flights 1--36
-are used for identification and flights 37--54 are held out by complete flight,
-with no within-flight shuffling.
-
-The model input/output contract is:
-
-- measured output `y` in 10 dimensions: position (3, m), Euler angles (3, rad),
-  and measured motor speeds (4);
-- manipulated input `u` in 4 dimensions: commanded motor speeds;
-- loaded latent state `z` in 5 dimensions: three fixed standardized `xyz` task
-  directions plus two free directions;
-- second-order augmented MPC state `[z_k; z_{k-1}]` in 10 dimensions.
+Built on the public [Waterloo WAVELab AscTec Pelican dataset](https://github.com/wavelab/pelican_dataset)  
+(54 indoor Vicon flights @ 100 Hz; flights 1–36 ID, 37–54 held out).
 
 | Copy | Role |
 |---|---|
-| [`copyBA`](experiments/copyBA_pelican_position_task/) | Position-dominant offline identification on the real-flight dataset |
-| [`copyBB`](experiments/copyBB_pelican_fixed_anchor_smpc/) | Fixed task-anchor SMPC |
-| [`copyBC`](experiments/copyBC_pelican_boundary_stress/) | Chance-constraint boundary stress test |
-| [`copyBD`](experiments/copyBD_pelican_3d_fixed_anchor_smpc/) | Three-axis fixed-anchor model and controller |
-| [`copyBE`](experiments/copyBE_pelican_3d_z_aware_smpc/) | Second-order latent VARX with `xyz` anchors |
-| [`copyBF`](experiments/copyBF_pelican_long_3d_boundary_disturbance/) | Long three-dimensional boundary trajectory |
-| [`copyBG`](experiments/copyBG_pelican_physical_wind_smpc/) | Physical-wind injection and sustained near-boundary cruise |
-| [`copyBH`](experiments/copyBH_pelican_u_cap_ablation/) | Standardized input-cap ablation |
-| [`copyBI`](experiments/copyBI_pelican_probabilistic_boundary_advantage/) | Six-face near-boundary SMPC run and synchronized visual audit |
+| [`copyBI`](experiments/copyBI_pelican_probabilistic_boundary_advantage/) | Frozen model, six-face near-boundary SMPC + visual audit (baseline event) |
+| [`copyBJ`](experiments/copyBJ_pelican_online_covariance_smpc/) | Same freeze; **only** online composite-innovation \(\Sigma_\varepsilon\) adaptation |
 
-### Current Pelican visualization
+**copyBI** synchronized run (200-frame GIF):
 
-The following synchronized animation shows the `copyBI` SMPC trajectory,
-three-dimensional path, four standardized control commands with the absolute
-`-7 <= u_i <= 7` experiment bounds, the identified composite latent innovation,
-the independently injected physical wind, and the realized stage cost.
+![copyBI SMPC](experiments/copyBI_pelican_probabilistic_boundary_advantage/results_smpc/copyBI_smpc_summary_200frames.gif)
 
-![copyBI synchronized Pelican SMPC run](experiments/copyBI_pelican_probabilistic_boundary_advantage/results_smpc/copyBI_smpc_summary_200frames.gif)
+**copyBJ** online \(\Sigma_\varepsilon\) run (β = 0.8 main trajectory):
 
-The retained run covers 18,000 plant samples (180 s): zero hard-bound violations,
-zero fallback calls, a minimum standardized hard-bound margin of `0.00715`, and
-564 active chance-constrained decisions among 1,800 QP solves. At least one of
-the four standardized motor commands reaches `+/-7` at 7,400 samples.
+![copyBJ online SMPC](experiments/copyBJ_pelican_online_covariance_smpc/results_smpc/copyBJ_smpc_summary_200frames.gif)
 
-This is a frozen identified-model closed-loop simulation, not a replay of one
-dataset flight and not hardware validation. The five-dimensional covariance
-`Sigma_eps` is estimated from training innovations and mixes unmodeled dynamics,
-fit error, and measurement-noise effects; it is not a separately identified
-process covariance `Q_w` or measurement covariance `R_v`. The injected physical
-wind has pooled RMS `0.04 m/s` and acts on the simulated plant, but is not included
-in the current chance-tightening covariance. The standardized `+/-7` command box
-is an experiment-design limit, not a Pelican hardware rating, and partly extends
-beyond the observed training-command support.
+Pelican contract (both):
 
-## Repository Layout
+- \(y\in\mathbb{R}^{10}\): position (3), Euler (3), measured motor speeds (4)  
+- \(u\in\mathbb{R}^{4}\): commanded motor speeds  
+- latent \(z\in\mathbb{R}^{5}\): 3 fixed standardized `xyz` axes + 2 free directions  
+- MPC state: second-order \([z_k;z_{k-1}]\in\mathbb{R}^{10}\)
+
+copyBJ one-line claim: **offline ID + online composite \(\Sigma_\varepsilon\)**; not online \(E/A/B/P/R\); not process/measurement/wind split; β-shrink is an experimental regularizer, not a recursive-feasibility theorem. Details: [`copyBJ/README.md`](experiments/copyBJ_pelican_online_covariance_smpc/README.md).
+
+---
+
+## Experiment map (basic)
+
+### Geometry / SMPC core
+
+| Range | Purpose |
+|---|---|
+| `copyO`–`copyZ` | Orthogonal / oblique ID, centered SMPC, control-aware subspaces, fair ablations |
+| `copyAA`–`copyAM` | Dual-basis fixes, diagnostics, covariance variants, guarantee-layer probes |
+| `copyOPQSTR_unified`, `copyALL_unified` | Unified-condition comparisons |
+
+### CRTE line
+
+| Copy | Role |
+|---|---|
+| `copyAN` → **`copyAR`** | Fixed spectral surrogate + validation selection (**paper path**) |
+| `copyAO` | Profiled / min-teacher (research variant, not manuscript algorithm) |
+| `copyAP` | Multi-step task + blocked residual proxy |
+| `copyAQ` | Higher-order VARX (draft) |
+
+### Output preference / direction trials
+
+Same 1500 offline samples where stated; **extensions**, not the original CRTE algorithm.
+
+| Copy | Question (short) |
+|---|---|
+| `copyAS` | Learned task anchor from full reference? |
+| `copyAT` | Fixed vs supervised vs high input-authority directions |
+| `copyAU` / `copyAV` | Soft vs hard output preferences |
+| `copyAW` | BOPTEST pilot (soft preference) |
+| `copyAX` | ControlGym CDR soft preference |
+| `copyAY` | Pelican soft preference / real-flight ID side line |
+
+### Pelican position SMPC line
+
+`copyBA` → `copyBB` → … → **`copyBI`** → **`copyBJ`**  
+(ID → fixed anchor → boundary stress → 3-D → wind → u-cap → visual audit → online covariance)
+
+---
+
+## Layout
 
 ```text
 PredVARX-MPC/
-├── main/                         # historical baseline
-├── experiments/                  # independent copy* experiments
-│   ├── copyO_oblique/ ... copyAM_tracked_cov_only/
-│   ├── copyAN_crte_fixed_surrogate/
-│   ├── copyAO_crte_teacher_profiled_unknown_noise/
-│   ├── copyAP_crte_multistep_task_20x4/
-│   ├── copyAQ_crte_varx_order_20x4/
-│   ├── copyAR_crte_paper_spectral_validation_unknown_noise/
-│   ├── copyAS_learned_task_anchor_smpc/
-│   ├── copyAT_learned_output_directions/
-│   ├── copyAU_soft_preference_output/
-│   ├── copyAV_hard_preference_output/
-│   ├── copyAW_te_soft_preference/
-│   ├── copyBA_pelican_position_task/ ... copyBI_pelican_probabilistic_boundary_advantage/
-│   ├── copyOPQSTR_unified/
-│   └── copyALL_unified/
-├── tests/                        # canonical matlab.unittest suite
-├── docs/version-summary/         # illustrated version history
-├── archive/                      # non-current historical copies
+├── main/                 # historical baseline
+├── experiments/          # independent copy* experiments
+├── tests/                # root matlab.unittest suite
+├── docs/version-summary/ # illustrated history
+├── archive/              # non-current snapshots
 └── README.md
 ```
 
-`copyAN_closed_loop_audit_grade` is an empty placeholder and does not represent a completed experiment.
+`copyAN_closed_loop_audit_grade` is an empty placeholder (not a finished run).
+
+---
 
 ## Requirements
 
-- MATLAB R2024a or newer;
-- Optimization Toolbox (`quadprog`);
-- Git LFS for `.mat`, `.fig`, `.png`, `.jpg`, `.pdf`, and `.gif` artifacts.
+- MATLAB R2024a+ (Optimization Toolbox / `quadprog` for MATLAB copies)
+- Python 3.10+ for Pelican Python copies (`copyBI`, `copyBJ`, …) as documented in each folder
+- **Git LFS** for `.mat`, `.fig`, `.png`, `.jpg`, `.pdf`, `.gif`
 
 ```bash
 git lfs install
@@ -201,61 +137,74 @@ git clone https://github.com/xyzhhhh2077/PredVARX-MPC.git
 cd PredVARX-MPC
 ```
 
-Without Git LFS, large result files are checked out as pointer files.
+Without LFS, large artifacts checkout as pointer files.
 
-## Run copyAR
+---
 
-From MATLAB:
+## Quick runs
+
+### copyAR (MATLAB)
 
 ```matlab
 repo = pwd;
 copyAR = fullfile(repo, 'experiments', ...
     'copyAR_crte_paper_spectral_validation_unknown_noise');
-
 cd(copyAR)
 addpath(copyAR, fullfile(copyAR, 'tests'))
 test_crte_paper_spectral_varx
 copyAR_crte_paper_spectral_validation_unknown_noise
 ```
 
-The full 1200-step SMPC run can take several minutes. Results are written to the experiment's `results/` directory.
+### copyBJ (Python)
 
-## Run Canonical Tests
+```bash
+python experiments/copyBJ_pelican_online_covariance_smpc/run_online_covariance_smpc.py
+python -m pytest tests/test_copybj_pelican_online_covariance_smpc.py -q
+# optional BI-style pack from stored beta=0.8 trajectory (no re-solve):
+cd experiments/copyBJ_pelican_online_covariance_smpc
+python generate_smpc_figures.py
+python generate_smpc_summary_gif.py
+python verify_smpc_summary_gif.py
+```
+
+### Root unit tests (MATLAB)
 
 ```matlab
 cd('tests')
 run_all_tests
 ```
 
-The root suite covers:
+Covers oblique dual-basis, centered SMPC step, and control-aware subspace contracts. Many copies also ship local tests.
 
-- `tPredvarxIdentifyOblique`: oblique dual-basis identities;
-- `tCenteredSmpcStep`: centered prediction and chance-constraint tightening;
-- `tControlAwareSubspace`: preservation of controlled axes in the reduced coordinates.
+---
 
-Each experiment may also contain focused contract tests in its own `tests/` directory.
+## Evidence boundaries (global)
 
-## Evidence Boundaries
+1. **Proof ≠ code contract ≠ single-seed simulation.** Report them separately.  
+2. `QP success = 100%` and `fallback = 0` mean that trajectory used the main path — **not** recursive feasibility or stability.  
+3. Residual / innovation covariances under unknown sensor noise are **engineering proxies**, not true \(\Sigma_n\) or separated \(Q_w,R_v\).  
+4. Oracle quantities are for comparison only; unknown-noise methods must not consume them.  
+5. High input authority ≠ the output the task requires.  
+6. One seed ≠ generalization or global optimality.  
+7. Physical wind injected in the plant is **not** automatically a calibrated term inside chance tightening unless the copy states that explicitly.
 
-1. Mathematical proofs, code contracts, and simulation observations are reported separately.
-2. `QP success = 100%` and `fallback = 0` show that one trajectory used the primary SMPC path; they do not prove recursive feasibility or stability.
-3. The residual covariance is an engineering proxy under unknown sensor noise, not the true sensor-noise covariance.
-4. Oracle quantities may be used only for simulation comparisons, not as inputs to an unknown-noise method.
-5. A direction with high input authority is easy to actuate; it is not automatically the output required by the task.
-6. A single-seed result does not establish generalization, global optimality, or universal performance improvement.
+---
 
-## Documentation
+## More documentation
 
 | Document | Scope |
 |---|---|
-| [`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md) | Evolution and metrics for copies O–Z |
-| [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md) | Legacy letter reuse and current-directory mapping |
-| [`PREDVARX_MPC_VERSION_SUMMARY.md`](docs/version-summary/PREDVARX_MPC_VERSION_SUMMARY.md) | Illustrated version summary |
-| [`archive/README.md`](archive/README.md) | Archive policy and historical contents |
+| [`VERSION_EVOLUTION_AND_METRICS.md`](VERSION_EVOLUTION_AND_METRICS.md) | Copies O–Z evolution / metrics |
+| [`LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md`](LEGACY_COPY_OPQSTR_ARCHAEOLOGY.md) | Legacy letter reuse map |
+| [`docs/version-summary/`](docs/version-summary/) | Illustrated version summary |
+| [`archive/README.md`](archive/README.md) | Archive policy |
+| Per-copy `README.md` | Local protocol, seeds, claim boundary |
 
-## Reproducibility Policy
+---
 
-- Large MATLAB data and figures are tracked with Git LFS.
-- A new research attempt gets a new `copy*` directory; established experiment identities are not silently overwritten.
-- Metrics produced under different protocols are not merged into a single ranking.
-- Every reported run should identify its copy, seed, training data, noise convention, closed-loop length, and completion status.
+## Reproducibility policy
+
+- New idea → **new `copy*`**. Do not silently overwrite an established identity.  
+- Large binaries via **Git LFS**.  
+- Do not merge metrics from mismatched protocols into one ranking.  
+- Every reported run should name: **copy, seed, data, noise convention, horizon, completion status**.
