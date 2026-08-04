@@ -1,0 +1,29 @@
+{
+  "gif": "C:\\Users\\ROG\\predvarx-repo\\experiments\\copyBJ_pelican_online_covariance_smpc\\results_smpc\\copyBJ_smpc_summary_200frames.gif",
+  "frames": 200,
+  "size_pixels": [
+    1152,
+    1035
+  ],
+  "duration_ms_unique": [
+    90
+  ],
+  "total_duration_seconds": 18.0,
+  "loop": 0,
+  "file_bytes": 30222954,
+  "keyframe_indices_zero_based": [
+    0,
+    66,
+    133,
+    199
+  ],
+  "keyframe_mad_from_first": [
+    0.0,
+    3.693153124440866,
+    6.60086525988549,
+    9.827003936303454
+  ],
+  "final_frame_mean_luminance": 238.7803970410628,
+  "final_frame_edge_energy": 9.167777651863323,
+  "contact_sheet": "C:\\Users\\ROG\\predvarx-repo\\experiments\\copyBJ_pelican_online_covariance_smpc\\results_smpc\\copyBJ_smpc_summary_keyframes.png"
+}

@@ -1,0 +1,36 @@
+{
+  "experiment": "copyBJ online covariance-adaptive SMPC (beta=0.8 candidate)",
+  "source_npz": "copyBJ_online_covariance_comparison.npz",
+  "steps": 18000,
+  "hard_bound_standardized": 3.8,
+  "source_hard_bound_standardized": 3.9124117280376636,
+  "reference_peak_standardized": [
+    3.46,
+    3.46,
+    3.46
+  ],
+  "hard_violation_steps": 0,
+  "minimum_hard_margin": 0.1552618947890596,
+  "fallback_count": 0,
+  "active_qp_steps": 1403,
+  "online_weight": 0.8,
+  "offline_prior_weight": 0.19999999999999996,
+  "task_peak_magnitudes": [
+    3.469062975069515,
+    3.5205357168917844,
+    3.64473810521094
+  ],
+  "stage_cost_definition": "Q||s-r||^2 + R||u-u_mean||^2",
+  "stage_cost_mean": 46.35304914584032,
+  "stage_cost_maximum": 746.1788034731939,
+  "noise_scope": "composite identified latent innovation and injected physical wind; not separately identified process-noise Qw and measurement-noise Rv; controller uses online composite innovation covariance with offline prior shrinkage",
+  "claim_boundary": "This is an online covariance-adaptation experiment on the frozen identified Pelican model, not online learning of E/A/B/P/R, not process/measurement noise separation, and not real-flight validation.",
+  "artifacts": {
+    "xyz": "copyBJ_smpc_xyz_reference.png",
+    "trajectory_3d": "copyBJ_smpc_3d_trajectory.png",
+    "noise": "copyBJ_smpc_noise_timeseries.png",
+    "cost": "copyBJ_smpc_stage_cost.png",
+    "data": "copyBJ_smpc_figure_data.npz",
+    "summary": "copyBJ_smpc_figure_summary.json"
+  }
+}

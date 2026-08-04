@@ -1,0 +1,86 @@
+{
+  "experiment": "copyBJ copyBI event with copyAU-style online covariance learning",
+  "steps": 18000,
+  "window_samples": 40,
+  "update_min_samples": 5,
+  "fixed_objects": [
+    "E",
+    "A",
+    "B",
+    "P",
+    "R"
+  ],
+  "online_updated_objects": [
+    "Sigma_eps",
+    "Sigma_obs_proxy"
+  ],
+  "raw_copyAU_style_online": {
+    "completed_steps": 8490,
+    "qp_failure_count": 1,
+    "fallback_count": 0,
+    "hard_violation_steps": 0,
+    "minimum_hard_margin_standardized": 0.2855203451985191,
+    "rmse_standardized": [
+      0.7276342369432051,
+      0.42241879456268755,
+      0.15497262208248297
+    ],
+    "active_qp_steps": 641,
+    "input_saturation_steps": 4780,
+    "mean_qp_solve_time_seconds": 0.016218110365135454,
+    "solver_retry_count": 0,
+    "online_weight": 1.0,
+    "failure_step": 8490,
+    "failure_time_seconds": 84.9,
+    "failure_status": "empty_chance_interval: Online chance tightening leaves an empty task interval"
+  },
+  "shrinkage_candidate": {
+    "online_weight": 0.8,
+    "offline_prior_weight": 0.19999999999999996,
+    "status": "experimental regularization; not part of the copyAU theory"
+  },
+  "online_covariance_semantics": "composite closed-loop latent innovation; in this simulation it absorbs both sampled identified innovation and unmodelled injected physical wind",
+  "chance_covariance_semantics": "initially offline Sigma_eps; thereafter the 40-sample online composite innovation covariance; no Oracle wind covariance is supplied",
+  "shared_disturbance_sha256": "7671c9ab8a456370278ed9052267a126890699a23d8731eeb42e38fe263b3375",
+  "frozen_copyBI_smpc": {
+    "completed_steps": 18000,
+    "qp_failure_count": 0,
+    "fallback_count": 0,
+    "hard_violation_steps": 0,
+    "minimum_hard_margin_standardized": 0.007149964466711456,
+    "rmse_standardized": [
+      0.4616967880182422,
+      0.3214773704936163,
+      0.09157239994339482
+    ],
+    "active_qp_steps": 564,
+    "input_saturation_steps": 7400,
+    "mean_qp_solve_time_seconds": 0.010432472611111111,
+    "solver_retry_count": 0
+  },
+  "online_copyBJ_smpc": {
+    "completed_steps": 18000,
+    "qp_failure_count": 0,
+    "fallback_count": 0,
+    "hard_violation_steps": 0,
+    "minimum_hard_margin_standardized": 0.1552618947890596,
+    "rmse_standardized": [
+      0.5158114909170941,
+      0.3823867378551752,
+      0.11166571922173947
+    ],
+    "active_qp_steps": 1403,
+    "input_saturation_steps": 7130,
+    "mean_qp_solve_time_seconds": 0.08817302422222223,
+    "solver_retry_count": 14
+  },
+  "initial_sigma_eps_rms_std": 0.01886457239666986,
+  "final_sigma_eps_rms_std": 0.01917160645303676,
+  "minimum_sigma_eps_rms_std": 0.012267813267176226,
+  "maximum_sigma_eps_rms_std": 0.02406213366995095,
+  "claim_boundary": "This is an online covariance-adaptation experiment on the frozen identified Pelican model, not online learning of E/A/B/P/R, not process/measurement noise separation, and not real-flight validation.",
+  "artifacts": {
+    "data": "copyBJ_online_covariance_comparison.npz",
+    "figure": "copyBJ_online_covariance_comparison.png"
+  }
+}
