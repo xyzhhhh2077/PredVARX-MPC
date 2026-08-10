@@ -1,0 +1,1375 @@
+{
+  "config_sha256": "b59eedd6c8571d39bc8bf71286c2107f828f8c3196099cb8c3aa78beb7e7b422",
+  "seed_pairs": [
+    [
+      16,
+      7016
+    ],
+    [
+      17,
+      7017
+    ],
+    [
+      18,
+      7018
+    ],
+    [
+      19,
+      7019
+    ],
+    [
+      20,
+      7020
+    ],
+    [
+      21,
+      7021
+    ],
+    [
+      22,
+      7022
+    ],
+    [
+      23,
+      7023
+    ],
+    [
+      24,
+      7024
+    ],
+    [
+      25,
+      7025
+    ],
+    [
+      26,
+      7026
+    ],
+    [
+      27,
+      7027
+    ],
+    [
+      28,
+      7028
+    ],
+    [
+      29,
+      7029
+    ],
+    [
+      30,
+      7030
+    ],
+    [
+      31,
+      7031
+    ],
+    [
+      32,
+      7032
+    ],
+    [
+      33,
+      7033
+    ],
+    [
+      34,
+      7034
+    ],
+    [
+      35,
+      7035
+    ]
+  ],
+  "seeds": [
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 834354.884625363,
+          "disturbance_sha256": "61fbcee0f98d392c8ff4293b7e6a306eaafc425ac73e340cb918c2fc1c1d8774",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.15526189478866703,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.515811490917707,
+            0.3823867378551536,
+            0.11166571921500794
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 728906.786281438,
+          "disturbance_sha256": "61fbcee0f98d392c8ff4293b7e6a306eaafc425ac73e340cb918c2fc1c1d8774",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.11363636363636363,
+          "minimum_hard_margin": 0.09177005957735496,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4589362033854946,
+            0.3600086586011652,
+            0.09331769405172673
+          ],
+          "update_committed_count": 5,
+          "value_accept_count": 5,
+          "value_acceptance_rate": 0.11363636363636363,
+          "value_rejection_count": 39,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 699095.429441063,
+          "disturbance_sha256": "61fbcee0f98d392c8ff4293b7e6a306eaafc425ac73e340cb918c2fc1c1d8774",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.00714996445938354,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.46169678801877556,
+            0.3214773704910949,
+            0.0915723999435198
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "61fbcee0f98d392c8ff4293b7e6a306eaafc425ac73e340cb918c2fc1c1d8774",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 16,
+        "wind_seed": 7016
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 700400.3932802611,
+          "disturbance_sha256": "682ddc1ea08fffb067ae243bb0b209f9933e53a5b5126d94ee65e709af24f46b",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.18895840430201405,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.36853906929805635,
+            0.43191512557641004,
+            0.08408906710070649
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 697945.6366868959,
+          "disturbance_sha256": "682ddc1ea08fffb067ae243bb0b209f9933e53a5b5126d94ee65e709af24f46b",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.20454545454545456,
+          "minimum_hard_margin": 0.0872667754646379,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.36043975337985035,
+            0.43524716989711854,
+            0.0833432028428671
+          ],
+          "update_committed_count": 9,
+          "value_accept_count": 9,
+          "value_acceptance_rate": 0.20454545454545456,
+          "value_rejection_count": 35,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 638466.4089314883,
+          "disturbance_sha256": "682ddc1ea08fffb067ae243bb0b209f9933e53a5b5126d94ee65e709af24f46b",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.06024001644868582,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3314305190498509,
+            0.40803100546179144,
+            0.07306614181526169
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "682ddc1ea08fffb067ae243bb0b209f9933e53a5b5126d94ee65e709af24f46b",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 17,
+        "wind_seed": 7017
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 658807.0451028213,
+          "disturbance_sha256": "38d18a552ef38fc598fc160f9b857f2ac7b09db22b6ca22476bd8d63bb687204",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.18519284126697722,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.40134355486934853,
+            0.3647347084231836,
+            0.0958520460229891
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 609806.518918991,
+          "disturbance_sha256": "38d18a552ef38fc598fc160f9b857f2ac7b09db22b6ca22476bd8d63bb687204",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.18181818181818182,
+          "minimum_hard_margin": 0.04322976908448606,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3840494056424681,
+            0.3390959741634447,
+            0.08407292574079707
+          ],
+          "update_committed_count": 8,
+          "value_accept_count": 8,
+          "value_acceptance_rate": 0.18181818181818182,
+          "value_rejection_count": 36,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 5930,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "38d18a552ef38fc598fc160f9b857f2ac7b09db22b6ca22476bd8d63bb687204",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 594,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0016835016835016834,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "38d18a552ef38fc598fc160f9b857f2ac7b09db22b6ca22476bd8d63bb687204",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 18,
+        "wind_seed": 7018
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 601074.4884466911,
+          "disturbance_sha256": "fc2e5d0e58034a51c4c866b01a6272fea32979fb9bed1fac8d29ddadaf3d41f4",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.19917517325449774,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.36264503892435557,
+            0.3603380951330439,
+            0.08162616757692048
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 593341.4236497341,
+          "disturbance_sha256": "fc2e5d0e58034a51c4c866b01a6272fea32979fb9bed1fac8d29ddadaf3d41f4",
+          "feasibility_rejection_count": 3,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.25,
+          "minimum_hard_margin": 0.017126107395986967,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.34181991956809427,
+            0.3761556820001264,
+            0.07289770628745394
+          ],
+          "update_committed_count": 11,
+          "value_accept_count": 11,
+          "value_acceptance_rate": 0.25,
+          "value_rejection_count": 33,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 537052.7155013909,
+          "disturbance_sha256": "fc2e5d0e58034a51c4c866b01a6272fea32979fb9bed1fac8d29ddadaf3d41f4",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.017126107395931456,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3339351950841958,
+            0.31934464491264075,
+            0.06663529254521756
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "fc2e5d0e58034a51c4c866b01a6272fea32979fb9bed1fac8d29ddadaf3d41f4",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 19,
+        "wind_seed": 7019
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 590771.8942885103,
+          "disturbance_sha256": "9da258c6c4aa833dd5e56d36870e950166f89c697e5affe2d5efd9f7592ab797",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.21401492810232803,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.35963218544240544,
+            0.3420466627066033,
+            0.09978971875018564
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 554140.6623945793,
+          "disturbance_sha256": "9da258c6c4aa833dd5e56d36870e950166f89c697e5affe2d5efd9f7592ab797",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.36363636363636365,
+          "minimum_hard_margin": 0.16141942193760528,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3268627637124893,
+            0.3394333205422682,
+            0.09060277962728554
+          ],
+          "update_committed_count": 16,
+          "value_accept_count": 16,
+          "value_acceptance_rate": 0.36363636363636365,
+          "value_rejection_count": 28,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 505955.97752073803,
+          "disturbance_sha256": "9da258c6c4aa833dd5e56d36870e950166f89c697e5affe2d5efd9f7592ab797",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.10827704625443957,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3194147031086318,
+            0.2894060052076086,
+            0.08519623990991028
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "9da258c6c4aa833dd5e56d36870e950166f89c697e5affe2d5efd9f7592ab797",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 20,
+        "wind_seed": 7020
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 658520.2638967704,
+          "disturbance_sha256": "8ebb73e52156cc3a9e711e957831c2e7df402fa46620df6bfb62cc2c6b068ca3",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.1427125779511269,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4295529610614584,
+            0.32225518397992653,
+            0.11634106285491717
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 655772.086317674,
+          "disturbance_sha256": "8ebb73e52156cc3a9e711e957831c2e7df402fa46620df6bfb62cc2c6b068ca3",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.3181818181818182,
+          "minimum_hard_margin": 0.06729631611927633,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.41188116332860786,
+            0.3446963973558624,
+            0.1020325928537351
+          ],
+          "update_committed_count": 14,
+          "value_accept_count": 14,
+          "value_acceptance_rate": 0.3181818181818182,
+          "value_rejection_count": 30,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 8730,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "8ebb73e52156cc3a9e711e957831c2e7df402fa46620df6bfb62cc2c6b068ca3",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 874,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0011441647597254005,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "8ebb73e52156cc3a9e711e957831c2e7df402fa46620df6bfb62cc2c6b068ca3",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 21,
+        "wind_seed": 7021
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": false,
+          "completed_steps": 8310,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "35ddcd94c74c13bc235b46b30f5e27f19c358f1006164fe56622f9159b0390f0",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": null,
+          "qp_count": 832,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.001201923076923077,
+          "rmse_xyz": null
+        },
+        "BL": {
+          "complete": false,
+          "completed_steps": 1260,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "35ddcd94c74c13bc235b46b30f5e27f19c358f1006164fe56622f9159b0390f0",
+          "feasibility_rejection_count": 3,
+          "feasibility_trigger_count": 127,
+          "gate_acceptance_rate": 0.0,
+          "minimum_hard_margin": null,
+          "qp_count": 127,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.007874015748031496,
+          "rmse_xyz": null,
+          "update_committed_count": 0,
+          "value_accept_count": 0,
+          "value_acceptance_rate": 0.0,
+          "value_rejection_count": 3,
+          "value_trigger_count": 3
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 1260,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "35ddcd94c74c13bc235b46b30f5e27f19c358f1006164fe56622f9159b0390f0",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 127,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.007874015748031496,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "35ddcd94c74c13bc235b46b30f5e27f19c358f1006164fe56622f9159b0390f0",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 22,
+        "wind_seed": 7022
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 597463.1908246779,
+          "disturbance_sha256": "ecc6780f08f6c2d0ffc9db7ab476a3921db015cfce82dda53e23c5c1537bc41a",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.1804681941795483,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3626718553970719,
+            0.3499009350166855,
+            0.09478888433879155
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 531495.7510557149,
+          "disturbance_sha256": "ecc6780f08f6c2d0ffc9db7ab476a3921db015cfce82dda53e23c5c1537bc41a",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.25,
+          "minimum_hard_margin": 0.10733825129531027,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3137089176135376,
+            0.33291680041383553,
+            0.079657444981205
+          ],
+          "update_committed_count": 11,
+          "value_accept_count": 11,
+          "value_acceptance_rate": 0.25,
+          "value_rejection_count": 33,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 493789.03012255166,
+          "disturbance_sha256": "ecc6780f08f6c2d0ffc9db7ab476a3921db015cfce82dda53e23c5c1537bc41a",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.018157783831334928,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.312339400177706,
+            0.2881440279084046,
+            0.07859609896231817
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "ecc6780f08f6c2d0ffc9db7ab476a3921db015cfce82dda53e23c5c1537bc41a",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 23,
+        "wind_seed": 7023
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 502917.2395159572,
+          "disturbance_sha256": "76244691820f88acbd930030173d094660bec65eab335780a5bdff532febce05",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.24472153617392722,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.30290031258307054,
+            0.32594212851393484,
+            0.08123249783642374
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 458997.22156037716,
+          "disturbance_sha256": "76244691820f88acbd930030173d094660bec65eab335780a5bdff532febce05",
+          "feasibility_rejection_count": 2,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.11363636363636363,
+          "minimum_hard_margin": 0.03448197685452836,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.2714881640271046,
+            0.30568739018588437,
+            0.0773991245037033
+          ],
+          "update_committed_count": 5,
+          "value_accept_count": 5,
+          "value_acceptance_rate": 0.11363636363636363,
+          "value_rejection_count": 39,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 6220,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "76244691820f88acbd930030173d094660bec65eab335780a5bdff532febce05",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 623,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0016051364365971107,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "76244691820f88acbd930030173d094660bec65eab335780a5bdff532febce05",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 24,
+        "wind_seed": 7024
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 524489.1577942778,
+          "disturbance_sha256": "bdd37566c36bb4ab2764823e476ac90d4bf30c594fe29fbe3b478fa70d7f4eb3",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.23246606485039845,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.2995360462768083,
+            0.3334959268361419,
+            0.09081996929306956
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 492312.2825466191,
+          "disturbance_sha256": "bdd37566c36bb4ab2764823e476ac90d4bf30c594fe29fbe3b478fa70d7f4eb3",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.3181818181818182,
+          "minimum_hard_margin": 0.04710109576673949,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.2579407380808152,
+            0.33701845271413233,
+            0.08375091881682545
+          ],
+          "update_committed_count": 14,
+          "value_accept_count": 14,
+          "value_acceptance_rate": 0.3181818181818182,
+          "value_rejection_count": 30,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 438009.96564515465,
+          "disturbance_sha256": "bdd37566c36bb4ab2764823e476ac90d4bf30c594fe29fbe3b478fa70d7f4eb3",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.00012418796941116028,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.23262453115638046,
+            0.29018337022757223,
+            0.07550772875464819
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "bdd37566c36bb4ab2764823e476ac90d4bf30c594fe29fbe3b478fa70d7f4eb3",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 25,
+        "wind_seed": 7025
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": false,
+          "completed_steps": 8440,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1b31452658c7a18c041d2a669f8cc71d732812d258f373efeec41e99dad18603",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": null,
+          "qp_count": 845,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.001183431952662722,
+          "rmse_xyz": null
+        },
+        "BL": {
+          "complete": false,
+          "completed_steps": 1310,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1b31452658c7a18c041d2a669f8cc71d732812d258f373efeec41e99dad18603",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 132,
+          "gate_acceptance_rate": 0.0,
+          "minimum_hard_margin": null,
+          "qp_count": 132,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.007575757575757576,
+          "rmse_xyz": null,
+          "update_committed_count": 0,
+          "value_accept_count": 0,
+          "value_acceptance_rate": 0.0,
+          "value_rejection_count": 3,
+          "value_trigger_count": 3
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 1310,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1b31452658c7a18c041d2a669f8cc71d732812d258f373efeec41e99dad18603",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 132,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.007575757575757576,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "1b31452658c7a18c041d2a669f8cc71d732812d258f373efeec41e99dad18603",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 26,
+        "wind_seed": 7026
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": false,
+          "completed_steps": 8730,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1d2b77905462cbaa5a8019c2f5f64473b144dd70875662621c3f420456c929e4",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": null,
+          "qp_count": 874,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0011441647597254005,
+          "rmse_xyz": null
+        },
+        "BL": {
+          "complete": false,
+          "completed_steps": 8730,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1d2b77905462cbaa5a8019c2f5f64473b144dd70875662621c3f420456c929e4",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 874,
+          "gate_acceptance_rate": 0.23809523809523808,
+          "minimum_hard_margin": null,
+          "qp_count": 874,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0011441647597254005,
+          "rmse_xyz": null,
+          "update_committed_count": 5,
+          "value_accept_count": 5,
+          "value_acceptance_rate": 0.23809523809523808,
+          "value_rejection_count": 16,
+          "value_trigger_count": 21
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 4510,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "1d2b77905462cbaa5a8019c2f5f64473b144dd70875662621c3f420456c929e4",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 452,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0022123893805309734,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "1d2b77905462cbaa5a8019c2f5f64473b144dd70875662621c3f420456c929e4",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 27,
+        "wind_seed": 7027
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 657922.9405440509,
+          "disturbance_sha256": "c37ba528a8d284c0028a8e80ab24c739ededf9af1b3eca6f41d547170933563f",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.09296434232656026,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3254428343425212,
+            0.4342261748663823,
+            0.10028611796624091
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 608192.0511232606,
+          "disturbance_sha256": "c37ba528a8d284c0028a8e80ab24c739ededf9af1b3eca6f41d547170933563f",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.20454545454545456,
+          "minimum_hard_margin": 0.012217855173406456,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.29273612992387493,
+            0.4157275123031615,
+            0.09370041678562883
+          ],
+          "update_committed_count": 9,
+          "value_accept_count": 9,
+          "value_acceptance_rate": 0.20454545454545456,
+          "value_rejection_count": 35,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 6160,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "c37ba528a8d284c0028a8e80ab24c739ededf9af1b3eca6f41d547170933563f",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 617,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0016207455429497568,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "c37ba528a8d284c0028a8e80ab24c739ededf9af1b3eca6f41d547170933563f",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 28,
+        "wind_seed": 7028
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 827753.4070117107,
+          "disturbance_sha256": "a920de19b482de0cef7f03b63da16da321ae1a2fe28f2d288f4000213c8f925e",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.2332534305566205,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4767162900233688,
+            0.43019049155980704,
+            0.08447815507323422
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 787978.3813655176,
+          "disturbance_sha256": "a920de19b482de0cef7f03b63da16da321ae1a2fe28f2d288f4000213c8f925e",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.25,
+          "minimum_hard_margin": 0.1856838866265469,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.46418547949382094,
+            0.41125952768143637,
+            0.07942529615958138
+          ],
+          "update_committed_count": 11,
+          "value_accept_count": 11,
+          "value_acceptance_rate": 0.25,
+          "value_rejection_count": 33,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 8550,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "a920de19b482de0cef7f03b63da16da321ae1a2fe28f2d288f4000213c8f925e",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 856,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0011682242990654205,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "a920de19b482de0cef7f03b63da16da321ae1a2fe28f2d288f4000213c8f925e",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 29,
+        "wind_seed": 7029
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": false,
+          "completed_steps": 8270,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "dffd614c85eaeb17eb96598e468dfb07ce107dc0961e0cf9d6d49ba73d6a1659",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": null,
+          "qp_count": 828,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0012077294685990338,
+          "rmse_xyz": null
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 459717.85378757544,
+          "disturbance_sha256": "dffd614c85eaeb17eb96598e468dfb07ce107dc0961e0cf9d6d49ba73d6a1659",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.22727272727272727,
+          "minimum_hard_margin": 0.1444825990975196,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.24918277547382195,
+            0.32133286896432806,
+            0.06621629178278665
+          ],
+          "update_committed_count": 10,
+          "value_accept_count": 10,
+          "value_acceptance_rate": 0.22727272727272727,
+          "value_rejection_count": 34,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 8410,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "dffd614c85eaeb17eb96598e468dfb07ce107dc0961e0cf9d6d49ba73d6a1659",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 842,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.0011876484560570072,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "dffd614c85eaeb17eb96598e468dfb07ce107dc0961e0cf9d6d49ba73d6a1659",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 30,
+        "wind_seed": 7030
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 718404.7099234132,
+          "disturbance_sha256": "cf67835d04c0017b4b99647fcc5d5fe975cdb8de5512bed06b25cb2b170070a6",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.16514716918663597,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4091124273226611,
+            0.40963743850502055,
+            0.10400152500645668
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 655279.8146630987,
+          "disturbance_sha256": "cf67835d04c0017b4b99647fcc5d5fe975cdb8de5512bed06b25cb2b170070a6",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.18181818181818182,
+          "minimum_hard_margin": 0.1211176544718433,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3680588873122579,
+            0.3959019429684336,
+            0.0904685781200341
+          ],
+          "update_committed_count": 8,
+          "value_accept_count": 8,
+          "value_acceptance_rate": 0.18181818181818182,
+          "value_rejection_count": 36,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 605423.8507792111,
+          "disturbance_sha256": "cf67835d04c0017b4b99647fcc5d5fe975cdb8de5512bed06b25cb2b170070a6",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.032509000899124896,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3600232144783876,
+            0.35509736633999683,
+            0.08227878847533523
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "cf67835d04c0017b4b99647fcc5d5fe975cdb8de5512bed06b25cb2b170070a6",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 31,
+        "wind_seed": 7031
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 594616.9360239608,
+          "disturbance_sha256": "8da3af8b1fd4f962332b4da10d340ca806a813871e47f59a358602f4f3ce054a",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.1412781971110837,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3838552972665317,
+            0.309226461424852,
+            0.09779468981610524
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 555333.8316366946,
+          "disturbance_sha256": "8da3af8b1fd4f962332b4da10d340ca806a813871e47f59a358602f4f3ce054a",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.1590909090909091,
+          "minimum_hard_margin": 0.11201134625497344,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3594866078523629,
+            0.29426483460201514,
+            0.09408765327971504
+          ],
+          "update_committed_count": 7,
+          "value_accept_count": 7,
+          "value_acceptance_rate": 0.1590909090909091,
+          "value_rejection_count": 37,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 483435.0253666709,
+          "disturbance_sha256": "8da3af8b1fd4f962332b4da10d340ca806a813871e47f59a358602f4f3ce054a",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.04633858833179705,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.3159484894906103,
+            0.25464653083486744,
+            0.07968612559493533
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "8da3af8b1fd4f962332b4da10d340ca806a813871e47f59a358602f4f3ce054a",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 32,
+        "wind_seed": 7032
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 818434.5451611185,
+          "disturbance_sha256": "4404d59b9e12545b615b9e75dfbf55f7aa8496bbf6500dc142856aab52df90a2",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.1585582056902708,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.46040068539845946,
+            0.42824909802593003,
+            0.10527895792022354
+          ]
+        },
+        "BL": {
+          "complete": false,
+          "completed_steps": 520,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "4404d59b9e12545b615b9e75dfbf55f7aa8496bbf6500dc142856aab52df90a2",
+          "feasibility_rejection_count": 1,
+          "feasibility_trigger_count": 53,
+          "gate_acceptance_rate": 0.0,
+          "minimum_hard_margin": null,
+          "qp_count": 53,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.018867924528301886,
+          "rmse_xyz": null,
+          "update_committed_count": 0,
+          "value_accept_count": 0,
+          "value_acceptance_rate": 0.0,
+          "value_rejection_count": 1,
+          "value_trigger_count": 1
+        },
+        "Frozen": {
+          "complete": false,
+          "completed_steps": 520,
+          "cumulative_realized_stage_cost": null,
+          "disturbance_sha256": "4404d59b9e12545b615b9e75dfbf55f7aa8496bbf6500dc142856aab52df90a2",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": null,
+          "qp_count": 53,
+          "qp_failure_count": 1,
+          "qp_failure_rate": 0.018867924528301886,
+          "rmse_xyz": null
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "4404d59b9e12545b615b9e75dfbf55f7aa8496bbf6500dc142856aab52df90a2",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 33,
+        "wind_seed": 7033
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 876836.0315067188,
+          "disturbance_sha256": "0afaebd58407e73519dc1df400193362b61cc1e90a3f916e328f104def4e901d",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.16935826059334147,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4922819514191938,
+            0.4452738673900587,
+            0.11452444698366387
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 786101.8454133782,
+          "disturbance_sha256": "0afaebd58407e73519dc1df400193362b61cc1e90a3f916e328f104def4e901d",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.2727272727272727,
+          "minimum_hard_margin": 0.11584925185900152,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.44722643602268836,
+            0.4247433887144169,
+            0.09612697909357552
+          ],
+          "update_committed_count": 12,
+          "value_accept_count": 12,
+          "value_acceptance_rate": 0.2727272727272727,
+          "value_rejection_count": 32,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 739322.5616730741,
+          "disturbance_sha256": "0afaebd58407e73519dc1df400193362b61cc1e90a3f916e328f104def4e901d",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.12772178436488346,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4481340292095835,
+            0.38148894846736303,
+            0.08995534060011352
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "0afaebd58407e73519dc1df400193362b61cc1e90a3f916e328f104def4e901d",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 34,
+        "wind_seed": 7034
+      },
+      "status": "success"
+    },
+    {
+      "controllers": {
+        "BJ": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 867308.6739144138,
+          "disturbance_sha256": "4c4fe54e9e5bffe3f1a5513c6ddffee5cfae74b6a5c26a15a002e0637c971252",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.2119187650011658,
+          "online_covariance_update_attempt_count": 1800,
+          "online_covariance_update_count": 1800,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4457474516592605,
+            0.4891535785996055,
+            0.09450919595156074
+          ]
+        },
+        "BL": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 820017.878685164,
+          "disturbance_sha256": "4c4fe54e9e5bffe3f1a5513c6ddffee5cfae74b6a5c26a15a002e0637c971252",
+          "feasibility_rejection_count": 0,
+          "feasibility_trigger_count": 1800,
+          "gate_acceptance_rate": 0.18181818181818182,
+          "minimum_hard_margin": 0.13993262504583326,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.41696063377052645,
+            0.4799522546729843,
+            0.09028255895050491
+          ],
+          "update_committed_count": 8,
+          "value_accept_count": 8,
+          "value_acceptance_rate": 0.18181818181818182,
+          "value_rejection_count": 36,
+          "value_trigger_count": 44
+        },
+        "Frozen": {
+          "complete": true,
+          "completed_steps": 18000,
+          "cumulative_realized_stage_cost": 768201.7138096017,
+          "disturbance_sha256": "4c4fe54e9e5bffe3f1a5513c6ddffee5cfae74b6a5c26a15a002e0637c971252",
+          "gate_acceptance_rate": null,
+          "minimum_hard_margin": 0.13058929230278515,
+          "qp_count": 1800,
+          "qp_failure_count": 0,
+          "qp_failure_rate": 0.0,
+          "rmse_xyz": [
+            0.4161940282529787,
+            0.4400094124013573,
+            0.08544765461899329
+          ]
+        }
+      },
+      "seed": {
+        "disturbance_sha256": "4c4fe54e9e5bffe3f1a5513c6ddffee5cfae74b6a5c26a15a002e0637c971252",
+        "initial_state_sha256": "f99ac8b04afdd8da6206ae176fd6d56e908ce7736ab576b6a1661d4794732b12",
+        "innovation_seed": 35,
+        "wind_seed": 7035
+      },
+      "status": "success"
+    }
+  ]
+}

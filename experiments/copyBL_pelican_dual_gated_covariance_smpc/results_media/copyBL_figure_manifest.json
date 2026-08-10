@@ -1,0 +1,15 @@
+{
+  "style_reference": "copyBJ generate_smpc_figures.py",
+  "figures": {
+    "xyz": "copyBL_smpc_xyz_reference.png",
+    "trajectory_3d": "copyBL_smpc_3d_trajectory.png",
+    "noise": "copyBL_smpc_noise_timeseries.png",
+    "cost": "copyBL_smpc_stage_cost_dual_gates.png"
+  },
+  "figure_count": 4,
+  "feasibility_trigger_count": 1800,
+  "feasibility_rejection_count": 1,
+  "value_trigger_count": 44,
+  "value_accept_count": 5,
+  "value_rejection_count": 39
+}

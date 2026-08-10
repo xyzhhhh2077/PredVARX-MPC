@@ -1,0 +1,21 @@
+{
+  "static_figure_count": 4,
+  "static_figure_bytes": {
+    "copyBL_smpc_xyz_reference.png": 391281,
+    "copyBL_smpc_3d_trajectory.png": 644667,
+    "copyBL_smpc_noise_timeseries.png": 885125,
+    "copyBL_smpc_stage_cost_dual_gates.png": 203430
+  },
+  "gif_frames": 200,
+  "gif_size_pixels": [
+    1152,
+    1035
+  ],
+  "gif_bytes": 27277852,
+  "feasibility_trigger_count": 1800,
+  "feasibility_rejection_count": 1,
+  "value_trigger_count": 44,
+  "value_accept_count": 5,
+  "value_rejection_count": 39,
+  "committed_update_count": 5
+}

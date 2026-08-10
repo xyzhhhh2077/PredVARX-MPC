@@ -1,0 +1,62 @@
+{
+  "experiment": "copyBL dual-gated online composite-innovation covariance SMPC",
+  "steps": 18000,
+  "sample_time_seconds": 0.01,
+  "hard_bound_standardized": 3.8,
+  "source_hard_bound_standardized": 3.9124117280376636,
+  "window_samples": 40,
+  "fixed_objects": [
+    "E",
+    "A",
+    "B",
+    "P",
+    "R"
+  ],
+  "online_updated_objects": [
+    "Sigma_eps"
+  ],
+  "backtracking_factors": [
+    1.0,
+    0.8,
+    0.64,
+    0.512,
+    0.4096,
+    0.32768,
+    0.262144
+  ],
+  "value_evaluation_interval_steps": 400,
+  "value_replay_steps": 180,
+  "value_deadband_fraction": 0.01,
+  "shared_disturbance_sha256": "61fbcee0f98d392c8ff4293b7e6a306eaafc425ac73e340cb918c2fc1c1d8774",
+  "event_log_sha256": "bf1aa530ddb28aa55aefb40ddac5d1c1e7fca35164e9334883e6670cc1ed725d",
+  "copyBL": {
+    "completed_steps": 18000,
+    "qp_failure_count": 0,
+    "fallback_count": 0,
+    "hard_violation_steps": 0,
+    "minimum_hard_margin_standardized": 0.09177005957735496,
+    "rmse_standardized": [
+      0.4589362033854946,
+      0.3600086586011652,
+      0.09331769405172673
+    ],
+    "active_qp_steps": 1310,
+    "maximum_qp_constraint_residual": 7.740686100987659e-07,
+    "mean_qp_solve_time_seconds": 0.04577617173055556,
+    "feasibility_trigger_count": 1800,
+    "feasibility_rejection_count": 1,
+    "value_trigger_count": 44,
+    "value_accept_count": 5,
+    "value_rejection_count": 39,
+    "committed_update_count": 5
+  },
+  "control_value_semantics": "Lin-inspired paired closed-loop realized-cost proxy; not Lin et al.'s strict prediction power and not an optimal-policy comparison",
+  "offline_replay_scope": "The value gate uses the fixed next 180 simulated samples in this offline feasibility experiment; it is not a deployable online oracle.",
+  "covariance_semantics": "composite closed-loop latent innovation covariance; not separately identified process, measurement, or physical-wind covariance",
+  "claim_boundary": "Single-seed model-in-the-loop evidence only; no recursive feasibility, stability, probability calibration, or flight-validation claim.",
+  "artifacts": {
+    "data": "copyBL_dual_gated_run.npz",
+    "events": "copyBL_dual_gate_events.json",
+    "summary": "copyBL_dual_gated_summary.json"
+  }
+}
